@@ -1,0 +1,1148 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="BogosorStudioの公式サイト。Steamタイトル一覧、ストアリンク、更新情報を掲載しています。"
+    />
+    <meta property="og:title" content="BogosorStudio" />
+    <meta
+      property="og:description"
+      content="BogosorStudioのタイトル一覧、Steamリンク、更新情報を掲載しています。"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="./assets/studio/og-image.jpg" />
+    <title>BogosorStudio</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #0d0d0b;
+        --panel: #171713;
+        --panel-strong: #202019;
+        --text: #f4f0e7;
+        --muted: #b4ad9d;
+        --line: rgba(244, 240, 231, 0.15);
+        --gold: #d4a830;
+        --green: #7bd7b8;
+        --red: #d96d61;
+        --shadow: rgba(0, 0, 0, 0.48);
+        --max: 1160px;
+        --radius: 8px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-width: 320px;
+        background:
+          linear-gradient(180deg, rgba(212, 168, 48, 0.08), transparent 34rem),
+          radial-gradient(circle at 18% 0%, rgba(123, 215, 184, 0.12), transparent 24rem),
+          var(--bg);
+        color: var(--text);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        line-height: 1.55;
+        letter-spacing: 0;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .page-shell {
+        position: relative;
+        min-height: 100vh;
+        overflow: hidden;
+      }
+
+      .page-shell::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background-image:
+          linear-gradient(rgba(244, 240, 231, 0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(244, 240, 231, 0.035) 1px, transparent 1px);
+        background-size: 56px 56px;
+        mask-image: linear-gradient(to bottom, black, transparent 72%);
+      }
+
+      .wrap {
+        width: min(calc(100% - 40px), var(--max));
+        margin: 0 auto;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        border-bottom: 1px solid var(--line);
+        background: rgba(13, 13, 11, 0.78);
+        backdrop-filter: blur(18px);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 72px;
+        gap: 18px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 0;
+        font-weight: 800;
+      }
+
+      .brand-cluster {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 0;
+      }
+
+      .brand-mark {
+        width: 34px;
+        height: 34px;
+        border: 1px solid rgba(212, 168, 48, 0.72);
+        border-radius: 6px;
+        background:
+          linear-gradient(135deg, rgba(212, 168, 48, 0.95), rgba(123, 215, 184, 0.84)),
+          #d4a830;
+        box-shadow: 0 12px 26px rgba(212, 168, 48, 0.18);
+      }
+
+      .brand-logo {
+        display: none;
+        max-width: 174px;
+        max-height: 34px;
+        object-fit: contain;
+      }
+
+      .brand-name {
+        overflow: hidden;
+        color: var(--text);
+        font-size: 1rem;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .lang-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        min-height: 34px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 0 9px;
+        color: var(--muted);
+        background: rgba(244, 240, 231, 0.06);
+        font: inherit;
+        font-size: 0.78rem;
+        font-weight: 820;
+        cursor: pointer;
+      }
+
+      .lang-toggle:hover {
+        color: var(--text);
+        background: rgba(244, 240, 231, 0.1);
+      }
+
+      .lang-option.is-active {
+        color: var(--gold);
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 8px;
+      }
+
+      .nav-link,
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+        border-radius: 8px;
+        font-size: 0.91rem;
+        font-weight: 720;
+      }
+
+      .nav-link {
+        padding: 0 12px;
+        color: var(--muted);
+      }
+
+      .nav-link:hover {
+        color: var(--text);
+        background: rgba(244, 240, 231, 0.07);
+      }
+
+      .button {
+        gap: 9px;
+        border: 1px solid transparent;
+        padding: 0 16px;
+        transition:
+          transform 160ms ease,
+          border-color 160ms ease,
+          background 160ms ease;
+      }
+
+      .button:hover {
+        transform: translateY(-1px);
+      }
+
+      .button-primary {
+        color: #15120a;
+        background: var(--gold);
+        box-shadow: 0 14px 28px rgba(212, 168, 48, 0.22);
+      }
+
+      .button-secondary {
+        border-color: var(--line);
+        color: var(--text);
+        background: rgba(244, 240, 231, 0.06);
+      }
+
+      .hero {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 0.92fr) minmax(340px, 1.08fr);
+        gap: 34px;
+        min-height: auto;
+        padding: 48px 0 40px;
+        align-items: center;
+      }
+
+      .hero-copy {
+        position: relative;
+        z-index: 2;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0 0 20px;
+        color: var(--green);
+        font-size: 0.78rem;
+        font-weight: 760;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: var(--green);
+        box-shadow: 0 0 22px rgba(123, 215, 184, 0.65);
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 11ch;
+        margin-bottom: 22px;
+        font-size: 3.7rem;
+        line-height: 0.95;
+        letter-spacing: 0;
+      }
+
+      .lead {
+        max-width: 620px;
+        margin-bottom: 30px;
+        color: #ddd6c8;
+        font-size: 1.22rem;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 0;
+      }
+
+      .jump-nav {
+        display: grid;
+        gap: 1px;
+        width: min(100%, 520px);
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--line);
+      }
+
+      .jump-link {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 18px;
+        align-items: center;
+        min-height: 62px;
+        padding: 0 18px;
+        background: rgba(23, 23, 19, 0.82);
+        transition:
+          background 160ms ease,
+          color 160ms ease;
+      }
+
+      .jump-link:hover {
+        background: rgba(212, 168, 48, 0.12);
+      }
+
+      .jump-link span {
+        font-size: 1.02rem;
+        font-weight: 820;
+      }
+
+      .jump-link b {
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 760;
+        text-transform: uppercase;
+      }
+
+      .hero-media {
+        position: relative;
+        min-height: 360px;
+        border: 1px solid rgba(244, 240, 231, 0.18);
+        border-radius: var(--radius);
+        overflow: hidden;
+        background:
+          linear-gradient(135deg, rgba(212, 168, 48, 0.18), rgba(123, 215, 184, 0.06)),
+          #151513;
+        box-shadow: 0 28px 80px var(--shadow);
+      }
+
+      .hero-media::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(to top, rgba(13, 13, 11, 0.74), transparent 48%),
+          repeating-linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.035) 0,
+            rgba(255, 255, 255, 0.035) 1px,
+            transparent 1px,
+            transparent 5px
+          );
+        mix-blend-mode: screen;
+        opacity: 0.42;
+        pointer-events: none;
+      }
+
+      .hero-slide {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 320ms ease;
+      }
+
+      .hero-slide.is-active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .hero-slide::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(90deg, rgba(13, 13, 11, 0.18), rgba(13, 13, 11, 0.04)),
+          var(--slide-art);
+        background-position: center;
+        background-size: cover;
+        filter: saturate(1.06) contrast(1.05);
+      }
+
+      .slide-panel {
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        bottom: 56px;
+        z-index: 3;
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 16px;
+        border: 1px solid rgba(244, 240, 231, 0.18);
+        border-radius: var(--radius);
+        padding: 16px;
+        background: rgba(13, 13, 11, 0.68);
+        backdrop-filter: blur(16px);
+      }
+
+      .slide-panel p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .slide-panel strong {
+        display: block;
+        color: var(--text);
+        font-size: 1.15rem;
+      }
+
+      .slide-panel .button {
+        width: auto;
+        flex: 0 0 auto;
+      }
+
+      .slide-status {
+        display: inline-flex;
+        align-items: center;
+        min-height: 28px;
+        margin-top: 8px;
+        border: 1px solid rgba(212, 168, 48, 0.52);
+        border-radius: 8px;
+        padding: 4px 8px;
+        color: #17120a;
+        background: var(--gold);
+        font-size: 0.76rem;
+        font-weight: 850;
+      }
+
+      .slide-dots {
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+        z-index: 4;
+        display: flex;
+        gap: 8px;
+      }
+
+      .slide-dot {
+        width: 34px;
+        height: 4px;
+        border: 0;
+        border-radius: 999px;
+        padding: 0;
+        background: rgba(244, 240, 231, 0.28);
+        cursor: pointer;
+      }
+
+      .slide-dot.is-active {
+        background: var(--gold);
+      }
+
+      main {
+        position: relative;
+        z-index: 1;
+      }
+
+      section {
+        padding: 58px 0;
+        border-top: 1px solid var(--line);
+        scroll-margin-top: 88px;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 28px;
+      }
+
+      .section-head h2 {
+        margin-bottom: 0;
+        font-size: 2.2rem;
+        line-height: 1.08;
+      }
+
+      .section-head p {
+        max-width: 520px;
+        margin-bottom: 0;
+        color: var(--muted);
+      }
+
+      .capsule-shelf {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 14px;
+        align-items: stretch;
+      }
+
+      .capsule-card {
+        position: relative;
+        display: block;
+        min-height: 0;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        aspect-ratio: 2 / 3;
+        background:
+          linear-gradient(145deg, rgba(212, 168, 48, 0.16), rgba(123, 215, 184, 0.08)),
+          var(--panel);
+        box-shadow: 0 18px 46px rgba(0, 0, 0, 0.32);
+        transform: translateY(0);
+        transition:
+          transform 180ms ease,
+          border-color 180ms ease,
+          box-shadow 180ms ease,
+          filter 180ms ease;
+      }
+
+      .capsule-card:hover {
+        border-color: rgba(212, 168, 48, 0.62);
+        box-shadow: 0 26px 70px rgba(0, 0, 0, 0.44);
+        filter: saturate(1.08);
+        transform: translateY(-5px);
+      }
+
+      .capsule-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(to top, rgba(13, 13, 11, 0.95) 0%, rgba(13, 13, 11, 0.2) 42%, transparent 72%),
+          var(--capsule-art);
+        background-position: center;
+        background-size: cover;
+        opacity: 0.98;
+      }
+
+      .capsule-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: inherit;
+        background:
+          linear-gradient(to bottom, rgba(255, 255, 255, 0.12), transparent 18%),
+          repeating-linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.025) 0,
+            rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px,
+            transparent 6px
+          );
+        pointer-events: none;
+      }
+
+      .capsule-content {
+        position: absolute;
+        inset: auto 0 0 0;
+        z-index: 2;
+        padding: 18px;
+      }
+
+      .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 14px;
+      }
+
+      .tag {
+        border: 1px solid rgba(244, 240, 231, 0.2);
+        border-radius: 999px;
+        padding: 5px 10px;
+        color: var(--text);
+        background: rgba(13, 13, 11, 0.46);
+        font-size: 0.78rem;
+        font-weight: 700;
+      }
+
+      .capsule-content h3 {
+        margin-bottom: 8px;
+        font-size: clamp(1rem, 1.35vw, 1.34rem);
+        line-height: 1.1;
+      }
+
+      .release-label {
+        display: inline-flex;
+        align-items: center;
+        width: fit-content;
+        max-width: 100%;
+        min-height: 34px;
+        margin-bottom: 12px;
+        border: 1px solid rgba(212, 168, 48, 0.58);
+        border-radius: 8px;
+        padding: 6px 10px;
+        color: #17120a;
+        background: linear-gradient(135deg, #f3d36e, var(--gold));
+        box-shadow: 0 10px 24px rgba(212, 168, 48, 0.24);
+        font-size: 0.82rem;
+        font-weight: 850;
+        line-height: 1.15;
+      }
+
+      .release-label.is-released {
+        border-color: rgba(123, 215, 184, 0.62);
+        color: #06130f;
+        background: linear-gradient(135deg, #9df0d0, var(--green));
+        box-shadow: 0 10px 24px rgba(123, 215, 184, 0.2);
+      }
+
+      .release-label.is-tba {
+        border-color: rgba(244, 240, 231, 0.24);
+        color: var(--text);
+        background: rgba(244, 240, 231, 0.12);
+        box-shadow: none;
+      }
+
+      .capsule-content p {
+        margin-bottom: 0;
+        color: #d7d0c1;
+        font-size: 0.86rem;
+      }
+
+      .capsule-empty::before {
+        background-image:
+          linear-gradient(to top, rgba(13, 13, 11, 0.96), rgba(13, 13, 11, 0.18)),
+          linear-gradient(135deg, rgba(212, 168, 48, 0.2), rgba(217, 109, 97, 0.08));
+      }
+
+      .news-grid {
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 32px;
+        align-items: start;
+      }
+
+      .news-copy h2 {
+        max-width: 520px;
+        margin-bottom: 18px;
+        font-size: 2.4rem;
+        line-height: 1.08;
+      }
+
+      .news-copy p {
+        color: #d7d0c1;
+        font-size: 1.06rem;
+      }
+
+      .news-list {
+        display: grid;
+        gap: 1px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--line);
+      }
+
+      .news-item {
+        display: grid;
+        grid-template-columns: 92px 1fr;
+        gap: 18px;
+        padding: 22px;
+        background: rgba(23, 23, 19, 0.82);
+      }
+
+      .news-item b {
+        color: var(--gold);
+        font-size: 0.86rem;
+      }
+
+      .news-item p {
+        margin-bottom: 0;
+        color: var(--muted);
+      }
+
+      .link-band {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 26px;
+        align-items: center;
+        border: 1px solid rgba(212, 168, 48, 0.3);
+        border-radius: var(--radius);
+        padding: 28px;
+        background:
+          linear-gradient(135deg, rgba(212, 168, 48, 0.13), rgba(123, 215, 184, 0.08)),
+          var(--panel);
+      }
+
+      .link-band h2 {
+        margin-bottom: 8px;
+        font-size: 2rem;
+      }
+
+      .link-band p {
+        margin-bottom: 0;
+        color: var(--muted);
+      }
+
+      .footer {
+        padding: 34px 0;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .footer .wrap {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 14px;
+      }
+
+      .footer-links a:hover {
+        color: var(--text);
+      }
+
+      @media (max-width: 920px) {
+        .nav {
+          min-height: 64px;
+        }
+
+        .nav-links .nav-link {
+          display: none;
+        }
+
+        .hero {
+          grid-template-columns: 1fr;
+          min-height: auto;
+          padding: 42px 0 34px;
+        }
+
+        h1 {
+          max-width: 10ch;
+          font-size: 3.35rem;
+        }
+
+        .hero-media {
+          min-height: 320px;
+        }
+
+        .news-grid,
+        .link-band {
+          grid-template-columns: 1fr;
+        }
+
+        .capsule-shelf {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .link-band {
+          align-items: start;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .wrap {
+          width: min(calc(100% - 28px), var(--max));
+        }
+
+        .brand-name {
+          max-width: 176px;
+        }
+
+        .button {
+          width: 100%;
+        }
+
+        .nav .button {
+          width: auto;
+          padding: 0 12px;
+        }
+
+        h1 {
+          font-size: 2.72rem;
+        }
+
+        .lead {
+          font-size: 1.05rem;
+        }
+
+        .hero-media {
+          min-height: 360px;
+        }
+
+        .slide-panel {
+          align-items: start;
+          flex-direction: column;
+          bottom: 52px;
+        }
+
+        .capsule-shelf {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .capsule-content {
+          padding: 14px;
+        }
+
+        .section-head {
+          align-items: start;
+          flex-direction: column;
+        }
+
+        .section-head h2,
+        .news-copy h2 {
+          font-size: 1.9rem;
+        }
+
+        .news-item {
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+
+        .footer .wrap {
+          flex-direction: column;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <div class="wrap nav">
+          <div class="brand-cluster">
+            <a class="brand" href="#" aria-label="BogosorStudio ホーム">
+              <span class="brand-mark" aria-hidden="true"></span>
+              <img class="brand-logo" src="./assets/studio/logo.png" alt="" />
+              <span class="brand-name">BogosorStudio</span>
+            </a>
+            <button class="lang-toggle" type="button" aria-label="日本語と英語を切り替え">
+              <span class="lang-option is-active" data-lang-option="ja">JP</span>
+              <span>/</span>
+              <span class="lang-option" data-lang-option="en">EN</span>
+            </button>
+          </div>
+          <nav class="nav-links" aria-label="メインナビゲーション">
+            <a class="nav-link" href="#games" data-ja="ゲーム一覧" data-en="Games">ゲーム一覧</a>
+            <a class="nav-link" href="#news">News</a>
+            <a class="nav-link" href="#contact">Contact</a>
+            <a class="button button-primary" href="https://store.steampowered.com/search/?developer=BogosorStudio">
+              Steam
+            </a>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero wrap" aria-label="BogosorStudio">
+          <div class="hero-copy">
+            <p class="eyebrow" data-ja="日本発の個人ゲームスタジオ" data-en="Independent game studio from Japan">日本発の個人ゲームスタジオ</p>
+            <h1>BogosorStudio</h1>
+            <p class="lead" data-ja="Steam向けゲームの制作・公開情報を掲載しています。" data-en="Official information for BogosorStudio games on Steam.">
+              Steam向けゲームの制作・公開情報を掲載しています。
+            </p>
+            <nav class="jump-nav" aria-label="ページ内リンク">
+              <a class="jump-link" href="#games">
+                <span data-ja="ゲーム一覧" data-en="Games">ゲーム一覧</span>
+                <b>Games</b>
+              </a>
+              <a class="jump-link" href="#news">
+                <span>News</span>
+                <b>Updates</b>
+              </a>
+              <a class="jump-link" href="#contact">
+                <span>Contact</span>
+                <b>Links</b>
+              </a>
+            </nav>
+          </div>
+
+          <div class="hero-media" aria-label="注目情報スライドショー">
+            <a
+              class="hero-slide is-active"
+              href="./games/SakWinik.html"
+              style="--slide-art: url('./assets/games/sak-winik/library_hero.jpg')"
+            >
+              <div class="slide-panel">
+                <div>
+                  <p>最新タイトル</p>
+                  <strong>Sak Winik: The Appointed One</strong>
+                  <span class="slide-status">リリース予定: 未定</span>
+                </div>
+                <span class="button button-secondary">詳細</span>
+              </div>
+            </a>
+
+            <a
+              class="hero-slide"
+              href="#games"
+              style="--slide-art: url('./assets/studio/hero.jpg')"
+            >
+              <div class="slide-panel">
+                <div>
+                  <p>タイトル一覧</p>
+                  <strong>Steam Library Capsule</strong>
+                  <span class="slide-status">5タイトル掲載枠</span>
+                </div>
+                <span class="button button-secondary">ゲームを見る</span>
+              </div>
+            </a>
+
+            <a
+              class="hero-slide"
+              href="#news"
+              style="--slide-art: url('./assets/studio/news.jpg')"
+            >
+              <div class="slide-panel">
+                <div>
+                  <p>更新情報</p>
+                  <strong>X / Steamニュース</strong>
+                  <span class="slide-status">開発・イベント情報</span>
+                </div>
+                <span class="button button-secondary">Newsへ</span>
+              </div>
+            </a>
+
+            <div class="slide-dots" aria-label="スライド切り替え">
+              <button class="slide-dot is-active" type="button" aria-label="最新タイトルを表示"></button>
+              <button class="slide-dot" type="button" aria-label="タイトル一覧を表示"></button>
+              <button class="slide-dot" type="button" aria-label="更新情報を表示"></button>
+            </div>
+          </div>
+        </section>
+
+        <section id="games">
+          <div class="wrap">
+            <div class="section-head">
+              <h2 data-ja="ゲーム一覧" data-en="Games">ゲーム一覧</h2>
+              <p data-ja="Steamで公開中・公開予定のタイトル一覧です。各タイトルの詳細はSteamページに掲載します。" data-en="A list of titles released or planned for Steam. Details for each title are linked from its own page.">
+                Steamで公開中・公開予定のタイトル一覧です。各タイトルの詳細はSteamページに掲載します。
+              </p>
+            </div>
+
+            <div class="capsule-shelf" aria-label="Steamライブラリーカプセル">
+              <a
+                id="sak-winik"
+                class="capsule-card"
+                href="./games/SakWinik.html"
+                style="--capsule-art: url('./assets/games/sak-winik/library_capsule.jpg')"
+              >
+                <div class="capsule-content">
+                  <div class="tag-row" aria-label="ゲームタグ">
+                    <span class="tag">会話</span>
+                    <span class="tag">AI</span>
+                  </div>
+                  <span class="release-label">リリース予定: 未定</span>
+                  <h3>Sak Winik: The Appointed One</h3>
+                  <p>Steamページ準備中</p>
+                </div>
+              </a>
+
+              <a
+                class="capsule-card"
+                href="#contact"
+                style="--capsule-art: url('./assets/games/title-02/library_capsule.jpg')"
+              >
+                <div class="capsule-content">
+                  <div class="tag-row" aria-label="ゲームタグ">
+                    <span class="tag">Steam</span>
+                  </div>
+                  <span class="release-label is-tba">リリース予定: 未定</span>
+                  <h3>タイトル 02</h3>
+                  <p>Steamカプセル画像を差し替え予定。</p>
+                </div>
+              </a>
+
+              <a
+                class="capsule-card"
+                href="#contact"
+                style="--capsule-art: url('./assets/games/title-03/library_capsule.jpg')"
+              >
+                <div class="capsule-content">
+                  <div class="tag-row" aria-label="ゲームタグ">
+                    <span class="tag">Steam</span>
+                  </div>
+                  <span class="release-label is-tba">リリース予定: 未定</span>
+                  <h3>タイトル 03</h3>
+                  <p>Steamカプセル画像を差し替え予定。</p>
+                </div>
+              </a>
+
+              <a
+                class="capsule-card"
+                href="#contact"
+                style="--capsule-art: url('./assets/games/title-04/library_capsule.jpg')"
+              >
+                <div class="capsule-content">
+                  <div class="tag-row" aria-label="ゲームタグ">
+                    <span class="tag">Steam</span>
+                  </div>
+                  <span class="release-label is-tba">リリース予定: 未定</span>
+                  <h3>タイトル 04</h3>
+                  <p>Steamカプセル画像を差し替え予定。</p>
+                </div>
+              </a>
+
+              <a
+                class="capsule-card capsule-empty"
+                href="#contact"
+                style="--capsule-art: url('./assets/games/title-05/library_capsule.jpg')"
+              >
+                <div class="capsule-content">
+                  <div class="tag-row" aria-label="ゲームタグ">
+                    <span class="tag">次回作</span>
+                  </div>
+                  <span class="release-label is-tba">発表準備中</span>
+                  <h3>タイトル 05</h3>
+                  <p>発表準備中</p>
+                </div>
+              </a>
+            </div>
+
+          </div>
+        </section>
+
+        <section id="news">
+          <div class="wrap news-grid">
+            <div class="news-copy">
+              <p class="eyebrow">News</p>
+              <h2>更新情報</h2>
+              <p>
+                新作情報、Steamページ公開、イベント出展などの更新先です。
+              </p>
+            </div>
+            <div class="news-list" aria-label="ニュースリンク">
+              <div class="news-item">
+                <b>Steam</b>
+                <p>タイトルのストアページ、リリース情報、ウィッシュリスト登録先を掲載します。</p>
+              </div>
+              <div class="news-item">
+                <b>X</b>
+                <p>開発中の更新、告知、イベント関連の情報を投稿します。</p>
+              </div>
+              <div class="news-item">
+                <b>Event</b>
+                <p>展示や試遊がある場合は、このページとXで告知します。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact">
+          <div class="wrap">
+            <div class="link-band">
+              <div>
+                <h2>BogosorStudioをフォロー</h2>
+                <p>ストアページ、開発中の更新、イベント出展情報へのリンクです。</p>
+              </div>
+              <div class="hero-actions">
+                <a class="button button-primary" href="https://store.steampowered.com/search/?developer=BogosorStudio">
+                  Steam
+                </a>
+                <a class="button button-secondary" href="https://x.com/BogosorGames">X</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="wrap">
+          <span>© <span id="year"></span> BogosorStudio</span>
+          <div class="footer-links">
+            <a href="https://store.steampowered.com/search/?developer=BogosorStudio">Steam</a>
+            <a href="https://x.com/BogosorGames">X</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      const logo = document.querySelector(".brand-logo");
+      const mark = document.querySelector(".brand-mark");
+      const showLogo = () => {
+        logo.style.display = "block";
+        mark.style.display = "none";
+      };
+      logo.addEventListener("load", showLogo);
+      if (logo.complete && logo.naturalWidth > 0) showLogo();
+
+      const languageKey = "bogosorstudio-language";
+      const langToggle = document.querySelector(".lang-toggle");
+      const langOptions = [...document.querySelectorAll("[data-lang-option]")];
+      const translatable = [...document.querySelectorAll("[data-ja][data-en]")];
+
+      const setLanguage = (language) => {
+        const nextLanguage = language === "en" ? "en" : "ja";
+        document.documentElement.lang = nextLanguage;
+        translatable.forEach((node) => {
+          node.textContent = node.dataset[nextLanguage];
+        });
+        langOptions.forEach((option) => {
+          option.classList.toggle("is-active", option.dataset.langOption === nextLanguage);
+        });
+        localStorage.setItem(languageKey, nextLanguage);
+      };
+
+      langToggle?.addEventListener("click", () => {
+        const currentLanguage = document.documentElement.lang === "en" ? "en" : "ja";
+        setLanguage(currentLanguage === "en" ? "ja" : "en");
+      });
+
+      setLanguage(localStorage.getItem(languageKey) || "ja");
+
+      const slides = [...document.querySelectorAll(".hero-slide")];
+      const dots = [...document.querySelectorAll(".slide-dot")];
+      let activeSlide = 0;
+      let slideTimer = null;
+
+      const showSlide = (index) => {
+        activeSlide = (index + slides.length) % slides.length;
+        slides.forEach((slide, slideIndex) => {
+          slide.classList.toggle("is-active", slideIndex === activeSlide);
+        });
+        dots.forEach((dot, dotIndex) => {
+          dot.classList.toggle("is-active", dotIndex === activeSlide);
+        });
+      };
+
+      const startSlideshow = () => {
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        slideTimer = window.setInterval(() => showSlide(activeSlide + 1), 5200);
+      };
+
+      dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+          if (slideTimer) window.clearInterval(slideTimer);
+          showSlide(index);
+          startSlideshow();
+        });
+      });
+
+      if (slides.length > 1) startSlideshow();
+    </script>
+  </body>
+</html>
