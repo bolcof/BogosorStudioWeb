@@ -350,6 +350,79 @@
         color: var(--muted);
       }
 
+      .library-hero-showcase {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        aspect-ratio: 3840 / 1240;
+        margin-bottom: 18px;
+        border: 1px solid rgba(245, 241, 232, 0.14);
+        border-radius: var(--radius);
+        background:
+          linear-gradient(135deg, rgba(212, 168, 48, 0.12), rgba(123, 215, 184, 0.08)),
+          #151511;
+        box-shadow: 0 26px 80px rgba(0, 0, 0, 0.46);
+      }
+
+      .library-hero-showcase::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(90deg, rgba(8, 8, 6, 0.78), rgba(8, 8, 6, 0.08) 58%, rgba(8, 8, 6, 0.62)),
+          var(--hero-art);
+        background-position: center;
+        background-size: cover;
+        transition: transform 260ms ease;
+      }
+
+      .library-hero-showcase:hover::before {
+        transform: scale(1.025);
+      }
+
+      .library-hero-showcase::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(to bottom, rgba(255, 255, 255, 0.11), transparent 18%),
+          repeating-linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.025) 0,
+            rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px,
+            transparent 6px
+          );
+        pointer-events: none;
+      }
+
+      .library-hero-copy {
+        position: absolute;
+        left: 22px;
+        right: 22px;
+        bottom: 20px;
+        z-index: 2;
+      }
+
+      .library-hero-copy span {
+        display: inline-flex;
+        min-height: 28px;
+        align-items: center;
+        border: 1px solid rgba(212, 168, 48, 0.48);
+        border-radius: var(--radius);
+        padding: 4px 8px;
+        color: #161108;
+        background: var(--gold);
+        font-size: 0.76rem;
+        font-weight: 850;
+      }
+
+      .library-hero-copy h3 {
+        margin: 10px 0 0;
+        font-size: clamp(1.55rem, 4vw, 3.8rem);
+        line-height: 0.92;
+      }
+
       .shot-stage {
         display: grid;
         grid-template-columns: 1.15fr 0.85fr;
@@ -477,6 +550,20 @@
           flex-direction: column;
         }
 
+        .library-hero-copy {
+          left: 14px;
+          right: 14px;
+          bottom: 12px;
+        }
+
+        .library-hero-copy span {
+          display: none;
+        }
+
+        .library-hero-copy h3 {
+          font-size: 1.25rem;
+        }
+
         .shot-large,
         .shot-small {
           min-height: 280px;
@@ -536,7 +623,13 @@
         <div class="wrap">
           <div class="band-head">
             <h2>Visuals</h2>
-              <p data-ja="Steamでは並べづらい大きなスクリーンショットやキービジュアルを掲載するエリアです。" data-en="A space for large screenshots and key visuals that are harder to show dynamically on Steam.">Steamでは並べづらい大きなスクリーンショットやキービジュアルを掲載するエリアです。</p>
+            <p data-ja="Steamでは並べづらい大きなスクリーンショットやキービジュアルを掲載するエリアです。" data-en="A space for large screenshots and key visuals that are harder to show dynamically on Steam.">Steamでは並べづらい大きなスクリーンショットやキービジュアルを掲載するエリアです。</p>
+          </div>
+          <div class="library-hero-showcase">
+            <div class="library-hero-copy">
+              <span>Library Hero</span>
+              <h3>Sak Winik: The Appointed One</h3>
+            </div>
           </div>
           <div class="shot-stage">
             <div class="shot shot-large" style="--shot: var(--shot-1)"></div>
