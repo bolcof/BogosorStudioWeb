@@ -70,20 +70,6 @@
         mask-image: linear-gradient(to bottom, black, transparent 74%);
       }
 
-      body::after {
-        content: "";
-        position: fixed;
-        inset: 0;
-        z-index: -3;
-        background-image: var(--hero-art);
-        background-position: right center;
-        background-size: min(80vw, 960px) auto;
-        background-repeat: no-repeat;
-        opacity: 0.18;
-        filter: blur(2px) saturate(1.12);
-        transform: scale(1.04);
-      }
-
       a {
         color: inherit;
         text-decoration: none;
@@ -307,6 +293,41 @@
         gap: 10px;
       }
 
+      .text-band {
+        padding: 70px 0 64px;
+        border-top: 1px solid var(--line);
+        background: linear-gradient(to bottom, rgba(8, 8, 6, 0.96), rgba(8, 8, 6, 0.84));
+      }
+
+      .text-blocks {
+        display: grid;
+        gap: 28px;
+      }
+
+      .text-block {
+        padding-bottom: 28px;
+        border-bottom: 1px solid rgba(245, 241, 232, 0.12);
+      }
+
+      .text-block:last-child {
+        padding-bottom: 0;
+        border-bottom: 0;
+      }
+
+      .text-block h2 {
+        margin-bottom: 0;
+        font-size: clamp(1.25rem, 2.2vw, 2rem);
+        line-height: 1.08;
+      }
+
+      .text-block p {
+        max-width: 900px;
+        margin-top: 14px;
+        margin-bottom: 0;
+        color: var(--muted);
+        font-size: clamp(1rem, 1.5vw, 1.18rem);
+      }
+
       .visual-band {
         position: relative;
         z-index: 0;
@@ -331,10 +352,6 @@
       }
 
       .band-head {
-        display: flex;
-        align-items: end;
-        justify-content: space-between;
-        gap: 24px;
         margin-bottom: 30px;
       }
 
@@ -344,95 +361,11 @@
         line-height: 0.96;
       }
 
-      .band-head p {
-        max-width: 480px;
-        margin-bottom: 0;
-        color: var(--muted);
-      }
-
-      .library-hero-showcase {
-        position: relative;
-        display: block;
-        overflow: hidden;
-        aspect-ratio: 3840 / 1240;
-        margin-bottom: 18px;
-        border: 1px solid rgba(245, 241, 232, 0.14);
-        border-radius: var(--radius);
-        background:
-          linear-gradient(135deg, rgba(212, 168, 48, 0.12), rgba(123, 215, 184, 0.08)),
-          #151511;
-        box-shadow: 0 26px 80px rgba(0, 0, 0, 0.46);
-      }
-
-      .library-hero-showcase::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background-image:
-          linear-gradient(90deg, rgba(8, 8, 6, 0.78), rgba(8, 8, 6, 0.08) 58%, rgba(8, 8, 6, 0.62)),
-          var(--hero-art);
-        background-position: center;
-        background-size: cover;
-        transition: transform 260ms ease;
-      }
-
-      .library-hero-showcase:hover::before {
-        transform: scale(1.025);
-      }
-
-      .library-hero-showcase::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background:
-          linear-gradient(to bottom, rgba(255, 255, 255, 0.11), transparent 18%),
-          repeating-linear-gradient(
-            to bottom,
-            rgba(255, 255, 255, 0.025) 0,
-            rgba(255, 255, 255, 0.025) 1px,
-            transparent 1px,
-            transparent 6px
-          );
-        pointer-events: none;
-      }
-
-      .library-hero-copy {
-        position: absolute;
-        left: 22px;
-        right: 22px;
-        bottom: 20px;
-        z-index: 2;
-      }
-
-      .library-hero-copy span {
-        display: inline-flex;
-        min-height: 28px;
-        align-items: center;
-        border: 1px solid rgba(212, 168, 48, 0.48);
-        border-radius: var(--radius);
-        padding: 4px 8px;
-        color: #161108;
-        background: var(--gold);
-        font-size: 0.76rem;
-        font-weight: 850;
-      }
-
-      .library-hero-copy h3 {
-        margin: 10px 0 0;
-        font-size: clamp(1.55rem, 4vw, 3.8rem);
-        line-height: 0.92;
-      }
-
-      .shot-stage {
-        display: grid;
-        grid-template-columns: 1.15fr 0.85fr;
-        gap: 18px;
-        min-height: 560px;
-      }
-
-      .shot {
+      .screenshot-carousel {
         position: relative;
         overflow: hidden;
+        aspect-ratio: 16 / 9;
+        min-height: 320px;
         border: 1px solid rgba(245, 241, 232, 0.12);
         border-radius: var(--radius);
         background:
@@ -441,33 +374,62 @@
         box-shadow: 0 24px 70px rgba(0, 0, 0, 0.42);
       }
 
-      .shot::before {
-        content: "";
+      .screenshot-slide {
         position: absolute;
         inset: 0;
-        background-image:
-          linear-gradient(to top, rgba(8, 8, 6, 0.72), transparent 42%),
-          var(--shot);
-        background-position: center;
-        background-size: cover;
+        margin: 0;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 420ms ease;
+      }
+
+      .screenshot-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
         transition: transform 260ms ease;
       }
 
-      .shot:hover::before {
+      .screenshot-slide::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(8, 8, 6, 0.56), transparent 44%);
+        pointer-events: none;
+      }
+
+      .screenshot-slide.is-active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .screenshot-carousel:hover .screenshot-slide.is-active img {
         transform: scale(1.035);
       }
 
-      .shot-large {
-        min-height: 560px;
+      .screenshot-controls {
+        position: absolute;
+        left: 18px;
+        right: 18px;
+        bottom: 16px;
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        gap: 8px;
       }
 
-      .shot-stack {
-        display: grid;
-        gap: 18px;
+      .screenshot-dot {
+        width: 34px;
+        height: 5px;
+        border: 0;
+        border-radius: 999px;
+        padding: 0;
+        background: rgba(245, 241, 232, 0.32);
+        cursor: pointer;
       }
 
-      .shot-small {
-        min-height: 271px;
+      .screenshot-dot.is-active {
+        background: var(--gold);
       }
 
       .link-panel {
@@ -522,7 +484,6 @@
           min-height: auto;
         }
 
-        .shot-stage,
         .link-box {
           grid-template-columns: 1fr;
         }
@@ -545,27 +506,7 @@
           padding: 92px 0 42px;
         }
 
-        .band-head {
-          align-items: start;
-          flex-direction: column;
-        }
-
-        .library-hero-copy {
-          left: 14px;
-          right: 14px;
-          bottom: 12px;
-        }
-
-        .library-hero-copy span {
-          display: none;
-        }
-
-        .library-hero-copy h3 {
-          font-size: 1.25rem;
-        }
-
-        .shot-large,
-        .shot-small {
+        .screenshot-carousel {
           min-height: 280px;
         }
       }
@@ -619,24 +560,35 @@
         </div>
       </section>
 
+      <section class="text-band">
+        <div class="wrap text-blocks">
+          <article class="text-block">
+            <h2 data-ja="概要" data-en="Overview">概要</h2>
+            <p data-ja="Reversiと2048を組み合わせたパズルゲームです。詳細な訴求文やルール説明は、Steamページ公開後に差し替えます。" data-en="A puzzle game that combines Reversi and 2048. Detailed copy and rule explanations can be replaced after the Steam page is published.">Reversiと2048を組み合わせたパズルゲームです。詳細な訴求文やルール説明は、Steamページ公開後に差し替えます。</p>
+          </article>
+          <article class="text-block">
+            <h2 data-ja="更新" data-en="Updates">更新</h2>
+            <p data-ja="リリース時期、ストアリンク、イベント展示などの情報をここに追加できます。" data-en="Release timing, store links, event appearances, and other notes can be added here.">リリース時期、ストアリンク、イベント展示などの情報をここに追加できます。</p>
+          </article>
+        </div>
+      </section>
+
       <section class="visual-band">
         <div class="wrap">
           <div class="band-head">
             <h2>Visuals</h2>
-            <p data-ja="Steamでは並べづらい大きなスクリーンショットやキービジュアルを掲載するエリアです。" data-en="A space for large screenshots and key visuals that are harder to show dynamically on Steam.">Steamでは並べづらい大きなスクリーンショットやキービジュアルを掲載するエリアです。</p>
           </div>
-          <div class="library-hero-showcase">
-            <div class="library-hero-copy">
-              <span>Library Hero</span>
-              <h3>REVERSI 2048</h3>
-            </div>
-          </div>
-          <div class="shot-stage">
-            <div class="shot shot-large" style="--shot: var(--shot-1)"></div>
-            <div class="shot-stack">
-              <div class="shot shot-small" style="--shot: var(--shot-2)"></div>
-              <div class="shot shot-small" style="--shot: var(--shot-3)"></div>
-            </div>
+          <div class="screenshot-carousel" data-screenshot-carousel>
+            <figure class="screenshot-slide is-active">
+              <img src="../assets/games/Reversi2048/ScreenShot01.png" alt="REVERSI 2048 screenshot 01" />
+            </figure>
+            <figure class="screenshot-slide">
+              <img src="../assets/games/Reversi2048/ScreenShot02.png" alt="REVERSI 2048 screenshot 02" />
+            </figure>
+            <figure class="screenshot-slide">
+              <img src="../assets/games/Reversi2048/ScreenShot03.png" alt="REVERSI 2048 screenshot 03" />
+            </figure>
+            <div class="screenshot-controls" aria-label="スクリーンショット切り替え"></div>
           </div>
         </div>
       </section>
@@ -691,6 +643,46 @@
       });
 
       setLanguage(localStorage.getItem(languageKey) || "ja");
+
+      document.querySelectorAll("[data-screenshot-carousel]").forEach((carousel) => {
+        const slides = [...carousel.querySelectorAll(".screenshot-slide")];
+        const controls = carousel.querySelector(".screenshot-controls");
+        const shouldReduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        let activeIndex = 0;
+        let timerId;
+
+        const showSlide = (nextIndex) => {
+          activeIndex = (nextIndex + slides.length) % slides.length;
+          slides.forEach((slide, index) => {
+            slide.classList.toggle("is-active", index === activeIndex);
+          });
+          controls?.querySelectorAll(".screenshot-dot").forEach((dot, index) => {
+            dot.classList.toggle("is-active", index === activeIndex);
+            dot.setAttribute("aria-current", index === activeIndex ? "true" : "false");
+          });
+        };
+
+        const startAutoPlay = () => {
+          if (shouldReduceMotion || slides.length < 2) return;
+          timerId = window.setInterval(() => showSlide(activeIndex + 1), 5200);
+        };
+
+        slides.forEach((_, index) => {
+          const dot = document.createElement("button");
+          dot.type = "button";
+          dot.className = "screenshot-dot";
+          dot.setAttribute("aria-label", `ScreenShot${String(index + 1).padStart(2, "0")}`);
+          dot.addEventListener("click", () => {
+            window.clearInterval(timerId);
+            showSlide(index);
+            startAutoPlay();
+          });
+          controls?.append(dot);
+        });
+
+        showSlide(0);
+        startAutoPlay();
+      });
     </script>
   </body>
 </html>
