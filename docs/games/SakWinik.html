@@ -28,7 +28,6 @@
         --red: #d96d61;
         --max: 1180px;
         --radius: 8px;
-        --key-art: url("../assets/games/SakWinik/KeyArt.png");
         --hero-art: url("../assets/games/SakWinik/LibraryHero.png");
         --shot-1: url("../assets/games/SakWinik/ScreenShot01.png");
         --shot-2: url("../assets/games/SakWinik/ScreenShot02.png");
@@ -68,20 +67,6 @@
           linear-gradient(90deg, rgba(245, 241, 232, 0.035) 1px, transparent 1px);
         background-size: 64px 64px;
         mask-image: linear-gradient(to bottom, black, transparent 74%);
-      }
-
-      body::after {
-        content: "";
-        position: fixed;
-        inset: 0;
-        z-index: -3;
-        background-image: var(--hero-art);
-        background-position: right center;
-        background-size: min(80vw, 960px) auto;
-        background-repeat: no-repeat;
-        opacity: 0.18;
-        filter: blur(2px) saturate(1.12);
-        transform: scale(1.04);
       }
 
       a {
@@ -192,23 +177,19 @@
         inset: 0;
         z-index: -2;
         background-image:
-          linear-gradient(to right, rgba(8, 8, 6, 0.96), rgba(8, 8, 6, 0.4) 52%, rgba(8, 8, 6, 0.78)),
+          linear-gradient(to right, rgba(8, 8, 6, 0.96), rgba(8, 8, 6, 0.42) 48%, rgba(8, 8, 6, 0.28)),
           linear-gradient(to top, var(--bg), transparent 46%),
-          var(--key-art),
           var(--hero-art);
         background-position:
-          center,
           center,
           center,
           right center;
         background-size:
           cover,
           cover,
-          cover,
-          min(78vw, 980px) auto;
+          auto 100%;
         background-repeat: no-repeat;
         filter: saturate(1.08) contrast(1.08);
-        transform: scale(1.02);
       }
 
       .hero::after {
@@ -307,6 +288,41 @@
         gap: 10px;
       }
 
+      .text-band {
+        padding: 70px 0 64px;
+        border-top: 1px solid var(--line);
+        background: linear-gradient(to bottom, rgba(8, 8, 6, 0.96), rgba(8, 8, 6, 0.84));
+      }
+
+      .text-blocks {
+        display: grid;
+        gap: 28px;
+      }
+
+      .text-block {
+        padding-bottom: 28px;
+        border-bottom: 1px solid rgba(245, 241, 232, 0.12);
+      }
+
+      .text-block:last-child {
+        padding-bottom: 0;
+        border-bottom: 0;
+      }
+
+      .text-block h2 {
+        margin-bottom: 0;
+        font-size: clamp(1.25rem, 2.2vw, 2rem);
+        line-height: 1.08;
+      }
+
+      .text-block p {
+        max-width: 900px;
+        margin-top: 14px;
+        margin-bottom: 0;
+        color: var(--muted);
+        font-size: clamp(1rem, 1.5vw, 1.18rem);
+      }
+
       .visual-band {
         position: relative;
         z-index: 0;
@@ -331,10 +347,6 @@
       }
 
       .band-head {
-        display: flex;
-        align-items: end;
-        justify-content: space-between;
-        gap: 24px;
         margin-bottom: 30px;
       }
 
@@ -344,130 +356,224 @@
         line-height: 0.96;
       }
 
-      .band-head p {
-        max-width: 480px;
-        margin-bottom: 0;
-        color: var(--muted);
+      .screenshot-carousel {
+        --slide-width: min(72vw, 760px, 78%);
+        position: relative;
+        width: 100%;
+        overflow: hidden;
       }
 
-      .library-hero-showcase {
+      .screenshot-viewport {
         position: relative;
+        overflow: hidden;
+      }
+
+      .screenshot-viewport::before {
+        content: "";
         display: block;
-        overflow: hidden;
-        aspect-ratio: 3840 / 1240;
-        margin-bottom: 18px;
-        border: 1px solid rgba(245, 241, 232, 0.14);
-        border-radius: var(--radius);
-        background:
-          linear-gradient(135deg, rgba(212, 168, 48, 0.12), rgba(123, 215, 184, 0.08)),
-          #151511;
-        box-shadow: 0 26px 80px rgba(0, 0, 0, 0.46);
+        width: var(--slide-width);
+        aspect-ratio: 16 / 9;
+        margin: 0 auto;
       }
 
-      .library-hero-showcase::before {
-        content: "";
+      .screenshot-slide {
         position: absolute;
-        inset: 0;
-        background-image:
-          linear-gradient(90deg, rgba(8, 8, 6, 0.78), rgba(8, 8, 6, 0.08) 58%, rgba(8, 8, 6, 0.62)),
-          var(--hero-art);
-        background-position: center;
-        background-size: cover;
-        transition: transform 260ms ease;
-      }
-
-      .library-hero-showcase:hover::before {
-        transform: scale(1.025);
-      }
-
-      .library-hero-showcase::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background:
-          linear-gradient(to bottom, rgba(255, 255, 255, 0.11), transparent 18%),
-          repeating-linear-gradient(
-            to bottom,
-            rgba(255, 255, 255, 0.025) 0,
-            rgba(255, 255, 255, 0.025) 1px,
-            transparent 1px,
-            transparent 6px
-          );
+        top: 0;
+        left: 50%;
+        width: var(--slide-width);
+        height: 100%;
+        margin: 0;
+        opacity: 0;
         pointer-events: none;
-      }
-
-      .library-hero-copy {
-        position: absolute;
-        left: 22px;
-        right: 22px;
-        bottom: 20px;
-        z-index: 2;
-      }
-
-      .library-hero-copy span {
-        display: inline-flex;
-        min-height: 28px;
-        align-items: center;
-        border: 1px solid rgba(212, 168, 48, 0.48);
-        border-radius: var(--radius);
-        padding: 4px 8px;
-        color: #161108;
-        background: var(--gold);
-        font-size: 0.76rem;
-        font-weight: 850;
-      }
-
-      .library-hero-copy h3 {
-        margin: 10px 0 0;
-        font-size: clamp(1.55rem, 4vw, 3.8rem);
-        line-height: 0.92;
-      }
-
-      .shot-stage {
-        display: grid;
-        grid-template-columns: 1.15fr 0.85fr;
-        gap: 18px;
-        min-height: 560px;
-      }
-
-      .shot {
-        position: relative;
         overflow: hidden;
-        border: 1px solid rgba(245, 241, 232, 0.12);
+        border: 1px solid rgba(245, 241, 232, 0.14);
         border-radius: var(--radius);
         background:
           linear-gradient(135deg, rgba(212, 168, 48, 0.1), rgba(123, 215, 184, 0.08)),
           #151511;
         box-shadow: 0 24px 70px rgba(0, 0, 0, 0.42);
+        cursor: zoom-in;
+        transform: translateX(-50%) translateX(var(--slide-x, 0));
+        transition:
+          opacity 360ms ease,
+          transform 360ms ease,
+          filter 360ms ease;
       }
 
-      .shot::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background-image:
-          linear-gradient(to top, rgba(8, 8, 6, 0.72), transparent 42%),
-          var(--shot);
-        background-position: center;
-        background-size: cover;
+      .screenshot-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
         transition: transform 260ms ease;
       }
 
-      .shot:hover::before {
+      .screenshot-slide::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(8, 8, 6, 0.56), transparent 44%);
+        pointer-events: none;
+      }
+
+      .screenshot-slide.is-active {
+        opacity: 1;
+        pointer-events: auto;
+        z-index: 3;
+      }
+
+      .screenshot-slide.is-side {
+        opacity: 0.54;
+        pointer-events: auto;
+        z-index: 2;
+        filter: saturate(0.9) brightness(0.72);
+      }
+
+      .screenshot-slide.slot-prev {
+        --slide-x: -75%;
+      }
+
+      .screenshot-slide.slot-next {
+        --slide-x: 75%;
+      }
+
+      .screenshot-carousel.is-moving-next .slot-prev {
+        --slide-x: -150%;
+        opacity: 0;
+      }
+
+      .screenshot-carousel.is-moving-next .slot-active {
+        --slide-x: -75%;
+        opacity: 0.54;
+        z-index: 2;
+        filter: saturate(0.9) brightness(0.72);
+      }
+
+      .screenshot-carousel.is-moving-next .slot-next {
+        --slide-x: 0;
+        opacity: 1;
+        z-index: 3;
+        filter: none;
+      }
+
+      .screenshot-carousel.is-moving-prev .slot-prev {
+        --slide-x: 0;
+        opacity: 1;
+        z-index: 3;
+        filter: none;
+      }
+
+      .screenshot-carousel.is-moving-prev .slot-active {
+        --slide-x: 75%;
+        opacity: 0.54;
+        z-index: 2;
+        filter: saturate(0.9) brightness(0.72);
+      }
+
+      .screenshot-carousel.is-moving-prev .slot-next {
+        --slide-x: 150%;
+        opacity: 0;
+      }
+
+      .screenshot-carousel.is-resetting .screenshot-slide {
+        transition: none;
+      }
+
+      .screenshot-slide:hover img {
         transform: scale(1.035);
       }
 
-      .shot-large {
-        min-height: 560px;
+      .screenshot-controls {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 16px;
       }
 
-      .shot-stack {
+      .screenshot-dot {
+        width: 34px;
+        height: 5px;
+        border: 0;
+        border-radius: 999px;
+        padding: 0;
+        background: rgba(245, 241, 232, 0.32);
+        cursor: pointer;
+      }
+
+      .screenshot-dot.is-active {
+        background: var(--gold);
+      }
+
+      .screenshot-arrow {
+        position: absolute;
+        top: 50%;
+        z-index: 5;
         display: grid;
-        gap: 18px;
+        place-items: center;
+        width: 42px;
+        height: 54px;
+        border: 1px solid rgba(245, 241, 232, 0.26);
+        border-radius: var(--radius);
+        color: var(--text);
+        background: rgba(8, 8, 6, 0.58);
+        font: inherit;
+        font-size: 2rem;
+        font-weight: 760;
+        line-height: 1;
+        cursor: pointer;
+        transform: translateY(-50%);
+        backdrop-filter: blur(8px);
       }
 
-      .shot-small {
-        min-height: 271px;
+      .screenshot-arrow:hover {
+        background: rgba(8, 8, 6, 0.78);
+      }
+
+      .screenshot-arrow-prev {
+        left: calc(50% - (var(--slide-width) / 2) + 14px);
+      }
+
+      .screenshot-arrow-next {
+        right: calc(50% - (var(--slide-width) / 2) + 14px);
+      }
+
+      .image-lightbox {
+        position: fixed;
+        inset: 0;
+        z-index: 80;
+        display: grid;
+        place-items: center;
+        padding: 32px;
+        background: rgba(0, 0, 0, 0.84);
+        backdrop-filter: blur(8px);
+      }
+
+      .image-lightbox[hidden] {
+        display: none;
+      }
+
+      .image-lightbox img {
+        max-width: min(94vw, 1440px);
+        max-height: 86vh;
+        border: 1px solid rgba(245, 241, 232, 0.18);
+        border-radius: var(--radius);
+        object-fit: contain;
+        box-shadow: 0 28px 90px rgba(0, 0, 0, 0.68);
+      }
+
+      .lightbox-close {
+        position: absolute;
+        top: 18px;
+        right: 18px;
+        min-width: 42px;
+        min-height: 42px;
+        border: 1px solid rgba(245, 241, 232, 0.24);
+        border-radius: var(--radius);
+        color: var(--text);
+        background: rgba(12, 12, 10, 0.72);
+        font: inherit;
+        font-size: 1.4rem;
+        line-height: 1;
+        cursor: pointer;
       }
 
       .link-panel {
@@ -522,7 +628,6 @@
           min-height: auto;
         }
 
-        .shot-stage,
         .link-box {
           grid-template-columns: 1fr;
         }
@@ -545,28 +650,12 @@
           padding: 92px 0 42px;
         }
 
-        .band-head {
-          align-items: start;
-          flex-direction: column;
+        .screenshot-carousel {
+          --slide-width: min(78vw, 520px, 86%);
         }
 
-        .library-hero-copy {
-          left: 14px;
-          right: 14px;
-          bottom: 12px;
-        }
-
-        .library-hero-copy span {
-          display: none;
-        }
-
-        .library-hero-copy h3 {
-          font-size: 1.25rem;
-        }
-
-        .shot-large,
-        .shot-small {
-          min-height: 280px;
+        .image-lightbox {
+          padding: 18px;
         }
       }
     </style>
@@ -619,24 +708,35 @@
         </div>
       </section>
 
+      <section class="text-band">
+        <div class="wrap text-blocks">
+          <article class="text-block">
+            <h2 data-ja="概要" data-en="Overview">概要</h2>
+            <p data-ja="AIに自分が人間であることを証明する会話ゲームです。詳細な訴求文やルール説明は、Steamページ公開後に差し替えます。" data-en="A conversation game about proving to an AI that you are human. Detailed copy and rule explanations can be replaced after the Steam page is published.">AIに自分が人間であることを証明する会話ゲームです。詳細な訴求文やルール説明は、Steamページ公開後に差し替えます。</p>
+          </article>
+          <article class="text-block">
+            <h2 data-ja="更新" data-en="Updates">更新</h2>
+            <p data-ja="リリース時期、ストアリンク、イベント展示などの情報をここに追加できます。" data-en="Release timing, store links, event appearances, and other notes can be added here.">リリース時期、ストアリンク、イベント展示などの情報をここに追加できます。</p>
+          </article>
+        </div>
+      </section>
+
       <section class="visual-band">
         <div class="wrap">
           <div class="band-head">
             <h2>Visuals</h2>
-            <p data-ja="Steamでは並べづらい大きなスクリーンショットやキービジュアルを掲載するエリアです。" data-en="A space for large screenshots and key visuals that are harder to show dynamically on Steam.">Steamでは並べづらい大きなスクリーンショットやキービジュアルを掲載するエリアです。</p>
           </div>
-          <div class="library-hero-showcase">
-            <div class="library-hero-copy">
-              <span>Library Hero</span>
-              <h3>Sak Winik: The Appointed One</h3>
-            </div>
-          </div>
-          <div class="shot-stage">
-            <div class="shot shot-large" style="--shot: var(--shot-1)"></div>
-            <div class="shot-stack">
-              <div class="shot shot-small" style="--shot: var(--shot-2)"></div>
-              <div class="shot shot-small" style="--shot: var(--shot-3)"></div>
-            </div>
+          <div class="screenshot-carousel" data-screenshot-carousel>
+            <figure class="screenshot-slide is-active">
+              <img src="../assets/games/SakWinik/ScreenShot01.png" alt="Sak Winik: The Appointed One screenshot 01" />
+            </figure>
+            <figure class="screenshot-slide">
+              <img src="../assets/games/SakWinik/ScreenShot02.png" alt="Sak Winik: The Appointed One screenshot 02" />
+            </figure>
+            <figure class="screenshot-slide">
+              <img src="../assets/games/SakWinik/ScreenShot03.png" alt="Sak Winik: The Appointed One screenshot 03" />
+            </figure>
+            <div class="screenshot-controls" aria-label="スクリーンショット切り替え"></div>
           </div>
         </div>
       </section>
@@ -691,6 +791,182 @@
       });
 
       setLanguage(localStorage.getItem(languageKey) || "ja");
+
+      let imageLightbox;
+
+      const closeLightbox = () => {
+        if (!imageLightbox) return;
+        imageLightbox.hidden = true;
+        document.body.style.overflow = "";
+      };
+
+      const openLightbox = ({ alt, src }) => {
+        if (!imageLightbox) {
+          imageLightbox = document.createElement("div");
+          imageLightbox.className = "image-lightbox";
+          imageLightbox.hidden = true;
+          imageLightbox.innerHTML = `
+            <button class="lightbox-close" type="button" aria-label="閉じる">×</button>
+            <img alt="" />
+          `;
+          imageLightbox.addEventListener("click", (event) => {
+            if (event.target === imageLightbox) closeLightbox();
+          });
+          imageLightbox.querySelector(".lightbox-close").addEventListener("click", closeLightbox);
+          document.body.append(imageLightbox);
+        }
+
+        const image = imageLightbox.querySelector("img");
+        image.src = src;
+        image.alt = alt;
+        imageLightbox.hidden = false;
+        document.body.style.overflow = "hidden";
+      };
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeLightbox();
+      });
+
+      document.querySelectorAll("[data-screenshot-carousel]").forEach((carousel) => {
+        const screenshots = [...carousel.querySelectorAll(".screenshot-slide img")].map((image) => ({
+          alt: image.alt,
+          src: image.getAttribute("src"),
+        }));
+        const shouldReduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        let activeIndex = 0;
+        let isAnimating = false;
+        let timerId;
+
+        if (!screenshots.length) return;
+
+        carousel.textContent = "";
+
+        const wrapIndex = (index) => (index + screenshots.length) % screenshots.length;
+        const viewport = document.createElement("div");
+        viewport.className = "screenshot-viewport";
+        carousel.append(viewport);
+
+        const slots = [
+          { className: "slot-prev is-side", offset: -1 },
+          { className: "slot-active is-active", offset: 0 },
+          { className: "slot-next is-side", offset: 1 },
+        ].map((slot) => {
+          const figure = document.createElement("figure");
+          const image = document.createElement("img");
+          figure.className = `screenshot-slide ${slot.className}`;
+          figure.tabIndex = 0;
+          figure.setAttribute("role", "button");
+          figure.append(image);
+          figure.addEventListener("click", () => {
+            openLightbox(screenshots[Number(figure.dataset.index)]);
+          });
+          figure.addEventListener("keydown", (event) => {
+            if (event.key !== "Enter" && event.key !== " ") return;
+            event.preventDefault();
+            openLightbox(screenshots[Number(figure.dataset.index)]);
+          });
+          viewport.append(figure);
+          return { ...slot, figure, image };
+        });
+
+        const prevButton = document.createElement("button");
+        prevButton.type = "button";
+        prevButton.className = "screenshot-arrow screenshot-arrow-prev";
+        prevButton.setAttribute("aria-label", "前のスクリーンショット");
+        prevButton.textContent = "‹";
+        viewport.append(prevButton);
+
+        const nextButton = document.createElement("button");
+        nextButton.type = "button";
+        nextButton.className = "screenshot-arrow screenshot-arrow-next";
+        nextButton.setAttribute("aria-label", "次のスクリーンショット");
+        nextButton.textContent = "›";
+        viewport.append(nextButton);
+
+        const controls = document.createElement("div");
+        controls.className = "screenshot-controls";
+        controls.setAttribute("aria-label", "スクリーンショット切り替え");
+        carousel.append(controls);
+
+        const paintSlots = (centerIndex, overrides = {}) => {
+          slots.forEach((slot) => {
+            const index = overrides[slot.offset] ?? wrapIndex(centerIndex + slot.offset);
+            const screenshot = screenshots[index];
+            slot.figure.dataset.index = String(index);
+            slot.image.src = screenshot.src;
+            slot.image.alt = screenshot.alt;
+          });
+          controls.querySelectorAll(".screenshot-dot").forEach((dot, index) => {
+            dot.classList.toggle("is-active", index === centerIndex);
+            dot.setAttribute("aria-current", index === centerIndex ? "true" : "false");
+          });
+        };
+
+        const showSlide = (nextIndex, direction = "next", animate = true) => {
+          const targetIndex = wrapIndex(nextIndex);
+          if (targetIndex === activeIndex || isAnimating) return;
+
+          if (shouldReduceMotion || !animate) {
+            activeIndex = targetIndex;
+            paintSlots(activeIndex);
+            return;
+          }
+
+          isAnimating = true;
+          paintSlots(activeIndex, direction === "next" ? { 1: targetIndex } : { [-1]: targetIndex });
+          carousel.classList.add(direction === "next" ? "is-moving-next" : "is-moving-prev");
+
+          window.setTimeout(() => {
+            activeIndex = targetIndex;
+            carousel.classList.add("is-resetting");
+            carousel.classList.remove("is-moving-next", "is-moving-prev");
+            paintSlots(activeIndex);
+            carousel.offsetHeight;
+            window.requestAnimationFrame(() => {
+              carousel.classList.remove("is-resetting");
+              isAnimating = false;
+            });
+          }, 380);
+        };
+
+        const startAutoPlay = () => {
+          if (shouldReduceMotion || screenshots.length < 2) return;
+          timerId = window.setInterval(() => showSlide(activeIndex + 1, "next"), 5200);
+        };
+
+        if (screenshots.length > 1) {
+          prevButton.addEventListener("click", () => {
+            window.clearInterval(timerId);
+            showSlide(activeIndex - 1, "prev");
+            startAutoPlay();
+          });
+
+          nextButton.addEventListener("click", () => {
+            window.clearInterval(timerId);
+            showSlide(activeIndex + 1, "next");
+            startAutoPlay();
+          });
+
+          screenshots.forEach((_, index) => {
+            const dot = document.createElement("button");
+            dot.type = "button";
+            dot.className = "screenshot-dot";
+            dot.setAttribute("aria-label", `ScreenShot${String(index + 1).padStart(2, "0")}`);
+            dot.addEventListener("click", () => {
+              window.clearInterval(timerId);
+              showSlide(index, index > activeIndex ? "next" : "prev");
+              startAutoPlay();
+            });
+            controls.append(dot);
+          });
+        } else {
+          prevButton.hidden = true;
+          nextButton.hidden = true;
+        }
+
+        paintSlots(activeIndex);
+        startAutoPlay();
+      });
     </script>
   </body>
 </html>

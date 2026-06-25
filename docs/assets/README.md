@@ -48,8 +48,10 @@ docs/assets/games/Reversi2048/LibraryCapsule.png
 - `games/Reversi2048/ScreenShot01.png` - REVERSI 2048 large visual
 - `games/Reversi2048/ScreenShot02.png` - REVERSI 2048 secondary visual
 - `games/Reversi2048/ScreenShot03.png` - REVERSI 2048 secondary visual
-- `games/title-03/library_capsule.jpg` - third Steam Library Capsule
-- `games/title-04/library_capsule.jpg` - fourth Steam Library Capsule
-- `games/title-05/library_capsule.jpg` - fifth Steam Library Capsule
+- `games/SkillHockey/LibraryCapsule.png` - Skill Hockey home grid capsule image
+- `games/SkillHockey/LibraryHero.png` - Skill Hockey title background image
+- `games/NyctoType/LibraryCapsule.png` - NyctoType home grid capsule image
+- `games/NyctoType/LibraryHero.png` - NyctoType title background image
+- `games/HappyRunner/LibraryCapsule.jpg` - Happy Runner home grid capsule image
 
 The page works without these files, but it is designed so the real Steam art can be dropped in without changing HTML.
