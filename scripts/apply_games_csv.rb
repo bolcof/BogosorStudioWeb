@@ -103,7 +103,7 @@ def update_game_page(row)
   File.write(path, html)
 end
 
-rows = CSV.read(CSV_PATH, headers: true).map(&:to_h)
+rows = CSV.read(CSV_PATH, headers: true, encoding: "bom|utf-8").map(&:to_h)
 update_index(rows)
 rows.each { |row| update_game_page(row) }
 
