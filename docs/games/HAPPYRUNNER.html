@@ -5,19 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Skill Hockey の紹介ページ。Steamページ、更新情報、関連リンクを掲載しています。"
+      content="HAPPY RUNNER の紹介ページ。Steamページ、更新情報、関連リンクを掲載しています。"
     />
-    <meta property="og:title" content="Skill Hockey | BogosorStudio" />
+    <meta property="og:title" content="HAPPY RUNNER | BogosorStudio" />
     <meta
       property="og:description"
-      content="Skill Hockey の紹介ページ。"
+      content="HAPPY RUNNER の紹介ページ。"
     />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="../assets/games/SkillHockey/LibraryCapsule.png" />
+    <meta property="og:image" content="../assets/games/HAPPYRUNNER/LibraryCapsule.png" />
     <link rel="icon" href="../favicon.ico" sizes="any" />
     <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
 
-    <title>Skill Hockey | BogosorStudio</title>
+    <title>HAPPY RUNNER | BogosorStudio</title>
     <style>
       :root {
         color-scheme: dark;
@@ -31,8 +31,9 @@
         --red: #d96d61;
         --max: 1180px;
         --radius: 8px;
-        --hero-art: url("../assets/games/SkillHockey/LibraryHero.png");
-        --shot-1: url("../assets/games/SkillHockey/ScreenShot01.png");
+        --key-art: url("../assets/games/HAPPYRUNNER/LibraryHero.jpg");
+        --hero-art: url("../assets/games/HAPPYRUNNER/LibraryHero.jpg");
+        --shot-1: url("../assets/games/HAPPYRUNNER/ScreenShot01.jpg");
       }
 
       * {
@@ -178,19 +179,23 @@
         inset: 0;
         z-index: -2;
         background-image:
-          linear-gradient(to right, rgba(8, 8, 6, 0.96), rgba(8, 8, 6, 0.42) 48%, rgba(8, 8, 6, 0.28)),
+          linear-gradient(to right, rgba(8, 8, 6, 0.96), rgba(8, 8, 6, 0.4) 52%, rgba(8, 8, 6, 0.78)),
           linear-gradient(to top, var(--bg), transparent 46%),
+          var(--key-art),
           var(--hero-art);
         background-position:
+          center,
           center,
           center,
           right center;
         background-size:
           cover,
           cover,
-          auto 100%;
+          cover,
+          min(78vw, 980px) auto;
         background-repeat: no-repeat;
         filter: saturate(1.08) contrast(1.08);
+        transform: scale(1.02);
       }
 
       .hero::after {
@@ -652,7 +657,7 @@
         <nav class="top-links" aria-label="ページリンク">
           <a
             class="button button-primary"
-            href="https://store.steampowered.com/search/?term=Skill%20Hockey"
+            href="https://store.steampowered.com/app/2988640/HAPPY_RUNNER/"
           >
             Steam
           </a>
@@ -663,18 +668,18 @@
     <main>
       <section class="hero">
         <div class="wrap hero-grid">
-          <h1>Skill Hockey</h1>
-          <p class="summary" data-ja="Skill Hockeyの公開情報、ストアリンク、関連リンクをこのページにまとめます。" data-en="Release information store links and related links for Skill Hockey are collected here.">
-            Skill Hockeyの公開情報、ストアリンク、関連リンクをこのページにまとめます。
+          <h1>HAPPY RUNNER</h1>
+          <p class="summary" data-ja="HAPPY RUNNERの公開情報、ストアリンク、関連リンクをこのページにまとめます。" data-en="Release information store links and related links for HAPPY RUNNER are collected here.">
+            HAPPY RUNNERの公開情報、ストアリンク、関連リンクをこのページにまとめます。
           </p>
           <div class="status-row">
-            <span class="label" data-ja="リリース予定: 未定" data-en="Release: TBA">リリース予定: 未定</span>
+            <span class="label" data-ja="発表準備中" data-en="Preparing announcement">発表準備中</span>
             <span class="label label-muted" data-ja="Steamページ準備中" data-en="Steam page in preparation">Steamページ準備中</span>
           </div>
           <div class="action-row">
             <a
               class="button button-primary"
-              href="https://store.steampowered.com/search/?term=Skill%20Hockey"
+              href="https://store.steampowered.com/app/2988640/HAPPY_RUNNER/"
             >
               Steam
             </a>
@@ -686,7 +691,7 @@
         <div class="wrap text-blocks">
           <article class="text-block">
             <h2 data-ja="概要" data-en="Overview">概要</h2>
-            <p data-ja="Skill Hockeyの概要やルール説明は、Steamページ公開後に差し替えます。" data-en="Details and rule explanations for Skill Hockey can be replaced after the Steam page is published.">Skill Hockeyの概要やルール説明は、Steamページ公開後に差し替えます。</p>
+            <p data-ja="HAPPY RUNNERの概要やルール説明は、Steamページ公開後に差し替えます。" data-en="Details and rule explanations for HAPPY RUNNER can be replaced after the Steam page is published.">HAPPY RUNNERの概要やルール説明は、Steamページ公開後に差し替えます。</p>
           </article>
           <article class="text-block">
             <h2 data-ja="更新" data-en="Updates">更新</h2>
@@ -702,22 +707,19 @@
           </div>
           <div class="screenshot-carousel" data-screenshot-carousel>
             <figure class="screenshot-slide is-active">
-              <img src="../assets/games/SkillHockey/ScreenShot01.png" alt="Skill Hockey screenshot 01" />
+              <img src="../assets/games/HAPPYRUNNER/ScreenShot01.jpg" alt="HAPPY RUNNER screenshot 01" />
             </figure>
             <figure class="screenshot-slide">
-              <img src="../assets/games/SkillHockey/ScreenShot02.png" alt="Skill Hockey screenshot 02" />
+              <img src="../assets/games/HAPPYRUNNER/ScreenShot02.jpg" alt="HAPPY RUNNER screenshot 02" />
             </figure>
             <figure class="screenshot-slide">
-              <img src="../assets/games/SkillHockey/ScreenShot03.png" alt="Skill Hockey screenshot 03" />
+              <img src="../assets/games/HAPPYRUNNER/ScreenShot03.jpg" alt="HAPPY RUNNER screenshot 03" />
             </figure>
             <figure class="screenshot-slide">
-              <img src="../assets/games/SkillHockey/ScreenShot04.png" alt="Skill Hockey screenshot 04" />
+              <img src="../assets/games/HAPPYRUNNER/ScreenShot04.jpg" alt="HAPPY RUNNER screenshot 04" />
             </figure>
             <figure class="screenshot-slide">
-              <img src="../assets/games/SkillHockey/ScreenShot05.png" alt="Skill Hockey screenshot 05" />
-            </figure>
-            <figure class="screenshot-slide">
-              <img src="../assets/games/SkillHockey/ScreenShot06.png" alt="Skill Hockey screenshot 06" />
+              <img src="../assets/games/HAPPYRUNNER/ScreenShot05.jpg" alt="HAPPY RUNNER screenshot 05" />
             </figure>
             <div class="screenshot-controls" aria-label="スクリーンショット切り替え"></div>
           </div>
@@ -739,7 +741,7 @@
             <div class="action-row">
               <a
                 class="button button-primary"
-                href="https://store.steampowered.com/search/?term=Skill%20Hockey"
+                href="https://store.steampowered.com/app/2988640/HAPPY_RUNNER/"
               >
                 Steam
               </a>

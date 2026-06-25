@@ -74,7 +74,7 @@ docs/assets/games/Reversi2048/LibraryCapsule.png
 - `games/SkillHockey/LibraryHero.png`
 - `games/NyctoType/LibraryCapsule.png`
 - `games/NyctoType/LibraryHero.png`
-- `games/HappyRunner/LibraryCapsule.jpg`
+- `games/HAPPYRUNNER/LibraryCapsule.png`
 
 一部の画像がまだないタイトルでも、ページ自体は表示できます。
 画像を追加したら、命名規則に合わせて置くだけで差し替えやすい構成にしています。
