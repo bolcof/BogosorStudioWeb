@@ -1,27 +1,43 @@
-# BogosorStudio Web Assets
+# BogosorStudio Web アセット管理
 
-Place exported Steam assets here. The site already references these paths:
+このフォルダには、サイトで使う画像アセットを置きます。
+Steam向けのストア画像・ライブラリ画像を、下記の命名規則に合わせて配置してください。
 
-## Title asset convention
+## タイトル情報の編集
 
-For each title, create a folder using the same TitleId as the detail page:
+タイトル名、タグ、ステータス表示、短い紹介文、Steam / X のリンクなどは、リポジトリ直下の `games.csv` で編集します。
+
+CSVを編集したあと、次のコマンドを実行してください。
+
+```sh
+ruby scripts/apply_games_csv.rb
+```
+
+このコマンドで、次のHTMLに内容が反映されます。
+
+- `docs/index.html`
+- `docs/games/<TitleId>.html`
+
+## タイトル別アセットの命名規則
+
+各タイトルごとに、個別ページと同じ `TitleId` のフォルダを作ります。
 
 ```text
 docs/games/<TitleId>.html
 docs/assets/games/<TitleId>/
 ```
 
-Use these asset names inside the folder:
+フォルダ内では、できるだけ次の名前に揃えてください。
 
-- `KeyArt.png` - full-bleed title page background
-- `LibraryCapsule.png` - home grid capsule image, 600x900
-- `LibraryHero.png` - slideshow/title background image, ideally 3840x1240
-- `ScreenShot01.png` - large visual on the title detail page
-- `ScreenShot02.png` - secondary visual on the title detail page
-- `ScreenShot03.png` - secondary visual on the title detail page
-- `OgImage.png` - optional social share image for the title detail page
+- `KeyArt.png` - 個別ページ用の大きな背景画像
+- `LibraryCapsule.png` - ホームのゲーム一覧で使う縦長カプセル画像。目安は600x900
+- `LibraryHero.png` - 個別ページのヒーロー背景画像。目安は3840x1240
+- `ScreenShot01.png` - 個別ページのスクリーンショット
+- `ScreenShot02.png` - 個別ページのスクリーンショット
+- `ScreenShot03.png` - 個別ページのスクリーンショット
+- `OgImage.png` - SNS共有用画像。任意
 
-Example:
+例:
 
 ```text
 docs/games/Reversi2048.html
@@ -29,29 +45,36 @@ docs/assets/games/Reversi2048/KeyArt.png
 docs/assets/games/Reversi2048/LibraryCapsule.png
 ```
 
-`LibraryCupsule.png` was an old misspelling. Use `LibraryCapsule.png` going forward.
+`LibraryCupsule.png` は古いスペルミスです。
+今後は `LibraryCapsule.png` を使ってください。
 
-- `studio/logo.png` - studio logo or wordmark for the header
-- `studio/hero.jpg` - slideshow image for the title list slide
-- `studio/news.jpg` - slideshow image for the update/news slide
-- `studio/og-image.jpg` - social share image, ideally 1200x630
-- `games/SakWinik/LibraryCapsule.png` - Sak Winik home grid capsule image
-- `games/SakWinik/LibraryHero.png` - Sak Winik slideshow/title background image
-- `games/SakWinik/KeyArt.png` - Sak Winik full-bleed title page background
-- `games/SakWinik/OgImage.png` - Sak Winik social share image
-- `games/SakWinik/ScreenShot01.png` - Sak Winik large visual
-- `games/SakWinik/ScreenShot02.png` - Sak Winik secondary visual
-- `games/SakWinik/ScreenShot03.png` - Sak Winik secondary visual
-- `games/Reversi2048/LibraryCapsule.png` - REVERSI 2048 home grid capsule image
-- `games/Reversi2048/LibraryHero.png` - REVERSI 2048 slideshow/title background image
-- `games/Reversi2048/KeyArt.png` - REVERSI 2048 full-bleed title page background
-- `games/Reversi2048/ScreenShot01.png` - REVERSI 2048 large visual
-- `games/Reversi2048/ScreenShot02.png` - REVERSI 2048 secondary visual
-- `games/Reversi2048/ScreenShot03.png` - REVERSI 2048 secondary visual
-- `games/SkillHockey/LibraryCapsule.png` - Skill Hockey home grid capsule image
-- `games/SkillHockey/LibraryHero.png` - Skill Hockey title background image
-- `games/NyctoType/LibraryCapsule.png` - NyctoType home grid capsule image
-- `games/NyctoType/LibraryHero.png` - NyctoType title background image
-- `games/HappyRunner/LibraryCapsule.jpg` - Happy Runner home grid capsule image
+## スタジオ共通アセット
 
-The page works without these files, but it is designed so the real Steam art can be dropped in without changing HTML.
+- `studio/logo.png` - ヘッダー用のロゴまたはワードマーク
+- `studio/hero.jpg` - トップページのスライド用画像
+- `studio/news.jpg` - Newsセクション用画像
+- `studio/og-image.jpg` - サイト全体のSNS共有用画像。目安は1200x630
+
+## 現在使っているタイトルアセット
+
+- `games/SakWinik/LibraryCapsule.png`
+- `games/SakWinik/LibraryHero.png`
+- `games/SakWinik/KeyArt.png`
+- `games/SakWinik/OgImage.png`
+- `games/SakWinik/ScreenShot01.png`
+- `games/SakWinik/ScreenShot02.png`
+- `games/SakWinik/ScreenShot03.png`
+- `games/Reversi2048/LibraryCapsule.png`
+- `games/Reversi2048/LibraryHero.png`
+- `games/Reversi2048/KeyArt.png`
+- `games/Reversi2048/ScreenShot01.png`
+- `games/Reversi2048/ScreenShot02.png`
+- `games/Reversi2048/ScreenShot03.png`
+- `games/SkillHockey/LibraryCapsule.png`
+- `games/SkillHockey/LibraryHero.png`
+- `games/NyctoType/LibraryCapsule.png`
+- `games/NyctoType/LibraryHero.png`
+- `games/HappyRunner/LibraryCapsule.jpg`
+
+一部の画像がまだないタイトルでも、ページ自体は表示できます。
+画像を追加したら、命名規則に合わせて置くだけで差し替えやすい構成にしています。
