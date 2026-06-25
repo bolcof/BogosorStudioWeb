@@ -460,6 +460,76 @@
         z-index: 1;
       }
 
+      .site-notice {
+        padding: 24px 0 0;
+      }
+
+      .notice-box {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 16px;
+        align-items: center;
+        border: 1px solid rgba(212, 168, 48, 0.34);
+        border-radius: var(--radius);
+        padding: 20px 22px;
+        background:
+          linear-gradient(135deg, rgba(212, 168, 48, 0.16), rgba(123, 215, 184, 0.07)),
+          rgba(23, 23, 19, 0.82);
+        box-shadow: 0 22px 54px rgba(0, 0, 0, 0.28);
+      }
+
+      .notice-mark {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 42px;
+        min-height: 42px;
+        border-radius: var(--radius);
+        color: #15120a;
+        background: var(--gold);
+        font-size: 1.45rem;
+        font-weight: 900;
+      }
+
+      .notice-box strong {
+        display: block;
+        margin-bottom: 4px;
+        font-size: clamp(1.35rem, 2.8vw, 2.25rem);
+        line-height: 1.08;
+      }
+
+      .notice-box p {
+        margin-bottom: 0;
+        color: var(--muted);
+        font-size: clamp(0.95rem, 1.4vw, 1.08rem);
+      }
+
+      .notice-link-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 14px;
+      }
+
+      .notice-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 36px;
+        border: 1px solid rgba(244, 240, 231, 0.2);
+        border-radius: var(--radius);
+        padding: 0 12px;
+        color: var(--text);
+        background: rgba(244, 240, 231, 0.07);
+        font-size: 0.9rem;
+        font-weight: 780;
+      }
+
+      .notice-link:hover {
+        border-color: rgba(212, 168, 48, 0.48);
+        background: rgba(244, 240, 231, 0.12);
+      }
+
       section {
         padding: 58px 0;
         border-top: 1px solid var(--line);
@@ -733,6 +803,10 @@
           min-height: 320px;
         }
 
+        .site-notice {
+          padding-top: 16px;
+        }
+
         .news-grid,
         .link-band {
           grid-template-columns: 1fr;
@@ -771,6 +845,18 @@
 
         .lead {
           font-size: 1.05rem;
+        }
+
+        .notice-box {
+          grid-template-columns: 1fr;
+          gap: 12px;
+          padding: 18px;
+        }
+
+        .notice-mark {
+          min-width: 36px;
+          min-height: 36px;
+          width: 36px;
         }
 
         .hero-media {
@@ -849,6 +935,23 @@
       </header>
 
       <main>
+        <div class="site-notice">
+          <div class="wrap">
+            <div class="notice-box" role="status">
+              <span class="notice-mark" aria-hidden="true">!</span>
+              <div>
+                <strong data-ja="このサイトは現在準備中です" data-en="This site is currently in preparation">このサイトは現在準備中です</strong>
+                <p data-ja="掲載内容、リンク、各タイトルページは仮の内容を含みます。正式公開まで順次更新します。" data-en="Some content, links, and title pages are temporary. Updates will continue toward the official launch.">
+                  掲載内容、リンク、各タイトルページは仮の内容を含みます。正式公開まで順次更新します。
+                </p>
+                <div class="notice-link-row">
+                  <a class="notice-link" href="https://x.com/BogosorGames" data-ja="最新情報はXで確認" data-en="Follow updates on X">最新情報はXで確認</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <section class="hero wrap" aria-label="BogosorStudio">
           <div class="hero-copy">
             <p class="eyebrow" data-ja="日本発の個人ゲームスタジオ" data-en="Independent game studio from Japan">日本発の個人ゲームスタジオ</p>
@@ -937,7 +1040,6 @@
 
             <div class="capsule-shelf" aria-label="Steamライブラリーカプセル">
               <a
-                id="sak-winik"
                 class="capsule-card"
                 href="./games/SakWinik.html"
                 style="--capsule-art: url('./assets/games/SakWinik/LibraryCapsule.png')"
@@ -947,9 +1049,9 @@
                     <span class="tag">会話</span>
                     <span class="tag">AI</span>
                   </div>
-                  <span class="release-label">リリース予定: 未定</span>
+                  <span class="release-label is-tba">リリース予定: 未定</span>
                   <h3>Sak Winik: The Appointed One</h3>
-                  <p>Steamページ準備中</p>
+                  <p data-ja="Steamページ準備中" data-en="Steam page in preparation">Steamページ準備中</p>
                 </div>
               </a>
 
@@ -981,7 +1083,7 @@
                   </div>
                   <span class="release-label is-tba">リリース予定: 未定</span>
                   <h3>Skill Hockey</h3>
-                  <p>Steamページ準備中</p>
+                  <p data-ja="Steamページ準備中" data-en="Steam page in preparation">Steamページ準備中</p>
                 </div>
               </a>
 
@@ -997,7 +1099,7 @@
                   </div>
                   <span class="release-label is-tba">リリース予定: 未定</span>
                   <h3>NyctoType</h3>
-                  <p>Steamページ準備中</p>
+                  <p data-ja="Steamページ準備中" data-en="Steam page in preparation">Steamページ準備中</p>
                 </div>
               </a>
 
@@ -1012,7 +1114,7 @@
                   </div>
                   <span class="release-label is-tba">発表準備中</span>
                   <h3>Happy Runner</h3>
-                  <p>発表準備中</p>
+                  <p data-ja="発表準備中" data-en="Preparing announcement">発表準備中</p>
                 </div>
               </a>
             </div>
