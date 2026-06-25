@@ -722,6 +722,14 @@
         gap: 18px;
         padding: 22px;
         background: rgba(23, 23, 19, 0.82);
+        transition:
+          background 160ms ease,
+          transform 160ms ease;
+      }
+
+      .news-item:hover {
+        background: rgba(244, 240, 231, 0.07);
+        transform: translateY(-1px);
       }
 
       .news-item b {
@@ -925,7 +933,8 @@
           </div>
           <nav class="nav-links" aria-label="メインナビゲーション">
             <a class="nav-link" href="#games" data-ja="ゲーム一覧" data-en="Games">ゲーム一覧</a>
-            <a class="nav-link" href="#news">News</a>
+            <a class="nav-link" href="./News/index.html">News</a>
+            <a class="nav-link" href="./Exhibitions/index.html">展示情報</a>
             <a class="nav-link" href="#contact">Contact</a>
             <a class="button button-primary" href="https://store.steampowered.com/search/?developer=BogosorStudio">
               Steam
@@ -964,7 +973,7 @@
                 <span data-ja="ゲーム一覧" data-en="Games">ゲーム一覧</span>
                 <b>Games</b>
               </a>
-              <a class="jump-link" href="#news">
+              <a class="jump-link" href="./News/index.html">
                 <span>News</span>
                 <b>Updates</b>
               </a>
@@ -1008,7 +1017,7 @@
 
             <a
               class="hero-slide"
-              href="#news"
+              href="./News/index.html"
               style="--slide-art: url('./assets/studio/news.jpg')"
             >
               <div class="slide-panel">
@@ -1132,18 +1141,22 @@
               </p>
             </div>
             <div class="news-list" aria-label="ニュースリンク">
-              <div class="news-item">
-                <b>Steam</b>
-                <p>タイトルのストアページ、リリース情報、ウィッシュリスト登録先を掲載します。</p>
-              </div>
-              <div class="news-item">
-                <b>X</b>
-                <p>開発中の更新、告知、イベント関連の情報を投稿します。</p>
-              </div>
-              <div class="news-item">
-                <b>Event</b>
-                <p>展示や試遊がある場合は、このページとXで告知します。</p>
-              </div>
+              <a class="news-item" href="./News/2026-06-25_サイト準備中/index.html">
+                <b>2026.06.25</b>
+                <p>サイト準備中のお知らせ</p>
+              </a>
+              <a class="news-item" href="./News/2026-06-25_Steamページ準備中/index.html">
+                <b>2026.06.25</b>
+                <p>Steamページ準備中</p>
+              </a>
+              <a class="news-item" href="./News/2026-06-25_イベント情報準備中/index.html">
+                <b>2026.06.25</b>
+                <p>イベント情報準備中</p>
+              </a>
+              <a class="news-item" href="./Exhibitions/index.html">
+                <b>Events</b>
+                <p>展示・試遊情報一覧</p>
+              </a>
             </div>
           </div>
         </section>
