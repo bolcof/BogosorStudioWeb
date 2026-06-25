@@ -14,6 +14,9 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="./assets/studio/og-image.jpg" />
+    <link rel="icon" href="./favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+
     <title>BogosorStudio</title>
     <style>
       :root {
@@ -381,6 +384,10 @@
         background-position: center;
         background-size: cover;
         filter: saturate(1.06) contrast(1.05);
+      }
+
+      .hero-slide.is-flipped::before {
+        transform: scaleX(-1);
       }
 
       .slide-panel {
@@ -986,9 +993,9 @@
 
           <div class="hero-media" aria-label="注目情報スライドショー">
             <a
-              class="hero-slide is-active"
+              class="hero-slide is-active is-flipped"
               href="./games/SakWinik.html"
-              style="--slide-art: url('./assets/games/SakWinik/LibraryHero.png')"
+              style="--slide-art: url('./assets/games/SakWinik/LibraryHero-1.png')"
             >
               <div class="slide-panel">
                 <div>

@@ -14,6 +14,9 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="../assets/games/SakWinik/OgImage.png" />
+    <link rel="icon" href="../favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+
     <title>Sak Winik: The Appointed One | BogosorStudio</title>
     <style>
       :root {
@@ -28,7 +31,9 @@
         --red: #d96d61;
         --max: 1180px;
         --radius: 8px;
-        --hero-art: url("../assets/games/SakWinik/LibraryHero.png");
+        --hero-art: url("../assets/games/SakWinik/LibraryHero-1.png");
+        --hero-art-position: left center;
+        --hero-art-transform: scaleX(-1);
         --shot-1: url("../assets/games/SakWinik/ScreenShot01.png");
         --shot-2: url("../assets/games/SakWinik/ScreenShot02.png");
         --shot-3: url("../assets/games/SakWinik/ScreenShot03.png");
@@ -167,6 +172,7 @@
         display: grid;
         min-height: 100svh;
         align-items: end;
+        isolation: isolate;
         overflow: hidden;
         padding: 116px 0 58px;
       }
@@ -178,18 +184,27 @@
         z-index: -2;
         background-image:
           linear-gradient(to right, rgba(8, 8, 6, 0.96), rgba(8, 8, 6, 0.42) 48%, rgba(8, 8, 6, 0.28)),
-          linear-gradient(to top, var(--bg), transparent 46%),
-          var(--hero-art);
+          linear-gradient(to top, var(--bg), transparent 46%);
         background-position:
           center,
-          center,
-          right center;
+          center;
         background-size:
           cover,
-          cover,
-          auto 100%;
+          cover;
+        background-repeat: no-repeat;
+      }
+
+      .hero-art {
+        position: absolute;
+        inset: 0;
+        z-index: -3;
+        background-image: var(--hero-art);
+        background-position: var(--hero-art-position, right center);
+        background-size: auto 100%;
         background-repeat: no-repeat;
         filter: saturate(1.08) contrast(1.08);
+        transform: var(--hero-art-transform, none);
+        transform-origin: center;
       }
 
       .hero::after {
@@ -685,6 +700,7 @@
 
     <main>
       <section class="hero">
+        <span class="hero-art" aria-hidden="true"></span>
         <div class="wrap hero-grid">
           <p class="eyebrow">Game page</p>
           <h1>Sak Winik: The Appointed One</h1>
