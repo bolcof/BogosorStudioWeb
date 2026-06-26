@@ -7,6 +7,7 @@ require "erb"
 ROOT = File.expand_path("..", __dir__)
 CSV_PATH = File.join(ROOT, "games.csv")
 INDEX_PATH = File.join(ROOT, "docs", "index.html")
+TEMP_PLATFORM_STORE_URL = "https://store.steampowered.com/app/2988640/HAPPY_RUNNER/"
 
 def h(value)
   ERB::Util.html_escape(value.to_s)
@@ -21,6 +22,12 @@ def asset_file(title_id, preferred)
   fallback || preferred
 end
 
+def asset_url(title_id, filename)
+  path = File.join(ROOT, "docs", "assets", "games", title_id, filename)
+  version = File.exist?(path) ? "?v=#{File.mtime(path).to_i}" : ""
+  "./assets/games/#{h(title_id)}/#{h(filename)}#{version}"
+end
+
 def replace!(html, pattern, replacement, label)
   unless html.sub!(pattern, replacement)
     warn "skip: #{label}"
@@ -28,21 +35,40 @@ def replace!(html, pattern, replacement, label)
   html
 end
 
+def platform_icon_name(platform)
+  normalized = platform.to_s.strip.downcase
+  return "steam" if normalized == "steam"
+  return "android" if normalized == "android"
+  return "ios" if normalized == "ios"
+
+  nil
+end
+
+def platform_icons(row)
+  row.fetch("meta_platform").split(/[|,\/]/).map do |platform|
+    name = platform_icon_name(platform)
+    next unless name
+
+    label = platform.strip
+    "                    <span class=\"platform-icon\" role=\"link\" tabindex=\"0\" aria-label=\"#{h(label)} store\" title=\"#{h(label)}\" data-store-url=\"#{h(TEMP_PLATFORM_STORE_URL)}\"><img src=\"./assets/platforms/#{name}.svg\" alt=\"\" /></span>"
+  end.compact.join("\n")
+end
+
 def game_card(row)
   title_id = row.fetch("title_id")
   capsule = asset_file(title_id, "LibraryCapsule.png")
-  tags = row.fetch("tags").split("|").map { |tag| "                    <span class=\"tag\">#{h(tag)}</span>" }.join("\n")
+  platforms = platform_icons(row)
   release_class = row.fetch("release_label_ja").include?("発表") ? "release-label is-tba" : "release-label is-tba"
 
   <<~HTML.rstrip
               <a
                 class="capsule-card"
                 href="./games/#{h(title_id)}.html"
-                style="--capsule-art: url('./assets/games/#{h(title_id)}/#{h(capsule)}')"
+                style="--capsule-art: url('#{asset_url(title_id, capsule)}')"
               >
                 <div class="capsule-content">
-                  <div class="tag-row" aria-label="ゲームタグ">
-#{tags}
+                  <div class="platform-row" aria-label="対応プラットフォーム">
+#{platforms}
                   </div>
                   <span class="#{release_class}">#{h(row.fetch("release_label_ja"))}</span>
                   <h3>#{h(row.fetch("title"))}</h3>
