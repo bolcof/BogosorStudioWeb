@@ -235,12 +235,14 @@
         gap: 34px;
         min-height: auto;
         padding: 48px 0 40px;
-        align-items: center;
+        align-items: stretch;
       }
 
       .hero-copy {
         position: relative;
         z-index: 2;
+        display: flex;
+        flex-direction: column;
       }
 
       .eyebrow {
@@ -294,8 +296,10 @@
 
       .jump-nav {
         display: grid;
+        flex: 1;
         gap: 1px;
         width: min(100%, 520px);
+        min-height: 0;
         overflow: hidden;
         border: 1px solid var(--line);
         border-radius: var(--radius);
@@ -392,57 +396,50 @@
 
       .slide-panel {
         position: absolute;
-        left: 20px;
-        right: 20px;
-        bottom: 56px;
+        left: 0;
+        right: 0;
+        bottom: 0;
         z-index: 3;
         display: flex;
-        align-items: end;
+        align-items: center;
         justify-content: space-between;
         gap: 16px;
-        border: 1px solid rgba(244, 240, 231, 0.18);
-        border-radius: var(--radius);
-        padding: 16px;
-        background: rgba(13, 13, 11, 0.68);
-        backdrop-filter: blur(16px);
+        min-height: 92px;
+        padding: 18px 22px 18px;
+        background: linear-gradient(
+          to top,
+          rgba(8, 8, 6, 0.9),
+          rgba(8, 8, 6, 0.62) 56%,
+          rgba(8, 8, 6, 0)
+        );
       }
 
       .slide-panel p {
         margin: 0;
         color: var(--muted);
-        font-size: 0.9rem;
+        font-size: 0.82rem;
+        font-weight: 760;
       }
 
       .slide-panel strong {
         display: block;
+        margin-top: 3px;
         color: var(--text);
         font-size: 1.15rem;
+        line-height: 1.12;
       }
 
       .slide-panel .button {
         width: auto;
         flex: 0 0 auto;
-      }
-
-      .slide-status {
-        display: inline-flex;
-        align-items: center;
-        min-height: 28px;
-        margin-top: 8px;
-        border: 1px solid rgba(212, 168, 48, 0.52);
-        border-radius: 8px;
-        padding: 4px 8px;
-        color: #17120a;
-        background: var(--gold);
-        font-size: 0.76rem;
-        font-weight: 850;
+        background: rgba(13, 13, 11, 0.54);
+        backdrop-filter: blur(10px);
       }
 
       .slide-dots {
         position: absolute;
         left: 20px;
-        right: 20px;
-        bottom: 20px;
+        top: 18px;
         z-index: 4;
         display: flex;
         gap: 8px;
@@ -450,15 +447,28 @@
 
       .slide-dot {
         width: 34px;
-        height: 4px;
+        height: 22px;
         border: 0;
         border-radius: 999px;
         padding: 0;
-        background: rgba(244, 240, 231, 0.28);
+        background: transparent;
         cursor: pointer;
+        position: relative;
       }
 
-      .slide-dot.is-active {
+      .slide-dot::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50%;
+        height: 4px;
+        border-radius: 999px;
+        background: rgba(244, 240, 231, 0.28);
+        transform: translateY(-50%);
+      }
+
+      .slide-dot.is-active::before {
         background: var(--gold);
       }
 
@@ -958,7 +968,8 @@
         .slide-panel {
           align-items: start;
           flex-direction: column;
-          bottom: 52px;
+          min-height: 110px;
+          padding: 22px 18px 18px;
         }
 
         .capsule-shelf {
@@ -1078,7 +1089,6 @@
                 <div>
                   <p>最新タイトル</p>
                   <strong>Sak Winik: The Appointed One</strong>
-                  <span class="slide-status">リリース予定: 未定</span>
                 </div>
                 <span class="button button-secondary">詳細</span>
               </div>
@@ -1093,7 +1103,6 @@
                 <div>
                   <p>タイトル</p>
                   <strong>REVERSI 2048</strong>
-                  <span class="slide-status">Steamページ準備中</span>
                 </div>
                 <span class="button button-secondary">詳細</span>
               </div>
@@ -1108,7 +1117,6 @@
                 <div>
                   <p>更新情報</p>
                   <strong>X / Steamニュース</strong>
-                  <span class="slide-status">開発・イベント情報</span>
                 </div>
                 <span class="button button-secondary">Newsへ</span>
               </div>
@@ -1340,7 +1348,7 @@
         const openStore = (event) => {
           event.preventDefault();
           event.stopPropagation();
-          window.location.href = icon.dataset.storeUrl;
+          window.open(icon.dataset.storeUrl, "_blank", "noopener");
         };
 
         icon.addEventListener("click", openStore);
