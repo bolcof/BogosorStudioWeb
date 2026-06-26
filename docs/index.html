@@ -401,7 +401,7 @@
         bottom: 0;
         z-index: 3;
         display: flex;
-        align-items: center;
+        align-items: flex-end;
         justify-content: space-between;
         gap: 16px;
         min-height: 92px;
@@ -414,19 +414,29 @@
         );
       }
 
+      .slide-panel > div {
+        position: relative;
+        display: flex;
+        align-items: center;
+        min-height: 42px;
+      }
+
       .slide-panel p {
+        position: absolute;
+        left: 0;
+        bottom: calc(100% + 2px);
         margin: 0;
         color: var(--muted);
         font-size: 0.82rem;
         font-weight: 760;
+        white-space: nowrap;
       }
 
       .slide-panel strong {
         display: block;
-        margin-top: 3px;
         color: var(--text);
-        font-size: 1.15rem;
-        line-height: 1.12;
+        font-size: 1.5rem;
+        line-height: 1;
       }
 
       .slide-panel .button {
@@ -728,9 +738,72 @@
       }
 
       #games.games-visual-trial {
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
         background:
-          linear-gradient(180deg, rgba(13, 13, 11, 0.18), rgba(123, 215, 184, 0.07) 48%, rgba(212, 168, 48, 0.09)),
+          radial-gradient(circle at 22% 28%, rgba(123, 215, 184, 0.14), transparent 24rem),
+          radial-gradient(circle at 82% 72%, rgba(212, 168, 48, 0.13), transparent 28rem),
+          linear-gradient(180deg, rgba(13, 13, 11, 0.04), rgba(123, 215, 184, 0.1) 48%, rgba(212, 168, 48, 0.14)),
+          linear-gradient(90deg, rgba(123, 215, 184, 0.14), transparent 22%, transparent 78%, rgba(212, 168, 48, 0.12)),
           rgba(13, 13, 11, 0.18);
+      }
+
+      #games.games-visual-trial::before,
+      #games.games-visual-trial::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      #games.games-visual-trial::before {
+        background-image:
+          linear-gradient(rgba(244, 240, 231, 0.07) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(244, 240, 231, 0.052) 1px, transparent 1px),
+          repeating-linear-gradient(
+            112deg,
+            transparent 0,
+            transparent 46px,
+            rgba(123, 215, 184, 0.07) 47px,
+            transparent 49px
+          ),
+          repeating-linear-gradient(
+            90deg,
+            transparent 0,
+            transparent 236px,
+            rgba(212, 168, 48, 0.11) 237px,
+            rgba(212, 168, 48, 0.11) 238px,
+            transparent 239px,
+            transparent 274px
+          );
+        background-size:
+          68px 68px,
+          68px 68px,
+          auto,
+          auto;
+        opacity: 0.95;
+        mask-image: linear-gradient(to bottom, transparent, black 12%, black 84%, transparent);
+      }
+
+      #games.games-visual-trial::after {
+        background:
+          linear-gradient(180deg, rgba(13, 13, 11, 0.14), transparent 24%, rgba(13, 13, 11, 0.44)),
+          repeating-linear-gradient(
+            to bottom,
+            transparent 0,
+            transparent 118px,
+            rgba(244, 240, 231, 0.09) 119px,
+            rgba(244, 240, 231, 0.04) 121px,
+            transparent 124px
+          );
+        opacity: 1;
+      }
+
+      #games.games-visual-trial > .wrap {
+        position: relative;
+        z-index: 1;
       }
 
       #games.games-visual-trial .section-head h2 {
@@ -972,6 +1045,16 @@
           padding: 22px 18px 18px;
         }
 
+        .slide-panel > div {
+          width: 100%;
+          min-height: 46px;
+        }
+
+        .slide-panel p {
+          max-width: 100%;
+          white-space: normal;
+        }
+
         .capsule-shelf {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
@@ -1081,14 +1164,15 @@
 
           <div class="hero-media" aria-label="注目情報スライドショー">
             <a
-              class="hero-slide is-active is-flipped"
-              href="./games/SakWinik.html"
-              style="--slide-art: url('./assets/games/SakWinik/LibraryHero-1.png')"
+              class="hero-slide is-active"
+              href="./games/NyctoType.html"
+              data-key-art="./assets/games/NyctoType/KeyArt.png"
+              style="--slide-art: url('./assets/studio/placeholder-keyart.svg')"
             >
               <div class="slide-panel">
                 <div>
-                  <p>最新タイトル</p>
-                  <strong>Sak Winik: The Appointed One</strong>
+                  <p>次回展示: gamescom 2026.8.26~8.30</p>
+                  <strong>NyctoType</strong>
                 </div>
                 <span class="button button-secondary">詳細</span>
               </div>
@@ -1097,11 +1181,12 @@
             <a
               class="hero-slide"
               href="./games/Reversi2048.html"
-              style="--slide-art: url('./assets/games/Reversi2048/LibraryHero.png')"
+              data-key-art="./assets/games/Reversi2048/KeyArt.png"
+              style="--slide-art: url('./assets/games/Reversi2048/KeyArt.png')"
             >
               <div class="slide-panel">
                 <div>
-                  <p>タイトル</p>
+                  <p>Nextリリース</p>
                   <strong>REVERSI 2048</strong>
                 </div>
                 <span class="button button-secondary">詳細</span>
@@ -1123,7 +1208,7 @@
             </a>
 
             <div class="slide-dots" aria-label="スライド切り替え">
-              <button class="slide-dot is-active" type="button" aria-label="最新タイトルを表示"></button>
+              <button class="slide-dot is-active" type="button" aria-label="NyctoTypeを表示"></button>
               <button class="slide-dot" type="button" aria-label="REVERSI 2048を表示"></button>
               <button class="slide-dot" type="button" aria-label="更新情報を表示"></button>
             </div>
@@ -1142,15 +1227,15 @@
             <div class="capsule-shelf" aria-label="Steamライブラリーカプセル">
               <a
                 class="capsule-card"
-                href="./games/SakWinik.html"
-                style="--capsule-art: url('./assets/games/SakWinik/LibraryCapsule.png?v=1782386002')"
+                href="./games/NyctoType.html"
+                style="--capsule-art: url('./assets/games/NyctoType/LibraryCapsule.png?v=1782324665')"
               >
                 <div class="capsule-content">
                   <div class="platform-row" aria-label="対応プラットフォーム">
                     <span class="platform-icon" role="link" tabindex="0" aria-label="Steam store" title="Steam" data-store-url="https://store.steampowered.com/app/2988640/HAPPY_RUNNER/"><img src="./assets/platforms/steam.svg" alt="" /></span>
                   </div>
                   <span class="release-label is-tba">リリース予定: 未定</span>
-                  <h3>Sak Winik: The Appointed One</h3>
+                  <h3>NyctoType</h3>
                   <p data-ja="Steamページ準備中" data-en="Steam page in preparation">Steamページ準備中</p>
                 </div>
               </a>
@@ -1189,21 +1274,6 @@
 
               <a
                 class="capsule-card"
-                href="./games/NyctoType.html"
-                style="--capsule-art: url('./assets/games/NyctoType/LibraryCapsule.png?v=1782324665')"
-              >
-                <div class="capsule-content">
-                  <div class="platform-row" aria-label="対応プラットフォーム">
-                    <span class="platform-icon" role="link" tabindex="0" aria-label="Steam store" title="Steam" data-store-url="https://store.steampowered.com/app/2988640/HAPPY_RUNNER/"><img src="./assets/platforms/steam.svg" alt="" /></span>
-                  </div>
-                  <span class="release-label is-tba">リリース予定: 未定</span>
-                  <h3>NyctoType</h3>
-                  <p data-ja="Steamページ準備中" data-en="Steam page in preparation">Steamページ準備中</p>
-                </div>
-              </a>
-
-              <a
-                class="capsule-card"
                 href="./games/HAPPYRUNNER.html"
                 style="--capsule-art: url('./assets/games/HAPPYRUNNER/LibraryCapsule.png?v=1782436607')"
               >
@@ -1214,6 +1284,21 @@
                   <span class="release-label is-tba">発表準備中</span>
                   <h3>HAPPY RUNNER</h3>
                   <p data-ja="発表準備中" data-en="Preparing announcement">発表準備中</p>
+                </div>
+              </a>
+
+              <a
+                class="capsule-card"
+                href="./games/SakWinik.html"
+                style="--capsule-art: url('./assets/games/SakWinik/LibraryCapsule.png?v=1782386002')"
+              >
+                <div class="capsule-content">
+                  <div class="platform-row" aria-label="対応プラットフォーム">
+                    <span class="platform-icon" role="link" tabindex="0" aria-label="Steam store" title="Steam" data-store-url="https://store.steampowered.com/app/2988640/HAPPY_RUNNER/"><img src="./assets/platforms/steam.svg" alt="" /></span>
+                  </div>
+                  <span class="release-label is-tba">リリース予定: 未定</span>
+                  <h3>Sak Winik: The Appointed One</h3>
+                  <p data-ja="Steamページ準備中" data-en="Steam page in preparation">Steamページ準備中</p>
                 </div>
               </a>
             </div>
@@ -1318,6 +1403,18 @@
 
       const slides = [...document.querySelectorAll(".hero-slide")];
       const dots = [...document.querySelectorAll(".slide-dot")];
+
+      slides.forEach((slide) => {
+        const keyArt = slide.dataset.keyArt;
+        if (!keyArt) return;
+
+        const imageValue = (path) => `${"ur" + "l"}("${path}")`;
+        const probe = new Image();
+        probe.onload = () => slide.style.setProperty("--slide-art", imageValue(keyArt));
+        probe.onerror = () => slide.style.setProperty("--slide-art", imageValue("./assets/studio/placeholder-keyart.svg"));
+        probe.src = keyArt;
+      });
+
       let activeSlide = 0;
       let slideTimer = null;
 

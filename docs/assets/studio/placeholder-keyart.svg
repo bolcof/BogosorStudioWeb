@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1350" role="img" aria-label="Key art placeholder">
+  <defs>
+    <linearGradient id="base" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#121610"/>
+      <stop offset="0.38" stop-color="#17342d"/>
+      <stop offset="0.68" stop-color="#332912"/>
+      <stop offset="1" stop-color="#090907"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d4a830" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#d4a830" stop-opacity="0.72"/>
+      <stop offset="1" stop-color="#7bd7b8" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="grid" width="96" height="96" patternUnits="userSpaceOnUse">
+      <path d="M96 0H0V96" fill="none" stroke="#f4f0e7" stroke-opacity="0.055" stroke-width="2"/>
+    </pattern>
+    <pattern id="scan" width="1" height="8" patternUnits="userSpaceOnUse">
+      <path d="M0 0H1V1H0z" fill="#f4f0e7" fill-opacity="0.055"/>
+    </pattern>
+    <filter id="soft">
+      <feGaussianBlur stdDeviation="36"/>
+    </filter>
+  </defs>
+  <rect width="2400" height="1350" fill="url(#base)"/>
+  <rect width="2400" height="1350" fill="url(#grid)"/>
+  <g filter="url(#soft)" opacity="0.58">
+    <circle cx="430" cy="280" r="240" fill="#7bd7b8"/>
+    <circle cx="1720" cy="880" r="340" fill="#d4a830"/>
+    <circle cx="2050" cy="240" r="260" fill="#3e6a58"/>
+  </g>
+  <g fill="none" stroke-linecap="round">
+    <path d="M-120 1020C260 760 620 700 980 840s660 150 1080-180 650-390 980-300" stroke="#7bd7b8" stroke-opacity="0.22" stroke-width="74"/>
+    <path d="M-60 1110C390 850 690 860 1000 970s560 80 930-180 620-330 930-260" stroke="#d4a830" stroke-opacity="0.2" stroke-width="32"/>
+    <path d="M260 220h760" stroke="url(#line)" stroke-width="6"/>
+    <path d="M1290 1130h720" stroke="url(#line)" stroke-width="6"/>
+  </g>
+  <g opacity="0.48" fill="none" stroke="#f4f0e7" stroke-width="2">
+    <rect x="246" y="214" width="520" height="292" rx="22"/>
+    <rect x="316" y="284" width="520" height="292" rx="22"/>
+    <rect x="1550" y="668" width="462" height="260" rx="22"/>
+    <rect x="1620" y="738" width="462" height="260" rx="22"/>
+  </g>
+  <g opacity="0.32">
+    <path d="M380 1260 2020 90" stroke="#f4f0e7" stroke-width="1"/>
+    <path d="M520 1320 2160 150" stroke="#f4f0e7" stroke-width="1"/>
+    <path d="M240 1180 1880 10" stroke="#f4f0e7" stroke-width="1"/>
+  </g>
+  <rect width="2400" height="1350" fill="url(#scan)"/>
+  <rect width="2400" height="1350" fill="none" stroke="#f4f0e7" stroke-opacity="0.18" stroke-width="2"/>
+</svg>
