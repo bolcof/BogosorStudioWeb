@@ -49,6 +49,10 @@ docs/assets/games/<TitleId>/
 - `ScreenShot02.png` - 個別ページのスクリーンショット
 - `OgImage.png` - SNS共有用画像
 
+トップページ上部のヒーロースライダーは、各タイトルの `KeyArt.png` を優先して使います。まだ `KeyArt.png` がないタイトルは、仮で `docs/assets/studio/placeholder-keyart.svg` を使います。スライドに `data-key-art="./assets/games/<TitleId>/KeyArt.png"` を入れておくと、後から画像を追加した時に自動で差し替わります。
+
+現在のヒーロースライダー表示枠は、最も縦長で約 `0.81:1`、最も横長で約 `2.75:1` まで変化します。中央の重要要素を残し、左右上下の端はトリミングされても成立する画像にすると安定します。
+
 ## News記事の追加
 
 News一覧ページは `docs/News/index.html` です。
