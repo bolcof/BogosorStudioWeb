@@ -14,385 +14,17 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="../assets/games/SkillHockey/LibraryCapsule.png" />
+    <link rel="icon" href="../favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+
     <title>Skill Hockey | BogosorStudio</title>
+    <link rel="stylesheet" href="./game-page.css" />
+
     <style>
       :root {
-        color-scheme: dark;
-        --bg: #080806;
-        --panel: rgba(18, 18, 15, 0.76);
-        --text: #f5f1e8;
-        --muted: #bdb5a5;
-        --line: rgba(245, 241, 232, 0.17);
-        --gold: #d4a830;
-        --green: #7bd7b8;
-        --red: #d96d61;
-        --max: 1180px;
-        --radius: 8px;
         --hero-art: url("../assets/games/SkillHockey/LibraryHero.png");
+        --shot-1: url("../assets/games/SkillHockey/ScreenShot01.png");
       }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        margin: 0;
-        min-width: 320px;
-        background:
-          radial-gradient(circle at 14% 12%, rgba(212, 168, 48, 0.16), transparent 28rem),
-          radial-gradient(circle at 84% 8%, rgba(123, 215, 184, 0.13), transparent 22rem),
-          var(--bg);
-        color: var(--text);
-        font-family:
-          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-          sans-serif;
-        letter-spacing: 0;
-        line-height: 1.55;
-      }
-
-      body::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        z-index: -2;
-        background-image:
-          linear-gradient(rgba(245, 241, 232, 0.035) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(245, 241, 232, 0.035) 1px, transparent 1px);
-        background-size: 64px 64px;
-        mask-image: linear-gradient(to bottom, black, transparent 74%);
-      }
-
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      .wrap {
-        width: min(calc(100% - 40px), var(--max));
-        margin: 0 auto;
-      }
-
-      .topbar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 20;
-        border-bottom: 1px solid rgba(245, 241, 232, 0.12);
-        background: rgba(8, 8, 6, 0.72);
-        backdrop-filter: blur(18px);
-      }
-
-      .topbar-inner {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        min-height: 64px;
-        gap: 18px;
-      }
-
-      .brand {
-        color: var(--muted);
-        font-size: 0.9rem;
-        font-weight: 760;
-      }
-
-      .brand-cluster {
-        display: inline-flex;
-        align-items: center;
-        gap: 12px;
-        min-width: 0;
-      }
-
-      .lang-toggle {
-        display: inline-flex;
-        align-items: center;
-        gap: 5px;
-        min-height: 34px;
-        border: 1px solid var(--line);
-        border-radius: var(--radius);
-        padding: 0 9px;
-        color: var(--muted);
-        background: rgba(245, 241, 232, 0.06);
-        font: inherit;
-        font-size: 0.78rem;
-        font-weight: 820;
-        cursor: pointer;
-      }
-
-      .lang-toggle:hover {
-        color: var(--text);
-        background: rgba(245, 241, 232, 0.1);
-      }
-
-      .lang-option.is-active {
-        color: var(--gold);
-      }
-
-      .top-links {
-        display: flex;
-        gap: 8px;
-      }
-
-      .button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 42px;
-        border: 1px solid var(--line);
-        border-radius: var(--radius);
-        padding: 0 15px;
-        color: var(--text);
-        background: rgba(245, 241, 232, 0.06);
-        font-size: 0.9rem;
-        font-weight: 760;
-      }
-
-      .button-primary {
-        border-color: transparent;
-        color: #161108;
-        background: var(--gold);
-        box-shadow: 0 16px 34px rgba(212, 168, 48, 0.22);
-      }
-
-      .hero {
-        position: relative;
-        display: grid;
-        min-height: 100svh;
-        align-items: end;
-        overflow: hidden;
-        padding: 116px 0 58px;
-      }
-
-      .hero::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        z-index: -2;
-        background-image:
-          linear-gradient(to right, rgba(8, 8, 6, 0.96), rgba(8, 8, 6, 0.42) 48%, rgba(8, 8, 6, 0.28)),
-          linear-gradient(to top, var(--bg), transparent 46%),
-          var(--hero-art);
-        background-position:
-          center,
-          center,
-          right center;
-        background-size:
-          cover,
-          cover,
-          auto 100%;
-        background-repeat: no-repeat;
-        filter: saturate(1.08) contrast(1.08);
-      }
-
-      .hero::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        z-index: -1;
-        background:
-          repeating-linear-gradient(
-            to bottom,
-            rgba(255, 255, 255, 0.034) 0,
-            rgba(255, 255, 255, 0.034) 1px,
-            transparent 1px,
-            transparent 6px
-          ),
-          linear-gradient(to bottom, transparent 62%, var(--bg));
-        opacity: 0.56;
-      }
-
-      .hero-grid {
-        display: block;
-        max-width: 760px;
-      }
-
-      .eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        margin: 0 0 18px;
-        color: var(--green);
-        font-size: 0.78rem;
-        font-weight: 820;
-        text-transform: uppercase;
-      }
-
-      .eyebrow::before {
-        content: "";
-        width: 8px;
-        height: 8px;
-        border-radius: 999px;
-        background: var(--green);
-        box-shadow: 0 0 22px rgba(123, 215, 184, 0.74);
-      }
-
-      h1,
-      h2,
-      h3,
-      p {
-        margin-top: 0;
-      }
-
-      h1 {
-        max-width: 11ch;
-        margin-bottom: 18px;
-        font-size: clamp(3.2rem, 10vw, 8.6rem);
-        line-height: 0.86;
-        letter-spacing: 0;
-      }
-
-      .summary {
-        max-width: 540px;
-        margin-bottom: 26px;
-        color: #ded7c8;
-        font-size: clamp(1rem, 1.7vw, 1.18rem);
-      }
-
-      .status-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-bottom: 26px;
-      }
-
-      .label {
-        display: inline-flex;
-        align-items: center;
-        min-height: 34px;
-        border: 1px solid rgba(212, 168, 48, 0.56);
-        border-radius: var(--radius);
-        padding: 5px 10px;
-        color: #161108;
-        background: linear-gradient(135deg, #f2d36c, var(--gold));
-        font-size: 0.82rem;
-        font-weight: 850;
-      }
-
-      .label-muted {
-        border-color: rgba(245, 241, 232, 0.2);
-        color: var(--text);
-        background: rgba(245, 241, 232, 0.08);
-      }
-
-      .action-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-
-      .text-band {
-        padding: 70px 0 64px;
-        border-top: 1px solid var(--line);
-        background: linear-gradient(to bottom, rgba(8, 8, 6, 0.96), rgba(8, 8, 6, 0.84));
-      }
-
-      .text-blocks {
-        display: grid;
-        gap: 28px;
-      }
-
-      .text-block {
-        padding-bottom: 28px;
-        border-bottom: 1px solid rgba(245, 241, 232, 0.12);
-      }
-
-      .text-block:last-child {
-        padding-bottom: 0;
-        border-bottom: 0;
-      }
-
-      .text-block h2 {
-        margin-bottom: 0;
-        font-size: clamp(1.25rem, 2.2vw, 2rem);
-        line-height: 1.08;
-      }
-
-      .text-block p {
-        max-width: 900px;
-        margin-top: 14px;
-        margin-bottom: 0;
-        color: var(--muted);
-        font-size: clamp(1rem, 1.5vw, 1.18rem);
-      }
-
-      .link-panel {
-        padding: 54px 0 78px;
-        border-top: 1px solid var(--line);
-      }
-
-      .link-box {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 28px;
-        align-items: center;
-        border: 1px solid rgba(212, 168, 48, 0.3);
-        border-radius: var(--radius);
-        padding: 28px;
-        background:
-          linear-gradient(135deg, rgba(212, 168, 48, 0.13), rgba(123, 215, 184, 0.08)),
-          rgba(18, 18, 15, 0.84);
-      }
-
-      .link-box h2 {
-        margin-bottom: 8px;
-        font-size: 2rem;
-      }
-
-      .link-box p {
-        margin-bottom: 0;
-        color: var(--muted);
-      }
-
-      .meta-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 14px;
-        margin-top: 18px;
-        color: var(--muted);
-        font-size: 0.84rem;
-      }
-
-      .meta-row span {
-        display: inline-flex;
-        gap: 6px;
-      }
-
-      .meta-row b {
-        color: var(--text);
-        font-weight: 760;
-      }
-
-      @media (max-width: 920px) {
-        .hero {
-          min-height: auto;
-        }
-
-        .link-box {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      @media (max-width: 640px) {
-        .wrap {
-          width: min(calc(100% - 28px), var(--max));
-        }
-
-        .topbar-inner {
-          min-height: 58px;
-        }
-
-        .top-links .button:first-child {
-          display: none;
-        }
-
-        .hero {
-          padding: 92px 0 42px;
-        }      }
     </style>
   </head>
   <body>
@@ -407,7 +39,6 @@
           </button>
         </div>
         <nav class="top-links" aria-label="ページリンク">
-          <a class="button" href="../index.html#games" data-ja="ゲーム一覧" data-en="Games">ゲーム一覧</a>
           <a
             class="button button-primary"
             href="https://store.steampowered.com/search/?term=Skill%20Hockey"
@@ -420,8 +51,8 @@
 
     <main>
       <section class="hero">
+        <span class="hero-art" aria-hidden="true"></span>
         <div class="wrap hero-grid">
-          <p class="eyebrow">Game page</p>
           <h1>Skill Hockey</h1>
           <p class="summary" data-ja="Skill Hockeyの公開情報、ストアリンク、関連リンクをこのページにまとめます。" data-en="Release information store links and related links for Skill Hockey are collected here.">
             Skill Hockeyの公開情報、ストアリンク、関連リンクをこのページにまとめます。
@@ -437,8 +68,6 @@
             >
               Steam
             </a>
-            <a class="button" href="https://x.com/BogosorGames">X</a>
-            <a class="button" href="../index.html" data-ja="公式トップ" data-en="Home">公式トップ</a>
           </div>
         </div>
       </section>
@@ -453,6 +82,35 @@
             <h2 data-ja="更新" data-en="Updates">更新</h2>
             <p data-ja="リリース時期、ストアリンク、イベント展示などの情報をここに追加できます。" data-en="Release timing store links event appearances and other notes can be added here.">リリース時期、ストアリンク、イベント展示などの情報をここに追加できます。</p>
           </article>
+        </div>
+      </section>
+
+      <section class="visual-band">
+        <div class="wrap">
+          <div class="band-head">
+            <h2>Visuals</h2>
+          </div>
+          <div class="screenshot-carousel" data-screenshot-carousel>
+            <figure class="screenshot-slide is-active">
+              <img src="../assets/games/SkillHockey/ScreenShot01.png" alt="Skill Hockey screenshot 01" />
+            </figure>
+            <figure class="screenshot-slide">
+              <img src="../assets/games/SkillHockey/ScreenShot02.png" alt="Skill Hockey screenshot 02" />
+            </figure>
+            <figure class="screenshot-slide">
+              <img src="../assets/games/SkillHockey/ScreenShot03.png" alt="Skill Hockey screenshot 03" />
+            </figure>
+            <figure class="screenshot-slide">
+              <img src="../assets/games/SkillHockey/ScreenShot04.png" alt="Skill Hockey screenshot 04" />
+            </figure>
+            <figure class="screenshot-slide">
+              <img src="../assets/games/SkillHockey/ScreenShot05.png" alt="Skill Hockey screenshot 05" />
+            </figure>
+            <figure class="screenshot-slide">
+              <img src="../assets/games/SkillHockey/ScreenShot06.png" alt="Skill Hockey screenshot 06" />
+            </figure>
+            <div class="screenshot-controls" aria-label="スクリーンショット切り替え"></div>
+          </div>
         </div>
       </section>
 
@@ -475,7 +133,6 @@
               >
                 Steam
               </a>
-              <a class="button" href="https://x.com/BogosorGames">X</a>
             </div>
           </div>
         </div>
@@ -506,6 +163,182 @@
       });
 
       setLanguage(localStorage.getItem(languageKey) || "ja");
+
+      let imageLightbox;
+
+      const closeLightbox = () => {
+        if (!imageLightbox) return;
+        imageLightbox.hidden = true;
+        document.body.style.overflow = "";
+      };
+
+      const openLightbox = ({ alt, src }) => {
+        if (!imageLightbox) {
+          imageLightbox = document.createElement("div");
+          imageLightbox.className = "image-lightbox";
+          imageLightbox.hidden = true;
+          imageLightbox.innerHTML = `
+            <button class="lightbox-close" type="button" aria-label="閉じる">×</button>
+            <img alt="" />
+          `;
+          imageLightbox.addEventListener("click", (event) => {
+            if (event.target === imageLightbox) closeLightbox();
+          });
+          imageLightbox.querySelector(".lightbox-close").addEventListener("click", closeLightbox);
+          document.body.append(imageLightbox);
+        }
+
+        const image = imageLightbox.querySelector("img");
+        image.src = src;
+        image.alt = alt;
+        imageLightbox.hidden = false;
+        document.body.style.overflow = "hidden";
+      };
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeLightbox();
+      });
+
+      document.querySelectorAll("[data-screenshot-carousel]").forEach((carousel) => {
+        const screenshots = [...carousel.querySelectorAll(".screenshot-slide img")].map((image) => ({
+          alt: image.alt,
+          src: image.getAttribute("src"),
+        }));
+        const shouldReduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        let activeIndex = 0;
+        let isAnimating = false;
+        let timerId;
+
+        if (!screenshots.length) return;
+
+        carousel.textContent = "";
+
+        const wrapIndex = (index) => (index + screenshots.length) % screenshots.length;
+        const viewport = document.createElement("div");
+        viewport.className = "screenshot-viewport";
+        carousel.append(viewport);
+
+        const slots = [
+          { className: "slot-prev is-side", offset: -1 },
+          { className: "slot-active is-active", offset: 0 },
+          { className: "slot-next is-side", offset: 1 },
+        ].map((slot) => {
+          const figure = document.createElement("figure");
+          const image = document.createElement("img");
+          figure.className = `screenshot-slide ${slot.className}`;
+          figure.tabIndex = 0;
+          figure.setAttribute("role", "button");
+          figure.append(image);
+          figure.addEventListener("click", () => {
+            openLightbox(screenshots[Number(figure.dataset.index)]);
+          });
+          figure.addEventListener("keydown", (event) => {
+            if (event.key !== "Enter" && event.key !== " ") return;
+            event.preventDefault();
+            openLightbox(screenshots[Number(figure.dataset.index)]);
+          });
+          viewport.append(figure);
+          return { ...slot, figure, image };
+        });
+
+        const prevButton = document.createElement("button");
+        prevButton.type = "button";
+        prevButton.className = "screenshot-arrow screenshot-arrow-prev";
+        prevButton.setAttribute("aria-label", "前のスクリーンショット");
+        prevButton.textContent = "‹";
+        viewport.append(prevButton);
+
+        const nextButton = document.createElement("button");
+        nextButton.type = "button";
+        nextButton.className = "screenshot-arrow screenshot-arrow-next";
+        nextButton.setAttribute("aria-label", "次のスクリーンショット");
+        nextButton.textContent = "›";
+        viewport.append(nextButton);
+
+        const controls = document.createElement("div");
+        controls.className = "screenshot-controls";
+        controls.setAttribute("aria-label", "スクリーンショット切り替え");
+        carousel.append(controls);
+
+        const paintSlots = (centerIndex, overrides = {}) => {
+          slots.forEach((slot) => {
+            const index = overrides[slot.offset] ?? wrapIndex(centerIndex + slot.offset);
+            const screenshot = screenshots[index];
+            slot.figure.dataset.index = String(index);
+            slot.image.src = screenshot.src;
+            slot.image.alt = screenshot.alt;
+          });
+          controls.querySelectorAll(".screenshot-dot").forEach((dot, index) => {
+            dot.classList.toggle("is-active", index === centerIndex);
+            dot.setAttribute("aria-current", index === centerIndex ? "true" : "false");
+          });
+        };
+
+        const showSlide = (nextIndex, direction = "next", animate = true) => {
+          const targetIndex = wrapIndex(nextIndex);
+          if (targetIndex === activeIndex || isAnimating) return;
+
+          if (shouldReduceMotion || !animate) {
+            activeIndex = targetIndex;
+            paintSlots(activeIndex);
+            return;
+          }
+
+          isAnimating = true;
+          paintSlots(activeIndex, direction === "next" ? { 1: targetIndex } : { [-1]: targetIndex });
+          carousel.classList.add(direction === "next" ? "is-moving-next" : "is-moving-prev");
+
+          window.setTimeout(() => {
+            activeIndex = targetIndex;
+            carousel.classList.add("is-resetting");
+            carousel.classList.remove("is-moving-next", "is-moving-prev");
+            paintSlots(activeIndex);
+            carousel.offsetHeight;
+            window.requestAnimationFrame(() => {
+              carousel.classList.remove("is-resetting");
+              isAnimating = false;
+            });
+          }, 380);
+        };
+
+        const startAutoPlay = () => {
+          if (shouldReduceMotion || screenshots.length < 2) return;
+          timerId = window.setInterval(() => showSlide(activeIndex + 1, "next"), 5200);
+        };
+
+        if (screenshots.length > 1) {
+          prevButton.addEventListener("click", () => {
+            window.clearInterval(timerId);
+            showSlide(activeIndex - 1, "prev");
+            startAutoPlay();
+          });
+
+          nextButton.addEventListener("click", () => {
+            window.clearInterval(timerId);
+            showSlide(activeIndex + 1, "next");
+            startAutoPlay();
+          });
+
+          screenshots.forEach((_, index) => {
+            const dot = document.createElement("button");
+            dot.type = "button";
+            dot.className = "screenshot-dot";
+            dot.setAttribute("aria-label", `ScreenShot${String(index + 1).padStart(2, "0")}`);
+            dot.addEventListener("click", () => {
+              window.clearInterval(timerId);
+              showSlide(index, index > activeIndex ? "next" : "prev");
+              startAutoPlay();
+            });
+            controls.append(dot);
+          });
+        } else {
+          prevButton.hidden = true;
+          nextButton.hidden = true;
+        }
+
+        paintSlots(activeIndex);
+        startAutoPlay();
+      });
     </script>
   </body>
 </html>

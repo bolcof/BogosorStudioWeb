@@ -14,6 +14,9 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="./assets/studio/og-image.jpg" />
+    <link rel="icon" href="./favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+
     <title>BogosorStudio</title>
     <style>
       :root {
@@ -383,6 +386,10 @@
         filter: saturate(1.06) contrast(1.05);
       }
 
+      .hero-slide.is-flipped::before {
+        transform: scaleX(-1);
+      }
+
       .slide-panel {
         position: absolute;
         left: 20px;
@@ -565,12 +572,12 @@
 
       .capsule-card {
         position: relative;
-        display: block;
+        display: flex;
+        flex-direction: column;
         min-height: 0;
         overflow: hidden;
         border: 1px solid var(--line);
         border-radius: var(--radius);
-        aspect-ratio: 2 / 3;
         background:
           linear-gradient(145deg, rgba(212, 168, 48, 0.16), rgba(123, 215, 184, 0.08)),
           var(--panel);
@@ -592,11 +599,10 @@
 
       .capsule-card::before {
         content: "";
-        position: absolute;
-        inset: 0;
-        background-image:
-          linear-gradient(to top, rgba(13, 13, 11, 0.95) 0%, rgba(13, 13, 11, 0.2) 42%, transparent 72%),
-          var(--capsule-art);
+        display: block;
+        width: 100%;
+        aspect-ratio: 2 / 3;
+        background-image: var(--capsule-art);
         background-position: center;
         background-size: cover;
         opacity: 0.98;
@@ -605,9 +611,10 @@
       .capsule-card::after {
         content: "";
         position: absolute;
-        inset: 0;
+        inset: 0 0 auto 0;
         border: 1px solid rgba(255, 255, 255, 0.08);
         border-radius: inherit;
+        aspect-ratio: 2 / 3;
         background:
           linear-gradient(to bottom, rgba(255, 255, 255, 0.12), transparent 18%),
           repeating-linear-gradient(
@@ -621,10 +628,15 @@
       }
 
       .capsule-content {
-        position: absolute;
-        inset: auto 0 0 0;
+        position: relative;
         z-index: 2;
-        padding: 18px;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        padding: 15px 16px 16px;
+        background:
+          linear-gradient(180deg, rgba(13, 13, 11, 0.98), rgba(23, 23, 19, 0.96)),
+          var(--panel);
       }
 
       .tag-row {
@@ -645,18 +657,20 @@
       }
 
       .capsule-content h3 {
+        order: 1;
         margin-bottom: 8px;
         font-size: clamp(1rem, 1.35vw, 1.34rem);
         line-height: 1.1;
       }
 
       .release-label {
+        order: 3;
         display: inline-flex;
         align-items: center;
         width: fit-content;
         max-width: 100%;
+        margin-top: 14px;
         min-height: 34px;
-        margin-bottom: 12px;
         border: 1px solid rgba(212, 168, 48, 0.58);
         border-radius: 8px;
         padding: 6px 10px;
@@ -683,9 +697,65 @@
       }
 
       .capsule-content p {
+        order: 2;
         margin-bottom: 0;
         color: #d7d0c1;
         font-size: 0.86rem;
+      }
+
+      #games.games-visual-trial {
+        background:
+          linear-gradient(180deg, rgba(13, 13, 11, 0.18), rgba(123, 215, 184, 0.07) 48%, rgba(212, 168, 48, 0.09)),
+          rgba(13, 13, 11, 0.18);
+      }
+
+      #games.games-visual-trial .section-head h2 {
+        color: #fff8e7;
+        text-shadow: 0 14px 36px rgba(212, 168, 48, 0.28);
+      }
+
+      #games.games-visual-trial .section-head h2::after {
+        content: "";
+        display: block;
+        width: 92px;
+        height: 3px;
+        margin-top: 14px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, var(--gold), var(--green));
+        box-shadow: 0 0 30px rgba(123, 215, 184, 0.35);
+      }
+
+      #games.games-visual-trial .capsule-card {
+        border-color: rgba(244, 240, 231, 0.2);
+        background:
+          linear-gradient(145deg, rgba(212, 168, 48, 0.2), rgba(123, 215, 184, 0.12)),
+          var(--panel);
+      }
+
+      #games.games-visual-trial .capsule-card:hover {
+        border-color: rgba(123, 215, 184, 0.72);
+        box-shadow:
+          0 26px 70px rgba(0, 0, 0, 0.46),
+          0 0 0 1px rgba(212, 168, 48, 0.22);
+      }
+
+      #games.games-visual-trial .capsule-content {
+        background:
+          linear-gradient(180deg, rgba(13, 13, 11, 0.98), rgba(21, 25, 20, 0.96)),
+          linear-gradient(135deg, rgba(212, 168, 48, 0.15), rgba(123, 215, 184, 0.08));
+      }
+
+      #games.games-visual-trial .capsule-content h3 {
+        color: #fff8e7;
+      }
+
+      #games.games-visual-trial .capsule-content p {
+        color: #cfc7b6;
+      }
+
+      #games.games-visual-trial .tag {
+        border-color: rgba(123, 215, 184, 0.34);
+        background: rgba(123, 215, 184, 0.1);
       }
 
       .news-grid {
@@ -722,6 +792,14 @@
         gap: 18px;
         padding: 22px;
         background: rgba(23, 23, 19, 0.82);
+        transition:
+          background 160ms ease,
+          transform 160ms ease;
+      }
+
+      .news-item:hover {
+        background: rgba(244, 240, 231, 0.07);
+        transform: translateY(-1px);
       }
 
       .news-item b {
@@ -925,7 +1003,8 @@
           </div>
           <nav class="nav-links" aria-label="メインナビゲーション">
             <a class="nav-link" href="#games" data-ja="ゲーム一覧" data-en="Games">ゲーム一覧</a>
-            <a class="nav-link" href="#news">News</a>
+            <a class="nav-link" href="./News/index.html">News</a>
+            <a class="nav-link" href="./Exhibitions/index.html">展示情報</a>
             <a class="nav-link" href="#contact">Contact</a>
             <a class="button button-primary" href="https://store.steampowered.com/search/?developer=BogosorStudio">
               Steam
@@ -964,7 +1043,7 @@
                 <span data-ja="ゲーム一覧" data-en="Games">ゲーム一覧</span>
                 <b>Games</b>
               </a>
-              <a class="jump-link" href="#news">
+              <a class="jump-link" href="./News/index.html">
                 <span>News</span>
                 <b>Updates</b>
               </a>
@@ -977,9 +1056,9 @@
 
           <div class="hero-media" aria-label="注目情報スライドショー">
             <a
-              class="hero-slide is-active"
+              class="hero-slide is-active is-flipped"
               href="./games/SakWinik.html"
-              style="--slide-art: url('./assets/games/SakWinik/LibraryHero.png')"
+              style="--slide-art: url('./assets/games/SakWinik/LibraryHero-1.png')"
             >
               <div class="slide-panel">
                 <div>
@@ -1008,7 +1087,7 @@
 
             <a
               class="hero-slide"
-              href="#news"
+              href="./News/index.html"
               style="--slide-art: url('./assets/studio/news.jpg')"
             >
               <div class="slide-panel">
@@ -1029,10 +1108,10 @@
           </div>
         </section>
 
-        <section id="games">
+        <section id="games" class="games-visual-trial">
           <div class="wrap">
             <div class="section-head">
-              <h2 data-ja="ゲーム一覧" data-en="Games">ゲーム一覧</h2>
+              <h2 data-ja="開発タイトル" data-en="Development Titles">開発タイトル</h2>
               <p data-ja="Steamで公開中・公開予定のタイトル一覧です。各タイトルの詳細はSteamページに掲載します。" data-en="A list of titles released or planned for Steam. Details for each title are linked from its own page.">
                 Steamで公開中・公開予定のタイトル一覧です。各タイトルの詳細はSteamページに掲載します。
               </p>
@@ -1105,15 +1184,15 @@
 
               <a
                 class="capsule-card"
-                href="./games/HappyRunner.html"
-                style="--capsule-art: url('./assets/games/HappyRunner/LibraryCapsule.jpg')"
+                href="./games/HAPPYRUNNER.html"
+                style="--capsule-art: url('./assets/games/HAPPYRUNNER/LibraryCapsule.png')"
               >
                 <div class="capsule-content">
                   <div class="tag-row" aria-label="ゲームタグ">
                     <span class="tag">Runner</span>
                   </div>
                   <span class="release-label is-tba">発表準備中</span>
-                  <h3>Happy Runner</h3>
+                  <h3>HAPPY RUNNER</h3>
                   <p data-ja="発表準備中" data-en="Preparing announcement">発表準備中</p>
                 </div>
               </a>
@@ -1132,18 +1211,22 @@
               </p>
             </div>
             <div class="news-list" aria-label="ニュースリンク">
-              <div class="news-item">
-                <b>Steam</b>
-                <p>タイトルのストアページ、リリース情報、ウィッシュリスト登録先を掲載します。</p>
-              </div>
-              <div class="news-item">
-                <b>X</b>
-                <p>開発中の更新、告知、イベント関連の情報を投稿します。</p>
-              </div>
-              <div class="news-item">
-                <b>Event</b>
-                <p>展示や試遊がある場合は、このページとXで告知します。</p>
-              </div>
+              <a class="news-item" href="./News/2026-06-25_サイト準備中/index.html">
+                <b>2026.06.25</b>
+                <p>サイト準備中のお知らせ</p>
+              </a>
+              <a class="news-item" href="./News/2026-06-25_Steamページ準備中/index.html">
+                <b>2026.06.25</b>
+                <p>Steamページ準備中</p>
+              </a>
+              <a class="news-item" href="./News/2026-06-25_イベント情報準備中/index.html">
+                <b>2026.06.25</b>
+                <p>イベント情報準備中</p>
+              </a>
+              <a class="news-item" href="./Exhibitions/index.html">
+                <b>Events</b>
+                <p>展示・試遊情報一覧</p>
+              </a>
             </div>
           </div>
         </section>

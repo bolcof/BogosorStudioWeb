@@ -1,22 +1,4 @@
-<!doctype html>
-<html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Happy Runner の紹介ページ。Steamページ、更新情報、関連リンクを掲載しています。"
-    />
-    <meta property="og:title" content="Happy Runner | BogosorStudio" />
-    <meta
-      property="og:description"
-      content="Happy Runner の紹介ページ。"
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="../assets/games/HappyRunner/LibraryCapsule.jpg" />
-    <title>Happy Runner | BogosorStudio</title>
-    <style>
-      :root {
+:root {
         color-scheme: dark;
         --bg: #080806;
         --panel: rgba(18, 18, 15, 0.76);
@@ -28,8 +10,11 @@
         --red: #d96d61;
         --max: 1180px;
         --radius: 8px;
-        --key-art: url("../assets/games/HappyRunner/LibraryCapsule.jpg");
-        --hero-art: url("../assets/games/HappyRunner/LibraryCapsule.jpg");
+        --hero-art: none;
+        --hero-art-position: right center;
+        --hero-art-size: auto 100%;
+        --hero-art-transform: none;
+        --shot-1: none;
       }
 
       * {
@@ -175,23 +160,28 @@
         inset: 0;
         z-index: -2;
         background-image:
-          linear-gradient(to right, rgba(8, 8, 6, 0.96), rgba(8, 8, 6, 0.4) 52%, rgba(8, 8, 6, 0.78)),
-          linear-gradient(to top, var(--bg), transparent 46%),
-          var(--key-art),
-          var(--hero-art);
+          linear-gradient(to right, rgba(8, 8, 6, 0.96), rgba(8, 8, 6, 0.42) 48%, rgba(8, 8, 6, 0.28)),
+          linear-gradient(to top, var(--bg), transparent 46%);
         background-position:
           center,
-          center,
-          center,
-          right center;
+          center;
         background-size:
           cover,
-          cover,
-          cover,
-          min(78vw, 980px) auto;
+          cover;
+        background-repeat: no-repeat;
+      }
+
+      .hero-art {
+        position: absolute;
+        inset: 0;
+        z-index: -3;
+        background-image: var(--hero-art);
+        background-position: var(--hero-art-position);
+        background-size: var(--hero-art-size);
         background-repeat: no-repeat;
         filter: saturate(1.08) contrast(1.08);
-        transform: scale(1.02);
+        transform: var(--hero-art-transform);
+        transform-origin: center;
       }
 
       .hero::after {
@@ -213,28 +203,9 @@
 
       .hero-grid {
         display: block;
-        max-width: 760px;
+        max-width: 980px;
       }
 
-      .eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        margin: 0 0 18px;
-        color: var(--green);
-        font-size: 0.78rem;
-        font-weight: 820;
-        text-transform: uppercase;
-      }
-
-      .eyebrow::before {
-        content: "";
-        width: 8px;
-        height: 8px;
-        border-radius: 999px;
-        background: var(--green);
-        box-shadow: 0 0 22px rgba(123, 215, 184, 0.74);
-      }
 
       h1,
       h2,
@@ -244,15 +215,15 @@
       }
 
       h1 {
-        max-width: 11ch;
-        margin-bottom: 18px;
-        font-size: clamp(3.2rem, 10vw, 8.6rem);
-        line-height: 0.86;
+        max-width: 15ch;
+        margin-bottom: 20px;
+        font-size: clamp(2.9rem, 7.2vw, 7.1rem);
+        line-height: 0.9;
         letter-spacing: 0;
       }
 
       .summary {
-        max-width: 540px;
+        max-width: 720px;
         margin-bottom: 26px;
         color: #ded7c8;
         font-size: clamp(1rem, 1.7vw, 1.18rem);
@@ -325,6 +296,259 @@
         font-size: clamp(1rem, 1.5vw, 1.18rem);
       }
 
+      .visual-band {
+        position: relative;
+        z-index: 0;
+        isolation: isolate;
+        padding: 72px 0;
+        overflow: hidden;
+        border-top: 1px solid var(--line);
+      }
+
+      .visual-band::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background-image:
+          linear-gradient(to bottom, var(--bg), rgba(8, 8, 6, 0.76) 24%, rgba(8, 8, 6, 0.86) 74%, var(--bg)),
+          var(--shot-1);
+        background-position: center;
+        background-size: cover;
+        opacity: 0.46;
+        filter: saturate(1.1) contrast(1.06);
+      }
+
+      .band-head {
+        margin-bottom: 30px;
+      }
+
+      .band-head h2 {
+        margin-bottom: 0;
+        font-size: clamp(2rem, 4vw, 4rem);
+        line-height: 0.96;
+      }
+
+      .screenshot-carousel {
+        --slide-width: min(72vw, 760px, 78%);
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .screenshot-viewport {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .screenshot-viewport::before {
+        content: "";
+        display: block;
+        width: var(--slide-width);
+        aspect-ratio: 16 / 9;
+        margin: 0 auto;
+      }
+
+      .screenshot-slide {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: var(--slide-width);
+        height: 100%;
+        margin: 0;
+        opacity: 0;
+        pointer-events: none;
+        overflow: hidden;
+        border: 1px solid rgba(245, 241, 232, 0.14);
+        border-radius: var(--radius);
+        background:
+          linear-gradient(135deg, rgba(212, 168, 48, 0.1), rgba(123, 215, 184, 0.08)),
+          #151511;
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.42);
+        cursor: zoom-in;
+        transform: translateX(-50%) translateX(var(--slide-x, 0));
+        transition:
+          opacity 360ms ease,
+          transform 360ms ease,
+          filter 360ms ease;
+      }
+
+      .screenshot-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 260ms ease;
+      }
+
+      .screenshot-slide::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(8, 8, 6, 0.56), transparent 44%);
+        pointer-events: none;
+      }
+
+      .screenshot-slide.is-active {
+        opacity: 1;
+        pointer-events: auto;
+        z-index: 3;
+      }
+
+      .screenshot-slide.is-side {
+        opacity: 0.34;
+        pointer-events: auto;
+        z-index: 2;
+        filter: saturate(0.75) brightness(0.42);
+      }
+
+      .screenshot-slide.slot-prev {
+        --slide-x: -75%;
+      }
+
+      .screenshot-slide.slot-next {
+        --slide-x: 75%;
+      }
+
+      .screenshot-carousel.is-moving-next .slot-prev {
+        --slide-x: -150%;
+        opacity: 0;
+      }
+
+      .screenshot-carousel.is-moving-next .slot-active {
+        --slide-x: -75%;
+        opacity: 0.34;
+        z-index: 2;
+        filter: saturate(0.75) brightness(0.42);
+      }
+
+      .screenshot-carousel.is-moving-next .slot-next {
+        --slide-x: 0;
+        opacity: 1;
+        z-index: 3;
+        filter: none;
+      }
+
+      .screenshot-carousel.is-moving-prev .slot-prev {
+        --slide-x: 0;
+        opacity: 1;
+        z-index: 3;
+        filter: none;
+      }
+
+      .screenshot-carousel.is-moving-prev .slot-active {
+        --slide-x: 75%;
+        opacity: 0.34;
+        z-index: 2;
+        filter: saturate(0.75) brightness(0.42);
+      }
+
+      .screenshot-carousel.is-moving-prev .slot-next {
+        --slide-x: 150%;
+        opacity: 0;
+      }
+
+      .screenshot-carousel.is-resetting .screenshot-slide {
+        transition: none;
+      }
+
+      .screenshot-slide:hover img {
+        transform: scale(1.035);
+      }
+
+      .screenshot-controls {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 16px;
+      }
+
+      .screenshot-dot {
+        width: 34px;
+        height: 5px;
+        border: 0;
+        border-radius: 999px;
+        padding: 0;
+        background: rgba(245, 241, 232, 0.32);
+        cursor: pointer;
+      }
+
+      .screenshot-dot.is-active {
+        background: var(--gold);
+      }
+
+      .screenshot-arrow {
+        position: absolute;
+        top: 50%;
+        z-index: 5;
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 54px;
+        border: 1px solid rgba(245, 241, 232, 0.26);
+        border-radius: var(--radius);
+        color: var(--text);
+        background: rgba(8, 8, 6, 0.58);
+        font: inherit;
+        font-size: 2rem;
+        font-weight: 760;
+        line-height: 1;
+        cursor: pointer;
+        transform: translateY(-50%);
+        backdrop-filter: blur(8px);
+      }
+
+      .screenshot-arrow:hover {
+        background: rgba(8, 8, 6, 0.78);
+      }
+
+      .screenshot-arrow-prev {
+        left: calc(50% - (var(--slide-width) / 2) + 14px);
+      }
+
+      .screenshot-arrow-next {
+        right: calc(50% - (var(--slide-width) / 2) + 14px);
+      }
+
+      .image-lightbox {
+        position: fixed;
+        inset: 0;
+        z-index: 80;
+        display: grid;
+        place-items: center;
+        padding: 32px;
+        background: rgba(0, 0, 0, 0.84);
+        backdrop-filter: blur(8px);
+      }
+
+      .image-lightbox[hidden] {
+        display: none;
+      }
+
+      .image-lightbox img {
+        max-width: min(94vw, 1440px);
+        max-height: 86vh;
+        border: 1px solid rgba(245, 241, 232, 0.18);
+        border-radius: var(--radius);
+        object-fit: contain;
+        box-shadow: 0 28px 90px rgba(0, 0, 0, 0.68);
+      }
+
+      .lightbox-close {
+        position: absolute;
+        top: 18px;
+        right: 18px;
+        min-width: 42px;
+        min-height: 42px;
+        border: 1px solid rgba(245, 241, 232, 0.24);
+        border-radius: var(--radius);
+        color: var(--text);
+        background: rgba(12, 12, 10, 0.72);
+        font: inherit;
+        font-size: 1.4rem;
+        line-height: 1;
+        cursor: pointer;
+      }
+
       .link-panel {
         padding: 54px 0 78px;
         border-top: 1px solid var(--line);
@@ -391,126 +615,15 @@
           min-height: 58px;
         }
 
-        .top-links .button:first-child {
-          display: none;
-        }
-
         .hero {
           padding: 92px 0 42px;
-        }      }
-    </style>
-  </head>
-  <body>
-    <header class="topbar">
-      <div class="wrap topbar-inner">
-        <div class="brand-cluster">
-          <a class="brand" href="../index.html">BogosorStudio</a>
-          <button class="lang-toggle" type="button" aria-label="日本語と英語を切り替え">
-            <span class="lang-option is-active" data-lang-option="ja">JP</span>
-            <span>/</span>
-            <span class="lang-option" data-lang-option="en">EN</span>
-          </button>
-        </div>
-        <nav class="top-links" aria-label="ページリンク">
-          <a class="button" href="../index.html#games" data-ja="ゲーム一覧" data-en="Games">ゲーム一覧</a>
-          <a
-            class="button button-primary"
-            href="https://store.steampowered.com/search/?term=Happy%20Runner"
-          >
-            Steam
-          </a>
-        </nav>
-      </div>
-    </header>
+        }
 
-    <main>
-      <section class="hero">
-        <div class="wrap hero-grid">
-          <p class="eyebrow">Game page</p>
-          <h1>Happy Runner</h1>
-          <p class="summary" data-ja="Happy Runnerの公開情報、ストアリンク、関連リンクをこのページにまとめます。" data-en="Release information store links and related links for Happy Runner are collected here.">
-            Happy Runnerの公開情報、ストアリンク、関連リンクをこのページにまとめます。
-          </p>
-          <div class="status-row">
-            <span class="label" data-ja="発表準備中" data-en="Preparing announcement">発表準備中</span>
-            <span class="label label-muted" data-ja="Steamページ準備中" data-en="Steam page in preparation">Steamページ準備中</span>
-          </div>
-          <div class="action-row">
-            <a
-              class="button button-primary"
-              href="https://store.steampowered.com/search/?term=Happy%20Runner"
-            >
-              Steam
-            </a>
-            <a class="button" href="https://x.com/BogosorGames">X</a>
-            <a class="button" href="../index.html" data-ja="公式トップ" data-en="Home">公式トップ</a>
-          </div>
-        </div>
-      </section>
+        .screenshot-carousel {
+          --slide-width: min(78vw, 520px, 86%);
+        }
 
-      <section class="text-band">
-        <div class="wrap text-blocks">
-          <article class="text-block">
-            <h2 data-ja="概要" data-en="Overview">概要</h2>
-            <p data-ja="Happy Runnerの概要やルール説明は、Steamページ公開後に差し替えます。" data-en="Details and rule explanations for Happy Runner can be replaced after the Steam page is published.">Happy Runnerの概要やルール説明は、Steamページ公開後に差し替えます。</p>
-          </article>
-          <article class="text-block">
-            <h2 data-ja="更新" data-en="Updates">更新</h2>
-            <p data-ja="リリース時期、ストアリンク、イベント展示などの情報をここに追加できます。" data-en="Release timing store links event appearances and other notes can be added here.">リリース時期、ストアリンク、イベント展示などの情報をここに追加できます。</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="link-panel">
-        <div class="wrap">
-          <div class="link-box">
-            <div>
-              <h2>Links</h2>
-              <p data-ja="ストアページ、更新情報、問い合わせ先などを必要に応じて追加できます。" data-en="Store pages updates contact links and other references can be added here.">ストアページ、更新情報、問い合わせ先などを必要に応じて追加できます。</p>
-              <div class="meta-row" aria-label="基本情報">
-                <span><b>Platform</b> Steam</span>
-                <span><b>Status</b> 準備中</span>
-                <span><b>Links</b> Steam / X</span>
-              </div>
-            </div>
-            <div class="action-row">
-              <a
-                class="button button-primary"
-                href="https://store.steampowered.com/search/?term=Happy%20Runner"
-              >
-                Steam
-              </a>
-              <a class="button" href="https://x.com/BogosorGames">X</a>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <script>
-      const languageKey = "bogosorstudio-language";
-      const langToggle = document.querySelector(".lang-toggle");
-      const langOptions = [...document.querySelectorAll("[data-lang-option]")];
-      const translatable = [...document.querySelectorAll("[data-ja][data-en]")];
-
-      const setLanguage = (language) => {
-        const nextLanguage = language === "en" ? "en" : "ja";
-        document.documentElement.lang = nextLanguage;
-        translatable.forEach((node) => {
-          node.textContent = node.dataset[nextLanguage];
-        });
-        langOptions.forEach((option) => {
-          option.classList.toggle("is-active", option.dataset.langOption === nextLanguage);
-        });
-        localStorage.setItem(languageKey, nextLanguage);
-      };
-
-      langToggle?.addEventListener("click", () => {
-        const currentLanguage = document.documentElement.lang === "en" ? "en" : "ja";
-        setLanguage(currentLanguage === "en" ? "ja" : "en");
-      });
-
-      setLanguage(localStorage.getItem(languageKey) || "ja");
-    </script>
-  </body>
-</html>
+        .image-lightbox {
+          padding: 18px;
+        }
+      }

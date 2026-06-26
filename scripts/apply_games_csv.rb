@@ -89,7 +89,7 @@ def update_game_page(row)
   )
   html = replace!(html, /<span class="label" data-ja="[^"]*" data-en="[^"]*">.*?<\/span>/, "<span class=\"label\" data-ja=\"#{h(row.fetch("release_label_ja"))}\" data-en=\"#{h(row.fetch("release_label_en"))}\">#{h(row.fetch("release_label_ja"))}</span>", "#{title_id} release label")
   html = replace!(html, /<span class="label label-muted" data-ja="[^"]*" data-en="[^"]*">.*?<\/span>/, "<span class=\"label label-muted\" data-ja=\"#{h(row.fetch("status_label_ja"))}\" data-en=\"#{h(row.fetch("status_label_en"))}\">#{h(row.fetch("status_label_ja"))}</span>", "#{title_id} status label")
-  html = replace!(html, /<p data-ja="[^"]*" data-en="[^"]*">[^<]*(?:概要|ルール|AI|Reversi|Skill|NyctoType|Happy Runner)[^<]*<\/p>/, "<p data-ja=\"#{h(row.fetch("overview_ja"))}\" data-en=\"#{h(row.fetch("overview_en"))}\">#{h(row.fetch("overview_ja"))}</p>", "#{title_id} overview")
+  html = replace!(html, /<p data-ja="[^"]*" data-en="[^"]*">[^<]*(?:概要|ルール|AI|Reversi|Skill|NyctoType|HAPPY RUNNER)[^<]*<\/p>/, "<p data-ja=\"#{h(row.fetch("overview_ja"))}\" data-en=\"#{h(row.fetch("overview_en"))}\">#{h(row.fetch("overview_ja"))}</p>", "#{title_id} overview")
   html = replace!(html, /<p data-ja="リリース時期、ストアリンク、イベント展示などの情報をここに追加できます。" data-en="[^"]*">.*?<\/p>/, "<p data-ja=\"#{h(row.fetch("updates_ja"))}\" data-en=\"#{h(row.fetch("updates_en"))}\">#{h(row.fetch("updates_ja"))}</p>", "#{title_id} updates")
   html = replace!(html, /<p data-ja="ストアページ、更新情報、問い合わせ先などを必要に応じて追加できます。" data-en="[^"]*">.*?<\/p>/, "<p data-ja=\"#{h(row.fetch("links_text_ja"))}\" data-en=\"#{h(row.fetch("links_text_en"))}\">#{h(row.fetch("links_text_ja"))}</p>", "#{title_id} links text")
   html = replace!(
@@ -103,7 +103,7 @@ def update_game_page(row)
   File.write(path, html)
 end
 
-rows = CSV.read(CSV_PATH, headers: true).map(&:to_h)
+rows = CSV.read(CSV_PATH, headers: true, encoding: "bom|utf-8").map(&:to_h)
 update_index(rows)
 rows.each { |row| update_game_page(row) }
 
