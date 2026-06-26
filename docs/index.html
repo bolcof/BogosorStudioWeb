@@ -230,19 +230,18 @@
 
       .hero {
         position: relative;
-        display: grid;
-        grid-template-columns: minmax(0, 0.92fr) minmax(340px, 1.08fr);
-        gap: 34px;
+        display: block;
         min-height: auto;
         padding: 48px 0 40px;
-        align-items: stretch;
       }
 
-      .hero-copy {
-        position: relative;
-        z-index: 2;
-        display: flex;
-        flex-direction: column;
+      .hero-title {
+        max-width: 900px;
+        margin-bottom: 36px;
+      }
+
+      .hero-title h1 {
+        max-width: none;
       }
 
       .eyebrow {
@@ -294,50 +293,9 @@
         margin-bottom: 0;
       }
 
-      .jump-nav {
-        display: grid;
-        flex: 1;
-        gap: 1px;
-        width: min(100%, 520px);
-        min-height: 0;
-        overflow: hidden;
-        border: 1px solid var(--line);
-        border-radius: var(--radius);
-        background: var(--line);
-      }
-
-      .jump-link {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 18px;
-        align-items: center;
-        min-height: 62px;
-        padding: 0 18px;
-        background: rgba(23, 23, 19, 0.82);
-        transition:
-          background 160ms ease,
-          color 160ms ease;
-      }
-
-      .jump-link:hover {
-        background: rgba(212, 168, 48, 0.12);
-      }
-
-      .jump-link span {
-        font-size: 1.02rem;
-        font-weight: 820;
-      }
-
-      .jump-link b {
-        color: var(--muted);
-        font-size: 0.78rem;
-        font-weight: 760;
-        text-transform: uppercase;
-      }
-
       .hero-media {
         position: relative;
-        min-height: 360px;
+        min-height: clamp(320px, 43vw, 500px);
         border: 1px solid rgba(244, 240, 231, 0.18);
         border-radius: var(--radius);
         overflow: hidden;
@@ -964,7 +922,6 @@
         }
 
         .hero {
-          grid-template-columns: 1fr;
           min-height: auto;
           padding: 42px 0 34px;
         }
@@ -972,10 +929,6 @@
         h1 {
           max-width: 10ch;
           font-size: 3.35rem;
-        }
-
-        .hero-media {
-          min-height: 320px;
         }
 
         .site-notice {
@@ -1140,28 +1093,13 @@
         </div>
 
         <section class="hero wrap" aria-label="BogosorStudio">
-          <div class="hero-copy">
+          <div class="hero-title">
             <p class="eyebrow" data-ja="日本発の個人ゲームスタジオ" data-en="Independent game studio from Japan">日本発の個人ゲームスタジオ</p>
             <h1>BogosorStudio</h1>
             <p class="lead" data-ja="Steam向けゲームの制作・公開情報を掲載しています。" data-en="Official information for BogosorStudio games on Steam.">
               Steam向けゲームの制作・公開情報を掲載しています。
             </p>
-            <nav class="jump-nav" aria-label="ページ内リンク">
-              <a class="jump-link" href="#games">
-                <span data-ja="ゲーム一覧" data-en="Games">ゲーム一覧</span>
-                <b>Games</b>
-              </a>
-              <a class="jump-link" href="./News/index.html">
-                <span>News</span>
-                <b>Updates</b>
-              </a>
-              <a class="jump-link" href="#contact">
-                <span>Contact</span>
-                <b>Links</b>
-              </a>
-            </nav>
           </div>
-
           <div class="hero-media" aria-label="注目情報スライドショー">
             <a
               class="hero-slide is-active"
