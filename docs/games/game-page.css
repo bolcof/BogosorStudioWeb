@@ -169,6 +169,7 @@
           cover,
           cover;
         background-repeat: no-repeat;
+        opacity: 0.8;
       }
 
       .hero-art {
@@ -612,11 +613,26 @@
         }
 
         .topbar-inner {
+          flex-wrap: wrap;
+          gap: 8px 10px;
           min-height: 58px;
+          padding: 8px 0;
+        }
+
+        .top-links {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          width: 100%;
+        }
+
+        .top-links .button {
+          min-height: 36px;
+          padding: 0 10px;
+          font-size: 0.78rem;
         }
 
         .hero {
-          padding: 92px 0 42px;
+          padding: 122px 0 42px;
         }
 
         .screenshot-carousel {
