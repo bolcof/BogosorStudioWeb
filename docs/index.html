@@ -655,13 +655,21 @@
         line-height: 1.1;
       }
 
-      .release-label {
+      .release-labels {
         order: 3;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+        max-width: 100%;
+        margin-top: 10px;
+      }
+
+      .release-label {
         display: inline-flex;
         align-items: center;
         width: fit-content;
         max-width: 100%;
-        margin-top: 10px;
+        margin-top: 0;
         min-height: 30px;
         border: 1px solid rgba(212, 168, 48, 0.58);
         border-radius: 8px;
@@ -672,6 +680,7 @@
         font-size: 0.78rem;
         font-weight: 850;
         line-height: 1.15;
+        white-space: normal;
       }
 
       .release-label.is-released {
@@ -686,6 +695,15 @@
         color: var(--text);
         background: rgba(244, 240, 231, 0.12);
         box-shadow: none;
+      }
+
+      .release-label.is-event {
+        border-color: rgba(255, 139, 58, 0.74);
+        color: #fff4e7;
+        background:
+          linear-gradient(135deg, rgba(255, 139, 58, 0.34), rgba(212, 168, 48, 0.2)),
+          rgba(65, 36, 14, 0.82);
+        box-shadow: 0 12px 24px rgba(255, 139, 58, 0.18);
       }
 
       .capsule-content p {
@@ -1172,9 +1190,12 @@
                   <div class="platform-row" aria-label="対応プラットフォーム">
                     <span class="platform-icon" role="link" tabindex="0" aria-label="Steam store" title="Steam" data-store-url="https://store.steampowered.com/app/2988640/HAPPY_RUNNER/"><img src="./assets/platforms/steam.svg" alt="" /></span>
                   </div>
-                  <span class="release-label is-tba">リリース予定: 未定</span>
+                  <div class="release-labels" aria-label="公開・展示ステータス">
+                    <span class="release-label is-event" data-ja="2026年8月 gamescom出展" data-en="Exhibiting at gamescom in August 2026">2026年8月 gamescom出展</span>
+                    <span class="release-label is-event" data-ja="2026年9月 TGS出展" data-en="Exhibiting at TGS in September 2026">2026年9月 TGS出展</span>
+                  </div>
                   <h3>NyctoType</h3>
-                  <p data-ja="Steamページ準備中" data-en="Steam page in preparation">Steamページ準備中</p>
+                  <p data-ja="開発中" data-en="In development">開発中</p>
                 </div>
               </a>
 
@@ -1189,9 +1210,11 @@
                     <span class="platform-icon" role="link" tabindex="0" aria-label="Android store" title="Android" data-store-url="https://store.steampowered.com/app/2988640/HAPPY_RUNNER/"><img src="./assets/platforms/android.svg" alt="" /></span>
                     <span class="platform-icon" role="link" tabindex="0" aria-label="iOS store" title="iOS" data-store-url="https://store.steampowered.com/app/2988640/HAPPY_RUNNER/"><img src="./assets/platforms/ios.svg" alt="" /></span>
                   </div>
-                  <span class="release-label is-tba">リリース予定: 未定</span>
+                  <div class="release-labels" aria-label="公開・展示ステータス">
+                    <span class="release-label is-tba" data-ja="2026年10月リリース予定" data-en="Planned release: October 2026">2026年10月リリース予定</span>
+                  </div>
                   <h3>REVERSI 2048</h3>
-                  <p data-ja="Reversiと2048を組み合わせたパズルゲーム。" data-en="A puzzle game that combines Reversi and 2048.">Reversiと2048を組み合わせたパズルゲーム。</p>
+                  <p data-ja="駒をひっくり返すごとにスコアが倍になるReversi" data-en="A Reversi where the score doubles every time you flip a piece.">駒をひっくり返すごとにスコアが倍になるReversi</p>
                 </div>
               </a>
 
@@ -1204,9 +1227,11 @@
                   <div class="platform-row" aria-label="対応プラットフォーム">
                     <span class="platform-icon" role="link" tabindex="0" aria-label="Steam store" title="Steam" data-store-url="https://store.steampowered.com/app/2988640/HAPPY_RUNNER/"><img src="./assets/platforms/steam.svg" alt="" /></span>
                   </div>
-                  <span class="release-label is-tba">リリース予定: 未定</span>
+                  <div class="release-labels" aria-label="公開・展示ステータス">
+                    <span class="release-label is-tba" data-ja="リリース予定: 未定" data-en="Release date: TBA">リリース予定: 未定</span>
+                  </div>
                   <h3>Skill Hockey</h3>
-                  <p data-ja="Steamページ準備中" data-en="Steam page in preparation">Steamページ準備中</p>
+                  <p data-ja="開発中" data-en="In development">開発中</p>
                 </div>
               </a>
 
@@ -1219,9 +1244,11 @@
                   <div class="platform-row" aria-label="対応プラットフォーム">
                     <span class="platform-icon" role="link" tabindex="0" aria-label="Steam store" title="Steam" data-store-url="https://store.steampowered.com/app/2988640/HAPPY_RUNNER/"><img src="./assets/platforms/steam.svg" alt="" /></span>
                   </div>
-                  <span class="release-label is-tba">発表準備中</span>
+                  <div class="release-labels" aria-label="公開・展示ステータス">
+                    <span class="release-label is-released" data-ja="発売中" data-en="Available now">発売中</span>
+                  </div>
                   <h3>HAPPY RUNNER</h3>
-                  <p data-ja="発表準備中" data-en="Preparing announcement">発表準備中</p>
+                  <p data-ja="発売中" data-en="Available now">発売中</p>
                 </div>
               </a>
 
@@ -1234,9 +1261,11 @@
                   <div class="platform-row" aria-label="対応プラットフォーム">
                     <span class="platform-icon" role="link" tabindex="0" aria-label="Steam store" title="Steam" data-store-url="https://store.steampowered.com/app/2988640/HAPPY_RUNNER/"><img src="./assets/platforms/steam.svg" alt="" /></span>
                   </div>
-                  <span class="release-label is-tba">リリース予定: 未定</span>
+                  <div class="release-labels" aria-label="公開・展示ステータス">
+                    <span class="release-label is-tba" data-ja="リリース予定: 未定" data-en="Release date: TBA">リリース予定: 未定</span>
+                  </div>
                   <h3>Sak Winik: The Appointed One</h3>
-                  <p data-ja="Steamページ準備中" data-en="Steam page in preparation">Steamページ準備中</p>
+                  <p data-ja="開発中" data-en="In development">開発中</p>
                 </div>
               </a>
             </div>

@@ -54,11 +54,34 @@ def platform_icons(row)
   end.compact.join("\n")
 end
 
+def release_label_class(label)
+  return "release-label is-released" if label.include?("発売中")
+  return "release-label is-event" if label.match?(/出展|展示|gamescom|TGS/i)
+
+  "release-label is-tba"
+end
+
+def release_labels(row)
+  ja_labels = row.fetch("release_label_ja").split("|").map(&:strip)
+  en_labels = row.fetch("release_label_en").split("|").map(&:strip)
+
+  labels = ja_labels.each_with_index.map do |ja_label, index|
+    en_label = en_labels[index] || en_labels.first || ja_label
+    "                    <span class=\"#{release_label_class(ja_label)}\" data-ja=\"#{h(ja_label)}\" data-en=\"#{h(en_label)}\">#{h(ja_label)}</span>"
+  end.join("\n")
+
+  <<~HTML.rstrip
+                  <div class="release-labels" aria-label="公開・展示ステータス">
+#{labels}
+                  </div>
+  HTML
+end
+
 def game_card(row)
   title_id = row.fetch("title_id")
   capsule = asset_file(title_id, "LibraryCapsule.png")
   platforms = platform_icons(row)
-  release_class = row.fetch("release_label_ja").include?("発表") ? "release-label is-tba" : "release-label is-tba"
+  labels = release_labels(row)
 
   <<~HTML.rstrip
               <a
@@ -70,7 +93,7 @@ def game_card(row)
                   <div class="platform-row" aria-label="対応プラットフォーム">
 #{platforms}
                   </div>
-                  <span class="#{release_class}">#{h(row.fetch("release_label_ja"))}</span>
+#{labels}
                   <h3>#{h(row.fetch("title"))}</h3>
                   <p data-ja="#{h(row.fetch("card_text_ja"))}" data-en="#{h(row.fetch("card_text_en"))}">#{h(row.fetch("card_text_ja"))}</p>
                 </div>
