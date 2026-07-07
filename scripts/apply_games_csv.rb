@@ -7,7 +7,6 @@ require "erb"
 ROOT = File.expand_path("..", __dir__)
 CSV_PATH = File.join(ROOT, "games.csv")
 INDEX_PATH = File.join(ROOT, "docs", "index.html")
-TEMP_PLATFORM_STORE_URL = "https://store.steampowered.com/app/2988640/HAPPY_RUNNER/"
 
 def h(value)
   ERB::Util.html_escape(value.to_s)
@@ -35,6 +34,11 @@ def replace!(html, pattern, replacement, label)
   html
 end
 
+def row_value(row, key, fallback = "")
+  value = row[key]
+  value.nil? || value.empty? ? fallback : value
+end
+
 def platform_icon_name(platform)
   normalized = platform.to_s.strip.downcase
   return "steam" if normalized == "steam"
@@ -50,7 +54,7 @@ def platform_icons(row)
     next unless name
 
     label = platform.strip
-    "                    <span class=\"platform-icon\" role=\"link\" tabindex=\"0\" aria-label=\"#{h(label)} store\" title=\"#{h(label)}\" data-store-url=\"#{h(TEMP_PLATFORM_STORE_URL)}\"><img src=\"./assets/platforms/#{name}.svg\" alt=\"\" /></span>"
+    "                    <span class=\"platform-icon\" role=\"link\" tabindex=\"0\" aria-label=\"#{h(label)} store\" title=\"#{h(label)}\" data-store-url=\"#{h(row.fetch("steam_url"))}\"><img src=\"./assets/platforms/#{name}.svg\" alt=\"\" /></span>"
   end.compact.join("\n")
 end
 
@@ -59,6 +63,12 @@ def release_label_class(label)
   return "release-label is-event" if label.match?(/出展|展示|gamescom|TGS/i)
 
   "release-label is-tba"
+end
+
+def game_page_release_label_class(label)
+  return "label label-event" if label.match?(/出展|展示|gamescom|TGS/i)
+
+  "label"
 end
 
 def release_labels(row)
@@ -74,6 +84,62 @@ def release_labels(row)
                   <div class="release-labels" aria-label="公開・展示ステータス">
 #{labels}
                   </div>
+  HTML
+end
+
+def game_page_release_labels(row)
+  ja_labels = row.fetch("release_label_ja").split("|").map(&:strip)
+  en_labels = row.fetch("release_label_en").split("|").map(&:strip)
+
+  ja_labels.each_with_index.map do |ja_label, index|
+    en_label = en_labels[index] || en_labels.first || ja_label
+    "            <span class=\"#{game_page_release_label_class(ja_label)}\" data-ja=\"#{h(ja_label)}\" data-en=\"#{h(en_label)}\">#{h(ja_label)}</span>"
+  end.join("\n")
+end
+
+def split_items(value)
+  value.to_s.split(/\s*\|\s*|\r?\n/).map(&:strip).reject(&:empty?)
+end
+
+def info_list(row, ja_key, en_key)
+  ja_items = split_items(row_value(row, ja_key))
+  en_items = split_items(row_value(row, en_key))
+
+  return "" if ja_items.empty?
+
+  items = ja_items.each_with_index.map do |ja_item, index|
+    en_item = en_items[index] || en_items.first || ja_item
+    "              <li data-ja=\"#{h(ja_item)}\" data-en=\"#{h(en_item)}\">#{h(ja_item)}</li>"
+  end.join("\n")
+
+  <<~HTML.rstrip
+            <ul class="info-list">
+#{items}
+            </ul>
+  HTML
+end
+
+def text_section(row)
+  overview_ja = row.fetch("overview_ja")
+  overview_en = row.fetch("overview_en")
+
+  <<~HTML.rstrip
+      <section class="text-band">
+        <div class="wrap text-blocks">
+          <article class="text-block">
+            <h2 data-ja="概要" data-en="About">概要</h2>
+            <p data-ja="#{h(overview_ja)}" data-en="#{h(overview_en)}">#{h(overview_ja)}</p>
+          </article>
+          <article class="text-block">
+            <h2 data-ja="今後の予定" data-en="Plans">今後の予定</h2>
+#{info_list(row, "plan_items_ja", "plan_items_en")}
+          </article>
+          <article class="text-block">
+            <h2 data-ja="これまでの動き" data-en="History">これまでの動き</h2>
+#{info_list(row, "history_items_ja", "history_items_en")}
+          </article>
+        </div>
+      </section>
   HTML
 end
 
@@ -127,7 +193,8 @@ def update_game_page(row)
   html = replace!(html, /<meta property="og:title" content="[^"]+ \| BogosorStudio" \/>/, "<meta property=\"og:title\" content=\"#{h(title)} | BogosorStudio\" />", "#{title_id} og title")
   html = replace!(html, /content="[^"]+ の紹介ページ。"\n    \/>/, "content=\"#{h(title)} の紹介ページ。\"\n    />", "#{title_id} og description")
   html = replace!(html, /<title>.*? \| BogosorStudio<\/title>/, "<title>#{h(title)} | BogosorStudio</title>", "#{title_id} title")
-  html = html.gsub(/https:\/\/store\.steampowered\.com\/search\/\?term=[^"]+/, h(steam_url))
+  html = html.gsub(/https:\/\/store\.steampowered\.com\/(?:search\/\?term=|app\/)[^"]+/, h(steam_url))
+  html = html.gsub(/(<a\s+class="button button-primary"\s+href="https:\/\/store\.steampowered\.com\/[^"]+")(?!\s+target=)/, "\\1 target=\"_blank\" rel=\"noopener\"")
   html = html.gsub(/https:\/\/x\.com\/BogosorGames/, h(x_url))
   html = replace!(html, /<h1>.*?<\/h1>/, "<h1>#{h(title)}</h1>", "#{title_id} h1")
   html = replace!(
@@ -136,10 +203,18 @@ def update_game_page(row)
     "<p class=\"summary\" data-ja=\"#{h(row.fetch("summary_ja"))}\" data-en=\"#{h(row.fetch("summary_en"))}\">\n            #{h(row.fetch("summary_ja"))}\n          </p>",
     "#{title_id} summary"
   )
-  html = replace!(html, /<span class="label" data-ja="[^"]*" data-en="[^"]*">.*?<\/span>/, "<span class=\"label\" data-ja=\"#{h(row.fetch("release_label_ja"))}\" data-en=\"#{h(row.fetch("release_label_en"))}\">#{h(row.fetch("release_label_ja"))}</span>", "#{title_id} release label")
-  html = replace!(html, /<span class="label label-muted" data-ja="[^"]*" data-en="[^"]*">.*?<\/span>/, "<span class=\"label label-muted\" data-ja=\"#{h(row.fetch("status_label_ja"))}\" data-en=\"#{h(row.fetch("status_label_en"))}\">#{h(row.fetch("status_label_ja"))}</span>", "#{title_id} status label")
-  html = replace!(html, /<p data-ja="[^"]*" data-en="[^"]*">[^<]*(?:概要|ルール|AI|Reversi|Skill|NyctoType|HAPPY RUNNER)[^<]*<\/p>/, "<p data-ja=\"#{h(row.fetch("overview_ja"))}\" data-en=\"#{h(row.fetch("overview_en"))}\">#{h(row.fetch("overview_ja"))}</p>", "#{title_id} overview")
-  html = replace!(html, /<p data-ja="リリース時期、ストアリンク、イベント展示などの情報をここに追加できます。" data-en="[^"]*">.*?<\/p>/, "<p data-ja=\"#{h(row.fetch("updates_ja"))}\" data-en=\"#{h(row.fetch("updates_en"))}\">#{h(row.fetch("updates_ja"))}</p>", "#{title_id} updates")
+  html = replace!(
+    html,
+    /          <div class="status-row">\n\s*<span class="label[^"]*" data-ja="[^"]*" data-en="[^"]*">.*?<\/span>\n(?:\s*<span class="label[^"]*" data-ja="[^"]*" data-en="[^"]*">.*?<\/span>\n)*\s*<span class="label label-muted" data-ja="[^"]*" data-en="[^"]*">.*?<\/span>\n\s*<\/div>/m,
+    "          <div class=\"status-row\">\n#{game_page_release_labels(row)}\n            <span class=\"label label-muted\" data-ja=\"#{h(row.fetch("status_label_ja"))}\" data-en=\"#{h(row.fetch("status_label_en"))}\">#{h(row.fetch("status_label_ja"))}</span>\n          </div>",
+    "#{title_id} status row"
+  )
+  html = replace!(
+    html,
+    /      <section class="text-band">\n.*?\n      <\/section>/m,
+    text_section(row),
+    "#{title_id} text section"
+  )
   html = replace!(html, /<p data-ja="ストアページ、更新情報、問い合わせ先などを必要に応じて追加できます。" data-en="[^"]*">.*?<\/p>/, "<p data-ja=\"#{h(row.fetch("links_text_ja"))}\" data-en=\"#{h(row.fetch("links_text_en"))}\">#{h(row.fetch("links_text_ja"))}</p>", "#{title_id} links text")
   html = replace!(
     html,
