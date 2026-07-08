@@ -34,14 +34,20 @@
       <div class="wrap topbar-inner">
         <div class="brand-cluster">
           <a class="brand" href="../index.html">BogosorStudio</a>
-          <button class="lang-toggle" type="button" aria-label="日本語と英語を切り替え">
-            <span class="lang-option is-active" data-lang-option="ja">JP</span>
-            <span>/</span>
-            <span class="lang-option" data-lang-option="en">EN</span>
-          </button>
+          <div class="language-menu" data-language-menu>
+            <button class="language-button" type="button" aria-haspopup="listbox" aria-expanded="false">
+              <span>Language:</span><span class="language-current" data-language-current>日本語</span>
+            </button>
+            <div class="language-list" role="listbox" hidden>
+              <button class="language-choice" type="button" role="option" data-language-choice="ja" aria-selected="true">日本語</button>
+              <button class="language-choice" type="button" role="option" data-language-choice="en" aria-selected="false">English</button>
+              <button class="language-choice" type="button" role="option" data-language-choice="de" aria-selected="false">Deutsch</button>
+              <button class="language-choice" type="button" role="option" data-language-choice="zh-hant" aria-selected="false">繁體中文</button>
+            </div>
+          </div>
         </div>
         <nav class="top-links" aria-label="ページリンク">
-          <a class="button" href="../index.html#games" data-ja="タイトル一覧" data-en="Titles">
+          <a class="button" href="../index.html#games" data-i18n-ja="タイトル一覧" data-i18n-en="Titles" data-i18n-de="Titel" data-i18n-zh-hant="標題列表">
             タイトル一覧
           </a>
           <a
@@ -59,12 +65,12 @@
         <span class="hero-art" aria-hidden="true"></span>
         <div class="wrap hero-grid">
           <h1>REVERSI 2048</h1>
-          <p class="summary" data-ja="駒をひっくり返すごとにスコアが倍になるReversi" data-en="A Reversi where the score doubles every time you flip a piece.">
+          <p class="summary" data-i18n-ja="駒をひっくり返すごとにスコアが倍になるReversi" data-i18n-en="A Reversi where the score doubles every time you flip a piece." data-i18n-de="Reversi, bei dem sich die Punktzahl jedes Mal verdoppelt, wenn du einen Stein umdrehst." data-i18n-zh-hant="每翻轉一枚棋子，分數就會倍增的 Reversi">
             駒をひっくり返すごとにスコアが倍になるReversi
           </p>
           <div class="status-row">
-            <span class="label" data-ja="2026年10月リリース予定" data-en="Oct 2026: planned release">2026年10月リリース予定</span>
-            <span class="label label-muted" data-ja="開発中" data-en="In development">開発中</span>
+            <span class="label" data-i18n-ja="2026年10月リリース予定" data-i18n-en="Oct 2026: planned release" data-i18n-de="Okt. 2026: geplante Veröffentlichung" data-i18n-zh-hant="2026年10月預定推出">2026年10月リリース予定</span>
+            <span class="label label-muted" data-i18n-ja="開発中" data-i18n-en="In development" data-i18n-de="In Entwicklung" data-i18n-zh-hant="開發中">開発中</span>
           </div>
           <div class="action-row">
             <a
@@ -80,8 +86,8 @@
       <section class="text-band">
         <div class="wrap text-blocks">
           <article class="text-block">
-            <h2 data-ja="概要" data-en="About">概要</h2>
-            <p data-ja="Reversiにひとつだけ新しいルールを足したゲーム。&#10;&#10;駒をひっくり返すたびに、その駒の数値が2、4、8、16と倍になっていく。&#10;&#10;勝敗を決めるのは駒の数ではなく、盤面全体の合計スコア。&#10;&#10;大量の高得点駒を一気に返せば、負けかけの盤面からでもひっくり返せる。" data-en="Reversi with one new rule.&#10;&#10;Every time a piece is flipped, its value doubles: 2, 4, 8, 16, and beyond.&#10;&#10;Victory is decided by total score, not by how many pieces you control.&#10;&#10;Flipping several high-value pieces at once can turn the whole match around.">Reversiにひとつだけ新しいルールを足したゲーム。
+            <h2 data-i18n-ja="概要" data-i18n-en="About" data-i18n-de="Über das Spiel" data-i18n-zh-hant="遊戲介紹">概要</h2>
+            <p data-i18n-ja="Reversiにひとつだけ新しいルールを足したゲーム。&#10;&#10;駒をひっくり返すたびに、その駒の数値が2、4、8、16と倍になっていく。&#10;&#10;勝敗を決めるのは駒の数ではなく、盤面全体の合計スコア。&#10;&#10;大量の高得点駒を一気に返せば、負けかけの盤面からでもひっくり返せる。" data-i18n-en="Reversi with one new rule.&#10;&#10;Every time a piece is flipped, its value doubles: 2, 4, 8, 16, and beyond.&#10;&#10;Victory is decided by total score, not by how many pieces you control.&#10;&#10;Flipping several high-value pieces at once can turn the whole match around." data-i18n-de="Reversi mit einer einzigen neuen Regel.&#10;&#10;Jedes Mal, wenn ein Stein umgedreht wird, verdoppelt sich sein Wert: 2, 4, 8, 16 und weiter.&#10;&#10;Der Sieg wird nicht durch die Anzahl der Steine entschieden, sondern durch die Gesamtpunktzahl des Bretts.&#10;&#10;Wer viele hochwertige Steine auf einmal umdreht, kann selbst ein fast verlorenes Spiel noch wenden." data-i18n-zh-hant="在 Reversi 上只加入一條新規則的遊戲。&#10;&#10;每當棋子被翻轉，它的數值就會從 2、4、8、16 不斷倍增。&#10;&#10;勝負不是由棋子數量決定，而是由整個棋盤的總分決定。&#10;&#10;只要一次翻回大量高分棋子，即使接近落敗也能逆轉局勢。">Reversiにひとつだけ新しいルールを足したゲーム。
 
 駒をひっくり返すたびに、その駒の数値が2、4、8、16と倍になっていく。
 
@@ -90,15 +96,15 @@
 大量の高得点駒を一気に返せば、負けかけの盤面からでもひっくり返せる。</p>
           </article>
           <article class="text-block">
-            <h2 data-ja="今後の予定" data-en="Plans">今後の予定</h2>
+            <h2 data-i18n-ja="今後の予定" data-i18n-en="Plans" data-i18n-de="Pläne" data-i18n-zh-hant="後續計畫">今後の予定</h2>
             <ul class="info-list">
-              <li data-ja-html="2026年10月リリース予定" data-en-html="Oct 2026: Planned release">2026年10月リリース予定</li>
+              <li data-i18n-html-ja="2026年10月リリース予定" data-i18n-html-en="Oct 2026: Planned release" data-i18n-html-de="Okt. 2026: geplante Veröffentlichung" data-i18n-html-zh-hant="2026年10月預定推出">2026年10月リリース予定</li>
             </ul>
           </article>
           <article class="text-block">
-            <h2 data-ja="活動記録" data-en="History">活動記録</h2>
+            <h2 data-i18n-ja="活動記録" data-i18n-en="History" data-i18n-de="Aktivitäten" data-i18n-zh-hant="活動記錄">活動記録</h2>
             <ul class="info-list">
-              <li data-ja-html="Steamページ準備中" data-en-html="Steam page in preparation">Steamページ準備中</li>
+              <li data-i18n-html-ja="Steamページ準備中" data-i18n-html-en="Steam page in preparation" data-i18n-html-de="Steam-Seite in Vorbereitung" data-i18n-html-zh-hant="Steam 頁面準備中">Steamページ準備中</li>
             </ul>
           </article>
         </div>
@@ -127,33 +133,78 @@
 
     <script>
       const languageKey = "bogosorstudio-language";
-      const langToggle = document.querySelector(".lang-toggle");
-      const langOptions = [...document.querySelectorAll("[data-lang-option]")];
-      const translatable = [...document.querySelectorAll("[data-ja][data-en]")];
-      const htmlTranslatable = [...document.querySelectorAll("[data-ja-html][data-en-html]")];
+      const supportedLanguages = ["ja", "en", "de", "zh-hant"];
+      const languageLabels = {
+        ja: "日本語",
+        en: "English",
+        de: "Deutsch",
+        "zh-hant": "繁體中文",
+      };
+      const htmlLanguageCodes = {
+        ja: "ja",
+        en: "en",
+        de: "de",
+        "zh-hant": "zh-Hant",
+      };
+      const languageMenu = document.querySelector("[data-language-menu]");
+      const languageButton = document.querySelector(".language-button");
+      const languageList = document.querySelector(".language-list");
+      const languageCurrent = document.querySelector("[data-language-current]");
+      const languageChoices = [...document.querySelectorAll("[data-language-choice]")];
+      const translatable = [...document.querySelectorAll("[data-i18n-ja]")];
+      const htmlTranslatable = [...document.querySelectorAll("[data-i18n-html-ja]")];
 
-      const setLanguage = (language) => {
-        const nextLanguage = language === "en" ? "en" : "ja";
-        document.documentElement.lang = nextLanguage;
-        translatable.forEach((node) => {
-          node.textContent = node.dataset[nextLanguage];
-        });
-        htmlTranslatable.forEach((node) => {
-          node.innerHTML = node.dataset[`${nextLanguage}Html`];
-        });
-        langOptions.forEach((option) => {
-          option.classList.toggle("is-active", option.dataset.langOption === nextLanguage);
-        });
-        localStorage.setItem(languageKey, nextLanguage);
+      const normalizeLanguage = (language) => supportedLanguages.includes(language) ? language : "ja";
+
+      const closeLanguageMenu = () => {
+        languageList?.setAttribute("hidden", "");
+        languageButton?.setAttribute("aria-expanded", "false");
       };
 
-      langToggle?.addEventListener("click", () => {
-        const currentLanguage = document.documentElement.lang === "en" ? "en" : "ja";
-        setLanguage(currentLanguage === "en" ? "ja" : "en");
+      const openLanguageMenu = () => {
+        languageList?.removeAttribute("hidden");
+        languageButton?.setAttribute("aria-expanded", "true");
+      };
+
+      const setLanguage = (language) => {
+        const nextLanguage = normalizeLanguage(language);
+        document.documentElement.lang = htmlLanguageCodes[nextLanguage] || nextLanguage;
+        translatable.forEach((node) => {
+          node.textContent = node.getAttribute(`data-i18n-${nextLanguage}`) || node.getAttribute("data-i18n-ja") || "";
+        });
+        htmlTranslatable.forEach((node) => {
+          node.innerHTML = node.getAttribute(`data-i18n-html-${nextLanguage}`) || node.getAttribute("data-i18n-html-ja") || "";
+        });
+        if (languageCurrent) languageCurrent.textContent = languageLabels[nextLanguage];
+        languageChoices.forEach((choice) => {
+          choice.setAttribute("aria-selected", String(choice.dataset.languageChoice === nextLanguage));
+        });
+        localStorage.setItem(languageKey, nextLanguage);
+        closeLanguageMenu();
+      };
+
+      languageButton?.addEventListener("click", (event) => {
+        event.stopPropagation();
+        if (languageList?.hasAttribute("hidden")) {
+          openLanguageMenu();
+        } else {
+          closeLanguageMenu();
+        }
+      });
+
+      languageChoices.forEach((choice) => {
+        choice.addEventListener("click", () => setLanguage(choice.dataset.languageChoice));
+      });
+
+      document.addEventListener("click", (event) => {
+        if (!languageMenu?.contains(event.target)) closeLanguageMenu();
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeLanguageMenu();
       });
 
       setLanguage(localStorage.getItem(languageKey) || "ja");
-
       let imageLightbox;
 
       const closeLightbox = () => {

@@ -8,6 +8,13 @@ ROOT = File.expand_path("..", __dir__)
 CSV_PATH = File.join(ROOT, "games.csv")
 CONTENT_DIR = File.join(ROOT, "content", "games")
 INDEX_PATH = File.join(ROOT, "docs", "index.html")
+LANGUAGES = [
+  { code: "ja", label: "日本語", html_lang: "ja" },
+  { code: "en", label: "English", html_lang: "en" },
+  { code: "de", label: "Deutsch", html_lang: "de" },
+  { code: "zh-hant", label: "繁體中文", html_lang: "zh-Hant" }
+].freeze
+LANGUAGE_CODES = LANGUAGES.map { |language| language.fetch(:code) }.freeze
 
 def h(value)
   ERB::Util.html_escape(value.to_s)
@@ -52,6 +59,8 @@ def language_key(label)
   normalized = label.to_s.strip.downcase
   return "ja" if ["日本語", "ja", "japanese"].include?(normalized)
   return "en" if ["english", "en", "英語"].include?(normalized)
+  return "de" if ["deutsch", "de", "german", "ドイツ語"].include?(normalized)
+  return "zh-hant" if ["繁體中文", "繁体字", "zh-hant", "zh", "traditional chinese"].include?(normalized)
 
   nil
 end
@@ -62,31 +71,48 @@ def section_key(label)
     "card" => "card",
     "カード" => "card",
     "カード説明" => "card",
+    "karte" => "card",
+    "卡片" => "card",
     "summary" => "summary",
     "サマリー" => "summary",
     "短い説明" => "summary",
+    "zusammenfassung" => "summary",
+    "摘要" => "summary",
     "labels" => "labels",
     "label" => "labels",
     "ラベル" => "labels",
+    "標籤" => "labels",
     "card labels" => "card_labels",
     "card label" => "card_labels",
     "カードラベル" => "card_labels",
     "トップラベル" => "card_labels",
+    "kartenlabels" => "card_labels",
+    "卡片標籤" => "card_labels",
     "page labels" => "page_labels",
     "page label" => "page_labels",
     "ページラベル" => "page_labels",
     "タイトルページラベル" => "page_labels",
+    "seitenlabels" => "page_labels",
+    "頁面標籤" => "page_labels",
     "about" => "overview",
     "overview" => "overview",
     "概要" => "overview",
+    "über das spiel" => "overview",
+    "關於" => "overview",
+    "遊戲介紹" => "overview",
     "plans" => "plans",
     "plan" => "plans",
     "今後の予定" => "plans",
     "予定" => "plans",
+    "pläne" => "plans",
+    "後續計畫" => "plans",
     "history" => "history",
     "活動記録" => "history",
     "公開・出展記録" => "history",
     "出展・更新記録" => "history",
+    "verlauf" => "history",
+    "aktivitäten" => "history",
+    "活動記錄" => "history",
     "links" => "links"
   }
   aliases[normalized]
@@ -96,10 +122,32 @@ def normalize_markdown_lines(lines)
   lines.join("\n").strip
 end
 
-def parse_game_markdown(title_id)
-  path = File.join(CONTENT_DIR, "#{title_id}.md")
-  return warn("skip: missing content #{path}") && {} unless File.exist?(path)
+def parse_markdown_sections(path)
+  content = {}
+  current_section = nil
+  buffer = []
 
+  flush = lambda do
+    if current_section
+      content[current_section] = normalize_markdown_lines(buffer)
+    end
+    buffer = []
+  end
+
+  File.readlines(path, chomp: true).each do |line|
+    if (match = line.match(/\A##\s+(.+?)\s*\z/))
+      flush.call
+      current_section = section_key(match[1])
+    elsif !line.match?(/\A#\s+/) && current_section
+      buffer << line
+    end
+  end
+  flush.call
+
+  content
+end
+
+def parse_legacy_game_markdown(path)
   content = Hash.new { |hash, key| hash[key] = {} }
   current_language = nil
   current_section = nil
@@ -129,9 +177,56 @@ def parse_game_markdown(title_id)
   content
 end
 
+def parse_game_markdown(title_id)
+  content = {}
+
+  LANGUAGES.each do |language|
+    path = File.join(CONTENT_DIR, "#{title_id}.#{language.fetch(:code)}.md")
+    content[language.fetch(:code)] = parse_markdown_sections(path) if File.exist?(path)
+  end
+
+  if content.empty?
+    legacy_path = File.join(CONTENT_DIR, "#{title_id}.md")
+    return warn("skip: missing content #{legacy_path}") && {} unless File.exist?(legacy_path)
+
+    content = parse_legacy_game_markdown(legacy_path)
+  end
+
+  ja_content = content["ja"] || content.values.first || {}
+  LANGUAGES.each { |language| content[language.fetch(:code)] ||= ja_content }
+  content
+end
+
 def content_text(content, language, section, fallback = "")
   text = content.dig(language, section).to_s.strip
   text.empty? ? fallback : text
+end
+
+def localized_texts(content, section, fallback = "", compact: false)
+  ja_text = content_text(content, "ja", section, fallback)
+  LANGUAGES.to_h do |language|
+    code = language.fetch(:code)
+    text = content_text(content, code, section, ja_text)
+    [code, compact ? compact_text(text) : text]
+  end
+end
+
+def localized_attrs(values, html: false)
+  prefix = html ? "data-i18n-html" : "data-i18n"
+  LANGUAGES.map do |language|
+    code = language.fetch(:code)
+    value = values[code] || values["ja"] || ""
+    "#{prefix}-#{code}=\"#{html ? attr_html(value) : attr(value)}\""
+  end.join(" ")
+end
+
+def static_attrs(ja:, en:, de:, zh_hant:)
+  localized_attrs({
+    "ja" => ja,
+    "en" => en,
+    "de" => de,
+    "zh-hant" => zh_hant
+  })
 end
 
 def compact_text(text)
@@ -158,10 +253,9 @@ def inline_markdown_to_html(text)
   end
 end
 
-def localized_paragraph(content, section, fallback_ja = "", fallback_en = "", indent: "            ")
-  ja_text = content_text(content, "ja", section, fallback_ja)
-  en_text = content_text(content, "en", section, fallback_en)
-  "#{indent}<p data-ja=\"#{attr(ja_text)}\" data-en=\"#{attr(en_text)}\">#{h(ja_text)}</p>"
+def localized_paragraph(content, section, fallback = "", indent: "            ")
+  texts = localized_texts(content, section, fallback)
+  "#{indent}<p #{localized_attrs(texts)}>#{h(texts.fetch("ja"))}</p>"
 end
 
 def platform_icon_name(platform)
@@ -208,16 +302,23 @@ def label_class(kind, context)
 end
 
 def label_items(content, section)
-  ja_items = markdown_list_items(content_text(content, "ja", section))
-  en_items = markdown_list_items(content_text(content, "en", section))
+  items_by_language = LANGUAGES.to_h do |language|
+    code = language.fetch(:code)
+    [code, markdown_list_items(content_text(content, code, section))]
+  end
+  base_items = items_by_language["ja"]
+  base_items = items_by_language.values.find { |items| !items.empty? } || []
 
-  ja_items.each_with_index.map do |ja_item, index|
+  base_items.each_with_index.map do |ja_item, index|
     ja_label = parse_label_item(ja_item)
-    en_label = parse_label_item(en_items[index] || en_items.first || ja_label[:text])
     {
       kind: ja_label[:kind],
-      ja: ja_label[:text],
-      en: en_label[:text]
+      text: LANGUAGES.to_h do |language|
+        code = language.fetch(:code)
+        language_items = items_by_language[code]
+        label = parse_label_item(language_items[index] || language_items.first || ja_label[:text])
+        [code, label[:text]]
+      end
     }
   end
 end
@@ -228,7 +329,7 @@ def card_labels(content)
   return "" if labels.empty?
 
   html = labels.map do |label|
-    "                    <span class=\"#{label_class(label[:kind], :card)}\" data-ja=\"#{h(label[:ja])}\" data-en=\"#{h(label[:en])}\">#{h(label[:ja])}</span>"
+    "                    <span class=\"#{label_class(label[:kind], :card)}\" #{localized_attrs(label[:text])}>#{h(label[:text].fetch("ja"))}</span>"
   end.join("\n")
 
   <<~HTML.rstrip
@@ -242,23 +343,29 @@ def game_page_status_row(content)
   labels = label_items(content, "page_labels")
   labels = label_items(content, "labels") if labels.empty?
   html = labels.map do |label|
-    "            <span class=\"#{label_class(label[:kind], :page)}\" data-ja=\"#{h(label[:ja])}\" data-en=\"#{h(label[:en])}\">#{h(label[:ja])}</span>"
+    "            <span class=\"#{label_class(label[:kind], :page)}\" #{localized_attrs(label[:text])}>#{h(label[:text].fetch("ja"))}</span>"
   end.join("\n")
 
   "          <div class=\"status-row\">\n#{html}\n          </div>"
 end
 
 def info_list(content, section)
-  ja_items = markdown_list_items(content_text(content, "ja", section))
-  en_items = markdown_list_items(content_text(content, "en", section))
+  items_by_language = LANGUAGES.to_h do |language|
+    code = language.fetch(:code)
+    [code, markdown_list_items(content_text(content, code, section))]
+  end
+  ja_items = items_by_language["ja"]
 
   return "" if ja_items.empty?
 
   items = ja_items.each_with_index.map do |ja_item, index|
-    en_item = en_items[index] || en_items.first || ja_item
-    ja_html = inline_markdown_to_html(ja_item)
-    en_html = inline_markdown_to_html(en_item)
-    "              <li data-ja-html=\"#{attr_html(ja_html)}\" data-en-html=\"#{attr_html(en_html)}\">#{ja_html}</li>"
+    values = LANGUAGES.to_h do |language|
+      code = language.fetch(:code)
+      language_items = items_by_language[code]
+      item = language_items[index] || language_items.first || ja_item
+      [code, inline_markdown_to_html(item)]
+    end
+    "              <li #{localized_attrs(values, html: true)}>#{values.fetch("ja")}</li>"
   end.join("\n")
 
   <<~HTML.rstrip
@@ -276,7 +383,7 @@ def text_section(content)
                   else
                     <<~HTML.rstrip
           <article class="text-block">
-            <h2 data-ja="今後の予定" data-en="Plans">今後の予定</h2>
+            <h2 #{static_attrs(ja: "今後の予定", en: "Plans", de: "Pläne", zh_hant: "後續計畫")}>今後の予定</h2>
 #{plans}
           </article>
                     HTML
@@ -286,7 +393,7 @@ def text_section(content)
                     else
                       <<~HTML.rstrip
           <article class="text-block">
-            <h2 data-ja="活動記録" data-en="History">活動記録</h2>
+            <h2 #{static_attrs(ja: "活動記録", en: "History", de: "Aktivitäten", zh_hant: "活動記錄")}>活動記録</h2>
 #{history}
           </article>
                       HTML
@@ -296,7 +403,7 @@ def text_section(content)
       <section class="text-band">
         <div class="wrap text-blocks">
           <article class="text-block">
-            <h2 data-ja="概要" data-en="About">概要</h2>
+            <h2 #{static_attrs(ja: "概要", en: "About", de: "Über das Spiel", zh_hant: "遊戲介紹")}>概要</h2>
 #{localized_paragraph(content, "overview")}
           </article>
 #{plans_section}
@@ -311,8 +418,7 @@ def game_card(row, content)
   capsule = asset_file(title_id, "LibraryCapsule.png")
   platforms = platform_icons(row)
   labels = card_labels(content)
-  card_ja = compact_text(content_text(content, "ja", "card", row.fetch("title")))
-  card_en = compact_text(content_text(content, "en", "card", row.fetch("title")))
+  card_texts = localized_texts(content, "card", row.fetch("title"), compact: true)
 
   <<~HTML.rstrip
               <a
@@ -326,7 +432,7 @@ def game_card(row, content)
                   </div>
 #{labels}
                   <h3>#{h(row.fetch("title"))}</h3>
-                  <p data-ja="#{attr(card_ja)}" data-en="#{attr(card_en)}">#{h(card_ja)}</p>
+                  <p #{localized_attrs(card_texts)}>#{h(card_texts.fetch("ja"))}</p>
                 </div>
               </a>
   HTML
@@ -362,10 +468,11 @@ def update_game_page(row, content)
   html = html.gsub(/(<a\s+class="button button-primary"\s+href="https:\/\/store\.steampowered\.com\/[^"]+")(?!\s+target=)/, "\\1 target=\"_blank\" rel=\"noopener\"")
   html = html.gsub(/https:\/\/x\.com\/BogosorGames/, h(x_url))
   html = replace!(html, /<h1>.*?<\/h1>/, "<h1>#{h(title)}</h1>", "#{title_id} h1")
+  summary_texts = localized_texts(content, "summary", title, compact: true)
   html = replace!(
     html,
-    /<p class="summary" data-ja="[^"]*" data-en="[^"]*">\n\s*.*?\n\s*<\/p>/m,
-    "<p class=\"summary\" data-ja=\"#{attr(compact_text(content_text(content, "ja", "summary", title)))}\" data-en=\"#{attr(compact_text(content_text(content, "en", "summary", title)))}\">\n            #{h(compact_text(content_text(content, "ja", "summary", title)))}\n          </p>",
+    /<p class="summary"[^>]*>\n\s*.*?\n\s*<\/p>/m,
+    "<p class=\"summary\" #{localized_attrs(summary_texts)}>\n            #{h(summary_texts.fetch("ja"))}\n          </p>",
     "#{title_id} summary"
   )
   html = replace!(
@@ -381,10 +488,6 @@ def update_game_page(row, content)
     "#{title_id} text section"
   )
   html.gsub!(/\n?\s*<section class="link-panel">\n.*?\n\s*<\/section>/m, "")
-  html = html.gsub(
-    /const translatable = \[\.\.\.document\.querySelectorAll\("\[data-ja\]\[data-en\]"\)\];\n\n      const setLanguage = \(language\) => \{\n        const nextLanguage = language === "en" \? "en" : "ja";\n        document\.documentElement\.lang = nextLanguage;\n        translatable\.forEach\(\(node\) => \{\n          node\.textContent = node\.dataset\[nextLanguage\];\n        \}\);/m,
-    "const translatable = [...document.querySelectorAll(\"[data-ja][data-en]\")];\n      const htmlTranslatable = [...document.querySelectorAll(\"[data-ja-html][data-en-html]\")];\n\n      const setLanguage = (language) => {\n        const nextLanguage = language === \"en\" ? \"en\" : \"ja\";\n        document.documentElement.lang = nextLanguage;\n        translatable.forEach((node) => {\n          node.textContent = node.dataset[nextLanguage];\n        });\n        htmlTranslatable.forEach((node) => {\n          node.innerHTML = node.dataset[`${nextLanguage}Html`];\n        });"
-  )
   html = html.gsub(/alt="[^"]+ screenshot ([0-9]{2})"/, "alt=\"#{h(title)} screenshot \\1\"")
 
   File.write(path, html)

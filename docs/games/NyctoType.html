@@ -31,14 +31,20 @@
       <div class="wrap topbar-inner">
         <div class="brand-cluster">
           <a class="brand" href="../index.html">BogosorStudio</a>
-          <button class="lang-toggle" type="button" aria-label="日本語と英語を切り替え">
-            <span class="lang-option is-active" data-lang-option="ja">JP</span>
-            <span>/</span>
-            <span class="lang-option" data-lang-option="en">EN</span>
-          </button>
+          <div class="language-menu" data-language-menu>
+            <button class="language-button" type="button" aria-haspopup="listbox" aria-expanded="false">
+              <span>Language:</span><span class="language-current" data-language-current>日本語</span>
+            </button>
+            <div class="language-list" role="listbox" hidden>
+              <button class="language-choice" type="button" role="option" data-language-choice="ja" aria-selected="true">日本語</button>
+              <button class="language-choice" type="button" role="option" data-language-choice="en" aria-selected="false">English</button>
+              <button class="language-choice" type="button" role="option" data-language-choice="de" aria-selected="false">Deutsch</button>
+              <button class="language-choice" type="button" role="option" data-language-choice="zh-hant" aria-selected="false">繁體中文</button>
+            </div>
+          </div>
         </div>
         <nav class="top-links" aria-label="ページリンク">
-          <a class="button" href="../index.html#games" data-ja="タイトル一覧" data-en="Titles">
+          <a class="button" href="../index.html#games" data-i18n-ja="タイトル一覧" data-i18n-en="Titles" data-i18n-de="Titel" data-i18n-zh-hant="標題列表">
             タイトル一覧
           </a>
           <a
@@ -56,13 +62,13 @@
         <span class="hero-art" aria-hidden="true"></span>
         <div class="wrap hero-grid">
           <h1>NyctoType</h1>
-          <p class="summary" data-ja="速度と戦術で競い合う マルチスレッドタイピングバトル" data-en="A multithreaded typing battle driven by speed and tactics.">
+          <p class="summary" data-i18n-ja="速度と戦術で競い合う マルチスレッドタイピングバトル" data-i18n-en="A multithreaded typing battle driven by speed and tactics." data-i18n-de="Ein multithreaded Typing-Battle, entschieden durch Tempo und Taktik." data-i18n-zh-hant="以速度與戰術競逐的多執行緒打字對戰">
             速度と戦術で競い合う マルチスレッドタイピングバトル
           </p>
           <div class="status-row">
-            <span class="label label-event" data-ja="2026年8月 gamescom出展" data-en="Aug 2026: gamescom exhibition">2026年8月 gamescom出展</span>
-            <span class="label label-event" data-ja="2026年9月 TGS出展" data-en="Sep 2026: TGS exhibition">2026年9月 TGS出展</span>
-            <span class="label label-muted" data-ja="開発中" data-en="In development">開発中</span>
+            <span class="label label-event" data-i18n-ja="2026年8月 gamescom出展" data-i18n-en="Aug 2026: gamescom exhibition" data-i18n-de="Aug. 2026: Ausstellung auf der gamescom" data-i18n-zh-hant="2026年8月 gamescom 展出">2026年8月 gamescom出展</span>
+            <span class="label label-event" data-i18n-ja="2026年9月 TGS出展" data-i18n-en="Sep 2026: TGS exhibition" data-i18n-de="Sep. 2026: Ausstellung auf der TGS" data-i18n-zh-hant="2026年9月 TGS 展出">2026年9月 TGS出展</span>
+            <span class="label label-muted" data-i18n-ja="開発中" data-i18n-en="In development" data-i18n-de="In Entwicklung" data-i18n-zh-hant="開發中">開発中</span>
           </div>
           <div class="action-row">
             <a
@@ -78,8 +84,8 @@
       <section class="text-band">
         <div class="wrap text-blocks">
           <article class="text-block">
-            <h2 data-ja="概要" data-en="About">概要</h2>
-            <p data-ja="速度と戦術で競い合う、マルチスレッドな対戦タイピングバトル。&#10;&#10;盤面上のウィルス型の駒を動かし、相手側へ押し込んでダメージを与える。&#10;&#10;駒の移動、生成、スキル発動など、すべての行動にはタイピング課題のクリアが必要。&#10;&#10;速く打つだけでは勝てない。どの行動をいつ選ぶかまで問われる。" data-en="A multithreaded typing battle where speed and strategy decide the match.&#10;&#10;Move virus-shaped pieces across the board and push them into the opponent&#39;s side to deal damage.&#10;&#10;Every action, from moving pieces to generating units and activating skills, requires clearing typing tasks.&#10;&#10;Fast typing alone is not enough; timing and tactical choices matter just as much.">速度と戦術で競い合う、マルチスレッドな対戦タイピングバトル。
+            <h2 data-i18n-ja="概要" data-i18n-en="About" data-i18n-de="Über das Spiel" data-i18n-zh-hant="遊戲介紹">概要</h2>
+            <p data-i18n-ja="速度と戦術で競い合う、マルチスレッドな対戦タイピングバトル。&#10;&#10;盤面上のウィルス型の駒を動かし、相手側へ押し込んでダメージを与える。&#10;&#10;駒の移動、生成、スキル発動など、すべての行動にはタイピング課題のクリアが必要。&#10;&#10;速く打つだけでは勝てない。どの行動をいつ選ぶかまで問われる。" data-i18n-en="A multithreaded typing battle where speed and strategy decide the match.&#10;&#10;Move virus-shaped pieces across the board and push them into the opponent&#39;s side to deal damage.&#10;&#10;Every action, from moving pieces to generating units and activating skills, requires clearing typing tasks.&#10;&#10;Fast typing alone is not enough; timing and tactical choices matter just as much." data-i18n-de="Ein multithreaded Typing-Battle, in dem Tempo und Strategie über das Match entscheiden.&#10;&#10;Bewege virusartige Spielfiguren über das Feld und dränge sie auf die gegnerische Seite, um Schaden zu verursachen.&#10;&#10;Jede Aktion, vom Bewegen über das Erzeugen bis zum Aktivieren von Skills, erfordert das Lösen von Tippaufgaben.&#10;&#10;Schnelles Tippen allein reicht nicht; auch Timing und taktische Entscheidungen zählen." data-i18n-zh-hant="以速度與戰術決勝的多執行緒對戰打字遊戲。&#10;&#10;移動棋盤上的病毒型棋子，將它們推向對手陣地來造成傷害。&#10;&#10;無論移動棋子、生成單位，或發動技能，所有行動都必須完成打字課題。&#10;&#10;光是打得快還不夠，何時選擇哪個行動同樣重要。">速度と戦術で競い合う、マルチスレッドな対戦タイピングバトル。
 
 盤面上のウィルス型の駒を動かし、相手側へ押し込んでダメージを与える。
 
@@ -88,16 +94,16 @@
 速く打つだけでは勝てない。どの行動をいつ選ぶかまで問われる。</p>
           </article>
           <article class="text-block">
-            <h2 data-ja="今後の予定" data-en="Plans">今後の予定</h2>
+            <h2 data-i18n-ja="今後の予定" data-i18n-en="Plans" data-i18n-de="Pläne" data-i18n-zh-hant="後續計畫">今後の予定</h2>
             <ul class="info-list">
-              <li data-ja-html="2026年8月 gamescom出展" data-en-html="Aug 2026: Exhibiting at gamescom">2026年8月 gamescom出展</li>
-              <li data-ja-html="2026年9月 TGS出展" data-en-html="Sep 2026: Exhibiting at TGS">2026年9月 TGS出展</li>
+              <li data-i18n-html-ja="2026年8月 gamescom出展" data-i18n-html-en="Aug 2026: Exhibiting at gamescom" data-i18n-html-de="Aug. 2026: Ausstellung auf der gamescom" data-i18n-html-zh-hant="2026年8月 gamescom 展出">2026年8月 gamescom出展</li>
+              <li data-i18n-html-ja="2026年9月 TGS出展" data-i18n-html-en="Sep 2026: Exhibiting at TGS" data-i18n-html-de="Sep. 2026: Ausstellung auf der TGS" data-i18n-html-zh-hant="2026年9月 TGS 展出">2026年9月 TGS出展</li>
             </ul>
           </article>
           <article class="text-block">
-            <h2 data-ja="活動記録" data-en="History">活動記録</h2>
+            <h2 data-i18n-ja="活動記録" data-i18n-en="History" data-i18n-de="Aktivitäten" data-i18n-zh-hant="活動記錄">活動記録</h2>
             <ul class="info-list">
-              <li data-ja-html="Steamページ準備中" data-en-html="Steam page in preparation">Steamページ準備中</li>
+              <li data-i18n-html-ja="Steamページ準備中" data-i18n-html-en="Steam page in preparation" data-i18n-html-de="Steam-Seite in Vorbereitung" data-i18n-html-zh-hant="Steam 頁面準備中">Steamページ準備中</li>
             </ul>
           </article>
         </div>
@@ -106,29 +112,75 @@
 
     <script>
       const languageKey = "bogosorstudio-language";
-      const langToggle = document.querySelector(".lang-toggle");
-      const langOptions = [...document.querySelectorAll("[data-lang-option]")];
-      const translatable = [...document.querySelectorAll("[data-ja][data-en]")];
-      const htmlTranslatable = [...document.querySelectorAll("[data-ja-html][data-en-html]")];
+      const supportedLanguages = ["ja", "en", "de", "zh-hant"];
+      const languageLabels = {
+        ja: "日本語",
+        en: "English",
+        de: "Deutsch",
+        "zh-hant": "繁體中文",
+      };
+      const htmlLanguageCodes = {
+        ja: "ja",
+        en: "en",
+        de: "de",
+        "zh-hant": "zh-Hant",
+      };
+      const languageMenu = document.querySelector("[data-language-menu]");
+      const languageButton = document.querySelector(".language-button");
+      const languageList = document.querySelector(".language-list");
+      const languageCurrent = document.querySelector("[data-language-current]");
+      const languageChoices = [...document.querySelectorAll("[data-language-choice]")];
+      const translatable = [...document.querySelectorAll("[data-i18n-ja]")];
+      const htmlTranslatable = [...document.querySelectorAll("[data-i18n-html-ja]")];
 
-      const setLanguage = (language) => {
-        const nextLanguage = language === "en" ? "en" : "ja";
-        document.documentElement.lang = nextLanguage;
-        translatable.forEach((node) => {
-          node.textContent = node.dataset[nextLanguage];
-        });
-        htmlTranslatable.forEach((node) => {
-          node.innerHTML = node.dataset[`${nextLanguage}Html`];
-        });
-        langOptions.forEach((option) => {
-          option.classList.toggle("is-active", option.dataset.langOption === nextLanguage);
-        });
-        localStorage.setItem(languageKey, nextLanguage);
+      const normalizeLanguage = (language) => supportedLanguages.includes(language) ? language : "ja";
+
+      const closeLanguageMenu = () => {
+        languageList?.setAttribute("hidden", "");
+        languageButton?.setAttribute("aria-expanded", "false");
       };
 
-      langToggle?.addEventListener("click", () => {
-        const currentLanguage = document.documentElement.lang === "en" ? "en" : "ja";
-        setLanguage(currentLanguage === "en" ? "ja" : "en");
+      const openLanguageMenu = () => {
+        languageList?.removeAttribute("hidden");
+        languageButton?.setAttribute("aria-expanded", "true");
+      };
+
+      const setLanguage = (language) => {
+        const nextLanguage = normalizeLanguage(language);
+        document.documentElement.lang = htmlLanguageCodes[nextLanguage] || nextLanguage;
+        translatable.forEach((node) => {
+          node.textContent = node.getAttribute(`data-i18n-${nextLanguage}`) || node.getAttribute("data-i18n-ja") || "";
+        });
+        htmlTranslatable.forEach((node) => {
+          node.innerHTML = node.getAttribute(`data-i18n-html-${nextLanguage}`) || node.getAttribute("data-i18n-html-ja") || "";
+        });
+        if (languageCurrent) languageCurrent.textContent = languageLabels[nextLanguage];
+        languageChoices.forEach((choice) => {
+          choice.setAttribute("aria-selected", String(choice.dataset.languageChoice === nextLanguage));
+        });
+        localStorage.setItem(languageKey, nextLanguage);
+        closeLanguageMenu();
+      };
+
+      languageButton?.addEventListener("click", (event) => {
+        event.stopPropagation();
+        if (languageList?.hasAttribute("hidden")) {
+          openLanguageMenu();
+        } else {
+          closeLanguageMenu();
+        }
+      });
+
+      languageChoices.forEach((choice) => {
+        choice.addEventListener("click", () => setLanguage(choice.dataset.languageChoice));
+      });
+
+      document.addEventListener("click", (event) => {
+        if (!languageMenu?.contains(event.target)) closeLanguageMenu();
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeLanguageMenu();
       });
 
       setLanguage(localStorage.getItem(languageKey) || "ja");
