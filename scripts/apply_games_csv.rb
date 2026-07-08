@@ -6,8 +6,15 @@ require "erb"
 
 ROOT = File.expand_path("..", __dir__)
 CSV_PATH = File.join(ROOT, "games.csv")
+CONTENT_DIR = File.join(ROOT, "content", "games")
 INDEX_PATH = File.join(ROOT, "docs", "index.html")
-TEMP_PLATFORM_STORE_URL = "https://store.steampowered.com/app/2988640/HAPPY_RUNNER/"
+LANGUAGES = [
+  { code: "ja", label: "日本語", html_lang: "ja" },
+  { code: "en", label: "English", html_lang: "en" },
+  { code: "de", label: "Deutsch", html_lang: "de" },
+  { code: "zh-hant", label: "繁體中文", html_lang: "zh-Hant" }
+].freeze
+LANGUAGE_CODES = LANGUAGES.map { |language| language.fetch(:code) }.freeze
 
 def h(value)
   ERB::Util.html_escape(value.to_s)
@@ -35,6 +42,222 @@ def replace!(html, pattern, replacement, label)
   html
 end
 
+def row_value(row, key, fallback = "")
+  value = row[key]
+  value.nil? || value.empty? ? fallback : value
+end
+
+def attr(value)
+  h(value).gsub("\n", "&#10;")
+end
+
+def attr_html(value)
+  h(value).gsub("\n", "&#10;").gsub('"', "&quot;")
+end
+
+def language_key(label)
+  normalized = label.to_s.strip.downcase
+  return "ja" if ["日本語", "ja", "japanese"].include?(normalized)
+  return "en" if ["english", "en", "英語"].include?(normalized)
+  return "de" if ["deutsch", "de", "german", "ドイツ語"].include?(normalized)
+  return "zh-hant" if ["繁體中文", "繁体字", "zh-hant", "zh", "traditional chinese"].include?(normalized)
+
+  nil
+end
+
+def section_key(label)
+  normalized = label.to_s.strip.downcase
+  aliases = {
+    "card" => "card",
+    "カード" => "card",
+    "カード説明" => "card",
+    "karte" => "card",
+    "卡片" => "card",
+    "summary" => "summary",
+    "サマリー" => "summary",
+    "短い説明" => "summary",
+    "zusammenfassung" => "summary",
+    "摘要" => "summary",
+    "labels" => "labels",
+    "label" => "labels",
+    "ラベル" => "labels",
+    "標籤" => "labels",
+    "card labels" => "card_labels",
+    "card label" => "card_labels",
+    "カードラベル" => "card_labels",
+    "トップラベル" => "card_labels",
+    "kartenlabels" => "card_labels",
+    "卡片標籤" => "card_labels",
+    "page labels" => "page_labels",
+    "page label" => "page_labels",
+    "ページラベル" => "page_labels",
+    "タイトルページラベル" => "page_labels",
+    "seitenlabels" => "page_labels",
+    "頁面標籤" => "page_labels",
+    "about" => "overview",
+    "overview" => "overview",
+    "概要" => "overview",
+    "über das spiel" => "overview",
+    "關於" => "overview",
+    "遊戲介紹" => "overview",
+    "plans" => "plans",
+    "plan" => "plans",
+    "今後の予定" => "plans",
+    "予定" => "plans",
+    "pläne" => "plans",
+    "後續計畫" => "plans",
+    "history" => "history",
+    "活動記録" => "history",
+    "公開・出展記録" => "history",
+    "出展・更新記録" => "history",
+    "verlauf" => "history",
+    "aktivitäten" => "history",
+    "活動記錄" => "history",
+    "links" => "links"
+  }
+  aliases[normalized]
+end
+
+def normalize_markdown_lines(lines)
+  lines.join("\n").strip
+end
+
+def parse_markdown_sections(path)
+  content = {}
+  current_section = nil
+  buffer = []
+
+  flush = lambda do
+    if current_section
+      content[current_section] = normalize_markdown_lines(buffer)
+    end
+    buffer = []
+  end
+
+  File.readlines(path, chomp: true).each do |line|
+    if (match = line.match(/\A##\s+(.+?)\s*\z/))
+      flush.call
+      current_section = section_key(match[1])
+    elsif !line.match?(/\A#\s+/) && current_section
+      buffer << line
+    end
+  end
+  flush.call
+
+  content
+end
+
+def parse_legacy_game_markdown(path)
+  content = Hash.new { |hash, key| hash[key] = {} }
+  current_language = nil
+  current_section = nil
+  buffer = []
+
+  flush = lambda do
+    if current_language && current_section
+      content[current_language][current_section] = normalize_markdown_lines(buffer)
+    end
+    buffer = []
+  end
+
+  File.readlines(path, chomp: true).each do |line|
+    if (match = line.match(/\A#\s+(.+?)\s*\z/))
+      flush.call
+      current_language = language_key(match[1])
+      current_section = nil
+    elsif (match = line.match(/\A##\s+(.+?)\s*\z/))
+      flush.call
+      current_section = section_key(match[1])
+    elsif current_language && current_section
+      buffer << line
+    end
+  end
+  flush.call
+
+  content
+end
+
+def parse_game_markdown(title_id)
+  content = {}
+
+  LANGUAGES.each do |language|
+    path = File.join(CONTENT_DIR, "#{title_id}.#{language.fetch(:code)}.md")
+    content[language.fetch(:code)] = parse_markdown_sections(path) if File.exist?(path)
+  end
+
+  if content.empty?
+    legacy_path = File.join(CONTENT_DIR, "#{title_id}.md")
+    return warn("skip: missing content #{legacy_path}") && {} unless File.exist?(legacy_path)
+
+    content = parse_legacy_game_markdown(legacy_path)
+  end
+
+  ja_content = content["ja"] || content.values.first || {}
+  LANGUAGES.each { |language| content[language.fetch(:code)] ||= ja_content }
+  content
+end
+
+def content_text(content, language, section, fallback = "")
+  text = content.dig(language, section).to_s.strip
+  text.empty? ? fallback : text
+end
+
+def localized_texts(content, section, fallback = "", compact: false)
+  ja_text = content_text(content, "ja", section, fallback)
+  LANGUAGES.to_h do |language|
+    code = language.fetch(:code)
+    text = content_text(content, code, section, ja_text)
+    [code, compact ? compact_text(text) : text]
+  end
+end
+
+def localized_attrs(values, html: false)
+  prefix = html ? "data-i18n-html" : "data-i18n"
+  LANGUAGES.map do |language|
+    code = language.fetch(:code)
+    value = values[code] || values["ja"] || ""
+    "#{prefix}-#{code}=\"#{html ? attr_html(value) : attr(value)}\""
+  end.join(" ")
+end
+
+def static_attrs(ja:, en:, de:, zh_hant:)
+  localized_attrs({
+    "ja" => ja,
+    "en" => en,
+    "de" => de,
+    "zh-hant" => zh_hant
+  })
+end
+
+def compact_text(text)
+  text.to_s.lines.map(&:strip).reject(&:empty?).join(" ")
+end
+
+def markdown_list_items(text)
+  lines = text.to_s.gsub(/<!--.*?-->/m, "").lines.map(&:chomp)
+  bullet_items = lines.map do |line|
+    match = line.match(/\A\s*[-*]\s+(.+?)\s*\z/)
+    match && match[1].strip
+  end.compact
+  return bullet_items unless bullet_items.empty?
+
+  lines.map(&:strip).reject(&:empty?)
+end
+
+def inline_markdown_to_html(text)
+  escaped = h(text)
+  escaped.gsub(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/) do
+    label = Regexp.last_match(1)
+    url = Regexp.last_match(2)
+    "<a href=\"#{url}\" target=\"_blank\" rel=\"noopener\">#{label}</a>"
+  end
+end
+
+def localized_paragraph(content, section, fallback = "", indent: "            ")
+  texts = localized_texts(content, section, fallback)
+  "#{indent}<p #{localized_attrs(texts)}>#{h(texts.fetch("ja"))}</p>"
+end
+
 def platform_icon_name(platform)
   normalized = platform.to_s.strip.downcase
   return "steam" if normalized == "steam"
@@ -50,38 +273,152 @@ def platform_icons(row)
     next unless name
 
     label = platform.strip
-    "                    <span class=\"platform-icon\" role=\"link\" tabindex=\"0\" aria-label=\"#{h(label)} store\" title=\"#{h(label)}\" data-store-url=\"#{h(TEMP_PLATFORM_STORE_URL)}\"><img src=\"./assets/platforms/#{name}.svg\" alt=\"\" /></span>"
+    "                    <span class=\"platform-icon\" role=\"link\" tabindex=\"0\" aria-label=\"#{h(label)} store\" title=\"#{h(label)}\" data-store-url=\"#{h(row.fetch("steam_url"))}\"><img src=\"./assets/platforms/#{name}.svg\" alt=\"\" /></span>"
   end.compact.join("\n")
 end
 
-def release_label_class(label)
-  return "release-label is-released" if label.include?("発売中")
-  return "release-label is-event" if label.match?(/出展|展示|gamescom|TGS/i)
+def parse_label_item(item)
+  match = item.to_s.strip.match(/\A\(([^)]+)\)\s*(.+)\z/)
+  return { kind: "main", text: item.to_s.strip } unless match
 
-  "release-label is-tba"
+  { kind: match[1].strip.downcase, text: match[2].strip }
 end
 
-def release_labels(row)
-  ja_labels = row.fetch("release_label_ja").split("|").map(&:strip)
-  en_labels = row.fetch("release_label_en").split("|").map(&:strip)
+def label_class(kind, context)
+  normalized = kind.to_s.downcase
+  if context == :card
+    return "release-label is-event" if normalized == "event"
+    return "release-label is-released" if normalized == "released"
+    return "release-label is-tba" if normalized == "muted" || normalized == "status"
 
-  labels = ja_labels.each_with_index.map do |ja_label, index|
-    en_label = en_labels[index] || en_labels.first || ja_label
-    "                    <span class=\"#{release_label_class(ja_label)}\" data-ja=\"#{h(ja_label)}\" data-en=\"#{h(en_label)}\">#{h(ja_label)}</span>"
+    "release-label"
+  else
+    return "label label-event" if normalized == "event"
+    return "label label-released" if normalized == "released"
+    return "label label-muted" if normalized == "muted" || normalized == "status"
+
+    "label"
+  end
+end
+
+def label_items(content, section)
+  items_by_language = LANGUAGES.to_h do |language|
+    code = language.fetch(:code)
+    [code, markdown_list_items(content_text(content, code, section))]
+  end
+  base_items = items_by_language["ja"]
+  base_items = items_by_language.values.find { |items| !items.empty? } || []
+
+  base_items.each_with_index.map do |ja_item, index|
+    ja_label = parse_label_item(ja_item)
+    {
+      kind: ja_label[:kind],
+      text: LANGUAGES.to_h do |language|
+        code = language.fetch(:code)
+        language_items = items_by_language[code]
+        label = parse_label_item(language_items[index] || language_items.first || ja_label[:text])
+        [code, label[:text]]
+      end
+    }
+  end
+end
+
+def card_labels(content)
+  labels = label_items(content, "card_labels")
+  labels = label_items(content, "labels").reject { |label| ["muted", "status"].include?(label[:kind]) } if labels.empty?
+  return "" if labels.empty?
+
+  html = labels.map do |label|
+    "                    <span class=\"#{label_class(label[:kind], :card)}\" #{localized_attrs(label[:text])}>#{h(label[:text].fetch("ja"))}</span>"
   end.join("\n")
 
   <<~HTML.rstrip
                   <div class="release-labels" aria-label="公開・展示ステータス">
-#{labels}
+#{html}
                   </div>
   HTML
 end
 
-def game_card(row)
+def game_page_status_row(content)
+  labels = label_items(content, "page_labels")
+  labels = label_items(content, "labels") if labels.empty?
+  html = labels.map do |label|
+    "            <span class=\"#{label_class(label[:kind], :page)}\" #{localized_attrs(label[:text])}>#{h(label[:text].fetch("ja"))}</span>"
+  end.join("\n")
+
+  "          <div class=\"status-row\">\n#{html}\n          </div>"
+end
+
+def info_list(content, section)
+  items_by_language = LANGUAGES.to_h do |language|
+    code = language.fetch(:code)
+    [code, markdown_list_items(content_text(content, code, section))]
+  end
+  ja_items = items_by_language["ja"]
+
+  return "" if ja_items.empty?
+
+  items = ja_items.each_with_index.map do |ja_item, index|
+    values = LANGUAGES.to_h do |language|
+      code = language.fetch(:code)
+      language_items = items_by_language[code]
+      item = language_items[index] || language_items.first || ja_item
+      [code, inline_markdown_to_html(item)]
+    end
+    "              <li #{localized_attrs(values, html: true)}>#{values.fetch("ja")}</li>"
+  end.join("\n")
+
+  <<~HTML.rstrip
+            <ul class="info-list">
+#{items}
+            </ul>
+  HTML
+end
+
+def text_section(content)
+  plans = info_list(content, "plans")
+  history = info_list(content, "history")
+  plans_section = if plans.empty?
+                    ""
+                  else
+                    <<~HTML.rstrip
+          <article class="text-block">
+            <h2 #{static_attrs(ja: "今後の予定", en: "Plans", de: "Pläne", zh_hant: "後續計畫")}>今後の予定</h2>
+#{plans}
+          </article>
+                    HTML
+                  end
+  history_section = if history.empty?
+                      ""
+                    else
+                      <<~HTML.rstrip
+          <article class="text-block">
+            <h2 #{static_attrs(ja: "活動記録", en: "History", de: "Aktivitäten", zh_hant: "活動記錄")}>活動記録</h2>
+#{history}
+          </article>
+                      HTML
+                    end
+
+  <<~HTML.rstrip
+      <section class="text-band">
+        <div class="wrap text-blocks">
+          <article class="text-block">
+            <h2 #{static_attrs(ja: "概要", en: "About", de: "Über das Spiel", zh_hant: "遊戲介紹")}>概要</h2>
+#{localized_paragraph(content, "overview")}
+          </article>
+#{plans_section}
+#{history_section}
+        </div>
+      </section>
+  HTML
+end
+
+def game_card(row, content)
   title_id = row.fetch("title_id")
   capsule = asset_file(title_id, "LibraryCapsule.png")
   platforms = platform_icons(row)
-  labels = release_labels(row)
+  labels = card_labels(content)
+  card_texts = localized_texts(content, "card", row.fetch("title"), compact: true)
 
   <<~HTML.rstrip
               <a
@@ -95,15 +432,15 @@ def game_card(row)
                   </div>
 #{labels}
                   <h3>#{h(row.fetch("title"))}</h3>
-                  <p data-ja="#{h(row.fetch("card_text_ja"))}" data-en="#{h(row.fetch("card_text_en"))}">#{h(row.fetch("card_text_ja"))}</p>
+                  <p #{localized_attrs(card_texts)}>#{h(card_texts.fetch("ja"))}</p>
                 </div>
               </a>
   HTML
 end
 
-def update_index(rows)
+def update_index(rows, contents)
   html = File.read(INDEX_PATH)
-  cards = rows.map { |row| game_card(row) }.join("\n\n")
+  cards = rows.map { |row| game_card(row, contents.fetch(row.fetch("title_id"), {})) }.join("\n\n")
   html = replace!(
     html,
     /            <div class="capsule-shelf" aria-label="Steamライブラリーカプセル">\n.*?\n            <\/div>/m,
@@ -113,7 +450,7 @@ def update_index(rows)
   File.write(INDEX_PATH, html)
 end
 
-def update_game_page(row)
+def update_game_page(row, content)
   title_id = row.fetch("title_id")
   path = File.join(ROOT, "docs", "games", "#{title_id}.html")
   return warn("skip: missing page #{path}") unless File.exist?(path)
@@ -127,33 +464,38 @@ def update_game_page(row)
   html = replace!(html, /<meta property="og:title" content="[^"]+ \| BogosorStudio" \/>/, "<meta property=\"og:title\" content=\"#{h(title)} | BogosorStudio\" />", "#{title_id} og title")
   html = replace!(html, /content="[^"]+ の紹介ページ。"\n    \/>/, "content=\"#{h(title)} の紹介ページ。\"\n    />", "#{title_id} og description")
   html = replace!(html, /<title>.*? \| BogosorStudio<\/title>/, "<title>#{h(title)} | BogosorStudio</title>", "#{title_id} title")
-  html = html.gsub(/https:\/\/store\.steampowered\.com\/search\/\?term=[^"]+/, h(steam_url))
+  html = html.gsub(/https:\/\/store\.steampowered\.com\/(?:search\/\?term=|app\/)[^"]+/, h(steam_url))
+  html = html.gsub(/(<a\s+class="button button-primary"\s+href="https:\/\/store\.steampowered\.com\/[^"]+")(?!\s+target=)/, "\\1 target=\"_blank\" rel=\"noopener\"")
   html = html.gsub(/https:\/\/x\.com\/BogosorGames/, h(x_url))
   html = replace!(html, /<h1>.*?<\/h1>/, "<h1>#{h(title)}</h1>", "#{title_id} h1")
+  summary_texts = localized_texts(content, "summary", title, compact: true)
   html = replace!(
     html,
-    /<p class="summary" data-ja="[^"]*" data-en="[^"]*">\n\s*.*?\n\s*<\/p>/m,
-    "<p class=\"summary\" data-ja=\"#{h(row.fetch("summary_ja"))}\" data-en=\"#{h(row.fetch("summary_en"))}\">\n            #{h(row.fetch("summary_ja"))}\n          </p>",
+    /<p class="summary"[^>]*>\n\s*.*?\n\s*<\/p>/m,
+    "<p class=\"summary\" #{localized_attrs(summary_texts)}>\n            #{h(summary_texts.fetch("ja"))}\n          </p>",
     "#{title_id} summary"
   )
-  html = replace!(html, /<span class="label" data-ja="[^"]*" data-en="[^"]*">.*?<\/span>/, "<span class=\"label\" data-ja=\"#{h(row.fetch("release_label_ja"))}\" data-en=\"#{h(row.fetch("release_label_en"))}\">#{h(row.fetch("release_label_ja"))}</span>", "#{title_id} release label")
-  html = replace!(html, /<span class="label label-muted" data-ja="[^"]*" data-en="[^"]*">.*?<\/span>/, "<span class=\"label label-muted\" data-ja=\"#{h(row.fetch("status_label_ja"))}\" data-en=\"#{h(row.fetch("status_label_en"))}\">#{h(row.fetch("status_label_ja"))}</span>", "#{title_id} status label")
-  html = replace!(html, /<p data-ja="[^"]*" data-en="[^"]*">[^<]*(?:概要|ルール|AI|Reversi|Skill|NyctoType|HAPPY RUNNER)[^<]*<\/p>/, "<p data-ja=\"#{h(row.fetch("overview_ja"))}\" data-en=\"#{h(row.fetch("overview_en"))}\">#{h(row.fetch("overview_ja"))}</p>", "#{title_id} overview")
-  html = replace!(html, /<p data-ja="リリース時期、ストアリンク、イベント展示などの情報をここに追加できます。" data-en="[^"]*">.*?<\/p>/, "<p data-ja=\"#{h(row.fetch("updates_ja"))}\" data-en=\"#{h(row.fetch("updates_en"))}\">#{h(row.fetch("updates_ja"))}</p>", "#{title_id} updates")
-  html = replace!(html, /<p data-ja="ストアページ、更新情報、問い合わせ先などを必要に応じて追加できます。" data-en="[^"]*">.*?<\/p>/, "<p data-ja=\"#{h(row.fetch("links_text_ja"))}\" data-en=\"#{h(row.fetch("links_text_en"))}\">#{h(row.fetch("links_text_ja"))}</p>", "#{title_id} links text")
   html = replace!(
     html,
-    /<div class="meta-row" aria-label="基本情報">\n\s*<span><b>Platform<\/b>.*?<\/span>\n\s*<span><b>Status<\/b>.*?<\/span>\n\s*<span><b>Links<\/b>.*?<\/span>\n\s*<\/div>/m,
-    "<div class=\"meta-row\" aria-label=\"基本情報\">\n                <span><b>Platform</b> #{h(row.fetch("meta_platform"))}</span>\n                <span><b>Status</b> #{h(row.fetch("meta_status_ja"))}</span>\n                <span><b>Links</b> #{h(row.fetch("meta_links"))}</span>\n              </div>",
-    "#{title_id} meta row"
+    /          <div class="status-row">\n.*?\n          <\/div>/m,
+    game_page_status_row(content),
+    "#{title_id} status row"
   )
+  html = replace!(
+    html,
+    /      <section class="text-band">\n.*?\n      <\/section>/m,
+    text_section(content),
+    "#{title_id} text section"
+  )
+  html.gsub!(/\n?\s*<section class="link-panel">\n.*?\n\s*<\/section>/m, "")
   html = html.gsub(/alt="[^"]+ screenshot ([0-9]{2})"/, "alt=\"#{h(title)} screenshot \\1\"")
 
   File.write(path, html)
 end
 
 rows = CSV.read(CSV_PATH, headers: true, encoding: "bom|utf-8").map(&:to_h)
-update_index(rows)
-rows.each { |row| update_game_page(row) }
+contents = rows.to_h { |row| [row.fetch("title_id"), parse_game_markdown(row.fetch("title_id"))] }
+update_index(rows, contents)
+rows.each { |row| update_game_page(row, contents.fetch(row.fetch("title_id"), {})) }
 
 puts "Applied #{rows.length} games from games.csv"

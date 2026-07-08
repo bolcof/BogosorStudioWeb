@@ -14,16 +14,49 @@ GitHub Pagesでは `docs/` フォルダを公開対象にします。
 
 ## タイトル情報の編集
 
-タイトル名、タグ、ステータス表示、短い紹介文、Steam / X のリンクなどは、リポジトリ直下の `games.csv` で編集します。
-`games.csv` はExcelで文字化けしにくいように、UTF-8 BOM付きで保存しています。
-見やすいExcelファイルとして `games.xlsx` も置いています。
+タイトル名、Steam / X のリンク、対応プラットフォームなどの一覧向きメタ情報は、リポジトリ直下の `games.csv` で編集します。
+トップページのカード説明、カードラベル、各タイトルページのサマリー、ページラベル、概要、今後の予定、活動記録は `content/games/<TitleId>.<lang>.md` で編集します。
+Markdown内の改行は概要本文に反映され、`今後の予定` と `活動記録` の箇条書きはそのままリスト表示されます。
 トップページのカードに表示する対応プラットフォームは `meta_platform` で編集します。
 複数ある場合は `Steam|Android|iOS` のように `|` 区切りで書きます。
-トップページのカードに表示する公開・展示ラベルは `release_label_ja` / `release_label_en` で編集します。
-複数枚に分けたい場合は `2026年8月 gamescom出展|2026年9月 TGS出展` のように `|` 区切りで書きます。
-`出展`、`展示`、`gamescom`、`TGS` を含むラベルは、展示情報としてオレンジ系の目立つ色で表示します。
+対応プラットフォームアイコンの遷移先は、現状 `steam_url` を使います。Android / iOS の本番URLが未定の場合も、一旦Steamページへ飛ばします。
+対応言語は `ja`, `en`, `de`, `zh-hant` です。
+基本的には日本語版の `content/games/<TitleId>.ja.md` を編集し、内容が変わったら英語、ドイツ語、繁体字のMDを同じ構造で更新します。
+トップページのカードに表示するラベルは `## カードラベル` / `## Card Labels`、各タイトルページ上部に表示するラベルは `## ページラベル` / `## Page Labels` で別々に編集します。
+ラベルは箇条書きで、先頭に色タグを書きます。`(event)` は展示情報として金色で目立たせます。
 
-CSVを編集したあと、次のコマンドを実行してください。
+```md
+## カードラベル
+
+<!--
+ラベルの色タグ:
+- (main): 基本の強調ラベル。地の色=オレンジ、字の色=白
+- (released): 発売中ラベル。地の色=ミントグリーン、字の色=黒
+- (event): 展示・出展ラベル。地の色=金、字の色=黒
+- (muted): 補助ステータス。地の色=半透明グレー、字の色=白
+-->
+
+- (event) 2026年8月 gamescom出展
+- (event) 2026年9月 TGS出展
+
+## ページラベル
+
+<!--
+ラベルの色タグ:
+- (main): 基本の強調ラベル。地の色=オレンジ、字の色=白
+- (released): 発売中ラベル。地の色=ミントグリーン、字の色=黒
+- (event): 展示・出展ラベル。地の色=金、字の色=黒
+- (muted): 補助ステータス。地の色=半透明グレー、字の色=白
+-->
+
+- (event) 2026年8月 gamescom出展
+- (event) 2026年9月 TGS出展
+- (muted) 開発中
+```
+
+カードにラベルを出したくない場合は、`## カードラベル` をコメントだけにして箇条書きを空にします。カードに出したい通常ラベルは `(main)`、発売中は `(released)` を使います。
+
+`games.csv` または `content/games/<TitleId>.<lang>.md` を編集したあと、次のコマンドを実行してください。
 
 ```sh
 ruby scripts/apply_games_csv.rb
@@ -33,6 +66,35 @@ ruby scripts/apply_games_csv.rb
 
 - `docs/index.html`
 - `docs/games/<TitleId>.html`
+
+タイトル本文のMarkdownは、次の見出しを使います。
+
+```md
+## カード
+## サマリー
+## カードラベル
+## ページラベル
+## 概要
+## 今後の予定
+## 活動記録
+
+## Card
+## Summary
+## Card Labels
+## Page Labels
+## About
+## Plans
+## History
+```
+
+ファイル名の例:
+
+```text
+content/games/NyctoType.ja.md
+content/games/NyctoType.en.md
+content/games/NyctoType.de.md
+content/games/NyctoType.zh-hant.md
+```
 
 ## タイトル別アセット
 
@@ -87,8 +149,8 @@ docs/News/2026-06-25_Steamページ準備中/index.html
 ## 残タスク
 
 - 各タイトルページの `概要` 見出しを、必要に応じて `作品紹介 / About` などに変更します。
-- `games.csv` に残っている仮文言を、各タイトルの正式な紹介文、更新情報、リンク文言に差し替えます。
-- 各タイトルのSteam、Android、iOSなどのストアURLを本番URLに差し替えます。現状は仮URLや検索URLを含みます。
+- `content/games/<TitleId>.<lang>.md` に残っている仮文言を、各タイトルの正式なカード説明、概要、今後の予定、活動記録に差し替えます。
+- Android、iOSなどSteam以外のストアURLを本番URLに差し替えます。現状、ReversiのAndroid / iOSは暫定でSteamページへ遷移します。
 - `KeyArt.png` がないタイトルは、用意でき次第 `docs/assets/games/<TitleId>/KeyArt.png` として追加します。
 - News記事と展示情報は、実際の公開内容やイベント情報に合わせて追加・更新します。
 - GitHub Pages公開後に、PC表示、スマホ表示、外部リンクの新規タブ挙動を確認します。

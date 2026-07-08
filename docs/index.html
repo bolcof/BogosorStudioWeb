@@ -149,14 +149,18 @@
         white-space: nowrap;
       }
 
-      .lang-toggle {
+      .language-menu {
+        position: relative;
+      }
+
+      .language-button {
         display: inline-flex;
         align-items: center;
-        gap: 5px;
+        gap: 4px;
         min-height: 34px;
         border: 1px solid var(--line);
         border-radius: 8px;
-        padding: 0 9px;
+        padding: 0 10px;
         color: var(--muted);
         background: rgba(244, 240, 231, 0.06);
         font: inherit;
@@ -165,13 +169,54 @@
         cursor: pointer;
       }
 
-      .lang-toggle:hover {
+      .language-button:hover,
+      .language-button[aria-expanded="true"] {
         color: var(--text);
         background: rgba(244, 240, 231, 0.1);
       }
 
-      .lang-option.is-active {
+      .language-current {
         color: var(--gold);
+      }
+
+      .language-list {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        z-index: 30;
+        min-width: 168px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 6px;
+        background: rgba(18, 18, 15, 0.96);
+        box-shadow: 0 18px 42px rgba(0, 0, 0, 0.38);
+        backdrop-filter: blur(16px);
+      }
+
+      .language-list[hidden] {
+        display: none;
+      }
+
+      .language-choice {
+        display: flex;
+        width: 100%;
+        min-height: 34px;
+        align-items: center;
+        border: 0;
+        border-radius: 6px;
+        padding: 0 10px;
+        color: var(--muted);
+        background: transparent;
+        font: inherit;
+        font-size: 0.82rem;
+        font-weight: 760;
+        cursor: pointer;
+      }
+
+      .language-choice:hover,
+      .language-choice[aria-selected="true"] {
+        color: var(--text);
+        background: rgba(244, 240, 231, 0.1);
       }
 
       .nav-links {
@@ -671,12 +716,14 @@
         max-width: 100%;
         margin-top: 0;
         min-height: 30px;
-        border: 1px solid rgba(212, 168, 48, 0.58);
+        border: 1px solid rgba(255, 139, 58, 0.74);
         border-radius: 8px;
         padding: 5px 9px;
-        color: #17120a;
-        background: linear-gradient(135deg, #f3d36e, var(--gold));
-        box-shadow: 0 10px 24px rgba(212, 168, 48, 0.24);
+        color: #fff4e7;
+        background:
+          linear-gradient(135deg, rgba(255, 139, 58, 0.34), rgba(212, 168, 48, 0.2)),
+          rgba(65, 36, 14, 0.82);
+        box-shadow: 0 12px 24px rgba(255, 139, 58, 0.18);
         font-size: 0.78rem;
         font-weight: 850;
         line-height: 1.15;
@@ -698,12 +745,10 @@
       }
 
       .release-label.is-event {
-        border-color: rgba(255, 139, 58, 0.74);
-        color: #fff4e7;
-        background:
-          linear-gradient(135deg, rgba(255, 139, 58, 0.34), rgba(212, 168, 48, 0.2)),
-          rgba(65, 36, 14, 0.82);
-        box-shadow: 0 12px 24px rgba(255, 139, 58, 0.18);
+        border-color: rgba(212, 168, 48, 0.58);
+        color: #17120a;
+        background: linear-gradient(135deg, #f3d36e, var(--gold));
+        box-shadow: 0 10px 24px rgba(212, 168, 48, 0.24);
       }
 
       .capsule-content p {
@@ -1074,14 +1119,20 @@
               <img class="brand-logo" src="./assets/studio/logo.png" alt="" />
               <span class="brand-name">BogosorStudio</span>
             </a>
-            <button class="lang-toggle" type="button" aria-label="日本語と英語を切り替え">
-              <span class="lang-option is-active" data-lang-option="ja">JP</span>
-              <span>/</span>
-              <span class="lang-option" data-lang-option="en">EN</span>
-            </button>
+            <div class="language-menu" data-language-menu>
+              <button class="language-button" type="button" aria-haspopup="listbox" aria-expanded="false">
+                <span>Language:</span><span class="language-current" data-language-current>日本語</span>
+              </button>
+              <div class="language-list" role="listbox" hidden>
+                <button class="language-choice" type="button" role="option" data-language-choice="ja" aria-selected="true">日本語</button>
+                <button class="language-choice" type="button" role="option" data-language-choice="en" aria-selected="false">English</button>
+                <button class="language-choice" type="button" role="option" data-language-choice="de" aria-selected="false">Deutsch</button>
+                <button class="language-choice" type="button" role="option" data-language-choice="zh-hant" aria-selected="false">繁體中文</button>
+              </div>
+            </div>
           </div>
           <nav class="nav-links" aria-label="メインナビゲーション">
-            <a class="nav-link" href="#games" data-ja="ゲーム一覧" data-en="Games">ゲーム一覧</a>
+            <a class="nav-link" href="#games" data-i18n-ja="ゲーム一覧" data-i18n-en="Games" data-i18n-de="Spiele" data-i18n-zh-hant="遊戲列表">ゲーム一覧</a>
             <a class="nav-link" href="./News/index.html">News</a>
             <a class="nav-link" href="./Exhibitions/index.html">展示情報</a>
             <a class="nav-link" href="#contact">Contact</a>
@@ -1098,12 +1149,12 @@
             <div class="notice-box" role="status">
               <span class="notice-mark" aria-hidden="true">!</span>
               <div>
-                <strong data-ja="このサイトは現在準備中です" data-en="This site is currently in preparation">このサイトは現在準備中です</strong>
-                <p data-ja="掲載内容、リンク、各タイトルページは仮の内容を含みます。正式公開まで順次更新します。" data-en="Some content, links, and title pages are temporary. Updates will continue toward the official launch.">
+                <strong data-i18n-ja="このサイトは現在準備中です" data-i18n-en="This site is currently in preparation" data-i18n-de="Diese Website befindet sich derzeit in Vorbereitung" data-i18n-zh-hant="本網站目前正在準備中">このサイトは現在準備中です</strong>
+                <p data-i18n-ja="掲載内容、リンク、各タイトルページは仮の内容を含みます。正式公開まで順次更新します。" data-i18n-en="Some content, links, and title pages are temporary. Updates will continue toward the official launch." data-i18n-de="Einige Inhalte, Links und Titelseiten sind vorläufig. Bis zur offiziellen Veröffentlichung werden sie schrittweise aktualisiert." data-i18n-zh-hant="部分內容、連結與各標題頁仍為暫定內容。正式公開前會陸續更新。">
                   掲載内容、リンク、各タイトルページは仮の内容を含みます。正式公開まで順次更新します。
                 </p>
                 <div class="notice-link-row">
-                  <a class="notice-link" href="https://x.com/BogosorGames" data-ja="最新情報はXで確認" data-en="Follow updates on X">最新情報はXで確認</a>
+                  <a class="notice-link" href="https://x.com/BogosorGames" data-i18n-ja="最新情報はXで確認" data-i18n-en="Follow updates on X" data-i18n-de="Updates auf X ansehen" data-i18n-zh-hant="在 X 查看最新消息">最新情報はXで確認</a>
                 </div>
               </div>
             </div>
@@ -1112,9 +1163,9 @@
 
         <section class="hero wrap" aria-label="BogosorStudio">
           <div class="hero-title">
-            <p class="eyebrow" data-ja="日本発の個人ゲームスタジオ" data-en="Independent game studio from Japan">日本発の個人ゲームスタジオ</p>
+            <p class="eyebrow" data-i18n-ja="日本発の個人ゲームスタジオ" data-i18n-en="Independent game studio from Japan" data-i18n-de="Unabhängiges Spielestudio aus Japan" data-i18n-zh-hant="來自日本的個人遊戲工作室">日本発の個人ゲームスタジオ</p>
             <h1>BogosorStudio</h1>
-            <p class="lead" data-ja="Steam向けゲームの制作・公開情報を掲載しています。" data-en="Official information for BogosorStudio games on Steam.">
+            <p class="lead" data-i18n-ja="Steam向けゲームの制作・公開情報を掲載しています。" data-i18n-en="Official information for BogosorStudio games on Steam." data-i18n-de="Offizielle Informationen zu BogosorStudio-Spielen auf Steam." data-i18n-zh-hant="刊載 BogosorStudio Steam 遊戲的製作與公開資訊。">
               Steam向けゲームの制作・公開情報を掲載しています。
             </p>
           </div>
@@ -1174,8 +1225,8 @@
         <section id="games" class="games-visual-trial">
           <div class="wrap">
             <div class="section-head">
-              <h2 data-ja="開発タイトル" data-en="Development Titles">開発タイトル</h2>
-              <p data-ja="Steamで公開中・公開予定のタイトル一覧です。各タイトルの詳細はSteamページに掲載します。" data-en="A list of titles released or planned for Steam. Details for each title are linked from its own page.">
+              <h2 data-i18n-ja="開発タイトル" data-i18n-en="Development Titles" data-i18n-de="Titel in Entwicklung" data-i18n-zh-hant="開發標題">開発タイトル</h2>
+              <p data-i18n-ja="Steamで公開中・公開予定のタイトル一覧です。各タイトルの詳細はSteamページに掲載します。" data-i18n-en="A list of titles released or planned for Steam. Details for each title are linked from its own page." data-i18n-de="Eine Liste der veröffentlichten und geplanten Steam-Titel. Details zu jedem Titel sind über die jeweilige Seite verlinkt." data-i18n-zh-hant="Steam 已公開與預定公開標題列表。各標題的詳細資訊會從個別頁面連結。">
                 Steamで公開中・公開予定のタイトル一覧です。各タイトルの詳細はSteamページに掲載します。
               </p>
             </div>
@@ -1184,18 +1235,18 @@
               <a
                 class="capsule-card"
                 href="./games/NyctoType.html"
-                style="--capsule-art: url('./assets/games/NyctoType/LibraryCapsule.png?v=1782324665')"
+                style="--capsule-art: url('./assets/games/NyctoType/LibraryCapsule.png?v=1782443106')"
               >
                 <div class="capsule-content">
                   <div class="platform-row" aria-label="対応プラットフォーム">
-                    <span class="platform-icon" role="link" tabindex="0" aria-label="Steam store" title="Steam" data-store-url="https://store.steampowered.com/app/2988640/HAPPY_RUNNER/"><img src="./assets/platforms/steam.svg" alt="" /></span>
+                    <span class="platform-icon" role="link" tabindex="0" aria-label="Steam store" title="Steam" data-store-url="https://store.steampowered.com/app/3968600/NyctoType/"><img src="./assets/platforms/steam.svg" alt="" /></span>
                   </div>
                   <div class="release-labels" aria-label="公開・展示ステータス">
-                    <span class="release-label is-event" data-ja="2026年8月 gamescom出展" data-en="Exhibiting at gamescom in August 2026">2026年8月 gamescom出展</span>
-                    <span class="release-label is-event" data-ja="2026年9月 TGS出展" data-en="Exhibiting at TGS in September 2026">2026年9月 TGS出展</span>
+                    <span class="release-label is-event" data-i18n-ja="2026年8月 gamescom出展" data-i18n-en="Aug 2026: gamescom exhibition" data-i18n-de="Aug. 2026: Ausstellung auf der gamescom" data-i18n-zh-hant="2026年8月 gamescom 展出">2026年8月 gamescom出展</span>
+                    <span class="release-label is-event" data-i18n-ja="2026年9月 TGS出展" data-i18n-en="Sep 2026: TGS exhibition" data-i18n-de="Sep. 2026: Ausstellung auf der TGS" data-i18n-zh-hant="2026年9月 TGS 展出">2026年9月 TGS出展</span>
                   </div>
                   <h3>NyctoType</h3>
-                  <p data-ja="開発中" data-en="In development">開発中</p>
+                  <p data-i18n-ja="速度と戦術で競い合う マルチスレッドタイピングバトル" data-i18n-en="A multithreaded typing battle driven by speed and tactics." data-i18n-de="Ein multithreaded Typing-Battle, entschieden durch Tempo und Taktik." data-i18n-zh-hant="以速度與戰術競逐的多執行緒打字對戰">速度と戦術で競い合う マルチスレッドタイピングバトル</p>
                 </div>
               </a>
 
@@ -1206,15 +1257,15 @@
               >
                 <div class="capsule-content">
                   <div class="platform-row" aria-label="対応プラットフォーム">
-                    <span class="platform-icon" role="link" tabindex="0" aria-label="Steam store" title="Steam" data-store-url="https://store.steampowered.com/app/2988640/HAPPY_RUNNER/"><img src="./assets/platforms/steam.svg" alt="" /></span>
-                    <span class="platform-icon" role="link" tabindex="0" aria-label="Android store" title="Android" data-store-url="https://store.steampowered.com/app/2988640/HAPPY_RUNNER/"><img src="./assets/platforms/android.svg" alt="" /></span>
-                    <span class="platform-icon" role="link" tabindex="0" aria-label="iOS store" title="iOS" data-store-url="https://store.steampowered.com/app/2988640/HAPPY_RUNNER/"><img src="./assets/platforms/ios.svg" alt="" /></span>
+                    <span class="platform-icon" role="link" tabindex="0" aria-label="Steam store" title="Steam" data-store-url="https://store.steampowered.com/app/4619930/Reversi2048/"><img src="./assets/platforms/steam.svg" alt="" /></span>
+                    <span class="platform-icon" role="link" tabindex="0" aria-label="Android store" title="Android" data-store-url="https://store.steampowered.com/app/4619930/Reversi2048/"><img src="./assets/platforms/android.svg" alt="" /></span>
+                    <span class="platform-icon" role="link" tabindex="0" aria-label="iOS store" title="iOS" data-store-url="https://store.steampowered.com/app/4619930/Reversi2048/"><img src="./assets/platforms/ios.svg" alt="" /></span>
                   </div>
                   <div class="release-labels" aria-label="公開・展示ステータス">
-                    <span class="release-label is-tba" data-ja="2026年10月リリース予定" data-en="Planned release: October 2026">2026年10月リリース予定</span>
+                    <span class="release-label" data-i18n-ja="2026年10月リリース予定" data-i18n-en="Oct 2026: planned release" data-i18n-de="Okt. 2026: geplante Veröffentlichung" data-i18n-zh-hant="2026年10月預定推出">2026年10月リリース予定</span>
                   </div>
                   <h3>REVERSI 2048</h3>
-                  <p data-ja="駒をひっくり返すごとにスコアが倍になるReversi" data-en="A Reversi where the score doubles every time you flip a piece.">駒をひっくり返すごとにスコアが倍になるReversi</p>
+                  <p data-i18n-ja="駒をひっくり返すごとにスコアが倍になるReversi" data-i18n-en="A Reversi where the score doubles every time you flip a piece." data-i18n-de="Reversi, bei dem sich die Punktzahl jedes Mal verdoppelt, wenn du einen Stein umdrehst." data-i18n-zh-hant="每翻轉一枚棋子，分數就會倍增的 Reversi">駒をひっくり返すごとにスコアが倍になるReversi</p>
                 </div>
               </a>
 
@@ -1225,47 +1276,43 @@
               >
                 <div class="capsule-content">
                   <div class="platform-row" aria-label="対応プラットフォーム">
-                    <span class="platform-icon" role="link" tabindex="0" aria-label="Steam store" title="Steam" data-store-url="https://store.steampowered.com/app/2988640/HAPPY_RUNNER/"><img src="./assets/platforms/steam.svg" alt="" /></span>
+                    <span class="platform-icon" role="link" tabindex="0" aria-label="Steam store" title="Steam" data-store-url="https://store.steampowered.com/app/3074910/Skill_Hockey/"><img src="./assets/platforms/steam.svg" alt="" /></span>
                   </div>
-                  <div class="release-labels" aria-label="公開・展示ステータス">
-                    <span class="release-label is-tba" data-ja="リリース予定: 未定" data-en="Release date: TBA">リリース予定: 未定</span>
-                  </div>
+
                   <h3>Skill Hockey</h3>
-                  <p data-ja="開発中" data-en="In development">開発中</p>
+                  <p data-i18n-ja="コマンド入力でスキルを発動！ド派手に決めるエアホッケー！" data-i18n-en="A flashy air hockey game where command inputs trigger special skills." data-i18n-de="Ein auffälliges Air-Hockey-Spiel, in dem Kommandos Spezialskills auslösen." data-i18n-zh-hant="輸入指令發動技能！華麗決勝的空氣曲棍球！">コマンド入力でスキルを発動！ド派手に決めるエアホッケー！</p>
                 </div>
               </a>
 
               <a
                 class="capsule-card"
                 href="./games/HAPPYRUNNER.html"
-                style="--capsule-art: url('./assets/games/HAPPYRUNNER/LibraryCapsule.png?v=1782436607')"
+                style="--capsule-art: url('./assets/games/HAPPYRUNNER/LibraryCapsule.png?v=1782443106')"
               >
                 <div class="capsule-content">
                   <div class="platform-row" aria-label="対応プラットフォーム">
                     <span class="platform-icon" role="link" tabindex="0" aria-label="Steam store" title="Steam" data-store-url="https://store.steampowered.com/app/2988640/HAPPY_RUNNER/"><img src="./assets/platforms/steam.svg" alt="" /></span>
                   </div>
                   <div class="release-labels" aria-label="公開・展示ステータス">
-                    <span class="release-label is-released" data-ja="発売中" data-en="Available now">発売中</span>
+                    <span class="release-label is-released" data-i18n-ja="発売中" data-i18n-en="Available now" data-i18n-de="Verfügbar" data-i18n-zh-hant="已發售">発売中</span>
                   </div>
                   <h3>HAPPY RUNNER</h3>
-                  <p data-ja="発売中" data-en="Available now">発売中</p>
+                  <p data-i18n-ja="現代の生き方を表現したレトロな1ボタンジャンプゲーム" data-i18n-en="A retro one-button running game about modern life." data-i18n-de="Ein retrohaftes Ein-Knopf-Jump-Spiel über modernes Leben." data-i18n-zh-hant="描繪現代生存方式的復古一鍵跳躍遊戲">現代の生き方を表現したレトロな1ボタンジャンプゲーム</p>
                 </div>
               </a>
 
               <a
                 class="capsule-card"
                 href="./games/SakWinik.html"
-                style="--capsule-art: url('./assets/games/SakWinik/LibraryCapsule.png?v=1782386002')"
+                style="--capsule-art: url('./assets/games/SakWinik/LibraryCapsule.png?v=1782443106')"
               >
                 <div class="capsule-content">
                   <div class="platform-row" aria-label="対応プラットフォーム">
-                    <span class="platform-icon" role="link" tabindex="0" aria-label="Steam store" title="Steam" data-store-url="https://store.steampowered.com/app/2988640/HAPPY_RUNNER/"><img src="./assets/platforms/steam.svg" alt="" /></span>
+                    <span class="platform-icon" role="link" tabindex="0" aria-label="Steam store" title="Steam" data-store-url="https://store.steampowered.com/app/4733690/Sak_Winik__The_Appointed_One/"><img src="./assets/platforms/steam.svg" alt="" /></span>
                   </div>
-                  <div class="release-labels" aria-label="公開・展示ステータス">
-                    <span class="release-label is-tba" data-ja="リリース予定: 未定" data-en="Release date: TBA">リリース予定: 未定</span>
-                  </div>
+
                   <h3>Sak Winik: The Appointed One</h3>
-                  <p data-ja="開発中" data-en="In development">開発中</p>
+                  <p data-i18n-ja="極限の状況でAIと会話し、優秀さと人間らしさを示すADV" data-i18n-en="A tense ADV where you talk with an AI in an extreme situation and prove both competence and humanity." data-i18n-de="Ein angespanntes ADV, in dem du in Extremsituationen mit einer KI sprichst und Kompetenz wie Menschlichkeit beweist." data-i18n-zh-hant="在極限情境中與 AI 對話，證明優秀與人性並存的 ADV">極限の状況でAIと会話し、優秀さと人間らしさを示すADV</p>
                 </div>
               </a>
             </div>
@@ -1277,27 +1324,27 @@
           <div class="wrap news-grid">
             <div class="news-copy">
               <p class="eyebrow">News</p>
-              <h2>更新情報</h2>
-              <p>
+              <h2 data-i18n-ja="更新情報" data-i18n-en="News" data-i18n-de="Neuigkeiten" data-i18n-zh-hant="最新消息">更新情報</h2>
+              <p data-i18n-ja="新作情報、Steamページ公開、イベント出展などの更新先です。" data-i18n-en="Updates for new titles, Steam pages, and event exhibitions." data-i18n-de="Updates zu neuen Titeln, Steam-Seiten und Event-Ausstellungen." data-i18n-zh-hant="新作資訊、Steam 頁面公開與活動展出等更新。">
                 新作情報、Steamページ公開、イベント出展などの更新先です。
               </p>
             </div>
             <div class="news-list" aria-label="ニュースリンク">
               <a class="news-item" href="./News/2026-06-25_サイト準備中/index.html">
                 <b>2026.06.25</b>
-                <p>サイト準備中のお知らせ</p>
+                <p data-i18n-ja="サイト準備中のお知らせ" data-i18n-en="Site preparation notice" data-i18n-de="Hinweis zur Website-Vorbereitung" data-i18n-zh-hant="網站準備中公告">サイト準備中のお知らせ</p>
               </a>
               <a class="news-item" href="./News/2026-06-25_Steamページ準備中/index.html">
                 <b>2026.06.25</b>
-                <p>Steamページ準備中</p>
+                <p data-i18n-ja="Steamページ準備中" data-i18n-en="Steam page in preparation" data-i18n-de="Steam-Seite in Vorbereitung" data-i18n-zh-hant="Steam 頁面準備中">Steamページ準備中</p>
               </a>
               <a class="news-item" href="./News/2026-06-25_イベント情報準備中/index.html">
                 <b>2026.06.25</b>
-                <p>イベント情報準備中</p>
+                <p data-i18n-ja="イベント情報準備中" data-i18n-en="Event information in preparation" data-i18n-de="Event-Informationen in Vorbereitung" data-i18n-zh-hant="活動資訊準備中">イベント情報準備中</p>
               </a>
               <a class="news-item" href="./Exhibitions/index.html">
                 <b>Events</b>
-                <p>展示・試遊情報一覧</p>
+                <p data-i18n-ja="展示・試遊情報一覧" data-i18n-en="Exhibition and demo information" data-i18n-de="Ausstellungs- und Demo-Informationen" data-i18n-zh-hant="展示與試玩資訊列表">展示・試遊情報一覧</p>
               </a>
             </div>
           </div>
@@ -1307,8 +1354,8 @@
           <div class="wrap">
             <div class="link-band">
               <div>
-                <h2>BogosorStudioをフォロー</h2>
-                <p>ストアページ、開発中の更新、イベント出展情報へのリンクです。</p>
+                <h2 data-i18n-ja="BogosorStudioをフォロー" data-i18n-en="Follow BogosorStudio" data-i18n-de="BogosorStudio folgen" data-i18n-zh-hant="追蹤 BogosorStudio">BogosorStudioをフォロー</h2>
+                <p data-i18n-ja="ストアページ、開発中の更新、イベント出展情報へのリンクです。" data-i18n-en="Links to store pages, development updates, and event exhibition information." data-i18n-de="Links zu Store-Seiten, Entwicklungsupdates und Event-Ausstellungen." data-i18n-zh-hant="前往商店頁面、開發中更新與活動展出資訊的連結。">ストアページ、開発中の更新、イベント出展情報へのリンクです。</p>
               </div>
               <div class="hero-actions">
                 <a class="button button-primary" href="https://store.steampowered.com/developer/BogosorStudio" target="_blank" rel="noopener">
@@ -1343,31 +1390,79 @@
       };
       logo.addEventListener("load", showLogo);
       if (logo.complete && logo.naturalWidth > 0) showLogo();
-
       const languageKey = "bogosorstudio-language";
-      const langToggle = document.querySelector(".lang-toggle");
-      const langOptions = [...document.querySelectorAll("[data-lang-option]")];
-      const translatable = [...document.querySelectorAll("[data-ja][data-en]")];
+      const supportedLanguages = ["ja", "en", "de", "zh-hant"];
+      const languageLabels = {
+        ja: "日本語",
+        en: "English",
+        de: "Deutsch",
+        "zh-hant": "繁體中文",
+      };
+      const htmlLanguageCodes = {
+        ja: "ja",
+        en: "en",
+        de: "de",
+        "zh-hant": "zh-Hant",
+      };
+      const languageMenu = document.querySelector("[data-language-menu]");
+      const languageButton = document.querySelector(".language-button");
+      const languageList = document.querySelector(".language-list");
+      const languageCurrent = document.querySelector("[data-language-current]");
+      const languageChoices = [...document.querySelectorAll("[data-language-choice]")];
+      const translatable = [...document.querySelectorAll("[data-i18n-ja]")];
+      const htmlTranslatable = [...document.querySelectorAll("[data-i18n-html-ja]")];
 
-      const setLanguage = (language) => {
-        const nextLanguage = language === "en" ? "en" : "ja";
-        document.documentElement.lang = nextLanguage;
-        translatable.forEach((node) => {
-          node.textContent = node.dataset[nextLanguage];
-        });
-        langOptions.forEach((option) => {
-          option.classList.toggle("is-active", option.dataset.langOption === nextLanguage);
-        });
-        localStorage.setItem(languageKey, nextLanguage);
+      const normalizeLanguage = (language) => supportedLanguages.includes(language) ? language : "ja";
+
+      const closeLanguageMenu = () => {
+        languageList?.setAttribute("hidden", "");
+        languageButton?.setAttribute("aria-expanded", "false");
       };
 
-      langToggle?.addEventListener("click", () => {
-        const currentLanguage = document.documentElement.lang === "en" ? "en" : "ja";
-        setLanguage(currentLanguage === "en" ? "ja" : "en");
+      const openLanguageMenu = () => {
+        languageList?.removeAttribute("hidden");
+        languageButton?.setAttribute("aria-expanded", "true");
+      };
+
+      const setLanguage = (language) => {
+        const nextLanguage = normalizeLanguage(language);
+        document.documentElement.lang = htmlLanguageCodes[nextLanguage] || nextLanguage;
+        translatable.forEach((node) => {
+          node.textContent = node.getAttribute(`data-i18n-${nextLanguage}`) || node.getAttribute("data-i18n-ja") || "";
+        });
+        htmlTranslatable.forEach((node) => {
+          node.innerHTML = node.getAttribute(`data-i18n-html-${nextLanguage}`) || node.getAttribute("data-i18n-html-ja") || "";
+        });
+        if (languageCurrent) languageCurrent.textContent = languageLabels[nextLanguage];
+        languageChoices.forEach((choice) => {
+          choice.setAttribute("aria-selected", String(choice.dataset.languageChoice === nextLanguage));
+        });
+        localStorage.setItem(languageKey, nextLanguage);
+        closeLanguageMenu();
+      };
+
+      languageButton?.addEventListener("click", (event) => {
+        event.stopPropagation();
+        if (languageList?.hasAttribute("hidden")) {
+          openLanguageMenu();
+        } else {
+          closeLanguageMenu();
+        }
+      });
+
+      languageChoices.forEach((choice) => {
+        choice.addEventListener("click", () => setLanguage(choice.dataset.languageChoice));
+      });
+
+      document.addEventListener("click", (event) => {
+        if (!languageMenu?.contains(event.target)) closeLanguageMenu();
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeLanguageMenu();
       });
 
       setLanguage(localStorage.getItem(languageKey) || "ja");
-
       const slides = [...document.querySelectorAll(".hero-slide")];
       const dots = [...document.querySelectorAll(".slide-dot")];
 

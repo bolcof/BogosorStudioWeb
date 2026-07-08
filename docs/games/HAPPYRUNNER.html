@@ -32,19 +32,25 @@
       <div class="wrap topbar-inner">
         <div class="brand-cluster">
           <a class="brand" href="../index.html">BogosorStudio</a>
-          <button class="lang-toggle" type="button" aria-label="日本語と英語を切り替え">
-            <span class="lang-option is-active" data-lang-option="ja">JP</span>
-            <span>/</span>
-            <span class="lang-option" data-lang-option="en">EN</span>
-          </button>
+          <div class="language-menu" data-language-menu>
+            <button class="language-button" type="button" aria-haspopup="listbox" aria-expanded="false">
+              <span>Language:</span><span class="language-current" data-language-current>日本語</span>
+            </button>
+            <div class="language-list" role="listbox" hidden>
+              <button class="language-choice" type="button" role="option" data-language-choice="ja" aria-selected="true">日本語</button>
+              <button class="language-choice" type="button" role="option" data-language-choice="en" aria-selected="false">English</button>
+              <button class="language-choice" type="button" role="option" data-language-choice="de" aria-selected="false">Deutsch</button>
+              <button class="language-choice" type="button" role="option" data-language-choice="zh-hant" aria-selected="false">繁體中文</button>
+            </div>
+          </div>
         </div>
         <nav class="top-links" aria-label="ページリンク">
-          <a class="button" href="../index.html#games" data-ja="タイトル一覧" data-en="Titles">
+          <a class="button" href="../index.html#games" data-i18n-ja="タイトル一覧" data-i18n-en="Titles" data-i18n-de="Titel" data-i18n-zh-hant="標題列表">
             タイトル一覧
           </a>
           <a
             class="button button-primary"
-            href="https://store.steampowered.com/app/2988640/HAPPY_RUNNER/"
+            href="https://store.steampowered.com/app/2988640/HAPPY_RUNNER/" target="_blank" rel="noopener"
           >
             Steam
           </a>
@@ -57,17 +63,16 @@
         <span class="hero-art" aria-hidden="true"></span>
         <div class="wrap hero-grid">
           <h1>HAPPY RUNNER</h1>
-          <p class="summary" data-ja="HAPPY RUNNERの公開情報、ストアリンク、関連リンクをこのページにまとめます。" data-en="Release information store links and related links for HAPPY RUNNER are collected here.">
-            HAPPY RUNNERの公開情報、ストアリンク、関連リンクをこのページにまとめます。
+          <p class="summary" data-i18n-ja="現代の生き方を表現したレトロな1ボタンジャンプゲーム" data-i18n-en="A retro one-button running game about modern life." data-i18n-de="Ein retrohaftes Ein-Knopf-Jump-Spiel über modernes Leben." data-i18n-zh-hant="描繪現代生存方式的復古一鍵跳躍遊戲">
+            現代の生き方を表現したレトロな1ボタンジャンプゲーム
           </p>
           <div class="status-row">
-            <span class="label" data-ja="発表準備中" data-en="Preparing announcement">発表準備中</span>
-            <span class="label label-muted" data-ja="Steamページ準備中" data-en="Steam page in preparation">Steamページ準備中</span>
+            <span class="label label-released" data-i18n-ja="発売中" data-i18n-en="Available now" data-i18n-de="Verfügbar" data-i18n-zh-hant="已發售">発売中</span>
           </div>
           <div class="action-row">
             <a
               class="button button-primary"
-              href="https://store.steampowered.com/app/2988640/HAPPY_RUNNER/"
+              href="https://store.steampowered.com/app/2988640/HAPPY_RUNNER/" target="_blank" rel="noopener"
             >
               Steam
             </a>
@@ -78,12 +83,21 @@
       <section class="text-band">
         <div class="wrap text-blocks">
           <article class="text-block">
-            <h2 data-ja="概要" data-en="Overview">概要</h2>
-            <p data-ja="HAPPY RUNNERの概要やルール説明は、Steamページ公開後に差し替えます。" data-en="Details and rule explanations for HAPPY RUNNER can be replaced after the Steam page is published.">HAPPY RUNNERの概要やルール説明は、Steamページ公開後に差し替えます。</p>
+            <h2 data-i18n-ja="概要" data-i18n-en="About" data-i18n-de="Über das Spiel" data-i18n-zh-hant="遊戲介紹">概要</h2>
+            <p data-i18n-ja="操作はボタンを押してジャンプ、長押ししてロングジャンプの２つだけ。&#10;２つの操作の軌跡はモールス信号として文字列に変換される。&#10;&#10;最初はある程度自由に操作していてもよいが、&#10;時間が経つにつれ、生き残るにはステージ上で「I AM SO HAPPY.」を言い続けるように操作するしかない。&#10;幸せでなくても幸せだと言わなければ生き残れない、現代社会のような1ボタンランゲーム。" data-i18n-en="The only controls are press to jump and hold to long jump.&#10;The traces of those two actions are converted into text as Morse code.&#10;&#10;At first, you can move with some freedom.&#10;As time passes, survival depends on controlling the stage so that you keep saying &quot;I AM SO HAPPY.&quot;&#10;&#10;A one-button runner like modern society, where even if you are not happy, you have to say you are happy to survive." data-i18n-de="Es gibt nur zwei Eingaben: drücken zum Springen und gedrückt halten für einen langen Sprung.&#10;Die Spuren dieser beiden Aktionen werden als Morsecode in Text umgewandelt.&#10;&#10;Anfangs kannst du dich noch relativ frei bewegen.&#10;Mit der Zeit überlebst du jedoch nur, wenn du die Bühne so steuerst, dass sie immer wieder „I AM SO HAPPY.“ sagt.&#10;&#10;Ein Ein-Knopf-Runner wie die moderne Gesellschaft: Selbst wenn du nicht glücklich bist, musst du sagen, dass du glücklich bist, um zu überleben." data-i18n-zh-hant="操作只有兩種：按下按鈕跳躍，長按進行長跳。&#10;這兩種操作的軌跡會作為摩斯密碼轉換成文字。&#10;&#10;一開始可以相對自由地操作。&#10;但隨著時間推移，若想存活，就只能操控舞台持續說出「I AM SO HAPPY.」。&#10;&#10;即使並不幸福，也必須說自己幸福才能活下去。這是一款像現代社會一樣的一鍵跑酷遊戲。">操作はボタンを押してジャンプ、長押ししてロングジャンプの２つだけ。
+２つの操作の軌跡はモールス信号として文字列に変換される。
+
+最初はある程度自由に操作していてもよいが、
+時間が経つにつれ、生き残るにはステージ上で「I AM SO HAPPY.」を言い続けるように操作するしかない。
+幸せでなくても幸せだと言わなければ生き残れない、現代社会のような1ボタンランゲーム。</p>
           </article>
+
           <article class="text-block">
-            <h2 data-ja="更新" data-en="Updates">更新</h2>
-            <p data-ja="リリース時期、ストアリンク、イベント展示などの情報をここに追加できます。" data-en="Release timing store links event appearances and other notes can be added here.">リリース時期、ストアリンク、イベント展示などの情報をここに追加できます。</p>
+            <h2 data-i18n-ja="活動記録" data-i18n-en="History" data-i18n-de="Aktivitäten" data-i18n-zh-hant="活動記錄">活動記録</h2>
+            <ul class="info-list">
+              <li data-i18n-html-ja="2024/11/29 Steamにてリリース" data-i18n-html-en="Nov 29, 2024: Released on Steam" data-i18n-html-de="29. Nov. 2024: Auf Steam veröffentlicht" data-i18n-html-zh-hant="2024年11月29日: 於 Steam 發售">2024/11/29 Steamにてリリース</li>
+              <li data-i18n-html-ja="2024/10-11 &lt;a href=&quot;https://athica.org/updates/compulsion/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;COMPULSION | 2024 Juried Exhibition&lt;/a&gt; にて展示" data-i18n-html-en="Oct-Nov 2024: Exhibited at &lt;a href=&quot;https://athica.org/updates/compulsion/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;COMPULSION | 2024 Juried Exhibition&lt;/a&gt;" data-i18n-html-de="Okt.-Nov. 2024: Ausgestellt bei &lt;a href=&quot;https://athica.org/updates/compulsion/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;COMPULSION | 2024 Juried Exhibition&lt;/a&gt;" data-i18n-html-zh-hant="2024年10月至11月: 於 &lt;a href=&quot;https://athica.org/updates/compulsion/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;COMPULSION | 2024 Juried Exhibition&lt;/a&gt; 展出">2024/10-11 <a href="https://athica.org/updates/compulsion/" target="_blank" rel="noopener">COMPULSION | 2024 Juried Exhibition</a> にて展示</li>
+            </ul>
           </article>
         </div>
       </section>
@@ -113,57 +127,82 @@
           </div>
         </div>
       </section>
-
-      <section class="link-panel">
-        <div class="wrap">
-          <div class="link-box">
-            <div>
-              <h2>Links</h2>
-              <p data-ja="ストアページ、更新情報、問い合わせ先などを必要に応じて追加できます。" data-en="Store pages updates contact links and other references can be added here.">ストアページ、更新情報、問い合わせ先などを必要に応じて追加できます。</p>
-              <div class="meta-row" aria-label="基本情報">
-                <span><b>Platform</b> Steam</span>
-                <span><b>Status</b> 準備中</span>
-                <span><b>Links</b> Steam / X</span>
-              </div>
-            </div>
-            <div class="action-row">
-              <a
-                class="button button-primary"
-                href="https://store.steampowered.com/app/2988640/HAPPY_RUNNER/"
-              >
-                Steam
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
     </main>
 
     <script>
       const languageKey = "bogosorstudio-language";
-      const langToggle = document.querySelector(".lang-toggle");
-      const langOptions = [...document.querySelectorAll("[data-lang-option]")];
-      const translatable = [...document.querySelectorAll("[data-ja][data-en]")];
+      const supportedLanguages = ["ja", "en", "de", "zh-hant"];
+      const languageLabels = {
+        ja: "日本語",
+        en: "English",
+        de: "Deutsch",
+        "zh-hant": "繁體中文",
+      };
+      const htmlLanguageCodes = {
+        ja: "ja",
+        en: "en",
+        de: "de",
+        "zh-hant": "zh-Hant",
+      };
+      const languageMenu = document.querySelector("[data-language-menu]");
+      const languageButton = document.querySelector(".language-button");
+      const languageList = document.querySelector(".language-list");
+      const languageCurrent = document.querySelector("[data-language-current]");
+      const languageChoices = [...document.querySelectorAll("[data-language-choice]")];
+      const translatable = [...document.querySelectorAll("[data-i18n-ja]")];
+      const htmlTranslatable = [...document.querySelectorAll("[data-i18n-html-ja]")];
 
-      const setLanguage = (language) => {
-        const nextLanguage = language === "en" ? "en" : "ja";
-        document.documentElement.lang = nextLanguage;
-        translatable.forEach((node) => {
-          node.textContent = node.dataset[nextLanguage];
-        });
-        langOptions.forEach((option) => {
-          option.classList.toggle("is-active", option.dataset.langOption === nextLanguage);
-        });
-        localStorage.setItem(languageKey, nextLanguage);
+      const normalizeLanguage = (language) => supportedLanguages.includes(language) ? language : "ja";
+
+      const closeLanguageMenu = () => {
+        languageList?.setAttribute("hidden", "");
+        languageButton?.setAttribute("aria-expanded", "false");
       };
 
-      langToggle?.addEventListener("click", () => {
-        const currentLanguage = document.documentElement.lang === "en" ? "en" : "ja";
-        setLanguage(currentLanguage === "en" ? "ja" : "en");
+      const openLanguageMenu = () => {
+        languageList?.removeAttribute("hidden");
+        languageButton?.setAttribute("aria-expanded", "true");
+      };
+
+      const setLanguage = (language) => {
+        const nextLanguage = normalizeLanguage(language);
+        document.documentElement.lang = htmlLanguageCodes[nextLanguage] || nextLanguage;
+        translatable.forEach((node) => {
+          node.textContent = node.getAttribute(`data-i18n-${nextLanguage}`) || node.getAttribute("data-i18n-ja") || "";
+        });
+        htmlTranslatable.forEach((node) => {
+          node.innerHTML = node.getAttribute(`data-i18n-html-${nextLanguage}`) || node.getAttribute("data-i18n-html-ja") || "";
+        });
+        if (languageCurrent) languageCurrent.textContent = languageLabels[nextLanguage];
+        languageChoices.forEach((choice) => {
+          choice.setAttribute("aria-selected", String(choice.dataset.languageChoice === nextLanguage));
+        });
+        localStorage.setItem(languageKey, nextLanguage);
+        closeLanguageMenu();
+      };
+
+      languageButton?.addEventListener("click", (event) => {
+        event.stopPropagation();
+        if (languageList?.hasAttribute("hidden")) {
+          openLanguageMenu();
+        } else {
+          closeLanguageMenu();
+        }
+      });
+
+      languageChoices.forEach((choice) => {
+        choice.addEventListener("click", () => setLanguage(choice.dataset.languageChoice));
+      });
+
+      document.addEventListener("click", (event) => {
+        if (!languageMenu?.contains(event.target)) closeLanguageMenu();
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeLanguageMenu();
       });
 
       setLanguage(localStorage.getItem(languageKey) || "ja");
-
       let imageLightbox;
 
       const closeLightbox = () => {

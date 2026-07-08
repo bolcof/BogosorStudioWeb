@@ -32,19 +32,25 @@
       <div class="wrap topbar-inner">
         <div class="brand-cluster">
           <a class="brand" href="../index.html">BogosorStudio</a>
-          <button class="lang-toggle" type="button" aria-label="日本語と英語を切り替え">
-            <span class="lang-option is-active" data-lang-option="ja">JP</span>
-            <span>/</span>
-            <span class="lang-option" data-lang-option="en">EN</span>
-          </button>
+          <div class="language-menu" data-language-menu>
+            <button class="language-button" type="button" aria-haspopup="listbox" aria-expanded="false">
+              <span>Language:</span><span class="language-current" data-language-current>日本語</span>
+            </button>
+            <div class="language-list" role="listbox" hidden>
+              <button class="language-choice" type="button" role="option" data-language-choice="ja" aria-selected="true">日本語</button>
+              <button class="language-choice" type="button" role="option" data-language-choice="en" aria-selected="false">English</button>
+              <button class="language-choice" type="button" role="option" data-language-choice="de" aria-selected="false">Deutsch</button>
+              <button class="language-choice" type="button" role="option" data-language-choice="zh-hant" aria-selected="false">繁體中文</button>
+            </div>
+          </div>
         </div>
         <nav class="top-links" aria-label="ページリンク">
-          <a class="button" href="../index.html#games" data-ja="タイトル一覧" data-en="Titles">
+          <a class="button" href="../index.html#games" data-i18n-ja="タイトル一覧" data-i18n-en="Titles" data-i18n-de="Titel" data-i18n-zh-hant="標題列表">
             タイトル一覧
           </a>
           <a
             class="button button-primary"
-            href="https://store.steampowered.com/search/?term=Skill%20Hockey"
+            href="https://store.steampowered.com/app/3074910/Skill_Hockey/" target="_blank" rel="noopener"
           >
             Steam
           </a>
@@ -57,17 +63,17 @@
         <span class="hero-art" aria-hidden="true"></span>
         <div class="wrap hero-grid">
           <h1>Skill Hockey</h1>
-          <p class="summary" data-ja="Skill Hockeyの公開情報、ストアリンク、関連リンクをこのページにまとめます。" data-en="Release information store links and related links for Skill Hockey are collected here.">
-            Skill Hockeyの公開情報、ストアリンク、関連リンクをこのページにまとめます。
+          <p class="summary" data-i18n-ja="コマンド入力でスキルを発動！ド派手に決めるエアホッケー！" data-i18n-en="A flashy air hockey game where command inputs trigger special skills." data-i18n-de="Ein auffälliges Air-Hockey-Spiel, in dem Kommandos Spezialskills auslösen." data-i18n-zh-hant="輸入指令發動技能！華麗決勝的空氣曲棍球！">
+            コマンド入力でスキルを発動！ド派手に決めるエアホッケー！
           </p>
           <div class="status-row">
-            <span class="label" data-ja="リリース予定: 未定" data-en="Release: TBA">リリース予定: 未定</span>
-            <span class="label label-muted" data-ja="Steamページ準備中" data-en="Steam page in preparation">Steamページ準備中</span>
+            <span class="label label-muted" data-i18n-ja="リリース予定: 未定" data-i18n-en="Release date: TBA" data-i18n-de="Veröffentlichung: TBA" data-i18n-zh-hant="發售日: 未定">リリース予定: 未定</span>
+            <span class="label label-muted" data-i18n-ja="開発中" data-i18n-en="In development" data-i18n-de="In Entwicklung" data-i18n-zh-hant="開發中">開発中</span>
           </div>
           <div class="action-row">
             <a
               class="button button-primary"
-              href="https://store.steampowered.com/search/?term=Skill%20Hockey"
+              href="https://store.steampowered.com/app/3074910/Skill_Hockey/" target="_blank" rel="noopener"
             >
               Steam
             </a>
@@ -78,12 +84,26 @@
       <section class="text-band">
         <div class="wrap text-blocks">
           <article class="text-block">
-            <h2 data-ja="概要" data-en="Overview">概要</h2>
-            <p data-ja="Skill Hockeyの概要やルール説明は、Steamページ公開後に差し替えます。" data-en="Details and rule explanations for Skill Hockey can be replaced after the Steam page is published.">Skill Hockeyの概要やルール説明は、Steamページ公開後に差し替えます。</p>
+            <h2 data-i18n-ja="概要" data-i18n-en="About" data-i18n-de="Über das Spiel" data-i18n-zh-hant="遊戲介紹">概要</h2>
+            <p data-i18n-ja="プレイ中にコマンドを入力し、必殺技を発動するエアホッケー。&#10;&#10;パックを打ち返したり壁に当てたりすることでスキルゲージが溜まる。&#10;&#10;ゲージ量に応じて、キャラクターごとのスキルを発動可能。&#10;&#10;分身するパック、消えるパック、曲がるパックを駆使して相手をK.O.する。" data-i18n-en="An air hockey game where command inputs trigger flashy special moves.&#10;&#10;Returning the puck and bouncing it off walls fills the skill gauge.&#10;&#10;Each character can unleash different skills depending on how much gauge they have.&#10;&#10;Use splitting, vanishing, and curving pucks to K.O. your opponent." data-i18n-de="Air Hockey, bei dem du während des Spiels Kommandos eingibst und Spezialangriffe auslöst.&#10;&#10;Durch Zurückschlagen des Pucks und Wandtreffer füllt sich die Skill-Leiste.&#10;&#10;Je nach Füllstand können charaktereigene Skills aktiviert werden.&#10;&#10;Nutze Pucks, die sich teilen, verschwinden oder krümmen, um den Gegner K.O. zu schlagen." data-i18n-zh-hant="在遊玩中輸入指令，發動必殺技的空氣曲棍球。&#10;&#10;回擊球盤或讓它撞上牆壁，就能累積技能量表。&#10;&#10;依照量表累積程度，可以發動各角色不同的技能。&#10;&#10;活用分身、消失、彎曲的球盤，將對手 K.O.。">プレイ中にコマンドを入力し、必殺技を発動するエアホッケー。
+
+パックを打ち返したり壁に当てたりすることでスキルゲージが溜まる。
+
+ゲージ量に応じて、キャラクターごとのスキルを発動可能。
+
+分身するパック、消えるパック、曲がるパックを駆使して相手をK.O.する。</p>
           </article>
           <article class="text-block">
-            <h2 data-ja="更新" data-en="Updates">更新</h2>
-            <p data-ja="リリース時期、ストアリンク、イベント展示などの情報をここに追加できます。" data-en="Release timing store links event appearances and other notes can be added here.">リリース時期、ストアリンク、イベント展示などの情報をここに追加できます。</p>
+            <h2 data-i18n-ja="今後の予定" data-i18n-en="Plans" data-i18n-de="Pläne" data-i18n-zh-hant="後續計畫">今後の予定</h2>
+            <ul class="info-list">
+              <li data-i18n-html-ja="リリース予定: 未定" data-i18n-html-en="Release date: TBA" data-i18n-html-de="Veröffentlichung: TBA" data-i18n-html-zh-hant="發售日: 未定">リリース予定: 未定</li>
+            </ul>
+          </article>
+          <article class="text-block">
+            <h2 data-i18n-ja="活動記録" data-i18n-en="History" data-i18n-de="Aktivitäten" data-i18n-zh-hant="活動記錄">活動記録</h2>
+            <ul class="info-list">
+              <li data-i18n-html-ja="Steamページ準備中" data-i18n-html-en="Steam page in preparation" data-i18n-html-de="Steam-Seite in Vorbereitung" data-i18n-html-zh-hant="Steam 頁面準備中">Steamページ準備中</li>
+            </ul>
           </article>
         </div>
       </section>
@@ -116,57 +136,82 @@
           </div>
         </div>
       </section>
-
-      <section class="link-panel">
-        <div class="wrap">
-          <div class="link-box">
-            <div>
-              <h2>Links</h2>
-              <p data-ja="ストアページ、更新情報、問い合わせ先などを必要に応じて追加できます。" data-en="Store pages updates contact links and other references can be added here.">ストアページ、更新情報、問い合わせ先などを必要に応じて追加できます。</p>
-              <div class="meta-row" aria-label="基本情報">
-                <span><b>Platform</b> Steam</span>
-                <span><b>Status</b> 準備中</span>
-                <span><b>Links</b> Steam / X</span>
-              </div>
-            </div>
-            <div class="action-row">
-              <a
-                class="button button-primary"
-                href="https://store.steampowered.com/search/?term=Skill%20Hockey"
-              >
-                Steam
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
     </main>
 
     <script>
       const languageKey = "bogosorstudio-language";
-      const langToggle = document.querySelector(".lang-toggle");
-      const langOptions = [...document.querySelectorAll("[data-lang-option]")];
-      const translatable = [...document.querySelectorAll("[data-ja][data-en]")];
+      const supportedLanguages = ["ja", "en", "de", "zh-hant"];
+      const languageLabels = {
+        ja: "日本語",
+        en: "English",
+        de: "Deutsch",
+        "zh-hant": "繁體中文",
+      };
+      const htmlLanguageCodes = {
+        ja: "ja",
+        en: "en",
+        de: "de",
+        "zh-hant": "zh-Hant",
+      };
+      const languageMenu = document.querySelector("[data-language-menu]");
+      const languageButton = document.querySelector(".language-button");
+      const languageList = document.querySelector(".language-list");
+      const languageCurrent = document.querySelector("[data-language-current]");
+      const languageChoices = [...document.querySelectorAll("[data-language-choice]")];
+      const translatable = [...document.querySelectorAll("[data-i18n-ja]")];
+      const htmlTranslatable = [...document.querySelectorAll("[data-i18n-html-ja]")];
 
-      const setLanguage = (language) => {
-        const nextLanguage = language === "en" ? "en" : "ja";
-        document.documentElement.lang = nextLanguage;
-        translatable.forEach((node) => {
-          node.textContent = node.dataset[nextLanguage];
-        });
-        langOptions.forEach((option) => {
-          option.classList.toggle("is-active", option.dataset.langOption === nextLanguage);
-        });
-        localStorage.setItem(languageKey, nextLanguage);
+      const normalizeLanguage = (language) => supportedLanguages.includes(language) ? language : "ja";
+
+      const closeLanguageMenu = () => {
+        languageList?.setAttribute("hidden", "");
+        languageButton?.setAttribute("aria-expanded", "false");
       };
 
-      langToggle?.addEventListener("click", () => {
-        const currentLanguage = document.documentElement.lang === "en" ? "en" : "ja";
-        setLanguage(currentLanguage === "en" ? "ja" : "en");
+      const openLanguageMenu = () => {
+        languageList?.removeAttribute("hidden");
+        languageButton?.setAttribute("aria-expanded", "true");
+      };
+
+      const setLanguage = (language) => {
+        const nextLanguage = normalizeLanguage(language);
+        document.documentElement.lang = htmlLanguageCodes[nextLanguage] || nextLanguage;
+        translatable.forEach((node) => {
+          node.textContent = node.getAttribute(`data-i18n-${nextLanguage}`) || node.getAttribute("data-i18n-ja") || "";
+        });
+        htmlTranslatable.forEach((node) => {
+          node.innerHTML = node.getAttribute(`data-i18n-html-${nextLanguage}`) || node.getAttribute("data-i18n-html-ja") || "";
+        });
+        if (languageCurrent) languageCurrent.textContent = languageLabels[nextLanguage];
+        languageChoices.forEach((choice) => {
+          choice.setAttribute("aria-selected", String(choice.dataset.languageChoice === nextLanguage));
+        });
+        localStorage.setItem(languageKey, nextLanguage);
+        closeLanguageMenu();
+      };
+
+      languageButton?.addEventListener("click", (event) => {
+        event.stopPropagation();
+        if (languageList?.hasAttribute("hidden")) {
+          openLanguageMenu();
+        } else {
+          closeLanguageMenu();
+        }
+      });
+
+      languageChoices.forEach((choice) => {
+        choice.addEventListener("click", () => setLanguage(choice.dataset.languageChoice));
+      });
+
+      document.addEventListener("click", (event) => {
+        if (!languageMenu?.contains(event.target)) closeLanguageMenu();
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeLanguageMenu();
       });
 
       setLanguage(localStorage.getItem(languageKey) || "ja");
-
       let imageLightbox;
 
       const closeLightbox = () => {

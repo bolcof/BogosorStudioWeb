@@ -36,19 +36,25 @@
       <div class="wrap topbar-inner">
         <div class="brand-cluster">
           <a class="brand" href="../index.html">BogosorStudio</a>
-          <button class="lang-toggle" type="button" aria-label="日本語と英語を切り替え">
-            <span class="lang-option is-active" data-lang-option="ja">JP</span>
-            <span>/</span>
-            <span class="lang-option" data-lang-option="en">EN</span>
-          </button>
+          <div class="language-menu" data-language-menu>
+            <button class="language-button" type="button" aria-haspopup="listbox" aria-expanded="false">
+              <span>Language:</span><span class="language-current" data-language-current>日本語</span>
+            </button>
+            <div class="language-list" role="listbox" hidden>
+              <button class="language-choice" type="button" role="option" data-language-choice="ja" aria-selected="true">日本語</button>
+              <button class="language-choice" type="button" role="option" data-language-choice="en" aria-selected="false">English</button>
+              <button class="language-choice" type="button" role="option" data-language-choice="de" aria-selected="false">Deutsch</button>
+              <button class="language-choice" type="button" role="option" data-language-choice="zh-hant" aria-selected="false">繁體中文</button>
+            </div>
+          </div>
         </div>
         <nav class="top-links" aria-label="ページリンク">
-          <a class="button" href="../index.html#games" data-ja="タイトル一覧" data-en="Titles">
+          <a class="button" href="../index.html#games" data-i18n-ja="タイトル一覧" data-i18n-en="Titles" data-i18n-de="Titel" data-i18n-zh-hant="標題列表">
             タイトル一覧
           </a>
           <a
             class="button button-primary"
-            href="https://store.steampowered.com/search/?term=Sak%20Winik%3A%20The%20Appointed%20One"
+            href="https://store.steampowered.com/app/4733690/Sak_Winik__The_Appointed_One/" target="_blank" rel="noopener"
           >
             Steam
           </a>
@@ -61,17 +67,17 @@
         <span class="hero-art" aria-hidden="true"></span>
         <div class="wrap hero-grid">
           <h1>Sak Winik: The Appointed One</h1>
-            <p class="summary" data-ja="Steamページ準備中。公開情報、ストアリンク、関連リンクをこのページにまとめます。" data-en="Steam page in preparation. Release information store links and related links are collected here.">
-            Steamページ準備中。公開情報、ストアリンク、関連リンクをこのページにまとめます。
+            <p class="summary" data-i18n-ja="極限の状況でAIと会話し、優秀さと人間らしさを示すADV" data-i18n-en="A tense ADV where you talk with an AI in an extreme situation and prove both competence and humanity." data-i18n-de="Ein angespanntes ADV, in dem du in Extremsituationen mit einer KI sprichst und Kompetenz wie Menschlichkeit beweist." data-i18n-zh-hant="在極限情境中與 AI 對話，證明優秀與人性並存的 ADV">
+            極限の状況でAIと会話し、優秀さと人間らしさを示すADV
           </p>
             <div class="status-row">
-              <span class="label" data-ja="リリース予定: 未定" data-en="Release: TBA">リリース予定: 未定</span>
-              <span class="label label-muted" data-ja="Steamページ準備中" data-en="Steam page in preparation">Steamページ準備中</span>
+            <span class="label label-muted" data-i18n-ja="リリース予定: 未定" data-i18n-en="Release date: TBA" data-i18n-de="Veröffentlichung: TBA" data-i18n-zh-hant="發售日: 未定">リリース予定: 未定</span>
+            <span class="label label-muted" data-i18n-ja="開発中" data-i18n-en="In development" data-i18n-de="In Entwicklung" data-i18n-zh-hant="開發中">開発中</span>
           </div>
           <div class="action-row">
             <a
               class="button button-primary"
-              href="https://store.steampowered.com/search/?term=Sak%20Winik%3A%20The%20Appointed%20One"
+              href="https://store.steampowered.com/app/4733690/Sak_Winik__The_Appointed_One/" target="_blank" rel="noopener"
             >
               Steam
             </a>
@@ -82,12 +88,26 @@
       <section class="text-band">
         <div class="wrap text-blocks">
           <article class="text-block">
-            <h2 data-ja="概要" data-en="Overview">概要</h2>
-            <p data-ja="AIに自分が人間であることを証明する会話ゲームです。詳細な訴求文やルール説明は、Steamページ公開後に差し替えます。" data-en="A conversation game about proving to an AI that you are human. Detailed copy and rule explanations can be replaced after the Steam page is published.">AIに自分が人間であることを証明する会話ゲームです。詳細な訴求文やルール説明は、Steamページ公開後に差し替えます。</p>
+            <h2 data-i18n-ja="概要" data-i18n-en="About" data-i18n-de="Über das Spiel" data-i18n-zh-hant="遊戲介紹">概要</h2>
+            <p data-i18n-ja="7分間で、自分が「優秀」であり「人間」でもあることをAIに証明する会話サスペンス。&#10;&#10;壊れた宇宙船、無人島、不気味な屋敷など、閉ざされた状況で2体のAIと討論する。&#10;&#10;司会AIはすべての発言を「人間らしさ」と「優秀さ」の2軸で判定。&#10;&#10;論理だけでは勝てない。矛盾、感情、ためらいまで武器になる。" data-i18n-en="Prove to AI that you are both excellent and human in seven minutes.&#10;&#10;Debate two AIs across closed-room scenarios like a wrecked spacecraft, a deserted island, and an eerie mansion.&#10;&#10;A moderator AI judges every word on two axes: humanness and excellence.&#10;&#10;Logic alone will not save you; contradiction, emotion, and hesitation become weapons." data-i18n-de="Beweise einer KI in sieben Minuten, dass du sowohl hervorragend als auch menschlich bist.&#10;&#10;Diskutiere mit zwei KIs in abgeschlossenen Szenarien wie einem beschädigten Raumschiff, einer einsamen Insel oder einem unheimlichen Anwesen.&#10;&#10;Eine Moderator-KI bewertet jede Aussage anhand von zwei Achsen: Menschlichkeit und Kompetenz.&#10;&#10;Logik allein reicht nicht. Widersprüche, Gefühle und Zögern werden zu Waffen." data-i18n-zh-hant="在七分鐘內，向 AI 證明自己既「優秀」也「是人類」的對話懸疑遊戲。&#10;&#10;在損壞的太空船、無人島、詭異洋館等封閉情境中，與兩個 AI 展開討論。&#10;&#10;主持 AI 會以「人性」與「優秀程度」兩個軸線判定所有發言。&#10;&#10;光靠邏輯無法取勝。矛盾、情感與遲疑也都會成為武器。">7分間で、自分が「優秀」であり「人間」でもあることをAIに証明する会話サスペンス。
+
+壊れた宇宙船、無人島、不気味な屋敷など、閉ざされた状況で2体のAIと討論する。
+
+司会AIはすべての発言を「人間らしさ」と「優秀さ」の2軸で判定。
+
+論理だけでは勝てない。矛盾、感情、ためらいまで武器になる。</p>
           </article>
           <article class="text-block">
-            <h2 data-ja="更新" data-en="Updates">更新</h2>
-            <p data-ja="リリース時期、ストアリンク、イベント展示などの情報をここに追加できます。" data-en="Release timing store links event appearances and other notes can be added here.">リリース時期、ストアリンク、イベント展示などの情報をここに追加できます。</p>
+            <h2 data-i18n-ja="今後の予定" data-i18n-en="Plans" data-i18n-de="Pläne" data-i18n-zh-hant="後續計畫">今後の予定</h2>
+            <ul class="info-list">
+              <li data-i18n-html-ja="リリース予定: 未定" data-i18n-html-en="Release date: TBA" data-i18n-html-de="Veröffentlichung: TBA" data-i18n-html-zh-hant="發售日: 未定">リリース予定: 未定</li>
+            </ul>
+          </article>
+          <article class="text-block">
+            <h2 data-i18n-ja="活動記録" data-i18n-en="History" data-i18n-de="Aktivitäten" data-i18n-zh-hant="活動記錄">活動記録</h2>
+            <ul class="info-list">
+              <li data-i18n-html-ja="Steamページ準備中" data-i18n-html-en="Steam page in preparation" data-i18n-html-de="Steam-Seite in Vorbereitung" data-i18n-html-zh-hant="Steam 頁面準備中">Steamページ準備中</li>
+            </ul>
           </article>
         </div>
       </section>
@@ -111,57 +131,82 @@
           </div>
         </div>
       </section>
-
-      <section class="link-panel">
-        <div class="wrap">
-          <div class="link-box">
-            <div>
-              <h2>Links</h2>
-              <p data-ja="ストアページ、更新情報、問い合わせ先などを必要に応じて追加できます。" data-en="Store pages updates contact links and other references can be added here.">ストアページ、更新情報、問い合わせ先などを必要に応じて追加できます。</p>
-              <div class="meta-row" aria-label="基本情報">
-                <span><b>Platform</b> Steam</span>
-                <span><b>Status</b> 準備中</span>
-                <span><b>Links</b> Steam / X</span>
-              </div>
-            </div>
-            <div class="action-row">
-              <a
-                class="button button-primary"
-                href="https://store.steampowered.com/search/?term=Sak%20Winik%3A%20The%20Appointed%20One"
-              >
-                Steam
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
     </main>
 
     <script>
       const languageKey = "bogosorstudio-language";
-      const langToggle = document.querySelector(".lang-toggle");
-      const langOptions = [...document.querySelectorAll("[data-lang-option]")];
-      const translatable = [...document.querySelectorAll("[data-ja][data-en]")];
+      const supportedLanguages = ["ja", "en", "de", "zh-hant"];
+      const languageLabels = {
+        ja: "日本語",
+        en: "English",
+        de: "Deutsch",
+        "zh-hant": "繁體中文",
+      };
+      const htmlLanguageCodes = {
+        ja: "ja",
+        en: "en",
+        de: "de",
+        "zh-hant": "zh-Hant",
+      };
+      const languageMenu = document.querySelector("[data-language-menu]");
+      const languageButton = document.querySelector(".language-button");
+      const languageList = document.querySelector(".language-list");
+      const languageCurrent = document.querySelector("[data-language-current]");
+      const languageChoices = [...document.querySelectorAll("[data-language-choice]")];
+      const translatable = [...document.querySelectorAll("[data-i18n-ja]")];
+      const htmlTranslatable = [...document.querySelectorAll("[data-i18n-html-ja]")];
 
-      const setLanguage = (language) => {
-        const nextLanguage = language === "en" ? "en" : "ja";
-        document.documentElement.lang = nextLanguage;
-        translatable.forEach((node) => {
-          node.textContent = node.dataset[nextLanguage];
-        });
-        langOptions.forEach((option) => {
-          option.classList.toggle("is-active", option.dataset.langOption === nextLanguage);
-        });
-        localStorage.setItem(languageKey, nextLanguage);
+      const normalizeLanguage = (language) => supportedLanguages.includes(language) ? language : "ja";
+
+      const closeLanguageMenu = () => {
+        languageList?.setAttribute("hidden", "");
+        languageButton?.setAttribute("aria-expanded", "false");
       };
 
-      langToggle?.addEventListener("click", () => {
-        const currentLanguage = document.documentElement.lang === "en" ? "en" : "ja";
-        setLanguage(currentLanguage === "en" ? "ja" : "en");
+      const openLanguageMenu = () => {
+        languageList?.removeAttribute("hidden");
+        languageButton?.setAttribute("aria-expanded", "true");
+      };
+
+      const setLanguage = (language) => {
+        const nextLanguage = normalizeLanguage(language);
+        document.documentElement.lang = htmlLanguageCodes[nextLanguage] || nextLanguage;
+        translatable.forEach((node) => {
+          node.textContent = node.getAttribute(`data-i18n-${nextLanguage}`) || node.getAttribute("data-i18n-ja") || "";
+        });
+        htmlTranslatable.forEach((node) => {
+          node.innerHTML = node.getAttribute(`data-i18n-html-${nextLanguage}`) || node.getAttribute("data-i18n-html-ja") || "";
+        });
+        if (languageCurrent) languageCurrent.textContent = languageLabels[nextLanguage];
+        languageChoices.forEach((choice) => {
+          choice.setAttribute("aria-selected", String(choice.dataset.languageChoice === nextLanguage));
+        });
+        localStorage.setItem(languageKey, nextLanguage);
+        closeLanguageMenu();
+      };
+
+      languageButton?.addEventListener("click", (event) => {
+        event.stopPropagation();
+        if (languageList?.hasAttribute("hidden")) {
+          openLanguageMenu();
+        } else {
+          closeLanguageMenu();
+        }
+      });
+
+      languageChoices.forEach((choice) => {
+        choice.addEventListener("click", () => setLanguage(choice.dataset.languageChoice));
+      });
+
+      document.addEventListener("click", (event) => {
+        if (!languageMenu?.contains(event.target)) closeLanguageMenu();
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeLanguageMenu();
       });
 
       setLanguage(localStorage.getItem(languageKey) || "ja");
-
       let imageLightbox;
 
       const closeLightbox = () => {
