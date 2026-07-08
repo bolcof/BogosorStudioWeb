@@ -810,7 +810,13 @@
         display: grid;
         grid-template-columns: 0.8fr 1.2fr;
         gap: 32px;
-        align-items: start;
+        align-items: stretch;
+      }
+
+      .news-copy {
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
       }
 
       .news-copy h2 {
@@ -828,7 +834,7 @@
       .news-actions {
         display: grid;
         gap: 10px;
-        margin-top: 24px;
+        margin-top: auto;
       }
 
       .news-action {
