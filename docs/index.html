@@ -490,76 +490,6 @@
         z-index: 1;
       }
 
-      .site-notice {
-        padding: 24px 0 0;
-      }
-
-      .notice-box {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        gap: 16px;
-        align-items: center;
-        border: 1px solid rgba(212, 168, 48, 0.34);
-        border-radius: var(--radius);
-        padding: 20px 22px;
-        background:
-          linear-gradient(135deg, rgba(212, 168, 48, 0.16), rgba(123, 215, 184, 0.07)),
-          rgba(23, 23, 19, 0.82);
-        box-shadow: 0 22px 54px rgba(0, 0, 0, 0.28);
-      }
-
-      .notice-mark {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-width: 42px;
-        min-height: 42px;
-        border-radius: var(--radius);
-        color: #15120a;
-        background: var(--gold);
-        font-size: 1.45rem;
-        font-weight: 900;
-      }
-
-      .notice-box strong {
-        display: block;
-        margin-bottom: 4px;
-        font-size: clamp(1.35rem, 2.8vw, 2.25rem);
-        line-height: 1.08;
-      }
-
-      .notice-box p {
-        margin-bottom: 0;
-        color: var(--muted);
-        font-size: clamp(0.95rem, 1.4vw, 1.08rem);
-      }
-
-      .notice-link-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 14px;
-      }
-
-      .notice-link {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 36px;
-        border: 1px solid rgba(244, 240, 231, 0.2);
-        border-radius: var(--radius);
-        padding: 0 12px;
-        color: var(--text);
-        background: rgba(244, 240, 231, 0.07);
-        font-size: 0.9rem;
-        font-weight: 780;
-      }
-
-      .notice-link:hover {
-        border-color: rgba(212, 168, 48, 0.48);
-        background: rgba(244, 240, 231, 0.12);
-      }
-
       section {
         padding: 58px 0;
         border-top: 1px solid var(--line);
@@ -895,6 +825,46 @@
         font-size: 1.06rem;
       }
 
+      .news-actions {
+        display: grid;
+        gap: 10px;
+        margin-top: 24px;
+      }
+
+      .news-action {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 14px;
+        align-items: center;
+        min-height: 56px;
+        border: 1px solid rgba(244, 240, 231, 0.16);
+        border-radius: var(--radius);
+        padding: 0 16px;
+        color: var(--text);
+        background:
+          linear-gradient(135deg, rgba(212, 168, 48, 0.12), rgba(123, 215, 184, 0.06)),
+          rgba(23, 23, 19, 0.68);
+        font-weight: 820;
+        transition:
+          border-color 160ms ease,
+          background 160ms ease,
+          transform 160ms ease;
+      }
+
+      .news-action:hover {
+        border-color: rgba(212, 168, 48, 0.48);
+        background:
+          linear-gradient(135deg, rgba(212, 168, 48, 0.18), rgba(123, 215, 184, 0.09)),
+          rgba(23, 23, 19, 0.82);
+        transform: translateY(-1px);
+      }
+
+      .news-action::after {
+        content: "→";
+        color: var(--gold);
+        font-weight: 900;
+      }
+
       .news-list {
         display: grid;
         gap: 1px;
@@ -918,6 +888,16 @@
       .news-item:hover {
         background: rgba(244, 240, 231, 0.07);
         transform: translateY(-1px);
+      }
+
+      .news-item.is-empty {
+        min-height: 73px;
+        pointer-events: none;
+      }
+
+      .news-item.is-empty b,
+      .news-item.is-empty p {
+        opacity: 0;
       }
 
       .news-item b {
@@ -994,10 +974,6 @@
           font-size: 3.35rem;
         }
 
-        .site-notice {
-          padding-top: 16px;
-        }
-
         .news-grid,
         .link-band {
           grid-template-columns: 1fr;
@@ -1036,18 +1012,6 @@
 
         .lead {
           font-size: 1.05rem;
-        }
-
-        .notice-box {
-          grid-template-columns: 1fr;
-          gap: 12px;
-          padding: 18px;
-        }
-
-        .notice-mark {
-          min-width: 36px;
-          min-height: 36px;
-          width: 36px;
         }
 
         .hero-media {
@@ -1144,23 +1108,6 @@
       </header>
 
       <main>
-        <div class="site-notice">
-          <div class="wrap">
-            <div class="notice-box" role="status">
-              <span class="notice-mark" aria-hidden="true">!</span>
-              <div>
-                <strong data-i18n-ja="このサイトは現在準備中です" data-i18n-en="This site is currently in preparation" data-i18n-de="Diese Website befindet sich derzeit in Vorbereitung" data-i18n-zh-hant="本網站目前正在準備中">このサイトは現在準備中です</strong>
-                <p data-i18n-ja="掲載内容、リンク、各タイトルページは仮の内容を含みます。正式公開まで順次更新します。" data-i18n-en="Some content, links, and title pages are temporary. Updates will continue toward the official launch." data-i18n-de="Einige Inhalte, Links und Titelseiten sind vorläufig. Bis zur offiziellen Veröffentlichung werden sie schrittweise aktualisiert." data-i18n-zh-hant="部分內容、連結與各標題頁仍為暫定內容。正式公開前會陸續更新。">
-                  掲載内容、リンク、各タイトルページは仮の内容を含みます。正式公開まで順次更新します。
-                </p>
-                <div class="notice-link-row">
-                  <a class="notice-link" href="https://x.com/BogosorGames" data-i18n-ja="最新情報はXで確認" data-i18n-en="Follow updates on X" data-i18n-de="Updates auf X ansehen" data-i18n-zh-hant="在 X 查看最新消息">最新情報はXで確認</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <section class="hero wrap" aria-label="BogosorStudio">
           <div class="hero-title">
             <p class="eyebrow" data-i18n-ja="日本発の個人ゲームスタジオ" data-i18n-en="Independent game studio from Japan" data-i18n-de="Unabhängiges Spielestudio aus Japan" data-i18n-zh-hant="來自日本的個人遊戲工作室">日本発の個人ゲームスタジオ</p>
@@ -1329,24 +1276,28 @@
               <p data-i18n-ja="新作情報、Steamページ公開、イベント出展などの更新先です。" data-i18n-en="Updates for new titles, Steam pages, and event exhibitions." data-i18n-de="Updates zu neuen Titeln, Steam-Seiten und Event-Ausstellungen." data-i18n-zh-hant="新作資訊、Steam 頁面公開與活動展出等更新。">
                 新作情報、Steamページ公開、イベント出展などの更新先です。
               </p>
+              <div class="news-actions" aria-label="関連ページ">
+                <a class="news-action" href="./News/index.html" data-i18n-ja="News一覧はこちら（工事中）" data-i18n-en="News list here (under construction)" data-i18n-de="News-Liste hier (im Aufbau)" data-i18n-zh-hant="News 列表在這裡（施工中）">News一覧はこちら（工事中）</a>
+                <a class="news-action" href="./Exhibitions/index.html" data-i18n-ja="展示・試遊情報はこちら（工事中）" data-i18n-en="Exhibition and demo information here (under construction)" data-i18n-de="Ausstellungs- und Demo-Informationen hier (im Aufbau)" data-i18n-zh-hant="展示與試玩資訊在這裡（施工中）">展示・試遊情報はこちら（工事中）</a>
+              </div>
             </div>
-            <div class="news-list" aria-label="ニュースリンク">
-              <a class="news-item" href="./News/2026-06-25_サイト準備中/index.html">
-                <b>2026.06.25</b>
-                <p data-i18n-ja="サイト準備中のお知らせ" data-i18n-en="Site preparation notice" data-i18n-de="Hinweis zur Website-Vorbereitung" data-i18n-zh-hant="網站準備中公告">サイト準備中のお知らせ</p>
+            <div class="news-list" aria-label="最新News">
+              <a class="news-item" href="./News/index.html">
+                <b>2026.07.08</b>
+                <p data-i18n-ja="Webページ公開" data-i18n-en="Website published" data-i18n-de="Website veröffentlicht" data-i18n-zh-hant="網站公開">Webページ公開</p>
               </a>
-              <a class="news-item" href="./News/2026-06-25_Steamページ準備中/index.html">
-                <b>2026.06.25</b>
-                <p data-i18n-ja="Steamページ準備中" data-i18n-en="Steam page in preparation" data-i18n-de="Steam-Seite in Vorbereitung" data-i18n-zh-hant="Steam 頁面準備中">Steamページ準備中</p>
-              </a>
-              <a class="news-item" href="./News/2026-06-25_イベント情報準備中/index.html">
-                <b>2026.06.25</b>
-                <p data-i18n-ja="イベント情報準備中" data-i18n-en="Event information in preparation" data-i18n-de="Event-Informationen in Vorbereitung" data-i18n-zh-hant="活動資訊準備中">イベント情報準備中</p>
-              </a>
-              <a class="news-item" href="./Exhibitions/index.html">
-                <b>Events</b>
-                <p data-i18n-ja="展示・試遊情報一覧" data-i18n-en="Exhibition and demo information" data-i18n-de="Ausstellungs- und Demo-Informationen" data-i18n-zh-hant="展示與試玩資訊列表">展示・試遊情報一覧</p>
-              </a>
+              <div class="news-item is-empty" aria-hidden="true">
+                <b>----</b>
+                <p>----</p>
+              </div>
+              <div class="news-item is-empty" aria-hidden="true">
+                <b>----</b>
+                <p>----</p>
+              </div>
+              <div class="news-item is-empty" aria-hidden="true">
+                <b>----</b>
+                <p>----</p>
+              </div>
             </div>
           </div>
         </section>
