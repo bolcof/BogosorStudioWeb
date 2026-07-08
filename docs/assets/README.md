@@ -6,10 +6,11 @@ Steam向けのストア画像・ライブラリ画像を、下記の命名規則
 ## タイトル情報の編集
 
 タイトル名、Steam / X のリンク、対応プラットフォームなどは、リポジトリ直下の `games.csv` で編集します。
-トップページのカード説明、カードラベル、各タイトルページのサマリー、ページラベル、概要、今後の予定、活動記録は `content/games/<TitleId>.<lang>.md` で編集します。
+トップページのカード説明、カードラベル、各タイトルページのサマリー、ページラベル、概要、今後の予定、活動記録は `content/games/<TitleId>.md` で編集します。
 Markdown内の改行は概要本文に反映され、`今後の予定` と `活動記録` の箇条書きはそのままリスト表示されます。
-対応言語は `ja`, `en`, `de`, `zh-hant` です。基本的には `content/games/<TitleId>.ja.md` を編集し、内容変更後に他言語版を同じ構造で更新します。
+対応言語は `ja`, `en`, `de`, `zh-hant` です。基本的には日本語版の `content/games/<TitleId>.md` を編集します。日本語以外は `content/games/OtherLanguage/<TitleId>.<lang>.md` に置き、内容変更後に他言語版を同じ構造で更新します。
 トップページのカードに表示するラベルは `## カードラベル` / `## Card Labels`、各タイトルページ上部に表示するラベルは `## ページラベル` / `## Page Labels` に箇条書きで書きます。
+トップページ上部のヒーロースライダーは、タイトルとは別に `content/hero.md` で編集します。日本語以外は `content/OtherLanguage/hero.<lang>.md` に置きます。
 先頭の色タグで見た目を切り替えます。
 
 - `(main)` - 基本の強調ラベル。地の色=オレンジ、字の色=白
@@ -19,7 +20,7 @@ Markdown内の改行は概要本文に反映され、`今後の予定` と `活�
 
 カードにラベルを出したくない場合は、`## カードラベル` をコメントだけにして箇条書きを空にします。
 
-`games.csv` または `content/games/<TitleId>.<lang>.md` を編集したあと、次のコマンドを実行してください。
+`games.csv` または `content/games/<TitleId>.md` を編集したあと、次のコマンドを実行してください。
 
 ```sh
 ruby scripts/apply_games_csv.rb

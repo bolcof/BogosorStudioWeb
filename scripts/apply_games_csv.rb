@@ -6,7 +6,11 @@ require "erb"
 
 ROOT = File.expand_path("..", __dir__)
 CSV_PATH = File.join(ROOT, "games.csv")
+CONTENT_ROOT = File.join(ROOT, "content")
 CONTENT_DIR = File.join(ROOT, "content", "games")
+OTHER_LANGUAGE_DIR = File.join(CONTENT_DIR, "OtherLanguage")
+HERO_PATH = File.join(CONTENT_ROOT, "hero.md")
+HERO_OTHER_LANGUAGE_DIR = File.join(CONTENT_ROOT, "OtherLanguage")
 INDEX_PATH = File.join(ROOT, "docs", "index.html")
 LANGUAGES = [
   { code: "ja", label: "日本語", html_lang: "ja" },
@@ -33,6 +37,15 @@ def asset_url(title_id, filename)
   path = File.join(ROOT, "docs", "assets", "games", title_id, filename)
   version = File.exist?(path) ? "?v=#{File.mtime(path).to_i}" : ""
   "./assets/games/#{h(title_id)}/#{h(filename)}#{version}"
+end
+
+def versioned_doc_asset(path)
+  return path unless path.start_with?("./assets/") && !path.include?("?")
+
+  file_path = File.join(ROOT, "docs", path.delete_prefix("./"))
+  return path unless File.exist?(file_path)
+
+  "#{path}?v=#{File.mtime(file_path).to_i}"
 end
 
 def replace!(html, pattern, replacement, label)
@@ -180,21 +193,121 @@ end
 def parse_game_markdown(title_id)
   content = {}
 
-  LANGUAGES.each do |language|
-    path = File.join(CONTENT_DIR, "#{title_id}.#{language.fetch(:code)}.md")
-    content[language.fetch(:code)] = parse_markdown_sections(path) if File.exist?(path)
+  ja_path = File.join(CONTENT_DIR, "#{title_id}.md")
+  ja_split_path = File.join(CONTENT_DIR, "#{title_id}.ja.md")
+  if File.exist?(ja_path)
+    content["ja"] = parse_markdown_sections(ja_path)
+  elsif File.exist?(ja_split_path)
+    content["ja"] = parse_markdown_sections(ja_split_path)
+  end
+
+  LANGUAGES.reject { |language| language.fetch(:code) == "ja" }.each do |language|
+    code = language.fetch(:code)
+    path = File.join(OTHER_LANGUAGE_DIR, "#{title_id}.#{code}.md")
+    legacy_path = File.join(CONTENT_DIR, "#{title_id}.#{code}.md")
+    if File.exist?(path)
+      content[code] = parse_markdown_sections(path)
+    elsif File.exist?(legacy_path)
+      content[code] = parse_markdown_sections(legacy_path)
+    end
   end
 
   if content.empty?
-    legacy_path = File.join(CONTENT_DIR, "#{title_id}.md")
-    return warn("skip: missing content #{legacy_path}") && {} unless File.exist?(legacy_path)
-
-    content = parse_legacy_game_markdown(legacy_path)
+    return warn("skip: missing content #{ja_path}") && {}
   end
 
   ja_content = content["ja"] || content.values.first || {}
   LANGUAGES.each { |language| content[language.fetch(:code)] ||= ja_content }
   content
+end
+
+def hero_field_key(label)
+  normalized = label.to_s.strip.downcase
+  aliases = {
+    "href" => "href",
+    "url" => "href",
+    "link" => "href",
+    "リンク" => "href",
+    "連結" => "href",
+    "image" => "image",
+    "key_art" => "image",
+    "keyart" => "image",
+    "画像" => "image",
+    "圖片" => "image",
+    "title" => "title",
+    "タイトル" => "title",
+    "標題" => "title",
+    "subtitle" => "subtitle",
+    "label" => "subtitle",
+    "小見出し" => "subtitle",
+    "サブタイトル" => "subtitle",
+    "untertitel" => "subtitle",
+    "副標題" => "subtitle",
+    "button" => "button",
+    "button_label" => "button",
+    "ボタン" => "button",
+    "按鈕" => "button"
+  }
+  aliases[normalized]
+end
+
+def parse_hero_markdown(path)
+  return [] unless File.exist?(path)
+
+  slides = []
+  current = nil
+
+  File.readlines(path, chomp: true).each do |line|
+    if (match = line.match(/\A##\s+(.+?)\s*\z/))
+      heading = match[1].strip
+      id = heading.include?(":") || heading.include?("：") ? heading.split(/[:：]/, 2).last.strip : heading
+      current = { "id" => id }
+      slides << current
+    elsif current && (match = line.match(/\A\s*-?\s*([^:：]+?)\s*[:：]\s*(.+?)\s*\z/))
+      key = hero_field_key(match[1])
+      current[key] = match[2].strip if key
+    end
+  end
+
+  slides
+end
+
+def hero_slides
+  slides_by_language = LANGUAGES.to_h do |language|
+    code = language.fetch(:code)
+    path = code == "ja" ? HERO_PATH : File.join(HERO_OTHER_LANGUAGE_DIR, "hero.#{code}.md")
+    [code, parse_hero_markdown(path)]
+  end
+  ja_slides = slides_by_language["ja"]
+  return [] if ja_slides.empty?
+
+  slides_by_id = slides_by_language.transform_values do |slides|
+    slides.to_h { |slide| [slide.fetch("id"), slide] }
+  end
+
+  ja_slides.map do |ja_slide|
+    id = ja_slide.fetch("id")
+    {
+      id: id,
+      href: ja_slide["href"].to_s.empty? ? "#" : ja_slide["href"],
+      image: ja_slide["image"].to_s.empty? ? "./assets/studio/placeholder-keyart.svg" : ja_slide["image"],
+      title: LANGUAGES.to_h do |language|
+        code = language.fetch(:code)
+        slide = slides_by_id.fetch(code, {})[id] || {}
+        [code, slide["title"].to_s.empty? ? ja_slide["title"].to_s : slide["title"]]
+      end,
+      subtitle: LANGUAGES.to_h do |language|
+        code = language.fetch(:code)
+        slide = slides_by_id.fetch(code, {})[id] || {}
+        [code, slide["subtitle"].to_s.empty? ? ja_slide["subtitle"].to_s : slide["subtitle"]]
+      end,
+      button: LANGUAGES.to_h do |language|
+        code = language.fetch(:code)
+        slide = slides_by_id.fetch(code, {})[id] || {}
+        [code, slide["button"].to_s.empty? ? ja_slide["button"].to_s : slide["button"]]
+      end
+    }
+  end
 end
 
 def content_text(content, language, section, fallback = "")
@@ -438,9 +551,58 @@ def game_card(row, content)
   HTML
 end
 
+def hero_slide(slide, active: false)
+  image = versioned_doc_asset(slide.fetch(:image))
+
+  <<~HTML.rstrip
+            <a
+              class="hero-slide#{active ? " is-active" : ""}"
+              href="#{h(slide.fetch(:href))}"
+              data-key-art="#{h(image)}"
+              style="--slide-art: url('#{h(image)}')"
+            >
+              <div class="slide-panel">
+                <div>
+                  <p #{localized_attrs(slide.fetch(:subtitle))}>#{h(slide.fetch(:subtitle).fetch("ja"))}</p>
+                  <strong #{localized_attrs(slide.fetch(:title))}>#{h(slide.fetch(:title).fetch("ja"))}</strong>
+                </div>
+                <span class="button button-secondary" #{localized_attrs(slide.fetch(:button))}>#{h(slide.fetch(:button).fetch("ja"))}</span>
+              </div>
+            </a>
+  HTML
+end
+
+def hero_media
+  hero_items = hero_slides
+  slides = hero_items.each_with_index.map do |slide, index|
+    hero_slide(slide, active: index.zero?)
+  end
+
+  dot_labels = hero_items.map do |slide|
+    "              <button class=\"slide-dot\" type=\"button\" aria-label=\"#{h(slide.fetch(:title).fetch("ja"))}を表示\"></button>"
+  end
+  dot_labels[0] = dot_labels[0].sub("slide-dot", "slide-dot is-active") if dot_labels[0]
+
+  <<~HTML.rstrip
+          <div class="hero-media" aria-label="注目情報スライドショー">
+#{slides.join("\n\n")}
+
+            <div class="slide-dots" aria-label="スライド切り替え">
+#{dot_labels.join("\n")}
+            </div>
+          </div>
+  HTML
+end
+
 def update_index(rows, contents)
   html = File.read(INDEX_PATH)
   cards = rows.map { |row| game_card(row, contents.fetch(row.fetch("title_id"), {})) }.join("\n\n")
+  html = replace!(
+    html,
+    /          <div class="hero-media" aria-label="注目情報スライドショー">\n.*?\n          <\/div>\n        <\/section>/m,
+    "#{hero_media}\n        </section>",
+    "index hero media"
+  )
   html = replace!(
     html,
     /            <div class="capsule-shelf" aria-label="Steamライブラリーカプセル">\n.*?\n            <\/div>/m,

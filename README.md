@@ -15,14 +15,16 @@ GitHub Pagesでは `docs/` フォルダを公開対象にします。
 ## タイトル情報の編集
 
 タイトル名、Steam / X のリンク、対応プラットフォームなどの一覧向きメタ情報は、リポジトリ直下の `games.csv` で編集します。
-トップページのカード説明、カードラベル、各タイトルページのサマリー、ページラベル、概要、今後の予定、活動記録は `content/games/<TitleId>.<lang>.md` で編集します。
+トップページのカード説明、カードラベル、各タイトルページのサマリー、ページラベル、概要、今後の予定、活動記録は `content/games/<TitleId>.md` で編集します。
 Markdown内の改行は概要本文に反映され、`今後の予定` と `活動記録` の箇条書きはそのままリスト表示されます。
 トップページのカードに表示する対応プラットフォームは `meta_platform` で編集します。
 複数ある場合は `Steam|Android|iOS` のように `|` 区切りで書きます。
 対応プラットフォームアイコンの遷移先は、現状 `steam_url` を使います。Android / iOS の本番URLが未定の場合も、一旦Steamページへ飛ばします。
 対応言語は `ja`, `en`, `de`, `zh-hant` です。
-基本的には日本語版の `content/games/<TitleId>.ja.md` を編集し、内容が変わったら英語、ドイツ語、繁体字のMDを同じ構造で更新します。
+基本的には日本語版の `content/games/<TitleId>.md` を編集します。日本語以外は `content/games/OtherLanguage/<TitleId>.<lang>.md` に置き、内容が変わったら英語、ドイツ語、繁体字のMDを同じ構造で更新します。
 トップページのカードに表示するラベルは `## カードラベル` / `## Card Labels`、各タイトルページ上部に表示するラベルは `## ページラベル` / `## Page Labels` で別々に編集します。
+トップページ上部のヒーロースライダーは、タイトルとは別に `content/hero.md` で編集します。日本語以外は `content/OtherLanguage/hero.<lang>.md` に置きます。
+ヒーロースライダーはタイトル以外の告知も入れられるように、各スライドに `リンク`、`画像`、`タイトル`、`小見出し`、`ボタン` を書きます。
 ラベルは箇条書きで、先頭に色タグを書きます。`(event)` は展示情報として金色で目立たせます。
 
 ```md
@@ -56,7 +58,7 @@ Markdown内の改行は概要本文に反映され、`今後の予定` と `活�
 
 カードにラベルを出したくない場合は、`## カードラベル` をコメントだけにして箇条書きを空にします。カードに出したい通常ラベルは `(main)`、発売中は `(released)` を使います。
 
-`games.csv` または `content/games/<TitleId>.<lang>.md` を編集したあと、次のコマンドを実行してください。
+`games.csv` または `content/games/<TitleId>.md` を編集したあと、次のコマンドを実行してください。
 
 ```sh
 ruby scripts/apply_games_csv.rb
@@ -90,10 +92,31 @@ ruby scripts/apply_games_csv.rb
 ファイル名の例:
 
 ```text
-content/games/NyctoType.ja.md
-content/games/NyctoType.en.md
-content/games/NyctoType.de.md
-content/games/NyctoType.zh-hant.md
+content/games/NyctoType.md
+content/games/OtherLanguage/NyctoType.en.md
+content/games/OtherLanguage/NyctoType.de.md
+content/games/OtherLanguage/NyctoType.zh-hant.md
+```
+
+ヒーロースライダーのファイル名:
+
+```text
+content/hero.md
+content/OtherLanguage/hero.en.md
+content/OtherLanguage/hero.de.md
+content/OtherLanguage/hero.zh-hant.md
+```
+
+ヒーロースライダーの書き方:
+
+```md
+## スライド: NyctoType
+
+- リンク: ./games/NyctoType.html
+- 画像: ./assets/games/NyctoType/KeyArt.png
+- タイトル: NyctoType
+- 小見出し: 次回展示: gamescom 2026.8.26~8.30
+- ボタン: 詳細
 ```
 
 ## タイトル別アセット
@@ -114,7 +137,7 @@ docs/assets/games/<TitleId>/
 - `ScreenShot02.png` - 個別ページのスクリーンショット
 - `OgImage.png` - SNS共有用画像
 
-トップページ上部のヒーロースライダーは、各タイトルの `KeyArt.png` を優先して使います。まだ `KeyArt.png` がないタイトルは、仮で `docs/assets/studio/placeholder-keyart.svg` を使います。スライドに `data-key-art="./assets/games/<TitleId>/KeyArt.png"` を入れておくと、後から画像を追加した時に自動で差し替わります。
+トップページ上部のヒーロースライダー画像は、`content/hero.md` の `画像` で指定します。タイトルの告知なら `./assets/games/<TitleId>/KeyArt.png` を指定するのが基本です。画像が読み込めない場合は、仮で `docs/assets/studio/placeholder-keyart.svg` を表示します。
 
 現在のヒーロースライダー表示枠は、最も縦長で約 `0.81:1`、最も横長で約 `2.75:1` まで変化します。中央の重要要素を残し、左右上下の端はトリミングされても成立する画像にすると安定します。
 
@@ -149,7 +172,7 @@ docs/News/2026-06-25_Steamページ準備中/index.html
 ## 残タスク
 
 - 各タイトルページの `概要` 見出しを、必要に応じて `作品紹介 / About` などに変更します。
-- `content/games/<TitleId>.<lang>.md` に残っている仮文言を、各タイトルの正式なカード説明、概要、今後の予定、活動記録に差し替えます。
+- `content/games/<TitleId>.md` と `content/games/OtherLanguage/<TitleId>.<lang>.md` に残っている仮文言を、各タイトルの正式なカード説明、概要、今後の予定、活動記録に差し替えます。
 - Android、iOSなどSteam以外のストアURLを本番URLに差し替えます。現状、ReversiのAndroid / iOSは暫定でSteamページへ遷移します。
 - `KeyArt.png` がないタイトルは、用意でき次第 `docs/assets/games/<TitleId>/KeyArt.png` として追加します。
 - News記事と展示情報は、実際の公開内容やイベント情報に合わせて追加・更新します。
