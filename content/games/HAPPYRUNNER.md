@@ -8,13 +8,37 @@
 
 現代の生き方を表現したレトロな1ボタンジャンプゲーム
 
+## カードラベル
+
+<!--
+ラベルの色タグ:
+- (main): 基本の強調ラベル。地の色=オレンジ、字の色=白
+- (released): 発売中ラベル。地の色=ミントグリーン、字の色=黒
+- (event): 展示・出展ラベル。地の色=金、字の色=黒
+- (muted): 補助ステータス。地の色=半透明グレー、字の色=白
+-->
+
+- (released) 発売中
+
+## ページラベル
+
+<!--
+ラベルの色タグ:
+- (main): 基本の強調ラベル。地の色=オレンジ、字の色=白
+- (released): 発売中ラベル。地の色=ミントグリーン、字の色=黒
+- (event): 展示・出展ラベル。地の色=金、字の色=黒
+- (muted): 補助ステータス。地の色=半透明グレー、字の色=白
+-->
+
+- (released) 発売中
+
 ## 概要
 
 操作はボタンを押してジャンプ、長押ししてロングジャンプの２つだけ。
 ２つの操作の軌跡はモールス信号として文字列に変換される。
 
 最初はある程度自由に操作していてもよいが、
-時間が経つにつれ、生き残るにはステージ上で「I AM SO HAPPY.」を言い続けるように操作するしかない。
+時間が経つにつれ、生き残るにはステージ上で「I AM SO HAPPY.」と言い続けるように操作するしかない。
 幸せでなくても幸せだと言わなければ生き残れない、現代社会のような1ボタンランゲーム。
 
 ## 活動記録
@@ -31,6 +55,30 @@ A retro one-button running game about modern life.
 ## Summary
 
 A retro one-button running game about modern life.
+
+## Card Labels
+
+<!--
+Label color tags:
+- (main): default emphasis. background=orange, text=white
+- (released): available/released. background=mint green, text=black
+- (event): exhibition/event. background=gold, text=black
+- (muted): secondary status. background=translucent gray, text=white
+-->
+
+- (released) Available now
+
+## Page Labels
+
+<!--
+Label color tags:
+- (main): default emphasis. background=orange, text=white
+- (released): available/released. background=mint green, text=black
+- (event): exhibition/event. background=gold, text=black
+- (muted): secondary status. background=translucent gray, text=white
+-->
+
+- (released) Available now
 
 ## About
 

@@ -65,6 +65,17 @@ def section_key(label)
     "summary" => "summary",
     "サマリー" => "summary",
     "短い説明" => "summary",
+    "labels" => "labels",
+    "label" => "labels",
+    "ラベル" => "labels",
+    "card labels" => "card_labels",
+    "card label" => "card_labels",
+    "カードラベル" => "card_labels",
+    "トップラベル" => "card_labels",
+    "page labels" => "page_labels",
+    "page label" => "page_labels",
+    "ページラベル" => "page_labels",
+    "タイトルページラベル" => "page_labels",
     "about" => "overview",
     "overview" => "overview",
     "概要" => "overview",
@@ -128,7 +139,7 @@ def compact_text(text)
 end
 
 def markdown_list_items(text)
-  lines = text.to_s.lines.map(&:chomp)
+  lines = text.to_s.gsub(/<!--.*?-->/m, "").lines.map(&:chomp)
   bullet_items = lines.map do |line|
     match = line.match(/\A\s*[-*]\s+(.+?)\s*\z/)
     match && match[1].strip
@@ -172,43 +183,69 @@ def platform_icons(row)
   end.compact.join("\n")
 end
 
-def release_label_class(label)
-  return "release-label is-released" if label.include?("発売中")
-  return "release-label is-event" if label.match?(/出展|展示|gamescom|TGS/i)
+def parse_label_item(item)
+  match = item.to_s.strip.match(/\A\(([^)]+)\)\s*(.+)\z/)
+  return { kind: "main", text: item.to_s.strip } unless match
 
-  "release-label is-tba"
+  { kind: match[1].strip.downcase, text: match[2].strip }
 end
 
-def game_page_release_label_class(label)
-  return "label label-event" if label.match?(/出展|展示|gamescom|TGS/i)
+def label_class(kind, context)
+  normalized = kind.to_s.downcase
+  if context == :card
+    return "release-label is-event" if normalized == "event"
+    return "release-label is-released" if normalized == "released"
+    return "release-label is-tba" if normalized == "muted" || normalized == "status"
 
-  "label"
+    "release-label"
+  else
+    return "label label-event" if normalized == "event"
+    return "label label-released" if normalized == "released"
+    return "label label-muted" if normalized == "muted" || normalized == "status"
+
+    "label"
+  end
 end
 
-def release_labels(row)
-  ja_labels = row.fetch("release_label_ja").split("|").map(&:strip)
-  en_labels = row.fetch("release_label_en").split("|").map(&:strip)
+def label_items(content, section)
+  ja_items = markdown_list_items(content_text(content, "ja", section))
+  en_items = markdown_list_items(content_text(content, "en", section))
 
-  labels = ja_labels.each_with_index.map do |ja_label, index|
-    en_label = en_labels[index] || en_labels.first || ja_label
-    "                    <span class=\"#{release_label_class(ja_label)}\" data-ja=\"#{h(ja_label)}\" data-en=\"#{h(en_label)}\">#{h(ja_label)}</span>"
+  ja_items.each_with_index.map do |ja_item, index|
+    ja_label = parse_label_item(ja_item)
+    en_label = parse_label_item(en_items[index] || en_items.first || ja_label[:text])
+    {
+      kind: ja_label[:kind],
+      ja: ja_label[:text],
+      en: en_label[:text]
+    }
+  end
+end
+
+def card_labels(content)
+  labels = label_items(content, "card_labels")
+  labels = label_items(content, "labels").reject { |label| ["muted", "status"].include?(label[:kind]) } if labels.empty?
+  return "" if labels.empty?
+
+  html = labels.map do |label|
+    "                    <span class=\"#{label_class(label[:kind], :card)}\" data-ja=\"#{h(label[:ja])}\" data-en=\"#{h(label[:en])}\">#{h(label[:ja])}</span>"
   end.join("\n")
 
   <<~HTML.rstrip
                   <div class="release-labels" aria-label="公開・展示ステータス">
-#{labels}
+#{html}
                   </div>
   HTML
 end
 
-def game_page_release_labels(row)
-  ja_labels = row.fetch("release_label_ja").split("|").map(&:strip)
-  en_labels = row.fetch("release_label_en").split("|").map(&:strip)
-
-  ja_labels.each_with_index.map do |ja_label, index|
-    en_label = en_labels[index] || en_labels.first || ja_label
-    "            <span class=\"#{game_page_release_label_class(ja_label)}\" data-ja=\"#{h(ja_label)}\" data-en=\"#{h(en_label)}\">#{h(ja_label)}</span>"
+def game_page_status_row(content)
+  labels = label_items(content, "page_labels")
+  labels = label_items(content, "labels") if labels.empty?
+  html = labels.map do |label|
+    "            <span class=\"#{label_class(label[:kind], :page)}\" data-ja=\"#{h(label[:ja])}\" data-en=\"#{h(label[:en])}\">#{h(label[:ja])}</span>"
   end.join("\n")
+
+  "          <div class=\"status-row\">\n#{html}\n          </div>"
 end
 
 def info_list(content, section)
@@ -269,41 +306,11 @@ def text_section(content)
   HTML
 end
 
-def link_panel(row, _content)
-  <<~HTML.rstrip
-      <section class="link-panel">
-        <div class="wrap">
-          <div class="link-box">
-            <div>
-              <h2>Links</h2>
-              <div class="meta-row" aria-label="基本情報">
-                <span><b>Platform</b> #{h(row.fetch("meta_platform"))}</span>
-                <span><b>Status</b> #{h(row.fetch("meta_status_ja"))}</span>
-                <span><b>Links</b> #{h(row.fetch("meta_links"))}</span>
-              </div>
-            </div>
-            <div class="action-row">
-              <a
-                class="button button-primary"
-                href="#{h(row.fetch("steam_url"))}" target="_blank" rel="noopener"
-              >
-                Steam
-              </a>
-              <a class="button" href="#{h(row.fetch("x_url"))}" target="_blank" rel="noopener">
-                X
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-  HTML
-end
-
 def game_card(row, content)
   title_id = row.fetch("title_id")
   capsule = asset_file(title_id, "LibraryCapsule.png")
   platforms = platform_icons(row)
-  labels = release_labels(row)
+  labels = card_labels(content)
   card_ja = compact_text(content_text(content, "ja", "card", row.fetch("title")))
   card_en = compact_text(content_text(content, "en", "card", row.fetch("title")))
 
@@ -363,8 +370,8 @@ def update_game_page(row, content)
   )
   html = replace!(
     html,
-    /          <div class="status-row">\n\s*<span class="label[^"]*" data-ja="[^"]*" data-en="[^"]*">.*?<\/span>\n(?:\s*<span class="label[^"]*" data-ja="[^"]*" data-en="[^"]*">.*?<\/span>\n)*\s*<span class="label label-muted" data-ja="[^"]*" data-en="[^"]*">.*?<\/span>\n\s*<\/div>/m,
-    "          <div class=\"status-row\">\n#{game_page_release_labels(row)}\n            <span class=\"label label-muted\" data-ja=\"#{h(row.fetch("status_label_ja"))}\" data-en=\"#{h(row.fetch("status_label_en"))}\">#{h(row.fetch("status_label_ja"))}</span>\n          </div>",
+    /          <div class="status-row">\n.*?\n          <\/div>/m,
+    game_page_status_row(content),
     "#{title_id} status row"
   )
   html = replace!(
@@ -373,12 +380,7 @@ def update_game_page(row, content)
     text_section(content),
     "#{title_id} text section"
   )
-  html = replace!(
-    html,
-    /\n?\s*<section class="link-panel">\n.*?\n\s*<\/section>/m,
-    "\n#{link_panel(row, content)}",
-    "#{title_id} link panel"
-  )
+  html.gsub!(/\n?\s*<section class="link-panel">\n.*?\n\s*<\/section>/m, "")
   html = html.gsub(
     /const translatable = \[\.\.\.document\.querySelectorAll\("\[data-ja\]\[data-en\]"\)\];\n\n      const setLanguage = \(language\) => \{\n        const nextLanguage = language === "en" \? "en" : "ja";\n        document\.documentElement\.lang = nextLanguage;\n        translatable\.forEach\(\(node\) => \{\n          node\.textContent = node\.dataset\[nextLanguage\];\n        \}\);/m,
     "const translatable = [...document.querySelectorAll(\"[data-ja][data-en]\")];\n      const htmlTranslatable = [...document.querySelectorAll(\"[data-ja-html][data-en-html]\")];\n\n      const setLanguage = (language) => {\n        const nextLanguage = language === \"en\" ? \"en\" : \"ja\";\n        document.documentElement.lang = nextLanguage;\n        translatable.forEach((node) => {\n          node.textContent = node.dataset[nextLanguage];\n        });\n        htmlTranslatable.forEach((node) => {\n          node.innerHTML = node.dataset[`${nextLanguage}Html`];\n        });"
