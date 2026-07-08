@@ -302,6 +302,7 @@
         margin-bottom: 0;
         color: var(--muted);
         font-size: clamp(1rem, 1.5vw, 1.18rem);
+        white-space: pre-line;
       }
 
       .info-list {
@@ -321,15 +322,25 @@
       }
 
       .info-list li::before {
-        content: "";
+        content: "・";
         position: absolute;
-        top: 0.68em;
+        top: 0;
         left: 0;
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: var(--mint);
-        box-shadow: 0 0 18px rgba(126, 225, 195, 0.38);
+        color: var(--mint);
+        font-weight: 900;
+      }
+
+      .info-list a {
+        color: var(--text);
+        text-decoration: underline;
+        text-decoration-color: rgba(126, 225, 195, 0.72);
+        text-decoration-thickness: 2px;
+        text-underline-offset: 0.18em;
+      }
+
+      .info-list a:hover {
+        color: var(--mint);
+        text-decoration-color: currentColor;
       }
 
       .visual-band {

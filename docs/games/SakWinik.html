@@ -61,8 +61,8 @@
         <span class="hero-art" aria-hidden="true"></span>
         <div class="wrap hero-grid">
           <h1>Sak Winik: The Appointed One</h1>
-            <p class="summary" data-ja="Steamページ準備中。公開情報、ストアリンク、関連リンクをこのページにまとめます。" data-en="Steam page in preparation. Release information store links and related links are collected here.">
-            Steamページ準備中。公開情報、ストアリンク、関連リンクをこのページにまとめます。
+            <p class="summary" data-ja="極限の状況でAIと会話し、優秀さと人間らしさを示すADV" data-en="A tense ADV where you talk with an AI in an extreme situation and prove both competence and humanity.">
+            極限の状況でAIと会話し、優秀さと人間らしさを示すADV
           </p>
             <div class="status-row">
             <span class="label" data-ja="リリース予定: 未定" data-en="Release date: TBA">リリース予定: 未定</span>
@@ -83,18 +83,24 @@
         <div class="wrap text-blocks">
           <article class="text-block">
             <h2 data-ja="概要" data-en="About">概要</h2>
-            <p data-ja="極限の状況でAIと会話し、優秀さと人間らしさを示すADVです。公開予定や関連リンクをこのページにまとめます。" data-en="A tense ADV where you talk with an AI in an extreme situation and prove both competence and humanity. Release plans and related links are collected here.">極限の状況でAIと会話し、優秀さと人間らしさを示すADVです。公開予定や関連リンクをこのページにまとめます。</p>
+            <p data-ja="7分間で、自分が「優秀」であり「人間」でもあることをAIに証明する会話サスペンス。&#10;&#10;壊れた宇宙船、無人島、不気味な屋敷など、閉ざされた状況で2体のAIと討論する。&#10;&#10;司会AIはすべての発言を「人間らしさ」と「優秀さ」の2軸で判定。&#10;&#10;論理だけでは勝てない。矛盾、感情、ためらいまで武器になる。" data-en="Prove to AI that you are both excellent and human in seven minutes.&#10;&#10;Debate two AIs across closed-room scenarios like a wrecked spacecraft, a deserted island, and an eerie mansion.&#10;&#10;A moderator AI judges every word on two axes: humanness and excellence.&#10;&#10;Logic alone will not save you; contradiction, emotion, and hesitation become weapons.">7分間で、自分が「優秀」であり「人間」でもあることをAIに証明する会話サスペンス。
+
+壊れた宇宙船、無人島、不気味な屋敷など、閉ざされた状況で2体のAIと討論する。
+
+司会AIはすべての発言を「人間らしさ」と「優秀さ」の2軸で判定。
+
+論理だけでは勝てない。矛盾、感情、ためらいまで武器になる。</p>
           </article>
           <article class="text-block">
             <h2 data-ja="今後の予定" data-en="Plans">今後の予定</h2>
             <ul class="info-list">
-              <li data-ja="リリース予定: 未定" data-en="Release date: TBA">リリース予定: 未定</li>
+              <li data-ja-html="リリース予定: 未定" data-en-html="Release date: TBA">リリース予定: 未定</li>
             </ul>
           </article>
           <article class="text-block">
-            <h2 data-ja="これまでの動き" data-en="History">これまでの動き</h2>
+            <h2 data-ja="活動記録" data-en="History">活動記録</h2>
             <ul class="info-list">
-              <li data-ja="Steamページ準備中" data-en="Steam page in preparation">Steamページ準備中</li>
+              <li data-ja-html="Steamページ準備中" data-en-html="Steam page in preparation">Steamページ準備中</li>
             </ul>
           </article>
         </div>
@@ -119,30 +125,31 @@
           </div>
         </div>
       </section>
-
-      <section class="link-panel">
-        <div class="wrap">
-          <div class="link-box">
-            <div>
-              <h2>Links</h2>
-              <p data-ja="ストアページ、更新情報、問い合わせ先などを必要に応じて追加できます。" data-en="Store pages updates contact links and other references can be added here.">ストアページ、更新情報、問い合わせ先などを必要に応じて追加できます。</p>
-              <div class="meta-row" aria-label="基本情報">
-                <span><b>Platform</b> Steam</span>
-                <span><b>Status</b> 開発中</span>
-                <span><b>Links</b> Steam / X</span>
-              </div>
-            </div>
-            <div class="action-row">
-              <a
-                class="button button-primary"
-                href="https://store.steampowered.com/app/4733690/Sak_Winik__The_Appointed_One/" target="_blank" rel="noopener"
-              >
-                Steam
-              </a>
-            </div>
-          </div>
+<section class="link-panel">
+  <div class="wrap">
+    <div class="link-box">
+      <div>
+        <h2>Links</h2>
+        <div class="meta-row" aria-label="基本情報">
+          <span><b>Platform</b> Steam</span>
+          <span><b>Status</b> 開発中</span>
+          <span><b>Links</b> Steam / X</span>
         </div>
-      </section>
+      </div>
+      <div class="action-row">
+        <a
+          class="button button-primary"
+          href="https://store.steampowered.com/app/4733690/Sak_Winik__The_Appointed_One/" target="_blank" rel="noopener"
+        >
+          Steam
+        </a>
+        <a class="button" href="https://x.com/BogosorGames" target="_blank" rel="noopener">
+          X
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
     </main>
 
     <script>
@@ -150,12 +157,16 @@
       const langToggle = document.querySelector(".lang-toggle");
       const langOptions = [...document.querySelectorAll("[data-lang-option]")];
       const translatable = [...document.querySelectorAll("[data-ja][data-en]")];
+      const htmlTranslatable = [...document.querySelectorAll("[data-ja-html][data-en-html]")];
 
       const setLanguage = (language) => {
         const nextLanguage = language === "en" ? "en" : "ja";
         document.documentElement.lang = nextLanguage;
         translatable.forEach((node) => {
           node.textContent = node.dataset[nextLanguage];
+        });
+        htmlTranslatable.forEach((node) => {
+          node.innerHTML = node.dataset[`${nextLanguage}Html`];
         });
         langOptions.forEach((option) => {
           option.classList.toggle("is-active", option.dataset.langOption === nextLanguage);

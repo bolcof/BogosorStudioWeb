@@ -14,12 +14,9 @@ GitHub Pagesでは `docs/` フォルダを公開対象にします。
 
 ## タイトル情報の編集
 
-タイトル名、タグ、ステータス表示、短い紹介文、Steam / X のリンクなどは、リポジトリ直下の `games.csv` で編集します。
-`games.csv` はExcelで文字化けしにくいように、UTF-8 BOM付きで保存しています。
-見やすいExcelファイルとして `games.xlsx` も置いています。
-トップページのカードに表示する短い説明は `card_text_ja` / `card_text_en`、各タイトルページの本文に出す概要は `overview_ja` / `overview_en` で別々に編集します。
-各タイトルページの `今後の予定` は `plan_items_ja` / `plan_items_en`、過去の展示や公開済み更新をまとめる `これまでの動き` は `history_items_ja` / `history_items_en` で編集します。
-箇条書きを複数入れたい場合は `2026年8月 gamescom出展|2026年9月 TGS出展` のように `|` 区切りで書きます。
+タイトル名、タグ、ステータス表示、Steam / X のリンクなどの一覧向き情報は、リポジトリ直下の `games.csv` で編集します。
+トップページのカード説明、各タイトルページのサマリー、概要、今後の予定、活動記録は `content/games/<TitleId>.md` で編集します。
+Markdown内の改行は概要本文に反映され、`今後の予定` と `活動記録` の箇条書きはそのままリスト表示されます。
 トップページのカードに表示する対応プラットフォームは `meta_platform` で編集します。
 複数ある場合は `Steam|Android|iOS` のように `|` 区切りで書きます。
 対応プラットフォームアイコンの遷移先は、現状 `steam_url` を使います。Android / iOS の本番URLが未定の場合も、一旦Steamページへ飛ばします。
@@ -27,7 +24,7 @@ GitHub Pagesでは `docs/` フォルダを公開対象にします。
 複数枚に分けたい場合は `2026年8月 gamescom出展|2026年9月 TGS出展` のように `|` 区切りで書きます。
 `出展`、`展示`、`gamescom`、`TGS` を含むラベルは、展示情報としてオレンジ系の目立つ色で表示します。
 
-CSVを編集したあと、次のコマンドを実行してください。
+`games.csv` または `content/games/<TitleId>.md` を編集したあと、次のコマンドを実行してください。
 
 ```sh
 ruby scripts/apply_games_csv.rb
@@ -37,6 +34,26 @@ ruby scripts/apply_games_csv.rb
 
 - `docs/index.html`
 - `docs/games/<TitleId>.html`
+
+タイトル本文のMarkdownは、次の見出しを使います。
+
+```md
+# 日本語
+
+## カード
+## サマリー
+## 概要
+## 今後の予定
+## 活動記録
+
+# English
+
+## Card
+## Summary
+## About
+## Plans
+## History
+```
 
 ## タイトル別アセット
 
@@ -91,7 +108,7 @@ docs/News/2026-06-25_Steamページ準備中/index.html
 ## 残タスク
 
 - 各タイトルページの `概要` 見出しを、必要に応じて `作品紹介 / About` などに変更します。
-- `games.csv` / `games.xlsx` に残っている仮文言を、各タイトルの正式なカード説明、概要、今後の予定、これまでの動き、リンク文言に差し替えます。
+- `content/games/<TitleId>.md` に残っている仮文言を、各タイトルの正式なカード説明、概要、今後の予定、活動記録に差し替えます。
 - 各タイトルのSteam、Android、iOSなどのストアURLを本番URLに差し替えます。現状は仮URLや検索URLを含みます。
 - `KeyArt.png` がないタイトルは、用意でき次第 `docs/assets/games/<TitleId>/KeyArt.png` として追加します。
 - News記事と展示情報は、実際の公開内容やイベント情報に合わせて追加・更新します。
