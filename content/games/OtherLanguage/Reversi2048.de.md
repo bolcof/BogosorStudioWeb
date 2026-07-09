@@ -47,5 +47,5 @@ Wer viele hochwertige Steine auf einmal umdreht, kann selbst ein fast verlorenes
 
 ## Aktivitäten
 
-- 5. Mai 2026: Als Nebenprojekt bei Tokyo Game Dungeon 12 ausgestellt
-- 27. Aug. 2023: Als Nebenprojekt bei Yokohama Game Dungeon ausgestellt
+- 5. Mai 2026: Nebenausstellung bei Tokyo Game Dungeon 12
+- 27. Aug. 2023: Nebenausstellung bei Yokohama Game Dungeon

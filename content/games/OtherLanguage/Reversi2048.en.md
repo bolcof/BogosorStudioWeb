@@ -47,5 +47,5 @@ Flipping several high-value pieces at once can turn the whole match around.
 
 ## History
 
-- May 5, 2026: Exhibited at Tokyo Game Dungeon 12 as a sub-project
-- Aug 27, 2023: Exhibited at Yokohama Game Dungeon as a sub-project
+- May 5, 2026: Side exhibit at Tokyo Game Dungeon 12
+- Aug 27, 2023: Side exhibit at Yokohama Game Dungeon
