@@ -553,19 +553,27 @@ def info_list(content, section, date_width)
   return "" if ja_items.empty?
 
   items = ja_items.each_with_index.map do |ja_item, index|
+    ja_date, = split_info_item(ja_item)
+    full_body = ja_date.empty?
     date_values = {}
     body_values = {}
     LANGUAGES.each do |language|
       code = language.fetch(:code)
       language_items = items_by_language[code]
       item = language_items[index] || language_items.first || ja_item
-      date, body = split_info_item(item)
-      date_values[code] = date
-      body_values[code] = inline_markdown_to_html(body)
+      if full_body
+        date_values[code] = ""
+        body_values[code] = inline_markdown_to_html(item)
+      else
+        date, body = split_info_item(item)
+        date_values[code] = date
+        body_values[code] = inline_markdown_to_html(body)
+      end
     end
-    body_class = date_values.fetch("ja").empty? ? "info-body info-body-full" : "info-body"
+    item_class = full_body ? "timeline-item timeline-item-full" : "timeline-item"
+    body_class = full_body ? "info-body info-body-full" : "info-body"
     <<~HTML.rstrip
-              <li class="timeline-item">
+              <li class="#{item_class}">
                 <span class="timeline-dot" aria-hidden="true"></span>
                 <span class="info-date" #{localized_attrs(date_values)}>#{h(date_values.fetch("ja"))}</span>
                 <span class="#{body_class}" #{localized_attrs(body_values, html: true)}>#{body_values.fetch("ja")}</span>
