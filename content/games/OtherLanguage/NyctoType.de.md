@@ -17,7 +17,7 @@ Label-Farbtags:
 -->
 
 - (event) Aug. 2026: Ausstellung auf der gamescom
-- (event) Sep. 2026: Ausstellung auf der TGS
+- (event) Sept. 2026: Ausstellung auf der TGS
 
 ## Seitenlabels
 
@@ -30,7 +30,7 @@ Label-Farbtags:
 -->
 
 - (event) Aug. 2026: Ausstellung auf der gamescom
-- (event) Sep. 2026: Ausstellung auf der TGS
+- (event) Sept. 2026: Ausstellung auf der TGS
 - (muted) In Entwicklung
 
 ## Über das Spiel
@@ -44,7 +44,7 @@ Schnelles Tippen allein reicht nicht. Entscheide im Kampf, wann du welche Aktion
 
 ## Pläne
 
-- 17.-21. Sep. 2026: Ausstellung auf der [Tokyo Game Show 2026](https://tgs.cesa.or.jp/2026/)
+- 17.-21. Sept. 2026: Ausstellung auf der [Tokyo Game Show 2026](https://tgs.cesa.or.jp/2026/)
 - 26.-30. Aug. 2026: Ausstellung auf der [gamescom](https://www.gamescom.global/)
 
 ## Aktivitäten
@@ -52,5 +52,5 @@ Schnelles Tippen allein reicht nicht. Entscheide im Kampf, wann du welche Aktion
 - 5. Mai 2026: Ausgestellt bei [Tokyo Game Dungeon 12](https://gamedungeon.jp/events/tokyo12/exhibit_informations/2213)
 - Feb. 2026: Als Förderprojekt der [PONOS Foundation](https://ponos-foundation.org/support.html) ausgewählt
 - 29. Jan.-1. Feb. 2026: Ausgestellt auf der [Taipei Game Show 2026](https://tgs.tca.org.tw/index_e.php)
-- 25.-28. Sep. 2025: Ausgestellt auf der [Tokyo Game Show 2025](https://tgs.cesa.or.jp/2025/exhibition?category=organizers_projects&detail=15321)
+- 25.-28. Sept. 2025: Ausgestellt auf der [Tokyo Game Show 2025](https://tgs.cesa.or.jp/2025/exhibition?category=organizers_projects&detail=15321)
 - Apr. 2025: Als Förderprojekt der ersten Runde der [TGCA (Top Game Creators Academy)](https://tgca.jp/) ausgewählt
