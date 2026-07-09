@@ -13,6 +13,7 @@ HERO_PATH = File.join(CONTENT_ROOT, "hero.md")
 HERO_OTHER_LANGUAGE_DIR = File.join(CONTENT_ROOT, "OtherLanguage")
 INDEX_PATH = File.join(ROOT, "docs", "index.html")
 DEVELOPER_STEAM_URL = "https://store.steampowered.com/developer/BogosorStudio"
+CLOUDFLARE_ANALYTICS_SNIPPET = "<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{\"token\": \"473f4004c02e4bf596ad36320ecd4c28\"}'></script><!-- End Cloudflare Web Analytics -->"
 LANGUAGES = [
   { code: "ja", label: "日本語", html_lang: "ja" },
   { code: "en", label: "English", html_lang: "en" },
@@ -54,6 +55,12 @@ def replace!(html, pattern, replacement, label)
     warn "skip: #{label}"
   end
   html
+end
+
+def ensure_analytics_snippet(html)
+  return html if html.include?("Cloudflare Web Analytics")
+
+  html.sub(%r{\n\s*</head>}, "\n    #{CLOUDFLARE_ANALYTICS_SNIPPET}\n  </head>")
 end
 
 def row_value(row, key, fallback = "")
@@ -695,6 +702,7 @@ def update_index(rows, contents)
     "            <div class=\"capsule-shelf\" aria-label=\"Steamライブラリーカプセル\">\n#{cards}\n            </div>",
     "index capsule shelf"
   )
+  html = ensure_analytics_snippet(html)
   File.write(INDEX_PATH, html)
 end
 
@@ -735,6 +743,7 @@ def update_game_page(row, content)
   )
   html.gsub!(/\n?\s*<section class="link-panel">\n.*?\n\s*<\/section>/m, "")
   html = html.gsub(/alt="[^"]+ screenshot ([0-9]{2})"/, "alt=\"#{h(title)} screenshot \\1\"")
+  html = ensure_analytics_snippet(html)
 
   File.write(path, html)
 end

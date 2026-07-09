@@ -32,13 +32,14 @@ Label color tags:
 
 ## About
 
-An air hockey game where command inputs trigger flashy special moves.
+An air hockey game where command inputs trigger flashy special moves!
 
-Returning the puck and bouncing it off walls fills the skill gauge.
+Returning the puck and bouncing it off walls steadily fills the skill gauge.
 
+Complete a command between returning the puck and hitting it again to activate a skill!
 Each character can unleash different skills depending on how much gauge they have.
 
-Use splitting, vanishing, and curving pucks to K.O. your opponent.
+Use splitting, vanishing, and curving pucks to K.O. your opponent!
 
 ## Plans
 
@@ -46,7 +47,8 @@ Use splitting, vanishing, and curving pucks to K.O. your opponent.
 
 ## History
 
-- BitSummit
-- C105
-- Game Dungeon
-- C104
+- Jul 18-20, 2025: Exhibited at [BitSummit the 13th](https://bitsummit.org/game/skill-hockey/)
+- Aug 12, 2024: Exhibited at Comic Market C104
+- Oct 27, 2024: Exhibited at [Tokyo Game Dungeon 8](https://tokyogamedungeon.com/archive/202410_tokyo/)
+- May 4, 2024: Exhibited at [Tokyo Game Dungeon 6](https://gamedungeon.jp/events/tokyo6/exhibit_informations)
+- Dec 30, 2023: Exhibited at Comic Market C103

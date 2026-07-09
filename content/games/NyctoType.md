@@ -49,7 +49,7 @@
 
 ## 活動記録
 
-- 2026.05.05 [ゲームダンジョン12](https://gamedungeon.jp/events/tokyo12/exhibit_informations/2213) 出展
+- 2026.05.05 [東京ゲームダンジョン12](https://gamedungeon.jp/events/tokyo12/exhibit_informations/2213) 出展
 - 2026.02 [PONOS財団](https://ponos-foundation.org/support.html) PONOS助成制度のプロジェクトとして採択
 - 2026.01.29-02.01 [台北ゲームショウ2026](https://tgs.tca.org.tw/index_e.php) 出展
 - 2025.09.25-28 [東京ゲームショウ2025](https://tgs.cesa.or.jp/2025/exhibition?category=organizers_projects&detail=15321) 出展
