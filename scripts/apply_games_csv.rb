@@ -12,6 +12,7 @@ OTHER_LANGUAGE_DIR = File.join(CONTENT_DIR, "OtherLanguage")
 HERO_PATH = File.join(CONTENT_ROOT, "hero.md")
 HERO_OTHER_LANGUAGE_DIR = File.join(CONTENT_ROOT, "OtherLanguage")
 INDEX_PATH = File.join(ROOT, "docs", "index.html")
+DEVELOPER_STEAM_URL = "https://store.steampowered.com/developer/BogosorStudio"
 LANGUAGES = [
   { code: "ja", label: "日本語", html_lang: "ja" },
   { code: "en", label: "English", html_lang: "en" },
@@ -456,10 +457,47 @@ def game_page_status_row(content)
   labels = label_items(content, "page_labels")
   labels = label_items(content, "labels") if labels.empty?
   html = labels.map do |label|
-    "            <span class=\"#{label_class(label[:kind], :page)}\" #{localized_attrs(label[:text])}>#{h(label[:text].fetch("ja"))}</span>"
+    "              <span class=\"#{label_class(label[:kind], :page)}\" #{localized_attrs(label[:text])}>#{h(label[:text].fetch("ja"))}</span>"
   end.join("\n")
 
-  "          <div class=\"status-row\">\n#{html}\n          </div>"
+  "            <div class=\"status-row\">\n#{html}\n            </div>"
+end
+
+def steam_app_id(steam_url)
+  steam_url.to_s[%r{/app/(\d+)}, 1]
+end
+
+def game_page_hero(row, content)
+  title = row.fetch("title")
+  steam_url = row.fetch("steam_url")
+  summary_texts = localized_texts(content, "summary", title, compact: true)
+  steam_link_label = {
+    "ja" => "#{title} のSteamページを開く",
+    "en" => "Open #{title} on Steam",
+    "de" => "#{title} auf Steam öffnen",
+    "zh-hant" => "開啟 #{title} 的 Steam 頁面"
+  }
+  steam_link = [
+    "          <a class=\"steam-store-link\" href=\"#{h(steam_url)}\" target=\"_blank\" rel=\"noopener\" aria-label=\"#{h(steam_link_label.fetch("ja"))}\">",
+    "            <img class=\"steam-store-logo\" src=\"../assets/platforms/steam-logo.svg\" alt=\"Steam\" />",
+    "          </a>"
+  ].join("\n")
+
+  <<~HTML.rstrip
+      <section class="hero">
+        <span class="hero-art" aria-hidden="true"></span>
+        <div class="wrap hero-grid">
+          <div class="hero-copy">
+            <h1>#{h(title)}</h1>
+            <p class="summary" #{localized_attrs(summary_texts)}>
+              #{h(summary_texts.fetch("ja"))}
+            </p>
+#{game_page_status_row(content)}
+          </div>
+#{steam_link}
+        </div>
+      </section>
+  HTML
 end
 
 def info_list(content, section)
@@ -629,19 +667,17 @@ def update_game_page(row, content)
   html = html.gsub(/https:\/\/store\.steampowered\.com\/(?:search\/\?term=|app\/)[^"]+/, h(steam_url))
   html = html.gsub(/(<a\s+class="button button-primary"\s+href="https:\/\/store\.steampowered\.com\/[^"]+")(?!\s+target=)/, "\\1 target=\"_blank\" rel=\"noopener\"")
   html = html.gsub(/https:\/\/x\.com\/BogosorGames/, h(x_url))
-  html = replace!(html, /<h1>.*?<\/h1>/, "<h1>#{h(title)}</h1>", "#{title_id} h1")
-  summary_texts = localized_texts(content, "summary", title, compact: true)
   html = replace!(
     html,
-    /<p class="summary"[^>]*>\n\s*.*?\n\s*<\/p>/m,
-    "<p class=\"summary\" #{localized_attrs(summary_texts)}>\n            #{h(summary_texts.fetch("ja"))}\n          </p>",
-    "#{title_id} summary"
+    /      <section class="hero">\n.*?\n      <\/section>/m,
+    game_page_hero(row, content),
+    "#{title_id} hero"
   )
   html = replace!(
     html,
-    /          <div class="status-row">\n.*?\n          <\/div>/m,
-    game_page_status_row(content),
-    "#{title_id} status row"
+    /(<nav class="top-links" aria-label="ページリンク">.*?<a\s+class="button button-primary"\s+href=")[^"]+(" target="_blank" rel="noopener"\s*>\s*Steam\s*<\/a>)/m,
+    "\\1#{h(DEVELOPER_STEAM_URL)}\\2",
+    "#{title_id} header steam link"
   )
   html = replace!(
     html,

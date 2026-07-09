@@ -16,6 +16,8 @@ Label-Farbtags:
 - (muted): Zusatzstatus. Hintergrund=halbtransparentes Grau, Text=Weiß
 -->
 
+- (muted) In Entwicklung
+
 ## Seitenlabels
 
 <!--
@@ -26,7 +28,6 @@ Label-Farbtags:
 - (muted): Zusatzstatus. Hintergrund=halbtransparentes Grau, Text=Weiß
 -->
 
-- (muted) Veröffentlichung: TBA
 - (muted) In Entwicklung
 
 ## Über das Spiel
@@ -45,4 +46,7 @@ Nutze Pucks, die sich teilen, verschwinden oder krümmen, um den Gegner K.O. zu 
 
 ## Aktivitäten
 
-- Steam-Seite in Vorbereitung
+- BitSummit
+- C105
+- Game Dungeon
+- C104

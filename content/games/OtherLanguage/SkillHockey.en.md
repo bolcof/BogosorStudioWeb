@@ -16,6 +16,8 @@ Label color tags:
 - (muted): secondary status. background=translucent gray, text=white
 -->
 
+- (muted) In development
+
 ## Page Labels
 
 <!--
@@ -26,7 +28,6 @@ Label color tags:
 - (muted): secondary status. background=translucent gray, text=white
 -->
 
-- (muted) Release date: TBA
 - (muted) In development
 
 ## About
@@ -45,4 +46,7 @@ Use splitting, vanishing, and curving pucks to K.O. your opponent.
 
 ## History
 
-- Steam page in preparation
+- BitSummit
+- C105
+- Game Dungeon
+- C104
