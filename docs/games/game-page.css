@@ -184,10 +184,10 @@
       }
 
       .button-primary {
-        border-color: transparent;
-        color: #161108;
-        background: var(--gold);
-        box-shadow: 0 16px 34px rgba(212, 168, 48, 0.22);
+        border-color: rgba(102, 192, 244, 0.34);
+        color: #f5f7fb;
+        background: linear-gradient(135deg, #2a475e, #1b2838);
+        box-shadow: 0 16px 34px rgba(27, 40, 56, 0.32);
       }
 
       .hero {
@@ -248,8 +248,50 @@
       }
 
       .hero-grid {
-        display: block;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: clamp(28px, 5vw, 64px);
+        align-items: end;
         max-width: 980px;
+      }
+
+      .hero-copy {
+        min-width: 0;
+        text-align: left;
+      }
+
+      .steam-store-link {
+        justify-self: end;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 52px;
+        padding: 0 16px;
+        border: 1px solid rgba(180, 196, 214, 0.34);
+        border-radius: var(--radius);
+        background:
+          linear-gradient(135deg, rgba(42, 71, 94, 0.96), rgba(27, 40, 56, 0.96)),
+          rgba(44, 53, 67, 0.96);
+        box-shadow: 0 18px 44px rgba(0, 0, 0, 0.38);
+        transition:
+          border-color 160ms ease,
+          transform 160ms ease,
+          background 160ms ease;
+      }
+
+      .steam-store-link:hover,
+      .steam-store-link:focus-visible {
+        border-color: rgba(134, 215, 187, 0.58);
+        background:
+          linear-gradient(135deg, rgba(50, 87, 116, 0.98), rgba(30, 48, 68, 0.98)),
+          rgba(44, 53, 67, 0.98);
+        transform: translateY(-1px);
+      }
+
+      .steam-store-logo {
+        display: block;
+        width: 96px;
+        height: auto;
       }
 
 
@@ -279,7 +321,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
-        margin-bottom: 26px;
+        margin-bottom: 0;
       }
 
       .label {
@@ -653,6 +695,14 @@
         .hero {
           min-height: auto;
         }
+
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .steam-store-link {
+          justify-self: start;
+        }
       }
 
       @media (max-width: 640px) {
@@ -681,6 +731,15 @@
 
         .hero {
           padding: 122px 0 42px;
+        }
+
+        .steam-store-link {
+          min-height: 48px;
+          padding: 0 14px;
+        }
+
+        .steam-store-logo {
+          width: 90px;
         }
 
         .screenshot-carousel {

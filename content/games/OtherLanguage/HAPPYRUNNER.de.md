@@ -44,3 +44,4 @@ Ein Ein-Knopf-Runner wie die moderne Gesellschaft: Selbst wenn du nicht glückli
 
 - 29. Nov. 2024: Auf Steam veröffentlicht
 - Okt.-Nov. 2024: Ausgestellt bei [COMPULSION | 2024 Juried Exhibition](https://athica.org/updates/compulsion/)
+- 4. Mai 2024: Ausgestellt bei [Tokyo Game Dungeon 5](https://tokyogamedungeon.com/archive/202405_tokyo/#Group-3B)

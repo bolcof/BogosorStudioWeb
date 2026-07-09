@@ -41,5 +41,6 @@
 
 ## 活動記録
 
-- 2024/11/29 Steamにてリリース
-- 2024/10-11 [COMPULSION | 2024 Juried Exhibition](https://athica.org/updates/compulsion/) にて展示
+- 2024.11.29 Steamにてリリース
+- 2024.10-11 [COMPULSION | 2024 Juried Exhibition](https://athica.org/updates/compulsion/) にて展示
+- 2024.05.04 [東京ゲームダンジョン5](https://tokyogamedungeon.com/archive/202405_tokyo/#Group-3B) 出展

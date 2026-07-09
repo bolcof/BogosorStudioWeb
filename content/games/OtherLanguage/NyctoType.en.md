@@ -35,19 +35,22 @@ Label color tags:
 
 ## About
 
-A multithreaded typing battle where speed and strategy decide the match.
-
-Move virus-shaped pieces across the board and push them into the opponent's side to deal damage.
+A multithreaded competitive typing battle where speed and tactics decide the match.
+Players are programs inside a computer.
+Move virus-shaped pieces, push them into the opponent's side, deal damage, and destroy them.
 
 Every action, from moving pieces to generating units and activating skills, requires clearing typing tasks.
-
-Fast typing alone is not enough; timing and tactical choices matter just as much.
+Fast typing alone is not enough. Fight while thinking about when and which action to take.
 
 ## Plans
 
-- Aug 2026: Exhibiting at gamescom
-- Sep 2026: Exhibiting at TGS
+- Sep 17-21, 2026: Exhibiting at [Tokyo Game Show 2026](https://tgs.cesa.or.jp/2026/)
+- Aug 26-30, 2026: Exhibiting at [gamescom](https://www.gamescom.global/)
 
 ## History
 
-- Steam page in preparation
+- May 5, 2026: Exhibited at [Game Dungeon 12](https://gamedungeon.jp/events/tokyo12/exhibit_informations/2213)
+- Feb 2026: Selected as a [PONOS Foundation](https://ponos-foundation.org/support.html) grant project
+- Jan 29-Feb 1, 2026: Exhibited at [Taipei Game Show 2026](https://tgs.tca.org.tw/index_e.php)
+- Sep 25-28, 2025: Exhibited at [Tokyo Game Show 2025](https://tgs.cesa.or.jp/2025/exhibition?category=organizers_projects&detail=15321)
+- Apr 2025: Selected as a first-term grant project of [TGCA (Top Game Creators Academy)](https://tgca.jp/)

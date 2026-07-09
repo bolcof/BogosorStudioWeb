@@ -35,19 +35,22 @@
 
 ## 概要
 
-速度と戦術で競い合う、マルチスレッドな対戦タイピングバトル。
-
-盤面上のウィルス型の駒を動かし、相手側へ押し込んでダメージを与える。
+速度と戦術で競い合う、マルチスレッド対戦タイピングバトル。
+プレイヤーたちはコンピュータ内のプログラム。
+ウィルス型の駒を動かし、相手側へ押し込んでダメージを与えて破壊する。
 
 駒の移動、生成、スキル発動など、すべての行動にはタイピング課題のクリアが必要。
-
-速く打つだけでは勝てない。どの行動をいつ選ぶかまで問われる。
+速く打つだけでは勝てない。いつ、どの行動をするのかを考えながら戦おう。
 
 ## 今後の予定
 
-- 2026年8月 gamescom出展
-- 2026年9月 TGS出展
+- 2026.09.17-21 [東京ゲームショウ2026](https://tgs.cesa.or.jp/2026/) 出展
+- 2026.08.26-30 [gamescom](https://www.gamescom.global/) 出展
 
 ## 活動記録
 
-- Steamページ準備中
+- 2026.05.05 [ゲームダンジョン12](https://gamedungeon.jp/events/tokyo12/exhibit_informations/2213) 出展
+- 2026.02 [PONOS財団](https://ponos-foundation.org/support.html) PONOS助成制度のプロジェクトとして採択
+- 2026.01.29-02.01 [台北ゲームショウ2026](https://tgs.tca.org.tw/index_e.php) 出展
+- 2025.09.25-28 [東京ゲームショウ2025](https://tgs.cesa.or.jp/2025/exhibition?category=organizers_projects&detail=15321) 出展
+- 2025.04 [TGCA(Top Game Creators Academy)](https://tgca.jp/) 第１期助成プロジェクトとして採択

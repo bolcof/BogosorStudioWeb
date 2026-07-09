@@ -44,3 +44,4 @@ A one-button runner like modern society, where even if you are not happy, you ha
 
 - Nov 29, 2024: Released on Steam
 - Oct-Nov 2024: Exhibited at [COMPULSION | 2024 Juried Exhibition](https://athica.org/updates/compulsion/)
+- May 4, 2024: Exhibited at [Tokyo Game Dungeon 5](https://tokyogamedungeon.com/archive/202405_tokyo/#Group-3B)

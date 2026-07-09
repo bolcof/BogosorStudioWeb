@@ -92,8 +92,10 @@
       }
 
       .site-header {
-        position: sticky;
+        position: fixed;
         top: 0;
+        left: 0;
+        right: 0;
         z-index: 20;
         border-bottom: 1px solid var(--line);
         background: rgba(13, 13, 11, 0.78);
@@ -488,82 +490,13 @@
       main {
         position: relative;
         z-index: 1;
-      }
-
-      .site-notice {
-        padding: 24px 0 0;
-      }
-
-      .notice-box {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        gap: 16px;
-        align-items: center;
-        border: 1px solid rgba(212, 168, 48, 0.34);
-        border-radius: var(--radius);
-        padding: 20px 22px;
-        background:
-          linear-gradient(135deg, rgba(212, 168, 48, 0.16), rgba(123, 215, 184, 0.07)),
-          rgba(23, 23, 19, 0.82);
-        box-shadow: 0 22px 54px rgba(0, 0, 0, 0.28);
-      }
-
-      .notice-mark {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-width: 42px;
-        min-height: 42px;
-        border-radius: var(--radius);
-        color: #15120a;
-        background: var(--gold);
-        font-size: 1.45rem;
-        font-weight: 900;
-      }
-
-      .notice-box strong {
-        display: block;
-        margin-bottom: 4px;
-        font-size: clamp(1.35rem, 2.8vw, 2.25rem);
-        line-height: 1.08;
-      }
-
-      .notice-box p {
-        margin-bottom: 0;
-        color: var(--muted);
-        font-size: clamp(0.95rem, 1.4vw, 1.08rem);
-      }
-
-      .notice-link-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 14px;
-      }
-
-      .notice-link {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 36px;
-        border: 1px solid rgba(244, 240, 231, 0.2);
-        border-radius: var(--radius);
-        padding: 0 12px;
-        color: var(--text);
-        background: rgba(244, 240, 231, 0.07);
-        font-size: 0.9rem;
-        font-weight: 780;
-      }
-
-      .notice-link:hover {
-        border-color: rgba(212, 168, 48, 0.48);
-        background: rgba(244, 240, 231, 0.12);
+        padding-top: 72px;
       }
 
       section {
         padding: 58px 0;
         border-top: 1px solid var(--line);
-        scroll-margin-top: 88px;
+        scroll-margin-top: 92px;
       }
 
       .section-head {
@@ -880,7 +813,13 @@
         display: grid;
         grid-template-columns: 0.8fr 1.2fr;
         gap: 32px;
-        align-items: start;
+        align-items: stretch;
+      }
+
+      .news-copy {
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
       }
 
       .news-copy h2 {
@@ -893,6 +832,46 @@
       .news-copy p {
         color: #d7d0c1;
         font-size: 1.06rem;
+      }
+
+      .news-actions {
+        display: grid;
+        gap: 10px;
+        margin-top: auto;
+      }
+
+      .news-action {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 14px;
+        align-items: center;
+        min-height: 56px;
+        border: 1px solid rgba(244, 240, 231, 0.16);
+        border-radius: var(--radius);
+        padding: 0 16px;
+        color: var(--text);
+        background:
+          linear-gradient(135deg, rgba(212, 168, 48, 0.12), rgba(123, 215, 184, 0.06)),
+          rgba(23, 23, 19, 0.68);
+        font-weight: 820;
+        transition:
+          border-color 160ms ease,
+          background 160ms ease,
+          transform 160ms ease;
+      }
+
+      .news-action:hover {
+        border-color: rgba(212, 168, 48, 0.48);
+        background:
+          linear-gradient(135deg, rgba(212, 168, 48, 0.18), rgba(123, 215, 184, 0.09)),
+          rgba(23, 23, 19, 0.82);
+        transform: translateY(-1px);
+      }
+
+      .news-action::after {
+        content: "→";
+        color: var(--gold);
+        font-weight: 900;
       }
 
       .news-list {
@@ -915,9 +894,27 @@
           transform 160ms ease;
       }
 
+      .news-item:first-child {
+        border-radius: calc(var(--radius) - 1px) calc(var(--radius) - 1px) 0 0;
+      }
+
+      .news-item:last-child {
+        border-radius: 0 0 calc(var(--radius) - 1px) calc(var(--radius) - 1px);
+      }
+
       .news-item:hover {
         background: rgba(244, 240, 231, 0.07);
         transform: translateY(-1px);
+      }
+
+      .news-item.is-empty {
+        min-height: 73px;
+        pointer-events: none;
+      }
+
+      .news-item.is-empty b,
+      .news-item.is-empty p {
+        opacity: 0;
       }
 
       .news-item b {
@@ -994,10 +991,6 @@
           font-size: 3.35rem;
         }
 
-        .site-notice {
-          padding-top: 16px;
-        }
-
         .news-grid,
         .link-band {
           grid-template-columns: 1fr;
@@ -1036,18 +1029,6 @@
 
         .lead {
           font-size: 1.05rem;
-        }
-
-        .notice-box {
-          grid-template-columns: 1fr;
-          gap: 12px;
-          padding: 18px;
-        }
-
-        .notice-mark {
-          min-width: 36px;
-          min-height: 36px;
-          width: 36px;
         }
 
         .hero-media {
@@ -1144,23 +1125,6 @@
       </header>
 
       <main>
-        <div class="site-notice">
-          <div class="wrap">
-            <div class="notice-box" role="status">
-              <span class="notice-mark" aria-hidden="true">!</span>
-              <div>
-                <strong data-i18n-ja="このサイトは現在準備中です" data-i18n-en="This site is currently in preparation" data-i18n-de="Diese Website befindet sich derzeit in Vorbereitung" data-i18n-zh-hant="本網站目前正在準備中">このサイトは現在準備中です</strong>
-                <p data-i18n-ja="掲載内容、リンク、各タイトルページは仮の内容を含みます。正式公開まで順次更新します。" data-i18n-en="Some content, links, and title pages are temporary. Updates will continue toward the official launch." data-i18n-de="Einige Inhalte, Links und Titelseiten sind vorläufig. Bis zur offiziellen Veröffentlichung werden sie schrittweise aktualisiert." data-i18n-zh-hant="部分內容、連結與各標題頁仍為暫定內容。正式公開前會陸續更新。">
-                  掲載内容、リンク、各タイトルページは仮の内容を含みます。正式公開まで順次更新します。
-                </p>
-                <div class="notice-link-row">
-                  <a class="notice-link" href="https://x.com/BogosorGames" data-i18n-ja="最新情報はXで確認" data-i18n-en="Follow updates on X" data-i18n-de="Updates auf X ansehen" data-i18n-zh-hant="在 X 查看最新消息">最新情報はXで確認</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <section class="hero wrap" aria-label="BogosorStudio">
           <div class="hero-title">
             <p class="eyebrow" data-i18n-ja="日本発の個人ゲームスタジオ" data-i18n-en="Independent game studio from Japan" data-i18n-de="Unabhängiges Spielestudio aus Japan" data-i18n-zh-hant="來自日本的個人遊戲工作室">日本発の個人ゲームスタジオ</p>
@@ -1170,54 +1134,55 @@
             </p>
           </div>
           <div class="hero-media" aria-label="注目情報スライドショー">
-            <a
-              class="hero-slide is-active"
-              href="./games/NyctoType.html"
-              data-key-art="./assets/games/NyctoType/KeyArt.png"
-              style="--slide-art: url('./assets/studio/placeholder-keyart.svg')"
-            >
-              <div class="slide-panel">
-                <div>
-                  <p>次回展示: gamescom 2026.8.26~8.30</p>
-                  <strong>NyctoType</strong>
-                </div>
-                <span class="button button-secondary">詳細</span>
-              </div>
-            </a>
+<a
+  class="hero-slide is-active"
+  href="./games/NyctoType.html"
+  data-key-art="./assets/games/NyctoType/KeyArt.png"
+  style="--slide-art: url('./assets/games/NyctoType/KeyArt.png')"
+>
+  <div class="slide-panel">
+    <div>
+      <p data-i18n-ja="次回展示: gamescom 2026.8.26~8.30" data-i18n-en="Next exhibition: gamescom Aug 26-30, 2026" data-i18n-de="Nächste Ausstellung: gamescom, 26.-30. Aug. 2026" data-i18n-zh-hant="下次展出：gamescom 2026.8.26-8.30">次回展示: gamescom 2026.8.26~8.30</p>
+      <strong data-i18n-ja="NyctoType" data-i18n-en="NyctoType" data-i18n-de="NyctoType" data-i18n-zh-hant="NyctoType">NyctoType</strong>
+    </div>
+    <span class="button button-secondary" data-i18n-ja="詳細" data-i18n-en="Details" data-i18n-de="Details" data-i18n-zh-hant="詳細">詳細</span>
+  </div>
+</a>
 
-            <a
-              class="hero-slide"
-              href="./games/Reversi2048.html"
-              data-key-art="./assets/games/Reversi2048/KeyArt.png"
-              style="--slide-art: url('./assets/games/Reversi2048/KeyArt.png')"
-            >
-              <div class="slide-panel">
-                <div>
-                  <p>Nextリリース</p>
-                  <strong>REVERSI 2048</strong>
-                </div>
-                <span class="button button-secondary">詳細</span>
-              </div>
-            </a>
+<a
+  class="hero-slide"
+  href="./games/Reversi2048.html"
+  data-key-art="./assets/games/Reversi2048/KeyArt.png?v=1782317468"
+  style="--slide-art: url('./assets/games/Reversi2048/KeyArt.png?v=1782317468')"
+>
+  <div class="slide-panel">
+    <div>
+      <p data-i18n-ja="Nextリリース" data-i18n-en="Next release" data-i18n-de="Nächste Veröffentlichung" data-i18n-zh-hant="下一款發售">Nextリリース</p>
+      <strong data-i18n-ja="REVERSI 2048" data-i18n-en="REVERSI 2048" data-i18n-de="REVERSI 2048" data-i18n-zh-hant="REVERSI 2048">REVERSI 2048</strong>
+    </div>
+    <span class="button button-secondary" data-i18n-ja="詳細" data-i18n-en="Details" data-i18n-de="Details" data-i18n-zh-hant="詳細">詳細</span>
+  </div>
+</a>
 
-            <a
-              class="hero-slide"
-              href="./News/index.html"
-              style="--slide-art: url('./assets/studio/news.jpg')"
-            >
-              <div class="slide-panel">
-                <div>
-                  <p>更新情報</p>
-                  <strong>X / Steamニュース</strong>
-                </div>
-                <span class="button button-secondary">Newsへ</span>
-              </div>
-            </a>
+<a
+  class="hero-slide"
+  href="./News/index.html"
+  data-key-art="./assets/studio/news.jpg?v=1782317826"
+  style="--slide-art: url('./assets/studio/news.jpg?v=1782317826')"
+>
+  <div class="slide-panel">
+    <div>
+      <p data-i18n-ja="更新情報" data-i18n-en="News" data-i18n-de="Neuigkeiten" data-i18n-zh-hant="最新消息">更新情報</p>
+      <strong data-i18n-ja="X / Steamニュース" data-i18n-en="X / Steam news" data-i18n-de="X / Steam-Neuigkeiten" data-i18n-zh-hant="X / Steam 新聞">X / Steamニュース</strong>
+    </div>
+    <span class="button button-secondary" data-i18n-ja="Newsへ" data-i18n-en="News" data-i18n-de="News" data-i18n-zh-hant="前往 News">Newsへ</span>
+  </div>
+</a>
 
             <div class="slide-dots" aria-label="スライド切り替え">
               <button class="slide-dot is-active" type="button" aria-label="NyctoTypeを表示"></button>
               <button class="slide-dot" type="button" aria-label="REVERSI 2048を表示"></button>
-              <button class="slide-dot" type="button" aria-label="更新情報を表示"></button>
+              <button class="slide-dot" type="button" aria-label="X / Steamニュースを表示"></button>
             </div>
           </div>
         </section>
@@ -1226,8 +1191,8 @@
           <div class="wrap">
             <div class="section-head">
               <h2 data-i18n-ja="開発タイトル" data-i18n-en="Development Titles" data-i18n-de="Titel in Entwicklung" data-i18n-zh-hant="開發標題">開発タイトル</h2>
-              <p data-i18n-ja="Steamで公開中・公開予定のタイトル一覧です。各タイトルの詳細はSteamページに掲載します。" data-i18n-en="A list of titles released or planned for Steam. Details for each title are linked from its own page." data-i18n-de="Eine Liste der veröffentlichten und geplanten Steam-Titel. Details zu jedem Titel sind über die jeweilige Seite verlinkt." data-i18n-zh-hant="Steam 已公開與預定公開標題列表。各標題的詳細資訊會從個別頁面連結。">
-                Steamで公開中・公開予定のタイトル一覧です。各タイトルの詳細はSteamページに掲載します。
+              <p data-i18n-ja="公開中・公開予定のタイトル一覧" data-i18n-en="A list of titles released or planned for Steam. Details for each title are linked from its own page." data-i18n-de="Eine Liste der veröffentlichten und geplanten Steam-Titel. Details zu jedem Titel sind über die jeweilige Seite verlinkt." data-i18n-zh-hant="Steam 已公開與預定公開標題列表。各標題的詳細資訊會從個別頁面連結。">
+                公開中・公開予定のタイトル一覧
               </p>
             </div>
 
@@ -1278,7 +1243,9 @@
                   <div class="platform-row" aria-label="対応プラットフォーム">
                     <span class="platform-icon" role="link" tabindex="0" aria-label="Steam store" title="Steam" data-store-url="https://store.steampowered.com/app/3074910/Skill_Hockey/"><img src="./assets/platforms/steam.svg" alt="" /></span>
                   </div>
-
+                  <div class="release-labels" aria-label="公開・展示ステータス">
+                    <span class="release-label is-tba" data-i18n-ja="開発中" data-i18n-en="In development" data-i18n-de="In Entwicklung" data-i18n-zh-hant="開發中">開発中</span>
+                  </div>
                   <h3>Skill Hockey</h3>
                   <p data-i18n-ja="コマンド入力でスキルを発動！ド派手に決めるエアホッケー！" data-i18n-en="A flashy air hockey game where command inputs trigger special skills." data-i18n-de="Ein auffälliges Air-Hockey-Spiel, in dem Kommandos Spezialskills auslösen." data-i18n-zh-hant="輸入指令發動技能！華麗決勝的空氣曲棍球！">コマンド入力でスキルを発動！ド派手に決めるエアホッケー！</p>
                 </div>
@@ -1328,24 +1295,28 @@
               <p data-i18n-ja="新作情報、Steamページ公開、イベント出展などの更新先です。" data-i18n-en="Updates for new titles, Steam pages, and event exhibitions." data-i18n-de="Updates zu neuen Titeln, Steam-Seiten und Event-Ausstellungen." data-i18n-zh-hant="新作資訊、Steam 頁面公開與活動展出等更新。">
                 新作情報、Steamページ公開、イベント出展などの更新先です。
               </p>
+              <div class="news-actions" aria-label="関連ページ">
+                <a class="news-action" href="./News/index.html" data-i18n-ja="News一覧はこちら（工事中）" data-i18n-en="News list here (under construction)" data-i18n-de="News-Liste hier (im Aufbau)" data-i18n-zh-hant="News 列表在這裡（施工中）">News一覧はこちら（工事中）</a>
+                <a class="news-action" href="./Exhibitions/index.html" data-i18n-ja="展示・試遊情報はこちら（工事中）" data-i18n-en="Exhibition and demo information here (under construction)" data-i18n-de="Ausstellungs- und Demo-Informationen hier (im Aufbau)" data-i18n-zh-hant="展示與試玩資訊在這裡（施工中）">展示・試遊情報はこちら（工事中）</a>
+              </div>
             </div>
-            <div class="news-list" aria-label="ニュースリンク">
-              <a class="news-item" href="./News/2026-06-25_サイト準備中/index.html">
-                <b>2026.06.25</b>
-                <p data-i18n-ja="サイト準備中のお知らせ" data-i18n-en="Site preparation notice" data-i18n-de="Hinweis zur Website-Vorbereitung" data-i18n-zh-hant="網站準備中公告">サイト準備中のお知らせ</p>
+            <div class="news-list" aria-label="最新News">
+              <a class="news-item" href="./News/index.html">
+                <b>2026.07.08</b>
+                <p data-i18n-ja="Webページ公開" data-i18n-en="Website published" data-i18n-de="Website veröffentlicht" data-i18n-zh-hant="網站公開">Webページ公開</p>
               </a>
-              <a class="news-item" href="./News/2026-06-25_Steamページ準備中/index.html">
-                <b>2026.06.25</b>
-                <p data-i18n-ja="Steamページ準備中" data-i18n-en="Steam page in preparation" data-i18n-de="Steam-Seite in Vorbereitung" data-i18n-zh-hant="Steam 頁面準備中">Steamページ準備中</p>
-              </a>
-              <a class="news-item" href="./News/2026-06-25_イベント情報準備中/index.html">
-                <b>2026.06.25</b>
-                <p data-i18n-ja="イベント情報準備中" data-i18n-en="Event information in preparation" data-i18n-de="Event-Informationen in Vorbereitung" data-i18n-zh-hant="活動資訊準備中">イベント情報準備中</p>
-              </a>
-              <a class="news-item" href="./Exhibitions/index.html">
-                <b>Events</b>
-                <p data-i18n-ja="展示・試遊情報一覧" data-i18n-en="Exhibition and demo information" data-i18n-de="Ausstellungs- und Demo-Informationen" data-i18n-zh-hant="展示與試玩資訊列表">展示・試遊情報一覧</p>
-              </a>
+              <div class="news-item is-empty" aria-hidden="true">
+                <b>----</b>
+                <p>----</p>
+              </div>
+              <div class="news-item is-empty" aria-hidden="true">
+                <b>----</b>
+                <p>----</p>
+              </div>
+              <div class="news-item is-empty" aria-hidden="true">
+                <b>----</b>
+                <p>----</p>
+              </div>
             </div>
           </div>
         </section>
