@@ -429,8 +429,8 @@
       }
 
       .timeline-list-plans {
-        --timeline-dot-color: var(--mint);
-        --timeline-dot-glow: rgba(126, 225, 195, 0.14);
+        --timeline-dot-color: var(--green);
+        --timeline-dot-glow: rgba(123, 215, 184, 0.16);
       }
 
       .timeline-list-history {
@@ -482,13 +482,7 @@
         position: absolute;
         inset: 0;
         z-index: -1;
-        background-image:
-          linear-gradient(to bottom, var(--bg), rgba(8, 8, 6, 0.76) 24%, rgba(8, 8, 6, 0.86) 74%, var(--bg)),
-          var(--shot-1);
-        background-position: center;
-        background-size: cover;
-        opacity: 0.46;
-        filter: saturate(1.1) contrast(1.06);
+        background: linear-gradient(to bottom, var(--bg), rgba(8, 8, 6, 0.84) 24%, rgba(8, 8, 6, 0.9) 74%, var(--bg));
       }
 
       .band-head {
