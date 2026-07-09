@@ -49,7 +49,7 @@
 
 ## 活動記錄
 
-- 2026年5月5日: 於 [Game Dungeon 12](https://gamedungeon.jp/events/tokyo12/exhibit_informations/2213) 展出
+- 2026年5月5日: 於 [東京遊戲地下城12](https://gamedungeon.jp/events/tokyo12/exhibit_informations/2213) 展出
 - 2026年2月: 獲選為 [PONOS財團](https://ponos-foundation.org/support.html) 補助項目
 - 2026年1月29日至2月1日: 於 [台北國際電玩展2026](https://tgs.tca.org.tw/index_e.php) 展出
 - 2025年9月25日至28日: 於 [東京電玩展2025](https://tgs.cesa.or.jp/2025/exhibition?category=organizers_projects&detail=15321) 展出

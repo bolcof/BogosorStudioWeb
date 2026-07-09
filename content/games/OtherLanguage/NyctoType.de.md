@@ -49,7 +49,7 @@ Schnelles Tippen allein reicht nicht. Entscheide im Kampf, wann du welche Aktion
 
 ## Aktivitäten
 
-- 5. Mai 2026: Ausgestellt bei [Game Dungeon 12](https://gamedungeon.jp/events/tokyo12/exhibit_informations/2213)
+- 5. Mai 2026: Ausgestellt bei [Tokyo Game Dungeon 12](https://gamedungeon.jp/events/tokyo12/exhibit_informations/2213)
 - Feb. 2026: Als Förderprojekt der [PONOS Foundation](https://ponos-foundation.org/support.html) ausgewählt
 - 29. Jan.-1. Feb. 2026: Ausgestellt auf der [Taipei Game Show 2026](https://tgs.tca.org.tw/index_e.php)
 - 25.-28. Sep. 2025: Ausgestellt auf der [Tokyo Game Show 2025](https://tgs.cesa.or.jp/2025/exhibition?category=organizers_projects&detail=15321)

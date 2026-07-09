@@ -43,8 +43,9 @@ Flipping several high-value pieces at once can turn the whole match around.
 
 ## Plans
 
-- Oct 2026: Planned release
+- Oct 2026: Steam Next Fest participation, then planned release
 
 ## History
 
-- Steam page in preparation
+- May 5, 2026: Exhibited at Tokyo Game Dungeon 12 as a sub-project
+- Aug 27, 2023: Exhibited at Yokohama Game Dungeon as a sub-project

@@ -43,8 +43,9 @@ Wer viele hochwertige Steine auf einmal umdreht, kann selbst ein fast verlorenes
 
 ## Pläne
 
-- Okt. 2026: geplante Veröffentlichung
+- Okt. 2026: Teilnahme am Steam Next Fest, danach geplante Veröffentlichung
 
 ## Aktivitäten
 
-- Steam-Seite in Vorbereitung
+- 5. Mai 2026: Als Nebenprojekt bei Tokyo Game Dungeon 12 ausgestellt
+- 27. Aug. 2023: Als Nebenprojekt bei Yokohama Game Dungeon ausgestellt

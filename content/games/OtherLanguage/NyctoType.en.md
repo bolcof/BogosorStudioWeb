@@ -49,7 +49,7 @@ Fast typing alone is not enough. Fight while thinking about when and which actio
 
 ## History
 
-- May 5, 2026: Exhibited at [Game Dungeon 12](https://gamedungeon.jp/events/tokyo12/exhibit_informations/2213)
+- May 5, 2026: Exhibited at [Tokyo Game Dungeon 12](https://gamedungeon.jp/events/tokyo12/exhibit_informations/2213)
 - Feb 2026: Selected as a [PONOS Foundation](https://ponos-foundation.org/support.html) grant project
 - Jan 29-Feb 1, 2026: Exhibited at [Taipei Game Show 2026](https://tgs.tca.org.tw/index_e.php)
 - Sep 25-28, 2025: Exhibited at [Tokyo Game Show 2025](https://tgs.cesa.or.jp/2025/exhibition?category=organizers_projects&detail=15321)
