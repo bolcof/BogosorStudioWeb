@@ -358,6 +358,42 @@ def markdown_list_items(text)
   lines.map(&:strip).reject(&:empty?)
 end
 
+def split_info_item(text)
+  item = text.to_s.strip
+  colon_split = item.match(/\A([^\[\]\n]{2,42}?(?:\d{4}|\d{2,4}|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|年|月|日)[^\[\]\n]{0,30}?)[：:]\s+(.+)\z/i)
+  return [colon_split[1].strip, colon_split[2].strip] if colon_split
+
+  date_patterns = [
+    /\A((?:\d{4}[.\/]\d{1,2}(?:[.\/]\d{1,2})?(?:[-–〜~ー]\d{1,2}(?:[.\/]\d{1,2})?)?)|(?:\d{4}年\d{1,2}月(?:\d{1,2}日)?(?:[-–〜~ー至]\d{1,2}(?:月|日)?(?:\d{1,2}日)?)?))\s+(.+)\z/,
+    /\A(\d{4}年\d{1,2}月(?:\d{1,2}日)?)(.+)\z/
+  ]
+
+  date_patterns.each do |pattern|
+    match = item.match(pattern)
+    return [match[1].strip, match[2].strip] if match
+  end
+
+  ["", item]
+end
+
+def timeline_date_width(items_by_language)
+  widths = items_by_language.values.flatten.map do |item|
+    split_info_item(item).first.each_char.sum { |char| char.ascii_only? ? 0.58 : 1.0 }
+  end
+  width = (widths.max || 0).ceil + 0.5
+  [[width, 7.5].max, 18].min
+end
+
+def timeline_date_width_for_content(content)
+  items_by_language = LANGUAGES.to_h do |language|
+    code = language.fetch(:code)
+    items = markdown_list_items(content_text(content, code, "plans")) +
+            markdown_list_items(content_text(content, code, "history"))
+    [code, items]
+  end
+  timeline_date_width(items_by_language)
+end
+
 def inline_markdown_to_html(text)
   escaped = h(text)
   escaped.gsub(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/) do
@@ -500,7 +536,7 @@ def game_page_hero(row, content)
   HTML
 end
 
-def info_list(content, section)
+def info_list(content, section, date_width)
   items_by_language = LANGUAGES.to_h do |language|
     code = language.fetch(:code)
     [code, markdown_list_items(content_text(content, code, section))]
@@ -510,25 +546,37 @@ def info_list(content, section)
   return "" if ja_items.empty?
 
   items = ja_items.each_with_index.map do |ja_item, index|
-    values = LANGUAGES.to_h do |language|
+    date_values = {}
+    body_values = {}
+    LANGUAGES.each do |language|
       code = language.fetch(:code)
       language_items = items_by_language[code]
       item = language_items[index] || language_items.first || ja_item
-      [code, inline_markdown_to_html(item)]
+      date, body = split_info_item(item)
+      date_values[code] = date
+      body_values[code] = inline_markdown_to_html(body)
     end
-    "              <li #{localized_attrs(values, html: true)}>#{values.fetch("ja")}</li>"
+    body_class = date_values.fetch("ja").empty? ? "info-body info-body-full" : "info-body"
+    <<~HTML.rstrip
+              <li class="timeline-item">
+                <span class="timeline-dot" aria-hidden="true"></span>
+                <span class="info-date" #{localized_attrs(date_values)}>#{h(date_values.fetch("ja"))}</span>
+                <span class="#{body_class}" #{localized_attrs(body_values, html: true)}>#{body_values.fetch("ja")}</span>
+              </li>
+    HTML
   end.join("\n")
 
   <<~HTML.rstrip
-            <ul class="info-list">
+            <ul class="info-list timeline-list timeline-list-#{section}" style="--timeline-date-width: #{date_width}em;">
 #{items}
             </ul>
   HTML
 end
 
 def text_section(content)
-  plans = info_list(content, "plans")
-  history = info_list(content, "history")
+  timeline_date_width = timeline_date_width_for_content(content)
+  plans = info_list(content, "plans", timeline_date_width)
+  history = info_list(content, "history", timeline_date_width)
   plans_section = if plans.empty?
                     ""
                   else
