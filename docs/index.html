@@ -891,6 +891,14 @@
           transform 160ms ease;
       }
 
+      .news-item:first-child {
+        border-radius: calc(var(--radius) - 1px) calc(var(--radius) - 1px) 0 0;
+      }
+
+      .news-item:last-child {
+        border-radius: 0 0 calc(var(--radius) - 1px) calc(var(--radius) - 1px);
+      }
+
       .news-item:hover {
         background: rgba(244, 240, 231, 0.07);
         transform: translateY(-1px);
