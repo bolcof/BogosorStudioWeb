@@ -92,8 +92,10 @@
       }
 
       .site-header {
-        position: sticky;
+        position: fixed;
         top: 0;
+        left: 0;
+        right: 0;
         z-index: 20;
         border-bottom: 1px solid var(--line);
         background: rgba(13, 13, 11, 0.78);
@@ -488,12 +490,13 @@
       main {
         position: relative;
         z-index: 1;
+        padding-top: 72px;
       }
 
       section {
         padding: 58px 0;
         border-top: 1px solid var(--line);
-        scroll-margin-top: 88px;
+        scroll-margin-top: 92px;
       }
 
       .section-head {
