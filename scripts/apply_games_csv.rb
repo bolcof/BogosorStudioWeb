@@ -127,6 +127,15 @@ def section_key(label)
     "予定" => "plans",
     "pläne" => "plans",
     "後續計畫" => "plans",
+    "video" => "video",
+    "videos" => "video",
+    "trailer" => "video",
+    "teaser" => "video",
+    "movie" => "video",
+    "動画" => "video",
+    "映像" => "video",
+    "trailer video" => "video",
+    "teaser video" => "video",
     "history" => "history",
     "活動記録" => "history",
     "公開・出展記録" => "history",
@@ -553,19 +562,27 @@ def info_list(content, section, date_width)
   return "" if ja_items.empty?
 
   items = ja_items.each_with_index.map do |ja_item, index|
+    ja_date, = split_info_item(ja_item)
+    full_body = ja_date.empty?
     date_values = {}
     body_values = {}
     LANGUAGES.each do |language|
       code = language.fetch(:code)
       language_items = items_by_language[code]
       item = language_items[index] || language_items.first || ja_item
-      date, body = split_info_item(item)
-      date_values[code] = date
-      body_values[code] = inline_markdown_to_html(body)
+      if full_body
+        date_values[code] = ""
+        body_values[code] = inline_markdown_to_html(item)
+      else
+        date, body = split_info_item(item)
+        date_values[code] = date
+        body_values[code] = inline_markdown_to_html(body)
+      end
     end
-    body_class = date_values.fetch("ja").empty? ? "info-body info-body-full" : "info-body"
+    item_class = full_body ? "timeline-item timeline-item-full" : "timeline-item"
+    body_class = full_body ? "info-body info-body-full" : "info-body"
     <<~HTML.rstrip
-              <li class="timeline-item">
+              <li class="#{item_class}">
                 <span class="timeline-dot" aria-hidden="true"></span>
                 <span class="info-date" #{localized_attrs(date_values)}>#{h(date_values.fetch("ja"))}</span>
                 <span class="#{body_class}" #{localized_attrs(body_values, html: true)}>#{body_values.fetch("ja")}</span>
@@ -578,6 +595,164 @@ def info_list(content, section, date_width)
 #{items}
             </ul>
   HTML
+end
+
+def overview_section(content)
+  <<~HTML.rstrip
+      <section class="text-band">
+        <div class="wrap text-blocks">
+          <article class="text-block">
+            <h2 #{static_attrs(ja: "概要", en: "About", de: "Über das Spiel", zh_hant: "遊戲介紹")}>概要</h2>
+#{localized_paragraph(content, "overview")}
+          </article>
+        </div>
+      </section>
+  HTML
+end
+
+def timeline_text_section(content)
+  timeline_date_width = timeline_date_width_for_content(content)
+  plans = info_list(content, "plans", timeline_date_width)
+  history = info_list(content, "history", timeline_date_width)
+  plans_section = if plans.empty?
+                    ""
+                  else
+                    <<~HTML.rstrip
+          <article class="text-block">
+            <h2 #{static_attrs(ja: "今後の予定", en: "Plans", de: "Pläne", zh_hant: "後續計畫")}>今後の予定</h2>
+#{plans}
+          </article>
+                    HTML
+                  end
+  history_section = if history.empty?
+                      ""
+                    else
+                      <<~HTML.rstrip
+          <article class="text-block">
+            <h2 #{static_attrs(ja: "活動記録", en: "History", de: "Aktivitäten", zh_hant: "活動記錄")}>活動記録</h2>
+#{history}
+          </article>
+                      HTML
+                    end
+  return "" if plans_section.empty? && history_section.empty?
+
+  <<~HTML.rstrip
+      <section class="text-band">
+        <div class="wrap text-blocks">
+#{plans_section}
+#{history_section}
+        </div>
+      </section>
+  HTML
+end
+
+def video_field_key(label)
+  normalized = label.to_s.strip.downcase.tr("_", " ")
+  aliases = {
+    "youtube" => "youtube",
+    "youtube url" => "youtube",
+    "file" => "file",
+    "video" => "file",
+    "movie" => "file",
+    "src" => "file",
+    "url" => "url",
+    "poster" => "poster",
+    "title" => "title",
+    "caption" => "caption"
+  }
+  aliases[normalized]
+end
+
+def video_config(content)
+  text = content_text(content, "ja", "video")
+  return nil if text.empty?
+
+  config = {}
+  text.lines.map(&:strip).reject(&:empty?).each do |line|
+    line = line.sub(/\A[-*]\s+/, "")
+    if (match = line.match(/\A([^:：]+)[:：]\s*(.+)\z/))
+      key = video_field_key(match[1])
+      config[key] = match[2].strip if key
+    elsif line.match?(%r{\Ahttps?://})
+      key = line.match?(%r{(?:youtube\.com|youtu\.be)}) ? "youtube" : "url"
+      config[key] ||= line
+    end
+  end
+
+  src = config["youtube"] || config["file"] || config["url"]
+  return nil unless src
+
+  type = src.match?(%r{(?:youtube\.com|youtu\.be)}) ? "youtube" : "file"
+  config.merge("src" => src, "type" => type)
+end
+
+def youtube_embed_url(url)
+  id = url[%r{youtu\.be/([^?&#/]+)}, 1] ||
+       url[%r{youtube\.com/watch\?v=([^?&#/]+)}, 1] ||
+       url[%r{youtube\.com/embed/([^?&#/]+)}, 1] ||
+       url[%r{youtube\.com/shorts/([^?&#/]+)}, 1]
+  id ? "https://www.youtube-nocookie.com/embed/#{id}" : url
+end
+
+def video_mime_type(path)
+  case File.extname(path).downcase
+  when ".webm"
+    "video/webm"
+  when ".mov"
+    "video/quicktime"
+  else
+    "video/mp4"
+  end
+end
+
+def video_section(content)
+  video = video_config(content)
+  return "" unless video
+
+  title = video["title"] || "Teaser Video"
+  media = if video.fetch("type") == "youtube"
+            <<~HTML.rstrip
+              <iframe src="#{h(youtube_embed_url(video.fetch("src")))}" title="#{h(title)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            HTML
+          else
+            src = versioned_doc_asset(video.fetch("src"))
+            poster = video["poster"] ? " poster=\"#{h(versioned_doc_asset(video["poster"]))}\"" : ""
+            <<~HTML.rstrip
+              <video controls preload="metadata"#{poster}>
+                <source src="#{h(src)}" type="#{video_mime_type(src)}" />
+              </video>
+            HTML
+          end
+
+  <<~HTML.rstrip
+      <section class="video-band">
+        <div class="wrap">
+          <div class="band-head">
+            <h2 #{static_attrs(ja: "動画", en: "Video", de: "Video", zh_hant: "影片")}>動画</h2>
+          </div>
+          <div class="teaser-frame">
+#{media}
+          </div>
+        </div>
+      </section>
+  HTML
+end
+
+def detail_sections(content, visual_section)
+  sections = [overview_section(content)]
+  video = video_section(content)
+  timelines = timeline_text_section(content)
+
+  if video.empty?
+    sections << visual_section unless visual_section.to_s.empty?
+    sections << timelines unless timelines.empty?
+  else
+    sections << video
+    sections << timelines unless timelines.empty?
+    sections << visual_section unless visual_section.to_s.empty?
+  end
+
+  sections.join("\n\n")
 end
 
 def text_section(content)
@@ -715,6 +890,7 @@ def update_game_page(row, content)
   steam_url = row.fetch("steam_url")
   x_url = row.fetch("x_url")
   html = File.read(path)
+  visual_section = html[%r{      <section class="visual-band">\n.*?\n      </section>}m].to_s
 
   html = replace!(html, /content="[^"]+ の紹介ページ。Steamページ、更新情報、関連リンクを掲載しています。"/, "content=\"#{h(title)} の紹介ページ。Steamページ、更新情報、関連リンクを掲載しています。\"", "#{title_id} meta description")
   html = replace!(html, /<meta property="og:title" content="[^"]+ \| BogosorStudio" \/>/, "<meta property=\"og:title\" content=\"#{h(title)} | BogosorStudio\" />", "#{title_id} og title")
@@ -737,9 +913,9 @@ def update_game_page(row, content)
   )
   html = replace!(
     html,
-    /      <section class="text-band">\n.*?\n      <\/section>/m,
-    text_section(content),
-    "#{title_id} text section"
+    /      <section class="text-band">\n.*?\n      <\/section>(?:\n\n      <section class="video-band">\n.*?\n      <\/section>)?(?:\n\n      <section class="visual-band">\n.*?\n      <\/section>)?(?:\n\n      <section class="text-band">\n.*?\n      <\/section>)?/m,
+    detail_sections(content, visual_section),
+    "#{title_id} detail sections"
   )
   html.gsub!(/\n?\s*<section class="link-panel">\n.*?\n\s*<\/section>/m, "")
   html = html.gsub(/alt="[^"]+ screenshot ([0-9]{2})"/, "alt=\"#{h(title)} screenshot \\1\"")

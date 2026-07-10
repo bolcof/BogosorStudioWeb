@@ -125,24 +125,6 @@
         min-width: 0;
       }
 
-      .brand-mark {
-        width: 34px;
-        height: 34px;
-        border: 1px solid rgba(212, 168, 48, 0.72);
-        border-radius: 6px;
-        background:
-          linear-gradient(135deg, rgba(212, 168, 48, 0.95), rgba(123, 215, 184, 0.84)),
-          #d4a830;
-        box-shadow: 0 12px 26px rgba(212, 168, 48, 0.18);
-      }
-
-      .brand-logo {
-        display: none;
-        max-width: 174px;
-        max-height: 34px;
-        object-fit: contain;
-      }
-
       .brand-name {
         overflow: hidden;
         color: var(--text);
@@ -1098,8 +1080,6 @@
         <div class="wrap nav">
           <div class="brand-cluster">
             <a class="brand" href="#" aria-label="BogosorStudio ホーム">
-              <span class="brand-mark" aria-hidden="true"></span>
-              <img class="brand-logo" src="./assets/studio/logo.png" alt="" />
               <span class="brand-name">BogosorStudio</span>
             </a>
             <div class="language-menu" data-language-menu>
@@ -1263,7 +1243,9 @@
                   <div class="platform-row" aria-label="対応プラットフォーム">
                     <span class="platform-icon" role="link" tabindex="0" aria-label="Steam store" title="Steam" data-store-url="https://store.steampowered.com/app/4733690/Sak_Winik__The_Appointed_One/"><img src="./assets/platforms/steam.svg" alt="" /></span>
                   </div>
-
+                  <div class="release-labels" aria-label="公開・展示ステータス">
+                    <span class="release-label is-tba" data-i18n-ja="開発中" data-i18n-en="In development" data-i18n-de="In Entwicklung" data-i18n-zh-hant="開發中">開発中</span>
+                  </div>
                   <h3>Sak Winik: The Appointed One</h3>
                   <p data-i18n-ja="極限の状況でAIと会話し、優秀さと人間らしさを示すADV" data-i18n-en="A tense ADV where you talk with an AI in an extreme situation and prove both competence and humanity." data-i18n-de="Ein angespanntes ADV, in dem du in Extremsituationen mit einer KI sprichst und Kompetenz wie Menschlichkeit beweist." data-i18n-zh-hant="在極限情境中與 AI 對話，證明優秀與人性並存的 ADV">極限の状況でAIと会話し、優秀さと人間らしさを示すADV</p>
                 </div>
@@ -1339,14 +1321,6 @@
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
 
-      const logo = document.querySelector(".brand-logo");
-      const mark = document.querySelector(".brand-mark");
-      const showLogo = () => {
-        logo.style.display = "block";
-        mark.style.display = "none";
-      };
-      logo.addEventListener("load", showLogo);
-      if (logo.complete && logo.naturalWidth > 0) showLogo();
       const languageKey = "bogosorstudio-language";
       const supportedLanguages = ["ja", "en", "de", "zh-hant"];
       const languageLabels = {
