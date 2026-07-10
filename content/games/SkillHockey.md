@@ -47,7 +47,7 @@
 ## 活動記録
 
 - 2025.07.18-20 [BitSummit the 13th](https://bitsummit.org/game/skill-hockey/) 出展
-- 2024.08.12 コミックマーケットC104にて展示
 - 2024.10.27 [東京ゲームダンジョン8](https://tokyogamedungeon.com/archive/202410_tokyo/) 出展
+- 2024.08.12 コミックマーケットC104にて展示
 - 2024.05.04 [東京ゲームダンジョン6](https://gamedungeon.jp/events/tokyo6/exhibit_informations) 出展
 - 2023.12.30 コミックマーケットC103にて展示

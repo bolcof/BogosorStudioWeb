@@ -14,18 +14,47 @@ GitHub Pagesでは `docs/` フォルダを公開対象にします。
 
 ## タイトル情報の編集
 
+### 基本データ
+
 タイトル名、Steam / X のリンク、対応プラットフォームなどの一覧向きメタ情報は、リポジトリ直下の `games.csv` で編集します。
+
 トップページのカード説明、カードラベル、各タイトルページのサマリー、ページラベル、概要、今後の予定、活動記録は `content/games/<TitleId>.md` で編集します。
+
 Markdown内の改行は概要本文に反映され、`今後の予定` と `活動記録` の箇条書きはそのままリスト表示されます。
+
+### 対応プラットフォーム
+
 トップページのカードに表示する対応プラットフォームは `meta_platform` で編集します。
+
 複数ある場合は `Steam|Android|iOS` のように `|` 区切りで書きます。
+
 対応プラットフォームアイコンの遷移先は、現状 `steam_url` を使います。Android / iOS の本番URLが未定の場合も、一旦Steamページへ飛ばします。
+
+### 多言語ファイル
+
 対応言語は `ja`, `en`, `de`, `zh-hant` です。
-基本的には日本語版の `content/games/<TitleId>.md` を編集します。日本語以外は `content/games/OtherLanguage/<TitleId>.<lang>.md` に置き、内容が変わったら英語、ドイツ語、繁体字のMDを同じ構造で更新します。
+
+基本的には日本語版の `content/games/<TitleId>.md` を編集します。
+
+日本語以外は `content/games/OtherLanguage/<TitleId>.<lang>.md` に置き、内容が変わったら英語、ドイツ語、繁体字のMDを同じ構造で更新します。
+
+### ラベル
+
 トップページのカードに表示するラベルは `## カードラベル` / `## Card Labels`、各タイトルページ上部に表示するラベルは `## ページラベル` / `## Page Labels` で別々に編集します。
-トップページ上部のヒーロースライダーは、タイトルとは別に `content/hero.md` で編集します。日本語以外は `content/OtherLanguage/hero.<lang>.md` に置きます。
+
+ラベルは箇条書きで、先頭に色タグを書きます。
+
+`(event)` は展示情報として金色で目立たせます。
+
+ラベル欄が空の場合は、他の項目や日本語から自動補完せず、空のまま表示します。
+
+### ヒーロースライダー
+
+トップページ上部のヒーロースライダーは、タイトルとは別に `content/hero.md` で編集します。
+
+日本語以外は `content/OtherLanguage/hero.<lang>.md` に置きます。
+
 ヒーロースライダーはタイトル以外の告知も入れられるように、各スライドに `リンク`、`画像`、`タイトル`、`小見出し`、`ボタン` を書きます。
-ラベルは箇条書きで、先頭に色タグを書きます。`(event)` は展示情報として金色で目立たせます。
 
 ```md
 ## カードラベル
@@ -132,7 +161,7 @@ docs/assets/games/<TitleId>/
 
 - `LibraryCapsule.png` - トップページのゲーム一覧で使う縦長画像
 - `LibraryHero.png` - 個別ページのヒーロー背景画像
-- `KeyArt.png` - 個別ページ用の大きな背景画像
+- `KeyArt.png` - トップページのヒーロースライダー用画像
 - `ScreenShot01.png` - 個別ページのスクリーンショット
 - `ScreenShot02.png` - 個別ページのスクリーンショット
 - `OgImage.png` - SNS共有用画像
@@ -174,7 +203,7 @@ docs/News/2026-06-25_Steamページ準備中/index.html
 - 各タイトルページの `概要` 見出しを、必要に応じて `作品紹介 / About` などに変更します。
 - `content/games/<TitleId>.md` と `content/games/OtherLanguage/<TitleId>.<lang>.md` に残っている仮文言を、各タイトルの正式なカード説明、概要、今後の予定、活動記録に差し替えます。
 - Android、iOSなどSteam以外のストアURLを本番URLに差し替えます。現状、ReversiのAndroid / iOSは暫定でSteamページへ遷移します。
-- `KeyArt.png` がないタイトルは、用意でき次第 `docs/assets/games/<TitleId>/KeyArt.png` として追加します。
+- トップページのヒーロースライダーに追加するタイトルは、必要に応じて `docs/assets/games/<TitleId>/KeyArt.png` を追加します。
 - News記事と展示情報は、実際の公開内容やイベント情報に合わせて追加・更新します。
 - GitHub Pages公開後に、PC表示、スマホ表示、外部リンクの新規タブ挙動を確認します。
 

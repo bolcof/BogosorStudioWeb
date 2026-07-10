@@ -473,7 +473,6 @@ def label_items(content, section)
     [code, markdown_list_items(content_text(content, code, section))]
   end
   base_items = items_by_language["ja"]
-  base_items = items_by_language.values.find { |items| !items.empty? } || []
 
   base_items.each_with_index.map do |ja_item, index|
     ja_label = parse_label_item(ja_item)
@@ -482,8 +481,9 @@ def label_items(content, section)
       text: LANGUAGES.to_h do |language|
         code = language.fetch(:code)
         language_items = items_by_language[code]
-        label = parse_label_item(language_items[index] || language_items.first || ja_label[:text])
-        [code, label[:text]]
+        item = language_items[index]
+        label = item ? parse_label_item(item) : { text: "" }
+        [code, label[:text].to_s]
       end
     }
   end
@@ -491,7 +491,6 @@ end
 
 def card_labels(content)
   labels = label_items(content, "card_labels")
-  labels = label_items(content, "labels").reject { |label| ["muted", "status"].include?(label[:kind]) } if labels.empty?
   return "" if labels.empty?
 
   html = labels.map do |label|
@@ -507,7 +506,8 @@ end
 
 def game_page_status_row(content)
   labels = label_items(content, "page_labels")
-  labels = label_items(content, "labels") if labels.empty?
+  return "" if labels.empty?
+
   html = labels.map do |label|
     "              <span class=\"#{label_class(label[:kind], :page)}\" #{localized_attrs(label[:text])}>#{h(label[:text].fetch("ja"))}</span>"
   end.join("\n")
