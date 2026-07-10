@@ -82,16 +82,6 @@ a {
   font-weight: 850;
 }
 
-.brand-mark {
-  width: 34px;
-  height: 34px;
-  border: 1px solid rgba(212, 168, 48, 0.72);
-  border-radius: 6px;
-  background:
-    linear-gradient(135deg, rgba(212, 168, 48, 0.95), rgba(123, 215, 184, 0.84)),
-    #d4a830;
-}
-
 .brand-name {
   overflow: hidden;
   text-overflow: ellipsis;

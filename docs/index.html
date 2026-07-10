@@ -125,24 +125,6 @@
         min-width: 0;
       }
 
-      .brand-mark {
-        width: 34px;
-        height: 34px;
-        border: 1px solid rgba(212, 168, 48, 0.72);
-        border-radius: 6px;
-        background:
-          linear-gradient(135deg, rgba(212, 168, 48, 0.95), rgba(123, 215, 184, 0.84)),
-          #d4a830;
-        box-shadow: 0 12px 26px rgba(212, 168, 48, 0.18);
-      }
-
-      .brand-logo {
-        display: none;
-        max-width: 174px;
-        max-height: 34px;
-        object-fit: contain;
-      }
-
       .brand-name {
         overflow: hidden;
         color: var(--text);
@@ -1098,8 +1080,6 @@
         <div class="wrap nav">
           <div class="brand-cluster">
             <a class="brand" href="#" aria-label="BogosorStudio ホーム">
-              <span class="brand-mark" aria-hidden="true"></span>
-              <img class="brand-logo" src="./assets/studio/logo.png" alt="" />
               <span class="brand-name">BogosorStudio</span>
             </a>
             <div class="language-menu" data-language-menu>
@@ -1341,14 +1321,6 @@
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
 
-      const logo = document.querySelector(".brand-logo");
-      const mark = document.querySelector(".brand-mark");
-      const showLogo = () => {
-        logo.style.display = "block";
-        mark.style.display = "none";
-      };
-      logo.addEventListener("load", showLogo);
-      if (logo.complete && logo.naturalWidth > 0) showLogo();
       const languageKey = "bogosorstudio-language";
       const supportedLanguages = ["ja", "en", "de", "zh-hant"];
       const languageLabels = {
