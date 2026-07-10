@@ -44,4 +44,4 @@
 
 - 2024年11月29日: 於 Steam 發售
 - 2024年10月至11月: 於 [COMPULSION | 2024 Juried Exhibition](https://athica.org/updates/compulsion/) 展出
-- 2024年5月4日: 於 [東京遊戲地下城5](https://tokyogamedungeon.com/archive/202405_tokyo/#Group-3B) 展出
+- 2024年5月4日: 於 [Tokyo Game Dungeon 5](https://tokyogamedungeon.com/archive/202405_tokyo/#Group-3B) 展出
