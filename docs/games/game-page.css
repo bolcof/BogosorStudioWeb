@@ -497,8 +497,8 @@
 
       .band-head h2 {
         margin-bottom: 0;
-        font-size: clamp(2rem, 4vw, 4rem);
-        line-height: 0.96;
+        font-size: clamp(1.25rem, 2.2vw, 2rem);
+        line-height: 1.08;
       }
 
       .teaser-frame {
