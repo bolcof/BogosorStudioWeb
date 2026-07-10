@@ -48,7 +48,7 @@
 ## 活動記錄
 
 - 2025年7月18日至20日: 於 [BitSummit the 13th](https://bitsummit.org/game/skill-hockey/) 展出
-- 2024年8月12日: 於 Comic Market C104 展示
 - 2024年10月27日: 於 [東京遊戲地下城8](https://tokyogamedungeon.com/archive/202410_tokyo/) 展出
+- 2024年8月12日: 於 Comic Market C104 展示
 - 2024年5月4日: 於 [東京遊戲地下城6](https://gamedungeon.jp/events/tokyo6/exhibit_informations) 展出
 - 2023年12月30日: 於 Comic Market C103 展示

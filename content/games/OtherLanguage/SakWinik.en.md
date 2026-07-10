@@ -16,6 +16,8 @@ Label color tags:
 - (muted): secondary status. background=translucent gray, text=white
 -->
 
+- (muted) In development
+
 ## Page Labels
 
 <!--
@@ -31,13 +33,14 @@ Label color tags:
 
 ## About
 
-Prove to AI that you are both excellent and human in seven minutes.
+In this conversational suspense game, prove to an AI in seven minutes that you are both "excellent" and "human."
+Debate with two AIs over who deserves to survive in closed situations such as a damaged spacecraft, a deserted island, or an eerie mansion.
 
-Debate two AIs across closed-room scenarios like a wrecked spacecraft, a deserted island, and an eerie mansion.
+The AIs you speak with each hide the fact that they are AI and behave as humans.
+A moderator AI watches every statement and judges who is excellent and who seems human.
 
-A moderator AI judges every word on two axes: humanness and excellence.
-
-Logic alone will not save you; contradiction, emotion, and hesitation become weapons.
+Logic alone makes you look like AI, but simply stating your desires will not be judged excellent.
+At times, you must wield contradiction, emotion, and hesitation to prove that you are the human who should survive.
 
 ## Plans
 
@@ -45,4 +48,6 @@ Logic alone will not save you; contradiction, emotion, and hesitation become wea
 
 ## History
 
-- Steam page in preparation
+- May 24, 2026: Exhibited at the BitSummit the 14th XR Yokocho Supercell booth
+- May 5, 2026: Side exhibit at Tokyo Game Dungeon 12
+- Mar 23-May 23, 2026: Participated in Supercell AI Innovation Lab Tokyo
