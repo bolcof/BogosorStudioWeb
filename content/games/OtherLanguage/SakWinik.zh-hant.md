@@ -49,5 +49,5 @@
 ## 活動記錄
 
 - 2026年5月24日: 於 BitSummit the 14th XR橫丁 Supercell 攤位展出
-- 2026年5月5日: 於東京遊戲地下城12附設展示
+- 2026年5月5日: 於 Tokyo Game Dungeon 12 附設展示
 - 2026年3月23日至5月23日: 參加 Supercell AI Innovation Lab Tokyo
