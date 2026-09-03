@@ -16,7 +16,6 @@ Label color tags:
 - (muted): secondary status. background=translucent gray, text=white
 -->
 
-- (event) Aug 2026: gamescom exhibition
 - (event) Sep 2026: TGS exhibition
 
 ## Page Labels
@@ -29,7 +28,6 @@ Label color tags:
 - (muted): secondary status. background=translucent gray, text=white
 -->
 
-- (event) Aug 2026: gamescom exhibition
 - (event) Sep 2026: TGS exhibition
 - (muted) In development
 
@@ -42,13 +40,20 @@ Move virus-shaped pieces, push them into the opponent's side, deal damage, and d
 Every action, from moving pieces to generating units and activating skills, requires clearing typing tasks.
 Fast typing alone is not enough. Fight while thinking about when and which action to take.
 
+## Press Kit
+
+- Link: ../presskits/NyctoType/
+- Title: Press Kit
+- Description: A password-protected page for media assets.
+- Button: Open Press Kit
+
 ## Plans
 
 - Sep 17-21, 2026: Exhibiting at [Tokyo Game Show 2026](https://tgs.cesa.or.jp/2026/)
-- Aug 26-30, 2026: Exhibiting at [gamescom](https://www.gamescom.global/)
 
 ## History
 
+- Aug 26-30, 2026: Exhibited at [gamescom](https://www.gamescom.global/en/product/nyctotype)
 - May 5, 2026: Exhibited at [Tokyo Game Dungeon 12](https://gamedungeon.jp/events/tokyo12/exhibit_informations/2213)
 - Feb 2026: Selected as a [PONOS Foundation](https://ponos-foundation.org/support.html) grant project
 - Jan 29-Feb 1, 2026: Exhibited at [Taipei Game Show 2026](https://tgs.tca.org.tw/index_e.php)

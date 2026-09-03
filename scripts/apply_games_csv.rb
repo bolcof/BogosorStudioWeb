@@ -18,7 +18,9 @@ LANGUAGES = [
   { code: "ja", label: "日本語", html_lang: "ja" },
   { code: "en", label: "English", html_lang: "en" },
   { code: "de", label: "Deutsch", html_lang: "de" },
-  { code: "zh-hant", label: "繁體中文", html_lang: "zh-Hant" }
+  { code: "zh-hant", label: "繁體中文", html_lang: "zh-Hant" },
+  { code: "zh-hans", label: "简体中文", html_lang: "zh-Hans" },
+  { code: "ko", label: "한국어", html_lang: "ko" }
 ].freeze
 LANGUAGE_CODES = LANGUAGES.map { |language| language.fetch(:code) }.freeze
 
@@ -82,6 +84,8 @@ def language_key(label)
   return "en" if ["english", "en", "英語"].include?(normalized)
   return "de" if ["deutsch", "de", "german", "ドイツ語"].include?(normalized)
   return "zh-hant" if ["繁體中文", "繁体字", "zh-hant", "zh", "traditional chinese"].include?(normalized)
+  return "zh-hans" if ["简体中文", "簡体中文", "簡体字", "简体字", "zh-hans", "zh-cn", "simplified chinese"].include?(normalized)
+  return "ko" if ["한국어", "ko", "korean", "韓国語", "朝鮮語"].include?(normalized)
 
   nil
 end
@@ -94,39 +98,58 @@ def section_key(label)
     "カード説明" => "card",
     "karte" => "card",
     "卡片" => "card",
+    "카드" => "card",
     "summary" => "summary",
     "サマリー" => "summary",
     "短い説明" => "summary",
     "zusammenfassung" => "summary",
     "摘要" => "summary",
+    "요약" => "summary",
     "labels" => "labels",
     "label" => "labels",
     "ラベル" => "labels",
     "標籤" => "labels",
+    "标签" => "labels",
+    "라벨" => "labels",
     "card labels" => "card_labels",
     "card label" => "card_labels",
     "カードラベル" => "card_labels",
     "トップラベル" => "card_labels",
     "kartenlabels" => "card_labels",
     "卡片標籤" => "card_labels",
+    "卡片标签" => "card_labels",
+    "카드 라벨" => "card_labels",
+    "카드라벨" => "card_labels",
     "page labels" => "page_labels",
     "page label" => "page_labels",
     "ページラベル" => "page_labels",
     "タイトルページラベル" => "page_labels",
     "seitenlabels" => "page_labels",
     "頁面標籤" => "page_labels",
+    "页面标签" => "page_labels",
+    "페이지 라벨" => "page_labels",
+    "페이지라벨" => "page_labels",
     "about" => "overview",
     "overview" => "overview",
     "概要" => "overview",
     "über das spiel" => "overview",
     "關於" => "overview",
+    "关于" => "overview",
     "遊戲介紹" => "overview",
+    "游戏介绍" => "overview",
+    "게임 소개" => "overview",
+    "게임소개" => "overview",
+    "소개" => "overview",
     "plans" => "plans",
     "plan" => "plans",
     "今後の予定" => "plans",
     "予定" => "plans",
     "pläne" => "plans",
     "後續計畫" => "plans",
+    "后续计划" => "plans",
+    "향후 예정" => "plans",
+    "향후예정" => "plans",
+    "예정" => "plans",
     "video" => "video",
     "videos" => "video",
     "trailer" => "video",
@@ -134,6 +157,9 @@ def section_key(label)
     "movie" => "video",
     "動画" => "video",
     "映像" => "video",
+    "影片" => "video",
+    "视频" => "video",
+    "영상" => "video",
     "trailer video" => "video",
     "teaser video" => "video",
     "history" => "history",
@@ -143,6 +169,21 @@ def section_key(label)
     "verlauf" => "history",
     "aktivitäten" => "history",
     "活動記錄" => "history",
+    "活动记录" => "history",
+    "활동 기록" => "history",
+    "활동기록" => "history",
+    "press kit" => "presskit",
+    "presskit" => "presskit",
+    "press" => "presskit",
+    "プレスキット" => "presskit",
+    "pressekit" => "presskit",
+    "presse-kit" => "presskit",
+    "新聞資料包" => "presskit",
+    "媒體資料包" => "presskit",
+    "新闻资料包" => "presskit",
+    "媒体资料包" => "presskit",
+    "프레스킷" => "presskit",
+    "프레스 키트" => "presskit",
     "links" => "links"
   }
   aliases[normalized]
@@ -246,24 +287,35 @@ def hero_field_key(label)
     "link" => "href",
     "リンク" => "href",
     "連結" => "href",
+    "链接" => "href",
+    "링크" => "href",
     "image" => "image",
     "key_art" => "image",
     "keyart" => "image",
     "画像" => "image",
     "圖片" => "image",
+    "图片" => "image",
+    "이미지" => "image",
     "title" => "title",
     "タイトル" => "title",
     "標題" => "title",
+    "标题" => "title",
+    "제목" => "title",
     "subtitle" => "subtitle",
     "label" => "subtitle",
     "小見出し" => "subtitle",
     "サブタイトル" => "subtitle",
     "untertitel" => "subtitle",
     "副標題" => "subtitle",
+    "副标题" => "subtitle",
+    "소제목" => "subtitle",
+    "부제" => "subtitle",
     "button" => "button",
     "button_label" => "button",
     "ボタン" => "button",
-    "按鈕" => "button"
+    "按鈕" => "button",
+    "按钮" => "button",
+    "버튼" => "button"
   }
   aliases[normalized]
 end
@@ -350,13 +402,89 @@ def localized_attrs(values, html: false)
   end.join(" ")
 end
 
-def static_attrs(ja:, en:, de:, zh_hant:)
+def static_attrs(ja:, en:, de:, zh_hant:, zh_hans:, ko:)
   localized_attrs({
     "ja" => ja,
     "en" => en,
     "de" => de,
-    "zh-hant" => zh_hant
+    "zh-hant" => zh_hant,
+    "zh-hans" => zh_hans,
+    "ko" => ko
   })
+end
+
+def javascript_key(key)
+  key.match?(/\A[a-z]+\z/) ? key : key.dump
+end
+
+def language_choice_buttons(indent)
+  LANGUAGES.map do |language|
+    code = language.fetch(:code)
+    selected = code == "ja" ? "true" : "false"
+    "#{indent}<button class=\"language-choice\" type=\"button\" role=\"option\" data-language-choice=\"#{h(code)}\" aria-selected=\"#{selected}\">#{h(language.fetch(:label))}</button>"
+  end.join("\n")
+end
+
+def refresh_language_controls(html)
+  html = html.gsub(%r{(?<indent>\s*)<div class="language-list" role="listbox" hidden>\n.*?\n\k<indent></div>}m) do
+    indent = Regexp.last_match[:indent]
+    "#{indent}<div class=\"language-list\" role=\"listbox\" hidden>\n#{language_choice_buttons("#{indent}  ")}\n#{indent}</div>"
+  end
+  html = html.gsub(
+    /const supportedLanguages = \[[^\]]+\];/,
+    "const supportedLanguages = [#{LANGUAGE_CODES.map(&:dump).join(", ")}];"
+  )
+  html = html.gsub(/const languageLabels = \{\n.*?\n\s+\};/m) do |match|
+    indent = match[/\A\s*/]
+    body = LANGUAGES.map { |language| "#{indent}  #{javascript_key(language.fetch(:code))}: #{language.fetch(:label).dump}," }.join("\n")
+    "#{indent}const languageLabels = {\n#{body}\n#{indent}};"
+  end
+  html = html.gsub(/const htmlLanguageCodes = \{\n.*?\n\s+\};/m) do |match|
+    indent = match[/\A\s*/]
+    body = LANGUAGES.map { |language| "#{indent}  #{javascript_key(language.fetch(:code))}: #{language.fetch(:html_lang).dump}," }.join("\n")
+    "#{indent}const htmlLanguageCodes = {\n#{body}\n#{indent}};"
+  end
+  html
+end
+
+def refresh_static_translations(html)
+  replacements = {
+    'data-i18n-ja="タイトル一覧" data-i18n-en="Titles" data-i18n-de="Titel" data-i18n-zh-hant="標題列表"' =>
+      'data-i18n-ja="タイトル一覧" data-i18n-en="Titles" data-i18n-de="Titel" data-i18n-zh-hant="標題列表" data-i18n-zh-hans="标题列表" data-i18n-ko="타이틀 목록"',
+    'data-i18n-ja="ゲーム一覧" data-i18n-en="Games" data-i18n-de="Spiele" data-i18n-zh-hant="遊戲列表"' =>
+      'data-i18n-ja="ゲーム一覧" data-i18n-en="Games" data-i18n-de="Spiele" data-i18n-zh-hant="遊戲列表" data-i18n-zh-hans="游戏列表" data-i18n-ko="게임 목록"',
+    'data-i18n-ja="日本発の個人ゲームスタジオ" data-i18n-en="Independent game studio from Japan" data-i18n-de="Unabhängiges Spielestudio aus Japan" data-i18n-zh-hant="來自日本的個人遊戲工作室"' =>
+      'data-i18n-ja="日本発の個人ゲームスタジオ" data-i18n-en="Independent game studio from Japan" data-i18n-de="Unabhängiges Spielestudio aus Japan" data-i18n-zh-hant="來自日本的個人遊戲工作室" data-i18n-zh-hans="来自日本的个人游戏工作室" data-i18n-ko="일본의 개인 게임 스튜디오"',
+    'data-i18n-ja="Steam向けゲームの制作・公開情報を掲載しています。" data-i18n-en="Official information for BogosorStudio games on Steam." data-i18n-de="Offizielle Informationen zu BogosorStudio-Spielen auf Steam." data-i18n-zh-hant="刊載 BogosorStudio Steam 遊戲的製作與公開資訊。"' =>
+      'data-i18n-ja="Steam向けゲームの制作・公開情報を掲載しています。" data-i18n-en="Official information for BogosorStudio games on Steam." data-i18n-de="Offizielle Informationen zu BogosorStudio-Spielen auf Steam." data-i18n-zh-hant="刊載 BogosorStudio Steam 遊戲的製作與公開資訊。" data-i18n-zh-hans="发布 BogosorStudio 面向 Steam 的游戏制作与公开信息。" data-i18n-ko="BogosorStudio의 Steam용 게임 제작 및 공개 정보를 게재합니다."',
+    'data-i18n-ja="開発タイトル" data-i18n-en="Development Titles" data-i18n-de="Titel in Entwicklung" data-i18n-zh-hant="開發標題"' =>
+      'data-i18n-ja="開発タイトル" data-i18n-en="Development Titles" data-i18n-de="Titel in Entwicklung" data-i18n-zh-hant="開發標題" data-i18n-zh-hans="开发标题" data-i18n-ko="개발 타이틀"',
+    'data-i18n-ja="公開中・公開予定のタイトル一覧" data-i18n-en="A list of titles released or planned for Steam. Details for each title are linked from its own page." data-i18n-de="Eine Liste der veröffentlichten und geplanten Steam-Titel. Details zu jedem Titel sind über die jeweilige Seite verlinkt." data-i18n-zh-hant="Steam 已公開與預定公開標題列表。各標題的詳細資訊會從個別頁面連結。"' =>
+      'data-i18n-ja="公開中・公開予定のタイトル一覧" data-i18n-en="Released and upcoming titles" data-i18n-de="Veröffentlichte und geplante Titel" data-i18n-zh-hant="已公開與預定公開標題列表" data-i18n-zh-hans="已公开与计划公开的标题列表" data-i18n-ko="공개 중 및 공개 예정 타이틀 목록"',
+    'data-i18n-ja="更新情報" data-i18n-en="News" data-i18n-de="Neuigkeiten" data-i18n-zh-hant="最新消息"' =>
+      'data-i18n-ja="更新情報" data-i18n-en="News" data-i18n-de="Neuigkeiten" data-i18n-zh-hant="最新消息" data-i18n-zh-hans="最新消息" data-i18n-ko="소식"',
+    'data-i18n-ja="新作情報、Steamページ公開、イベント出展などの更新先です。" data-i18n-en="Updates for new titles, Steam pages, and event exhibitions." data-i18n-de="Updates zu neuen Titeln, Steam-Seiten und Event-Ausstellungen." data-i18n-zh-hant="新作資訊、Steam 頁面公開與活動展出等更新。"' =>
+      'data-i18n-ja="新作情報、Steamページ公開、イベント出展などの更新先です。" data-i18n-en="Updates for new titles, Steam pages, and event exhibitions." data-i18n-de="Updates zu neuen Titeln, Steam-Seiten und Event-Ausstellungen." data-i18n-zh-hant="新作資訊、Steam 頁面公開與活動展出等更新。" data-i18n-zh-hans="新作信息、Steam 页面公开、活动展出等更新。" data-i18n-ko="신작 정보, Steam 페이지 공개, 이벤트 전시 등의 업데이트입니다."',
+    'data-i18n-ja="News一覧はこちら（工事中）" data-i18n-en="News list here (under construction)" data-i18n-de="News-Liste hier (im Aufbau)" data-i18n-zh-hant="News 列表在這裡（施工中）"' =>
+      'data-i18n-ja="News一覧はこちら（工事中）" data-i18n-en="News list here (under construction)" data-i18n-de="News-Liste hier (im Aufbau)" data-i18n-zh-hant="News 列表在這裡（施工中）" data-i18n-zh-hans="News 列表在这里（建设中）" data-i18n-ko="News 목록은 여기（공사 중）"',
+    'data-i18n-ja="展示・試遊情報はこちら（工事中）" data-i18n-en="Exhibition and demo information here (under construction)" data-i18n-de="Ausstellungs- und Demo-Informationen hier (im Aufbau)" data-i18n-zh-hant="展示與試玩資訊在這裡（施工中）"' =>
+      'data-i18n-ja="展示・試遊情報はこちら（工事中）" data-i18n-en="Exhibition and demo information here (under construction)" data-i18n-de="Ausstellungs- und Demo-Informationen hier (im Aufbau)" data-i18n-zh-hant="展示與試玩資訊在這裡（施工中）" data-i18n-zh-hans="展示与试玩信息在这里（建设中）" data-i18n-ko="전시・시연 정보는 여기（공사 중）"',
+    'data-i18n-ja="Webページ公開" data-i18n-en="Website published" data-i18n-de="Website veröffentlicht" data-i18n-zh-hant="網站公開"' =>
+      'data-i18n-ja="Webページ公開" data-i18n-en="Website published" data-i18n-de="Website veröffentlicht" data-i18n-zh-hant="網站公開" data-i18n-zh-hans="网站公开" data-i18n-ko="웹페이지 공개"',
+    'data-i18n-ja="BogosorStudioをフォロー" data-i18n-en="Follow BogosorStudio" data-i18n-de="BogosorStudio folgen" data-i18n-zh-hant="追蹤 BogosorStudio"' =>
+      'data-i18n-ja="BogosorStudioをフォロー" data-i18n-en="Follow BogosorStudio" data-i18n-de="BogosorStudio folgen" data-i18n-zh-hant="追蹤 BogosorStudio" data-i18n-zh-hans="关注 BogosorStudio" data-i18n-ko="BogosorStudio 팔로우"',
+    'data-i18n-ja="ストアページ、開発中の更新、イベント出展情報へのリンクです。" data-i18n-en="Links to store pages, development updates, and event exhibition information." data-i18n-de="Links zu Store-Seiten, Entwicklungsupdates und Event-Ausstellungen." data-i18n-zh-hant="前往商店頁面、開發中更新與活動展出資訊的連結。"' =>
+      'data-i18n-ja="ストアページ、開発中の更新、イベント出展情報へのリンクです。" data-i18n-en="Links to store pages, development updates, and event exhibition information." data-i18n-de="Links zu Store-Seiten, Entwicklungsupdates und Event-Ausstellungen." data-i18n-zh-hant="前往商店頁面、開發中更新與活動展出資訊的連結。" data-i18n-zh-hans="通往商店页面、开发中更新与活动展出信息的链接。" data-i18n-ko="스토어 페이지, 개발 업데이트, 이벤트 전시 정보 링크입니다."'
+  }
+
+  replacements.each { |before, after| html = html.gsub(before, after) }
+  html = html.gsub('<a class="nav-link" href="./News/index.html">News</a>',
+                   '<a class="nav-link" href="./News/index.html" data-i18n-ja="News" data-i18n-en="News" data-i18n-de="News" data-i18n-zh-hant="News" data-i18n-zh-hans="News" data-i18n-ko="뉴스">News</a>')
+  html = html.gsub('<a class="nav-link" href="./Exhibitions/index.html">展示情報</a>',
+                   '<a class="nav-link" href="./Exhibitions/index.html" data-i18n-ja="展示情報" data-i18n-en="Exhibitions" data-i18n-de="Ausstellungen" data-i18n-zh-hant="展示資訊" data-i18n-zh-hans="展示信息" data-i18n-ko="전시 정보">展示情報</a>')
+  html = html.gsub('<a class="nav-link" href="#contact">Contact</a>',
+                   '<a class="nav-link" href="#contact" data-i18n-ja="Contact" data-i18n-en="Contact" data-i18n-de="Kontakt" data-i18n-zh-hant="聯絡" data-i18n-zh-hans="联系" data-i18n-ko="문의">Contact</a>')
+  html
 end
 
 def compact_text(text)
@@ -422,6 +550,79 @@ end
 def localized_paragraph(content, section, fallback = "", indent: "            ")
   texts = localized_texts(content, section, fallback)
   "#{indent}<p #{localized_attrs(texts)}>#{h(texts.fetch("ja"))}</p>"
+end
+
+def presskit_field_key(label)
+  normalized = label.to_s.strip.downcase.tr("_", " ")
+  aliases = {
+    "href" => "href",
+    "url" => "href",
+    "link" => "href",
+    "リンク" => "href",
+    "連結" => "href",
+    "链接" => "href",
+    "링크" => "href",
+    "title" => "title",
+    "タイトル" => "title",
+    "標題" => "title",
+    "标题" => "title",
+    "제목" => "title",
+    "description" => "description",
+    "text" => "description",
+    "説明" => "description",
+    "本文" => "description",
+    "說明" => "description",
+    "说明" => "description",
+    "설명" => "description",
+    "본문" => "description",
+    "button" => "button",
+    "button label" => "button",
+    "ボタン" => "button",
+    "按鈕" => "button",
+    "按钮" => "button",
+    "버튼" => "button"
+  }
+  aliases[normalized]
+end
+
+def parse_key_value_section(text, key_method)
+  config = {}
+  text.to_s.gsub(/<!--.*?-->/m, "").lines.map(&:strip).reject(&:empty?).each do |line|
+    line = line.sub(/\A[-*]\s+/, "")
+    next unless (match = line.match(/\A([^:：]+)[:：]\s*(.+)\z/))
+
+    key = send(key_method, match[1])
+    config[key] = match[2].strip if key
+  end
+  config
+end
+
+def presskit_config(row, content)
+  ja_section = content_text(content, "ja", "presskit")
+  return nil if ja_section.empty?
+
+  ja_config = parse_key_value_section(ja_section, :presskit_field_key)
+  title_id = row.fetch("title_id")
+  href = ja_config["href"].to_s.empty? ? "../presskits/#{title_id}/" : ja_config["href"]
+
+  {
+    href: href,
+    title: LANGUAGES.to_h do |language|
+      code = language.fetch(:code)
+      config = parse_key_value_section(content_text(content, code, "presskit", ja_section), :presskit_field_key)
+      [code, config["title"].to_s.empty? ? "Press Kit" : config["title"]]
+    end,
+    description: LANGUAGES.to_h do |language|
+      code = language.fetch(:code)
+      config = parse_key_value_section(content_text(content, code, "presskit", ja_section), :presskit_field_key)
+      [code, config["description"].to_s]
+    end,
+    button: LANGUAGES.to_h do |language|
+      code = language.fetch(:code)
+      config = parse_key_value_section(content_text(content, code, "presskit", ja_section), :presskit_field_key)
+      [code, config["button"].to_s.empty? ? "Open" : config["button"]]
+    end
+  }
 end
 
 def platform_icon_name(platform)
@@ -527,7 +728,9 @@ def game_page_hero(row, content)
     "ja" => "#{title} のSteamページを開く",
     "en" => "Open #{title} on Steam",
     "de" => "#{title} auf Steam öffnen",
-    "zh-hant" => "開啟 #{title} 的 Steam 頁面"
+    "zh-hant" => "開啟 #{title} 的 Steam 頁面",
+    "zh-hans" => "打开 #{title} 的 Steam 页面",
+    "ko" => "Steam에서 #{title} 열기"
   }
   steam_link = [
     "          <a class=\"steam-store-link\" href=\"#{h(steam_url)}\" target=\"_blank\" rel=\"noopener\" aria-label=\"#{h(steam_link_label.fetch("ja"))}\">",
@@ -602,9 +805,27 @@ def overview_section(content)
       <section class="text-band">
         <div class="wrap text-blocks">
           <article class="text-block">
-            <h2 #{static_attrs(ja: "概要", en: "About", de: "Über das Spiel", zh_hant: "遊戲介紹")}>概要</h2>
+            <h2 #{static_attrs(ja: "概要", en: "About", de: "Über das Spiel", zh_hant: "遊戲介紹", zh_hans: "游戏介绍", ko: "게임 소개")}>概要</h2>
 #{localized_paragraph(content, "overview")}
           </article>
+        </div>
+      </section>
+  HTML
+end
+
+def presskit_section(row, content)
+  config = presskit_config(row, content)
+  return "" unless config
+
+  <<~HTML.rstrip
+      <section class="text-band presskit-band">
+        <div class="wrap">
+          <a class="presskit-panel" href="#{h(config.fetch(:href))}">
+            <span class="presskit-kicker" #{static_attrs(ja: "PRESS", en: "PRESS", de: "PRESSE", zh_hant: "媒體", zh_hans: "媒体", ko: "프레스")}>PRESS</span>
+            <span class="presskit-title" #{localized_attrs(config.fetch(:title))}>#{h(config.fetch(:title).fetch("ja"))}</span>
+            <span class="presskit-description" #{localized_attrs(config.fetch(:description))}>#{h(config.fetch(:description).fetch("ja"))}</span>
+            <span class="presskit-button" #{localized_attrs(config.fetch(:button))}>#{h(config.fetch(:button).fetch("ja"))}</span>
+          </a>
         </div>
       </section>
   HTML
@@ -619,7 +840,7 @@ def timeline_text_section(content)
                   else
                     <<~HTML.rstrip
           <article class="text-block">
-            <h2 #{static_attrs(ja: "今後の予定", en: "Plans", de: "Pläne", zh_hant: "後續計畫")}>今後の予定</h2>
+            <h2 #{static_attrs(ja: "今後の予定", en: "Plans", de: "Pläne", zh_hant: "後續計畫", zh_hans: "后续计划", ko: "향후 예정")}>今後の予定</h2>
 #{plans}
           </article>
                     HTML
@@ -629,7 +850,7 @@ def timeline_text_section(content)
                     else
                       <<~HTML.rstrip
           <article class="text-block">
-            <h2 #{static_attrs(ja: "活動記録", en: "History", de: "Aktivitäten", zh_hant: "活動記錄")}>活動記録</h2>
+            <h2 #{static_attrs(ja: "活動記録", en: "History", de: "Aktivitäten", zh_hant: "活動記錄", zh_hans: "活动记录", ko: "활동 기록")}>活動記録</h2>
 #{history}
           </article>
                       HTML
@@ -728,7 +949,7 @@ def video_section(content)
       <section class="video-band">
         <div class="wrap">
           <div class="band-head">
-            <h2 #{static_attrs(ja: "動画", en: "Video", de: "Video", zh_hant: "影片")}>動画</h2>
+            <h2 #{static_attrs(ja: "動画", en: "Video", de: "Video", zh_hant: "影片", zh_hans: "视频", ko: "영상")}>動画</h2>
           </div>
           <div class="teaser-frame">
 #{media}
@@ -738,10 +959,13 @@ def video_section(content)
   HTML
 end
 
-def detail_sections(content, visual_section)
+def detail_sections(row, content, visual_section)
   sections = [overview_section(content)]
+  presskit = presskit_section(row, content)
   video = video_section(content)
   timelines = timeline_text_section(content)
+
+  sections << presskit unless presskit.empty?
 
   if video.empty?
     sections << visual_section unless visual_section.to_s.empty?
@@ -764,7 +988,7 @@ def text_section(content)
                   else
                     <<~HTML.rstrip
           <article class="text-block">
-            <h2 #{static_attrs(ja: "今後の予定", en: "Plans", de: "Pläne", zh_hant: "後續計畫")}>今後の予定</h2>
+            <h2 #{static_attrs(ja: "今後の予定", en: "Plans", de: "Pläne", zh_hant: "後續計畫", zh_hans: "后续计划", ko: "향후 예정")}>今後の予定</h2>
 #{plans}
           </article>
                     HTML
@@ -774,7 +998,7 @@ def text_section(content)
                     else
                       <<~HTML.rstrip
           <article class="text-block">
-            <h2 #{static_attrs(ja: "活動記録", en: "History", de: "Aktivitäten", zh_hant: "活動記錄")}>活動記録</h2>
+            <h2 #{static_attrs(ja: "活動記録", en: "History", de: "Aktivitäten", zh_hant: "活動記錄", zh_hans: "活动记录", ko: "활동 기록")}>活動記録</h2>
 #{history}
           </article>
                       HTML
@@ -784,7 +1008,7 @@ def text_section(content)
       <section class="text-band">
         <div class="wrap text-blocks">
           <article class="text-block">
-            <h2 #{static_attrs(ja: "概要", en: "About", de: "Über das Spiel", zh_hant: "遊戲介紹")}>概要</h2>
+            <h2 #{static_attrs(ja: "概要", en: "About", de: "Über das Spiel", zh_hant: "遊戲介紹", zh_hans: "游戏介绍", ko: "게임 소개")}>概要</h2>
 #{localized_paragraph(content, "overview")}
           </article>
 #{plans_section}
@@ -877,6 +1101,7 @@ def update_index(rows, contents)
     "            <div class=\"capsule-shelf\" aria-label=\"Steamライブラリーカプセル\">\n#{cards}\n            </div>",
     "index capsule shelf"
   )
+  html = refresh_static_translations(refresh_language_controls(html))
   html = ensure_analytics_snippet(html)
   File.write(INDEX_PATH, html)
 end
@@ -913,12 +1138,13 @@ def update_game_page(row, content)
   )
   html = replace!(
     html,
-    /      <section class="text-band">\n.*?\n      <\/section>(?:\n\n      <section class="video-band">\n.*?\n      <\/section>)?(?:\n\n      <section class="visual-band">\n.*?\n      <\/section>)?(?:\n\n      <section class="text-band">\n.*?\n      <\/section>)?/m,
-    detail_sections(content, visual_section),
+    /      <section class="text-band">\n.*?\n      <\/section>(?:\n\n[ \t]*<section class="text-band presskit-band">\n.*?\n[ \t]*<\/section>)?(?:\n\n      <section class="video-band">\n.*?\n      <\/section>)?(?:\n\n      <section class="visual-band">\n.*?\n      <\/section>)?(?:\n\n      <section class="text-band">\n.*?\n      <\/section>)?/m,
+    detail_sections(row, content, visual_section),
     "#{title_id} detail sections"
   )
   html.gsub!(/\n?\s*<section class="link-panel">\n.*?\n\s*<\/section>/m, "")
   html = html.gsub(/alt="[^"]+ screenshot ([0-9]{2})"/, "alt=\"#{h(title)} screenshot \\1\"")
+  html = refresh_static_translations(refresh_language_controls(html))
   html = ensure_analytics_snippet(html)
 
   File.write(path, html)

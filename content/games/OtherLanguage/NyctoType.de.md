@@ -16,7 +16,6 @@ Label-Farbtags:
 - (muted): Zusatzstatus. Hintergrund=halbtransparentes Grau, Text=Weiß
 -->
 
-- (event) Aug. 2026: Ausstellung auf der gamescom
 - (event) Sept. 2026: Ausstellung auf der TGS
 
 ## Seitenlabels
@@ -29,7 +28,6 @@ Label-Farbtags:
 - (muted): Zusatzstatus. Hintergrund=halbtransparentes Grau, Text=Weiß
 -->
 
-- (event) Aug. 2026: Ausstellung auf der gamescom
 - (event) Sept. 2026: Ausstellung auf der TGS
 - (muted) In Entwicklung
 
@@ -42,13 +40,20 @@ Bewege virusartige Spielfiguren, dränge sie auf die gegnerische Seite, verursac
 Jede Aktion, vom Bewegen über das Erzeugen bis zum Aktivieren von Skills, erfordert das Lösen von Tippaufgaben.
 Schnelles Tippen allein reicht nicht. Entscheide im Kampf, wann du welche Aktion ausführst.
 
+## Pressekit
+
+- Link: ../presskits/NyctoType/
+- Title: Pressekit
+- Description: Eine passwortgeschützte Seite für Medienmaterial.
+- Button: Pressekit öffnen
+
 ## Pläne
 
 - 17.-21. Sept. 2026: Ausstellung auf der [Tokyo Game Show 2026](https://tgs.cesa.or.jp/2026/)
-- 26.-30. Aug. 2026: Ausstellung auf der [gamescom](https://www.gamescom.global/)
 
 ## Aktivitäten
 
+- 26.-30. Aug. 2026: Ausgestellt auf der [gamescom](https://www.gamescom.global/en/product/nyctotype)
 - 5. Mai 2026: Ausgestellt bei [Tokyo Game Dungeon 12](https://gamedungeon.jp/events/tokyo12/exhibit_informations/2213)
 - Feb. 2026: Als Förderprojekt der [PONOS Foundation](https://ponos-foundation.org/support.html) ausgewählt
 - 29. Jan.-1. Feb. 2026: Ausgestellt auf der [Taipei Game Show 2026](https://tgs.tca.org.tw/index_e.php)

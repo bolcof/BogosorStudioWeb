@@ -16,7 +16,6 @@
 - (muted): 補助ステータス。地の色=半透明グレー、字の色=白
 -->
 
-- (event) 2026年8月 gamescom出展
 - (event) 2026年9月 TGS出展
 
 ## ページラベル
@@ -29,7 +28,6 @@
 - (muted): 補助ステータス。地の色=半透明グレー、字の色=白
 -->
 
-- (event) 2026年8月 gamescom出展
 - (event) 2026年9月 TGS出展
 - (muted) 開発中
 
@@ -42,13 +40,20 @@
 駒の移動、生成、スキル発動など、すべての行動にはタイピング課題のクリアが必要。
 速く打つだけでは勝てない。いつ、どの行動をするのかを考えながら戦おう。
 
+## プレスキット
+
+- リンク: ../presskits/NyctoType/
+- タイトル: Press Kit
+- 説明: メディア向け素材をまとめるページです。閲覧にはパスワードが必要です。
+- ボタン: Press Kitへ
+
 ## 今後の予定
 
 - 2026.09.17-21 [東京ゲームショウ2026](https://tgs.cesa.or.jp/2026/) 出展
-- 2026.08.26-30 [gamescom](https://www.gamescom.global/) 出展
 
 ## 活動記録
 
+- 2026.08.26-30 [gamescom](https://www.gamescom.global/en/product/nyctotype) 出展
 - 2026.05.05 [東京ゲームダンジョン12](https://gamedungeon.jp/events/tokyo12/exhibit_informations/2213) 出展
 - 2026.02 [PONOS財団](https://ponos-foundation.org/support.html) PONOS助成制度のプロジェクトとして採択
 - 2026.01.29-02.01 [台北ゲームショウ2026](https://tgs.tca.org.tw/index_e.php) 出展

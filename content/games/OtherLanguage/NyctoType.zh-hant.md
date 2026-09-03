@@ -16,7 +16,6 @@
 - (muted): 輔助狀態。底色=半透明灰色，文字=白色
 -->
 
-- (event) 2026年8月 gamescom 展出
 - (event) 2026年9月 TGS 展出
 
 ## 頁面標籤
@@ -29,7 +28,6 @@
 - (muted): 輔助狀態。底色=半透明灰色，文字=白色
 -->
 
-- (event) 2026年8月 gamescom 展出
 - (event) 2026年9月 TGS 展出
 - (muted) 開發中
 
@@ -42,13 +40,20 @@
 無論移動棋子、生成單位，或發動技能，所有行動都必須完成打字課題。
 光是打得快還不夠。要一邊思考何時採取哪個行動，一邊戰鬥。
 
+## 媒體資料包
+
+- 連結: ../presskits/NyctoType/
+- 標題: 媒體資料包
+- 說明: 彙整媒體素材的密碼保護頁面。
+- 按鈕: 開啟媒體資料包
+
 ## 後續計畫
 
 - 2026年9月17日至21日: 於 [東京電玩展2026](https://tgs.cesa.or.jp/2026/) 展出
-- 2026年8月26日至30日: 於 [gamescom](https://www.gamescom.global/) 展出
 
 ## 活動記錄
 
+- 2026年8月26日至30日: 於 [gamescom](https://www.gamescom.global/en/product/nyctotype) 展出
 - 2026年5月5日: 於 [Tokyo Game Dungeon 12](https://gamedungeon.jp/events/tokyo12/exhibit_informations/2213) 展出
 - 2026年2月: 獲選為 [PONOS財團](https://ponos-foundation.org/support.html) 補助項目
 - 2026年1月29日至2月1日: 於 [台北國際電玩展2026](https://tgs.tca.org.tw/index_e.php) 展出

@@ -10,6 +10,7 @@ GitHub Pagesでは `docs/` フォルダを公開対象にします。
 - `docs/News/index.html` - News一覧ページ
 - `docs/News/日付_タイトル/index.html` - News詳細ページ
 - `docs/Exhibitions/index.html` - 展示・試遊・イベント出展情報ページ
+- `docs/presskits/<TitleId>/index.html` - タイトル別プレスキットページ
 - `docs/assets/` - サイトで使う画像アセット
 
 ## タイトル情報の編集
@@ -32,11 +33,13 @@ Markdown内の改行は概要本文に反映され、`今後の予定` と `活�
 
 ### 多言語ファイル
 
-対応言語は `ja`, `en`, `de`, `zh-hant` です。
+対応言語は `ja`, `en`, `de`, `zh-hant`, `zh-hans`, `ko` です。
 
 基本的には日本語版の `content/games/<TitleId>.md` を編集します。
 
-日本語以外は `content/games/OtherLanguage/<TitleId>.<lang>.md` に置き、内容が変わったら英語、ドイツ語、繁体字のMDを同じ構造で更新します。
+日本語以外は `content/games/OtherLanguage/<TitleId>.<lang>.md` に置きます。
+
+日本語版の内容が変わったら、英語、ドイツ語、繁体字、簡体字、韓国語のMDを同じ構造で更新します。
 
 ### ラベル
 
@@ -106,6 +109,7 @@ ruby scripts/apply_games_csv.rb
 ## カードラベル
 ## ページラベル
 ## 概要
+## プレスキット
 ## 今後の予定
 ## 活動記録
 
@@ -114,9 +118,23 @@ ruby scripts/apply_games_csv.rb
 ## Card Labels
 ## Page Labels
 ## About
+## Press Kit
 ## Plans
 ## History
 ```
+
+`## プレスキット` は必要なタイトルだけに追加します。
+
+```md
+## プレスキット
+
+- リンク: ../presskits/NyctoType/
+- タイトル: Press Kit
+- 説明: メディア向け素材をまとめるページです。閲覧にはパスワードが必要です。
+- ボタン: Press Kitへ
+```
+
+GitHub Pagesだけでは本物のパスワード保護はできないため、静的ページ内のパスワード入力は仮の入口です。本番で配布制限が必要な場合は、Cloudflare Accessなどのサーバー/CDN側の保護に切り替えます。
 
 ファイル名の例:
 
@@ -125,6 +143,8 @@ content/games/NyctoType.md
 content/games/OtherLanguage/NyctoType.en.md
 content/games/OtherLanguage/NyctoType.de.md
 content/games/OtherLanguage/NyctoType.zh-hant.md
+content/games/OtherLanguage/NyctoType.zh-hans.md
+content/games/OtherLanguage/NyctoType.ko.md
 ```
 
 ヒーロースライダーのファイル名:
@@ -134,6 +154,8 @@ content/hero.md
 content/OtherLanguage/hero.en.md
 content/OtherLanguage/hero.de.md
 content/OtherLanguage/hero.zh-hant.md
+content/OtherLanguage/hero.zh-hans.md
+content/OtherLanguage/hero.ko.md
 ```
 
 ヒーロースライダーの書き方:
