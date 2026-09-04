@@ -5,7 +5,7 @@
 - href: ./games/NyctoType.html
 - image: ./assets/games/NyctoType/KeyArt.png
 - title: NyctoType
-- subtitle: Next exhibition: gamescom Aug 26-30, 2026
+- subtitle: Next exhibition: Tokyo Game Show 2026 Sep 17-21, 2026
 - button: Details
 
 ## Slide: Reversi2048

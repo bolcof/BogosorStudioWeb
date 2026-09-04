@@ -364,6 +364,74 @@
         gap: 10px;
       }
 
+      .presskit-band {
+        padding: 36px 0;
+      }
+
+      .presskit-panel {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        gap: 8px 18px;
+        align-items: center;
+        border: 1px solid rgba(245, 241, 232, 0.18);
+        border-radius: var(--radius);
+        padding: 22px;
+        background:
+          linear-gradient(135deg, rgba(42, 71, 94, 0.34), rgba(18, 18, 15, 0.72)),
+          rgba(18, 18, 15, 0.74);
+        box-shadow: 0 18px 54px rgba(0, 0, 0, 0.32);
+        transition:
+          border-color 160ms ease,
+          transform 160ms ease,
+          background 160ms ease;
+      }
+
+      .presskit-panel:hover,
+      .presskit-panel:focus-visible {
+        border-color: rgba(123, 215, 184, 0.48);
+        background:
+          linear-gradient(135deg, rgba(42, 71, 94, 0.46), rgba(18, 18, 15, 0.8)),
+          rgba(18, 18, 15, 0.82);
+        transform: translateY(-1px);
+      }
+
+      .presskit-kicker {
+        grid-row: span 2;
+        color: var(--gold);
+        font-size: 0.78rem;
+        font-weight: 880;
+        letter-spacing: 0;
+      }
+
+      .presskit-title {
+        color: var(--text);
+        font-size: clamp(1.2rem, 2vw, 1.7rem);
+        font-weight: 880;
+        line-height: 1.15;
+      }
+
+      .presskit-description {
+        grid-column: 2;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .presskit-button {
+        grid-column: 3;
+        grid-row: 1 / span 2;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+        border: 1px solid rgba(102, 192, 244, 0.34);
+        border-radius: var(--radius);
+        padding: 0 14px;
+        color: #f5f7fb;
+        background: linear-gradient(135deg, #2a475e, #1b2838);
+        font-weight: 850;
+        white-space: nowrap;
+      }
+
       .text-band {
         padding: 70px 0 64px;
         border-top: 1px solid var(--line);
@@ -796,6 +864,17 @@
         .timeline-item {
           grid-template-columns: 16px minmax(0, 1fr);
           gap: 4px 12px;
+        }
+
+        .presskit-panel {
+          grid-template-columns: 1fr;
+        }
+
+        .presskit-kicker,
+        .presskit-description,
+        .presskit-button {
+          grid-column: 1;
+          grid-row: auto;
         }
 
         .info-date,
