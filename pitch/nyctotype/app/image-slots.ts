@@ -5,7 +5,7 @@ export const imageSlots = {
   versus: { id: '04', title: 'オンライン対戦の実画面', brief: '対戦相手と両者の体力が分かる画面。2人が対戦している写真でも可。', caption: 'オンライン対戦の開発画面', file: '04-versus.jpg', src: '', href: '' },
   vtuberTyping: { id: '05', title: 'VTuberによるタイピングゲーム配信のサムネイル', brief: 'タイピング挑戦・記録更新などを扱う実在の配信。配信者名、動画タイトル、元動画URLも添える。', caption: '配信市場の参考事例。本作の配信実績ではありません。', file: '05-vtuber-typing.jpg', src: '', href: '' },
   vtuberBattle: { id: '06', title: 'VTuberの対戦・コラボ企画のサムネイル', brief: '複数人の対戦や大会が企画として伝わる実在の配信。本作以外の事例として掲載。元動画URLも添える。', caption: '対戦企画の参考事例。本作への出演予定を示すものではありません。', file: '06-vtuber-battle.jpg', src: '', href: '' },
-  gamescom: { id: '07', title: '台北ゲームショウ2026のNyctoTypeブース', brief: '本作の展示ブースが分かる写真。', caption: 'NyctoType / 台北ゲームショウ2026', file: '07-taipei.png', src: '/images/07-taipei.png', href: '' },
+  gamescom: { id: '07', title: 'gamescom 2026のNyctoType展示風景', brief: 'gamescom 2026で来場者がNyctoTypeを試遊している展示風景。', caption: 'NyctoType / gamescom 2026 展示風景', file: '07-gamescom.jpg', src: '/images/07-gamescom.jpg', href: '' },
   touchTypeTale: { id: '08', title: 'Touch Type Taleのゲーム画面', brief: 'タイピングで戦略ゲームを操作することが伝わる公式画像。出典URLを添える。', caption: '比較対象：Touch Type Tale', file: '08-touch-type-tale.jpg', src: '', href: 'https://store.steampowered.com/app/909470/' },
   glyphica: { id: '09', title: 'Glyphica: Typing Survivalのゲーム画面', brief: 'タイピングとビルド成長が伝わる公式画像。出典URLを添える。', caption: '比較対象：Glyphica: Typing Survival', file: '09-glyphica.jpg', src: '', href: 'https://store.steampowered.com/app/2400160/' },
   realforce: { id: '10', title: 'REALFORCE大会の公式告知・配信画面', brief: '競技者、対戦、観客や実況の存在が伝わる公式素材。大会名・開催年・出典URLを添える。', caption: '競技タイピングの参考事例。本作との提携・協賛を示すものではありません。', file: '10-realforce-tournament.jpg', src: '', href: 'https://www.youtube.com/watch?v=7sR6diUkWao' },

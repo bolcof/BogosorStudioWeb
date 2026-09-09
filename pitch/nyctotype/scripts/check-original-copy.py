@@ -74,11 +74,16 @@ for chapter, filename in (('rules', 'gameplay-current.png'), ('screen', 'console
     section = markup.split(f'id="{chapter}"', 1)[1].split('</section>', 1)[0]
     encoded = b64encode((ROOT / 'public/images' / filename).read_bytes()).decode('ascii')
     assert f'src="data:image/png;base64,{encoded}"' in section
-for slot_id in ('01', '02', '03', '07', '13', '14', '15', '16'):
+for slot_id in ('01', '02', '03', '13', '14', '15', '16'):
     slot_markup = markup.split(f'data-slot="{slot_id}"', 1)[1].split('</figure>', 1)[0]
     assert 'class="slot-image"' in slot_markup
     assert 'src="data:image/png;base64,' in slot_markup
     assert 'class="placeholder"' not in slot_markup
+gamescom_slot = markup.split('data-slot="07"', 1)[1].split('</figure>', 1)[0]
+gamescom_image = b64encode((ROOT / 'public/images/07-gamescom.jpg').read_bytes()).decode('ascii')
+assert f'src="data:image/jpeg;base64,{gamescom_image}"' in gamescom_slot
+assert 'gamescom 2026のNyctoType展示風景' in gamescom_slot
+assert 'NyctoType / gamescom 2026 展示風景' in gamescom_slot
 assert 'ローグライトのマップ（イメージ画像）' in visible
 device_slot = markup.split('data-slot="12"', 1)[1].split('</figure>', 1)[0]
 device_section = markup.split('id="devices"', 1)[1].split('</section>', 1)[0]
@@ -88,8 +93,7 @@ device_image = b64encode((ROOT / 'public/images/12-keyboard.jpg').read_bytes()).
 assert f'src="data:image/jpeg;base64,{device_image}"' in device_slot
 assert '台北ゲームショウ2026で使用した提供機材' in device_slot
 assert 'class="placeholder"' not in markup
-assert 'NyctoType / 台北ゲームショウ2026' in markup
-assert 'NyctoType / gamescom 2026' not in ''.join(parser.parts)
+assert 'NyctoType / 台北ゲームショウ2026' not in gamescom_slot
 assert not any('figma.com' in href for _, href in parser.links if href)
 source = json.loads((ROOT / 'app/original-deck.json').read_text())
 corrected = {'2611:56', '2611:97', '2611:109', '2611:113', '2611:416', '2611:421', '2611:582', '2611:579', '2611:140', '2611:143', '2611:192', '2611:593', '2611:171', '2611:216', '2611:249', '2611:250'}
