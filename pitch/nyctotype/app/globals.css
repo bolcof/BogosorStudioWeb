@@ -150,9 +150,9 @@ body:has(.history-dialog[open]) { overflow:hidden; }
 .editorial-note { border-left:2px solid var(--cyan); padding-left:16px; }
 .rule-steps { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:28px; padding:0; list-style:none; margin-top:30px; color:var(--cyan); }
 .rule-steps li { min-width:0; }
-.rule-steps .asset-slot > :first-child { position:relative; }
+.rule-steps .asset-slot > :first-child { position:relative; overflow:visible; }
 .rule-steps .asset-slot > a { display:block; }
-.rule-steps li:not(:last-child) .asset-slot > :first-child::after { content:""; position:absolute; z-index:2; top:50%; left:calc(100% + 7px); width:14px; aspect-ratio:.8660254; transform:translateY(-50%); background:var(--accent); clip-path:polygon(0 0,100% 50%,0 100%); pointer-events:none; }
+.rule-step-arrow { position:absolute; z-index:3; top:50%; left:calc(100% + 6px); width:0; height:0; border-top:9.24px solid transparent; border-bottom:9.24px solid transparent; border-left:16px solid var(--accent); transform:translateY(-50%); pointer-events:none; }
 .rule-steps .placeholder,.rule-steps .slot-image { width:100%; height:auto; min-height:0; aspect-ratio:16/9; }
 .rule-steps .placeholder { padding:16px; gap:8px; }
 .rule-steps .placeholder strong { font-size:16px; }
@@ -230,7 +230,7 @@ body:has(.history-dialog[open]) { overflow:hidden; }
 @media(max-width:640px) { .journey-layout { grid-template-columns:1fr; }.journey-timeline li { grid-template-columns:80px minmax(0,1fr); gap:12px; padding-left:16px; }.coverage-list a { grid-template-columns:minmax(0,1fr) 18px; gap:4px 16px; }.coverage-source { grid-column:1; }.coverage-body { grid-column:1; }.coverage-list svg { grid-column:2; grid-row:1; } }
 .original-artwork .screenshot { margin-bottom:28px; }
 .original-artwork .screenshot img { aspect-ratio:3/1; object-fit:contain; }
-@media(max-width:640px) { .rule-steps,.schedule-grid { grid-template-columns:1fr; }.rule-steps li:not(:last-child) .asset-slot > :first-child::after { top:calc(100% + 7px); left:50%; transform:translateX(-50%) rotate(90deg); }.comparison-table table { font-size:12px; }.comparison-table th,.comparison-table td { padding:8px; } }
+@media(max-width:640px) { .rule-steps,.schedule-grid { grid-template-columns:1fr; }.rule-step-arrow { top:calc(100% + 6px); left:50%; transform:translateX(-50%) rotate(90deg); }.comparison-table table { font-size:12px; }.comparison-table th,.comparison-table td { padding:8px; } }
 @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
 
 /* The complete deck is paginated independently from the responsive Web layout. */
