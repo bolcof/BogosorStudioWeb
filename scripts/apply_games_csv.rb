@@ -581,7 +581,9 @@ def presskit_field_key(label)
     "ボタン" => "button",
     "按鈕" => "button",
     "按钮" => "button",
-    "버튼" => "button"
+    "버튼" => "button",
+    "password" => "password",
+    "パスワード" => "password"
   }
   aliases[normalized]
 end
@@ -628,7 +630,8 @@ def presskit_config(row, content)
       code = language.fetch(:code)
       config = parse_key_value_section(content_text(content, code, "presskit", ja_section), :presskit_field_key)
       [code, config["button"].to_s.empty? ? "Open" : config["button"]]
-    end
+    end,
+    password: ja_config["password"].to_s
   }
 end
 
@@ -824,16 +827,85 @@ def presskit_section(row, content)
   config = presskit_config(row, content)
   return "" unless config
 
+  password = config.fetch(:password)
+  protected = !password.empty?
+  link_attributes = if protected
+                      "href=\"#{h(config.fetch(:href))}\" data-protected-pitch-link data-protected-href=\"#{h(config.fetch(:href))}\""
+                    else
+                      "href=\"#{h(config.fetch(:href))}\""
+                    end
+  password_dialog = if protected
+                      <<~HTML.rstrip
+          <dialog class="pitch-password-dialog" data-pitch-password-dialog aria-labelledby="pitch-password-title">
+            <form class="pitch-password-form" data-pitch-password-form>
+              <h2 id="pitch-password-title" #{static_attrs(ja: "パスワードを入力", en: "Enter password", de: "Passwort eingeben", zh_hant: "輸入密碼", zh_hans: "输入密码", ko: "비밀번호 입력")}>パスワードを入力</h2>
+              <p class="pitch-password-description" #{static_attrs(ja: "ピッチデッキを開くにはパスワードが必要です。", en: "A password is required to open the pitch deck.", de: "Zum Öffnen des Pitch Decks ist ein Passwort erforderlich.", zh_hant: "開啟企劃簡報需要密碼。", zh_hans: "打开企划简报需要密码。", ko: "피치 덱을 열려면 비밀번호가 필요합니다.")}>ピッチデッキを開くにはパスワードが必要です。</p>
+              <label for="pitch-password-input" #{static_attrs(ja: "パスワード", en: "Password", de: "Passwort", zh_hant: "密碼", zh_hans: "密码", ko: "비밀번호")}>パスワード</label>
+              <input id="pitch-password-input" type="password" autocomplete="current-password" required data-pitch-password-input />
+              <p class="pitch-password-error" role="alert" hidden data-pitch-password-error #{static_attrs(ja: "パスワードが違います。このページに戻ります。", en: "Incorrect password. Returning to this page.", de: "Falsches Passwort. Sie kehren zu dieser Seite zurück.", zh_hant: "密碼錯誤。將返回此頁面。", zh_hans: "密码错误。将返回此页面。", ko: "비밀번호가 올바르지 않습니다. 이 페이지로 돌아갑니다.")}>パスワードが違います。このページに戻ります。</p>
+              <div class="pitch-password-actions">
+                <button type="button" class="pitch-password-cancel" data-pitch-password-cancel #{static_attrs(ja: "キャンセル", en: "Cancel", de: "Abbrechen", zh_hant: "取消", zh_hans: "取消", ko: "취소")}>キャンセル</button>
+                <button type="submit" class="pitch-password-submit" #{static_attrs(ja: "開く", en: "Open", de: "Öffnen", zh_hant: "開啟", zh_hans: "打开", ko: "열기")}>開く</button>
+              </div>
+            </form>
+          </dialog>
+          <script>
+            (() => {
+              const link = document.querySelector("[data-protected-pitch-link]");
+              const dialog = document.querySelector("[data-pitch-password-dialog]");
+              const form = dialog?.querySelector("[data-pitch-password-form]");
+              const input = dialog?.querySelector("[data-pitch-password-input]");
+              const error = dialog?.querySelector("[data-pitch-password-error]");
+              const cancel = dialog?.querySelector("[data-pitch-password-cancel]");
+              if (!link || !dialog || !form || !input || !error || !cancel) throw new Error("Pitch password dialog is incomplete");
+
+              const resetDialog = () => {
+                form.reset();
+                error.hidden = true;
+              };
+
+              link.addEventListener("click", (event) => {
+                event.preventDefault();
+                resetDialog();
+                dialog.showModal();
+                input.focus();
+              });
+              cancel.addEventListener("click", () => dialog.close());
+              dialog.addEventListener("click", (event) => {
+                if (event.target === dialog) dialog.close();
+              });
+              dialog.addEventListener("close", resetDialog);
+              form.addEventListener("submit", (event) => {
+                event.preventDefault();
+                if (input.value === #{password.inspect}) {
+                  window.location.assign(link.dataset.protectedHref);
+                  return;
+                }
+                error.hidden = false;
+                input.disabled = true;
+                window.setTimeout(() => {
+                  input.disabled = false;
+                  dialog.close();
+                }, 1300);
+              });
+            })();
+          </script>
+                      HTML
+                    else
+                      ""
+                    end
+
   <<~HTML.rstrip
       <section class="text-band presskit-band">
         <div class="wrap">
-          <a class="presskit-panel" href="#{h(config.fetch(:href))}">
+          <a class="presskit-panel" #{link_attributes}>
             <span class="presskit-kicker" #{localized_attrs(config.fetch(:kicker))}>#{h(config.fetch(:kicker).fetch("ja"))}</span>
             <span class="presskit-title" #{localized_attrs(config.fetch(:title))}>#{h(config.fetch(:title).fetch("ja"))}</span>
             <span class="presskit-description" #{localized_attrs(config.fetch(:description))}>#{h(config.fetch(:description).fetch("ja"))}</span>
             <span class="presskit-button" #{localized_attrs(config.fetch(:button))}>#{h(config.fetch(:button).fetch("ja"))}</span>
           </a>
         </div>
+#{password_dialog}
       </section>
   HTML
 end
