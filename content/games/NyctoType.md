@@ -42,10 +42,11 @@
 
 ## プレスキット
 
-- リンク: ../presskits/NyctoType/
-- タイトル: Press Kit
-- 説明: メディア向け素材をまとめるページです。閲覧にはパスワードが必要です。
-- ボタン: Press Kitへ
+- リンク: ../pitchdecks/NyctoType/index.html
+- kicker: PITCH
+- タイトル: ピッチデッキ
+- 説明: ゲームの企画・開発計画・協業についての資料です。
+- ボタン: ピッチデッキへ
 
 ## 今後の予定
 

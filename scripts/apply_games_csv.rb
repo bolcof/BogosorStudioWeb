@@ -434,12 +434,12 @@ def refresh_language_controls(html)
     /const supportedLanguages = \[[^\]]+\];/,
     "const supportedLanguages = [#{LANGUAGE_CODES.map(&:dump).join(", ")}];"
   )
-  html = html.gsub(/const languageLabels = \{\n.*?\n\s+\};/m) do |match|
+  html = html.gsub(/const languageLabels = \{\n.*?\n[ \t]*\};/m) do |match|
     indent = match[/\A\s*/]
     body = LANGUAGES.map { |language| "#{indent}  #{javascript_key(language.fetch(:code))}: #{language.fetch(:label).dump}," }.join("\n")
     "#{indent}const languageLabels = {\n#{body}\n#{indent}};"
   end
-  html = html.gsub(/const htmlLanguageCodes = \{\n.*?\n\s+\};/m) do |match|
+  html = html.gsub(/const htmlLanguageCodes = \{\n.*?\n[ \t]*\};/m) do |match|
     indent = match[/\A\s*/]
     body = LANGUAGES.map { |language| "#{indent}  #{javascript_key(language.fetch(:code))}: #{language.fetch(:html_lang).dump}," }.join("\n")
     "#{indent}const htmlLanguageCodes = {\n#{body}\n#{indent}};"
@@ -477,7 +477,7 @@ def refresh_static_translations(html)
       'data-i18n-ja="ストアページ、開発中の更新、イベント出展情報へのリンクです。" data-i18n-en="Links to store pages, development updates, and event exhibition information." data-i18n-de="Links zu Store-Seiten, Entwicklungsupdates und Event-Ausstellungen." data-i18n-zh-hant="前往商店頁面、開發中更新與活動展出資訊的連結。" data-i18n-zh-hans="通往商店页面、开发中更新与活动展出信息的链接。" data-i18n-ko="스토어 페이지, 개발 업데이트, 이벤트 전시 정보 링크입니다."'
   }
 
-  replacements.each { |before, after| html = html.gsub(before, after) }
+  replacements.each { |before, after| html = html.gsub(/#{Regexp.escape(before)}(?!\s+data-i18n-(?:zh-hans|ko)=)/, after) }
   html = html.gsub('<a class="nav-link" href="./News/index.html">News</a>',
                    '<a class="nav-link" href="./News/index.html" data-i18n-ja="News" data-i18n-en="News" data-i18n-de="News" data-i18n-zh-hant="News" data-i18n-zh-hans="News" data-i18n-ko="뉴스">News</a>')
   html = html.gsub('<a class="nav-link" href="./Exhibitions/index.html">展示情報</a>',
@@ -553,6 +553,7 @@ def localized_paragraph(content, section, fallback = "", indent: "            ")
 end
 
 def presskit_field_key(label)
+  return "kicker" if label.to_s.strip.downcase == "kicker"
   normalized = label.to_s.strip.downcase.tr("_", " ")
   aliases = {
     "href" => "href",
@@ -607,6 +608,12 @@ def presskit_config(row, content)
 
   {
     href: href,
+    kicker: LANGUAGES.to_h do |language|
+      code = language.fetch(:code)
+      config = parse_key_value_section(content_text(content, code, "presskit", ja_section), :presskit_field_key)
+      defaults = { "ja" => "PRESS", "en" => "PRESS", "de" => "PRESSE", "zh-hant" => "媒體", "zh-hans" => "媒体", "ko" => "프레스" }
+      [code, config["kicker"].to_s.empty? ? defaults.fetch(code) : config["kicker"]]
+    end,
     title: LANGUAGES.to_h do |language|
       code = language.fetch(:code)
       config = parse_key_value_section(content_text(content, code, "presskit", ja_section), :presskit_field_key)
@@ -821,7 +828,7 @@ def presskit_section(row, content)
       <section class="text-band presskit-band">
         <div class="wrap">
           <a class="presskit-panel" href="#{h(config.fetch(:href))}">
-            <span class="presskit-kicker" #{static_attrs(ja: "PRESS", en: "PRESS", de: "PRESSE", zh_hant: "媒體", zh_hans: "媒体", ko: "프레스")}>PRESS</span>
+            <span class="presskit-kicker" #{localized_attrs(config.fetch(:kicker))}>#{h(config.fetch(:kicker).fetch("ja"))}</span>
             <span class="presskit-title" #{localized_attrs(config.fetch(:title))}>#{h(config.fetch(:title).fetch("ja"))}</span>
             <span class="presskit-description" #{localized_attrs(config.fetch(:description))}>#{h(config.fetch(:description).fetch("ja"))}</span>
             <span class="presskit-button" #{localized_attrs(config.fetch(:button))}>#{h(config.fetch(:button).fetch("ja"))}</span>

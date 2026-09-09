@@ -241,3 +241,11 @@ docs/News/2026-06-25_Steamページ準備中/index.html
 ```sh
 python3 -m http.server 8000 --directory docs
 ```
+
+## NyctoTypeのピッチデッキ
+
+- 掲載先: `docs/pitchdecks/NyctoType/index.html`。画像と日英切り替えを内包した単体HTMLです。
+- NyctoType紹介ページの資料リンクは、このピッチデッキを参照します。旧プレスキットは削除していません。
+- リンク文言は各言語のNyctoType Markdownにある `presskit` 相当の節で管理します。`kicker` を指定すると、資料リンクの小ラベルも変更できます。
+- 元データ: NyctoTypeプロジェクトの `Docs/プロモーション/web-pitch/`。再生成した `output/html/NyctoType-Pitch.html` を掲載先へコピーして更新します。
+- ピッチデッキにアクセス制限はありません。公開リポジトリやサイトへプッシュする前に、内容の公開範囲を確認してください。
