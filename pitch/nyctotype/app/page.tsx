@@ -96,7 +96,7 @@ function SectionArt({ chapter }: { chapter: string }) {
   if (chapter === 'devices') return <img className="heading-inset" src="/images/key-enter.png" alt="" aria-hidden="true" width="827" height="1102"/>;
   return null;
 }
-function Foot({ number }: { number: string }) { return <div className="print-footer">NyctoType / BogosorGames <span>{number} / confidential</span></div>; }
+function Foot({ number }: { number: string }) { return <div className="print-footer">NyctoType / BogosorGames <span>{number}</span></div>; }
 
 type Chapter = { id: string; title: string; label: string; source?: string; className?: string; body: React.ReactNode };
 const chapters: Chapter[] = [
@@ -142,7 +142,7 @@ export default function Home() {
     <header className="site-header"><a className="wordmark" href="#cover">NyctoType<span> / BogosorGames</span></a><nav aria-label="メイン"><a href="#contents">目次</a><a href="#streaming">配信・大会</a><a href="#partnership">協業</a><div className="language-switcher" data-language-switcher="true" role="group" aria-label="Language"><button type="button" data-pitch-language="ja" aria-pressed="true" lang="ja">日本語</button><button type="button" data-pitch-language="en" aria-pressed="false" lang="en">English</button></div><PrintButton/></nav></header>
     <main>
       <section id="cover" className="cover print-page" data-figma-id="2611:43">
-        <div className="hero"><img className="hero-image" src="/images/world.webp" alt="NyctoTypeのゲーム内世界" width="2400" height="800" fetchPriority="high"/><div className="wrap hero-content"><p className="eyebrow">PARTNER PITCH <span>CONFIDENTIAL</span></p><h1>NyctoType</h1><p className="tagline">速度と戦術で競い合う<br/>マルチスレッドタイピングバトル</p><a className="button primary" href={steam} target="_blank" rel="noreferrer">Steamで見る<ArrowUpRight size={18}/></a><UpdateHistory/></div><a className="hero-down" href="#contents" aria-label="目次へ"><ArrowDown size={24}/></a></div>
+        <div className="hero"><img className="hero-image" src="/images/world.webp" alt="NyctoTypeのゲーム内世界" width="2400" height="800" fetchPriority="high"/><div className="wrap hero-content"><p className="eyebrow">PARTNER PITCH</p><h1>NyctoType</h1><p className="tagline">速度と戦術で競い合う<br/>マルチスレッドタイピングバトル</p><a className="button primary" href={steam} target="_blank" rel="noreferrer">Steamで見る<ArrowUpRight size={18}/></a><UpdateHistory/></div><a className="hero-down" href="#contents" aria-label="目次へ"><ArrowDown size={24}/></a></div>
         <div className="wrap cover-details" data-source-id="2611:49">
           <dl className="cover-facts">{coverFacts.filter(fact => !isAudienceFact(fact.label)).map(fact => <div key={fact.label}><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}</dl>
           <dl className="cover-audience">{coverFacts.filter(fact => isAudienceFact(fact.label)).map(fact => <div key={fact.label}><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}</dl>
@@ -151,7 +151,7 @@ export default function Home() {
       <nav id="contents" className="pitch-contents wrap" aria-label="目次"><span className="section-index">CONTENTS</span><div>{chapters.map((chapter, i) => <a key={chapter.id} href={'#' + chapter.id}><span>{String(i + 2).padStart(2, '0')}</span>{chapter.title}</a>)}</div></nav>
       {chapters.map((chapter, i) => <section key={chapter.id} id={chapter.id} className={'deck-section print-page original-section ' + (chapter.className ?? '')} data-figma-id={chapter.source} data-chapter={chapter.id}><SectionArt chapter={chapter.id}/><div className="wrap section-inner"><header className="section-heading"><span className="section-index">{String(i + 2).padStart(2, '0')} / {chapter.label}</span><h2>{chapter.title}</h2></header>{chapter.body}</div><Foot number={String(i + 2).padStart(2, '0')}/></section>)}
     </main>
-    <footer className="site-footer wrap"><p><strong>NyctoType</strong><span>BogosorGames / Confidential</span></p><div><Link href={steam}>Steam</Link><a href="#contents">目次へ戻る</a></div></footer>
+    <footer className="site-footer wrap"><p><strong>NyctoType</strong><span>BogosorGames</span></p><div><Link href={steam}>Steam</Link><a href="#contents">目次へ戻る</a></div></footer>
     <script id="pitch-translations" type="application/json" data-pitch-script="translations" dangerouslySetInnerHTML={{ __html: JSON.stringify(englishCopy).replaceAll('<', '\\u003c') }}/>
     <script src="/language-switcher.js" defer data-pitch-script="runtime"/>
   </>;
