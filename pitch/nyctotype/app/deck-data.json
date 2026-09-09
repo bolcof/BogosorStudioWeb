@@ -1,0 +1,386 @@
+[
+  {
+    "id": "6:2",
+    "name": "01_速度と戦術で競い合う マルチスレッドタイピングバトル",
+    "text": [
+      {
+        "text": "NyctoType",
+        "name": "Heading"
+      },
+      {
+        "text": "BogosorGames     NyctoType     2026.09                                  01",
+        "name": "Footer"
+      },
+      {
+        "text": "速度と戦術で競い合う\nマルチスレッドタイピングバトル",
+        "name": "Tagline"
+      },
+      {
+        "text": "Steam / PC     1–2人     開発中\n\nローグライト × リアルタイム対戦 × タイピング\n\n2027年発売目標\n大会・コミュニティ運営のパートナーを募集",
+        "name": "Overview / text"
+      }
+    ]
+  },
+  {
+    "id": "7:2",
+    "name": "02_タイピングを、新しい対戦体験へ",
+    "text": [
+      {
+        "text": "Concept  タイピングを、新しい対戦体験へ",
+        "name": "Heading"
+      },
+      {
+        "text": "BogosorGames     NyctoType     2026.09                                  02",
+        "name": "Footer"
+      },
+      {
+        "text": "速さを武器に、\n次の一手を選び続ける。\n\nコマの移動や生成を、タイピングで実行。\nプレイヤーは入力と盤面の判断を切り替えながら戦います。\n\n攻めを続けるか、相手を止めるか、新しいコマを出すか。\n限られた入力時間の使い方が、勝負を変えます。",
+        "name": "Core concept / text"
+      },
+      {
+        "text": "タイピングを、新しいeSportsへ。",
+        "name": "Vision"
+      }
+    ]
+  },
+  {
+    "id": "8:2",
+    "name": "03_基本ルール",
+    "text": [
+      {
+        "text": "Rules  基本ルール",
+        "name": "Heading"
+      },
+      {
+        "text": "BogosorGames     NyctoType     2026.09                                  03",
+        "name": "Footer"
+      },
+      {
+        "text": "相手側の盤外へ\nコマを送り込む\n\n自分のコマと移動先を選び、提示された文字列を入力すると、コマが動きます。\n\nコマを相手側の端から盤外へ落とすとダメージ。先に相手の体力をゼロにしたプレイヤーの勝利です。\n\n相手も同時に行動する、リアルタイムの盤面戦略ゲームです。",
+        "name": "Rules copy / text"
+      },
+      {
+        "text": "開発中の実機画面：盤面・タイピング課題・両者の体力",
+        "name": "Gameplay caption"
+      }
+    ]
+  },
+  {
+    "id": "8:10",
+    "name": "04_入力するあいだも、戦況は動く",
+    "text": [
+      {
+        "text": "Actions  入力するあいだも、戦況は動く",
+        "name": "Heading"
+      },
+      {
+        "text": "BogosorGames     NyctoType     2026.09                                  04",
+        "name": "Footer"
+      },
+      {
+        "text": "移動する。生成する。\n能力を使う。\n\n実行したい行動を選び、タイピング課題をクリアすると、その行動が実行されます。\n\n入力を続けているあいだも、相手はコマを動かします。盤面への対応と次の準備を、いつ切り替えるかが重要です。\n\nタイピング速度と、行動の優先順位。両方を使って戦います。",
+        "name": "Actions copy / text"
+      },
+      {
+        "text": "開発中の実機画面：コンソールで生成するコマを選択",
+        "name": "Console caption"
+      }
+    ]
+  },
+  {
+    "id": "8:18",
+    "name": "05_コマとアビリティ",
+    "text": [
+      {
+        "text": "Pieces  コマとアビリティ",
+        "name": "Heading"
+      },
+      {
+        "text": "BogosorGames     NyctoType     2026.09                                  05",
+        "name": "Footer"
+      },
+      {
+        "text": "移動方向と能力で、\nコマの役割が変わる\n\nコマごとに移動できる方向、入力コスト、与えるダメージが異なります。\n\n相手のコマを破壊したり、押し出して進路を変えたりするアビリティもあります。",
+        "name": "Piece differences / text"
+      },
+      {
+        "text": "破壊者\n\n移動先の相手のコマを破壊して進める。\n\n圧送\n\n相手のコマの奥が空いていれば、1マス押し出す。\n\n破壊への耐性\n\n相手の破壊効果を受けない。攻撃の受け方が変わる。",
+        "name": "Ability examples / text"
+      },
+      {
+        "text": "開発中の実機画面：コマの選択",
+        "name": "Piece image caption"
+      }
+    ]
+  },
+  {
+    "id": "8:26",
+    "name": "06_一人で磨き、対戦で試す",
+    "text": [
+      {
+        "text": "Game Modes  一人で磨き、対戦で試す",
+        "name": "Heading"
+      },
+      {
+        "text": "BogosorGames     NyctoType     2026.09                                  06",
+        "name": "Footer"
+      },
+      {
+        "text": "ローグライト\n\n1人用の主軸となるモード。\n対戦相手がいなくても楽しめる体験を作ります。\n\n戦闘とイベントを選びながら進み、コマの獲得・強化でデッキを育てます。構成を変え、ボスの攻略を目指します。\n\n現在：マップ進行と会話の骨格を実装。\n開発予定：報酬・強化、1ランの完走、ボス、セーブ。",
+        "name": "Solo mode / text"
+      },
+      {
+        "text": "オンライン対戦\n\n1対1で、入力速度と戦略を競うモード。\n同じ盤面で相手とリアルタイムに戦います。\n\nフレンドマッチとカジュアルマッチを軸に、繰り返し対戦できる環境を整えます。\n\n現在：オンライン対戦の基礎を実装。\n製品版へ：通信安定性・対戦導線・バランスを調整。",
+        "name": "Versus mode / text"
+      }
+    ]
+  },
+  {
+    "id": "8:34",
+    "name": "07_古いコンピューターの内側で",
+    "text": [
+      {
+        "text": "World  古いコンピューターの内側で",
+        "name": "Heading"
+      },
+      {
+        "text": "BogosorGames     NyctoType     2026.09                                  07",
+        "name": "Footer"
+      },
+      {
+        "text": "プログラム同士が、互いの破壊を目指す。\n\n古いモニター、ケーブル、廃棄されたデータ。\nコンピューター内部の不穏な世界で、プレイヤーは自らの存在にまつわる物語を辿ります。",
+        "name": "World copy / text"
+      }
+    ]
+  },
+  {
+    "id": "8:41",
+    "name": "08_届けたいプレイヤー",
+    "text": [
+      {
+        "text": "Audience  届けたいプレイヤー",
+        "name": "Heading"
+      },
+      {
+        "text": "BogosorGames     NyctoType     2026.09                                  08",
+        "name": "Footer"
+      },
+      {
+        "text": "中心となるプレイヤー\n\n盤面の読み合いや、デッキの組み合わせを考えることが好きな人。\n\nタイピングの上達を、スコア以外の手応えでも感じたい人。\n\n短い対戦を繰り返し、自分の戦い方を磨きたい人。",
+        "name": "Core audience / text"
+      },
+      {
+        "text": "競技としての魅力\n\n入力速度・正確さは、練習で伸ばせる技術。\nどこへ入力時間を使うかは、プレイヤーの判断。\n\n出題される文字列にはランダム性があり、入力の得手不得手も変わります。相手の行動を読み切れないこととは区別し、偶然と技術のバランスを調整します。\n\n共通の操作を使いながら、戦い方に違いが生まれる設計です。",
+        "name": "Competitive appeal / text"
+      }
+    ]
+  },
+  {
+    "id": "8:49",
+    "name": "09_プレイアブル版と、これまでの反応",
+    "text": [
+      {
+        "text": "Progress  プレイアブル版と、これまでの反応",
+        "name": "Heading"
+      },
+      {
+        "text": "BogosorGames     NyctoType     2026.09                                  09",
+        "name": "Footer"
+      },
+      {
+        "text": "プレイアブル版を展示\n\ngamescom 2026で試遊展示。\nTGSに向け、展示で見つかった不具合と操作・表示を改善しています。\n\n実装済みの基礎\n\nCPU戦／オンライン対戦／デッキプリセット\n特殊コマ／チュートリアル／対戦ログ\nローグライトのマップ・会話",
+        "name": "Build status / text"
+      },
+      {
+        "text": "610\n\nSteam ウィッシュリスト\n2026年9月7日時点・開発者集計\n\nIGN Chinaで試遊紹介\n\ngamescom会場で、タイピングと盤面戦略を組み合わせた体験として紹介。\n\n一般向けデモは公開準備中。\n公開後のプレイ状況・再プレイ意向を検証します。",
+        "name": "Traction / text"
+      },
+      {
+        "text": "4Gamer：gamescomのTGCA特集内で作品紹介（2026.09.05）",
+        "name": "4Gamer feature"
+      }
+    ]
+  },
+  {
+    "id": "8:57",
+    "name": "10_市場での位置と販売方針",
+    "text": [
+      {
+        "text": "Market  市場での位置と販売方針",
+        "name": "Heading"
+      },
+      {
+        "text": "BogosorGames     NyctoType     2026.09                                  10",
+        "name": "Footer"
+      },
+      {
+        "text": "タイピングと戦略の交点\n\nTouch Type Tale\nタイピングで戦略ゲームを操作する比較対象。\n\nGlyphica: Typing Survival\n入力とビルド成長・反復プレイを組み合わせた比較対象。\n\nNyctoTypeは、同時進行する盤面対戦と、コマの構成・強化を組み合わせます。",
+        "name": "Position / text"
+      },
+      {
+        "text": "Steamでの買い切り販売\n\n発売目標：2027年\n想定価格：2,000円前後（検討中）\n対応機種：PC\n\nソロの遊び応えを整え、対戦・コミュニティで継続して遊ぶ機会を増やします。\n\n無料デモで反応を確認し、内容・価格・発売時期を調整。早期アクセスの採用は検討中です。",
+        "name": "Sales model / text"
+      },
+      {
+        "text": "Touch Type Tale / Steam",
+        "name": "Touch Type Tale source"
+      },
+      {
+        "text": "Glyphica: Typing Survival / Steam",
+        "name": "Glyphica source"
+      }
+    ]
+  },
+  {
+    "id": "8:65",
+    "name": "11_大会から、継続して遊ぶコミュニティへ",
+    "text": [
+      {
+        "text": "Tournament  大会から、継続して遊ぶコミュニティへ",
+        "name": "Heading"
+      },
+      {
+        "text": "BogosorGames     NyctoType     2026.09                                  11",
+        "name": "Footer"
+      },
+      {
+        "text": "01  小規模な交流戦\n\n初参加者向けの練習時間を設け、ルールを共有。招待制の対戦会から始めます。\n\nまず確認すること\n試合の進めやすさ、参加者の反応、通信・運営上の課題。",
+        "name": "Tournament first event / text"
+      },
+      {
+        "text": "02  配信付き大会\n\nタイピング競技者や配信者を招き、対戦の見どころを実況で伝えます。\n\n会場・オンライン形式、参加人数、実況・配信体制はパートナーと設計します。",
+        "name": "Tournament broadcast / text"
+      },
+      {
+        "text": "03  継続する対戦会\n\nイベント後も対戦相手が見つかる場を用意。参加者の声を、調整と次の開催に反映します。\n\n開催数だけでなく、再参加・継続プレイを確かめながら育てます。",
+        "name": "Tournament community / text"
+      },
+      {
+        "text": "初回は小規模開催を想定。会場・参加人数・予算・時期は、協力先と相談して決定。",
+        "name": "Pilot scope"
+      }
+    ]
+  },
+  {
+    "id": "8:75",
+    "name": "12_公開デモから製品版へ",
+    "text": [
+      {
+        "text": "Roadmap  公開デモから製品版へ",
+        "name": "Heading"
+      },
+      {
+        "text": "BogosorGames     NyctoType     2026.09                                  12",
+        "name": "Footer"
+      },
+      {
+        "text": "2026年9月\n公開デモ・TGS\n\n不具合修正、操作・表示の整理、翻訳確認。\n配布範囲と動作環境を確定。\n\n到達点\n初回プレイを最後まで通せるデモと、試遊フィードバックの収集。",
+        "name": "Milestone demo / text"
+      },
+      {
+        "text": "TGS後〜2027年\n製品版の核を完成\n\nコマの獲得・強化、ボス、セーブ、1ラン完走。\n並行してオンライン対戦を安定化。\n\n到達点\n短い1ランと対戦を、外部プレイヤーが繰り返し遊べる状態。",
+        "name": "Milestone development / text"
+      },
+      {
+        "text": "2027年発売目標\n検証・発売準備\n\n外部テスト、バランス・演出調整、QA・ローカライズ。\n小規模イベントで運営も検証。\n\n到達点\n製品版の品質確認と販売準備。具体的な時期は検証結果に応じて決定。",
+        "name": "Milestone release / text"
+      },
+      {
+        "text": "開発計画案。各段階でプレイ可能なビルドを検証し、発売範囲と時期を具体化します。",
+        "name": "Roadmap scope"
+      }
+    ]
+  },
+  {
+    "id": "8:85",
+    "name": "13_開発体制",
+    "text": [
+      {
+        "text": "Team  開発体制",
+        "name": "Heading"
+      },
+      {
+        "text": "BogosorGames     NyctoType     2026.09                                  13",
+        "name": "Footer"
+      },
+      {
+        "text": "金井啓太\n\nディレクション・企画・開発\n\n教育系アプリケーションの開発経験と、映像・メディアアートの制作経験を活かして開発。",
+        "name": "Keita Kanai / text"
+      },
+      {
+        "text": "田中みゆき\n\nイラスト・UIデザイン\n\nゲーム会社でのデザイン経験。\nUI制作、複数プラットフォームでの発売に向けたデザイン・パブリッシング補助を担当。",
+        "name": "Miyuki Tanaka / text"
+      },
+      {
+        "text": "TGCA 第I期 育成クリエイター",
+        "name": "TGCA support"
+      },
+      {
+        "text": "公益財団法人ポノス財団 助成採択：『NyctoType』の大会用バージョン開発",
+        "name": "PONOS foundation support"
+      }
+    ]
+  },
+  {
+    "id": "8:95",
+    "name": "14_大会・コミュニティを育てるパートナーを",
+    "text": [
+      {
+        "text": "Partnership  大会・コミュニティを育てるパートナーを",
+        "name": "Heading"
+      },
+      {
+        "text": "BogosorGames     NyctoType     2026.09                                  14",
+        "name": "Footer"
+      },
+      {
+        "text": "ともに作りたいもの\n\nタイピングを入口に、対戦を楽しむ人が集まり、繰り返し参加できる場。\n\nまずは小規模な対戦イベントの実施に向け、開催形式・役割分担・必要なゲーム機能を相談したいと考えています。",
+        "name": "Partner request / text"
+      },
+      {
+        "text": "相談したい支援\n\n大会・交流戦の企画と運営\n参加者・配信者へのアプローチ\n実況・配信制作\n継続するコミュニティの運営\n\n開発チームが担うこと\n\nゲーム開発、ビルド提供、ルール説明、イベントで得た課題への対応。",
+        "name": "Partner roles / text"
+      }
+    ]
+  },
+  {
+    "id": "8:103",
+    "name": "15_デモで、入力と戦略の手触りを",
+    "text": [
+      {
+        "text": "Let's Play  デモで、入力と戦略の手触りを",
+        "name": "Heading"
+      },
+      {
+        "text": "BogosorGames     NyctoType     2026.09                                  15",
+        "name": "Footer"
+      },
+      {
+        "text": "BogosorGames\n\n金井啓太\n\nelectro.peaceful.oooo@gmail.com\n\nSteamでNyctoTypeを見る\n\nデモ・プレイ映像は、本資料とあわせて個別に共有します。\n大会・コミュニティ運営の可能性について、ぜひお話しさせてください。",
+        "name": "Contact / text"
+      }
+    ]
+  },
+  {
+    "id": "8:110",
+    "name": "A1_キーボードを通じた協業の可能性",
+    "text": [
+      {
+        "text": "Device Partners  キーボードを通じた協業の可能性",
+        "name": "Heading"
+      },
+      {
+        "text": "BogosorGames     NyctoType     2026.09                                  A1",
+        "name": "Footer"
+      },
+      {
+        "text": "体験と製品に触れる接点\n\n両手で文字を入力するゲーム体験を、キーボードに関心を持つ人との接点にします。\n\n店頭・展示会での試遊、製品貸出、対戦イベントへの協賛など、小さく試せる施策から検討します。",
+        "name": "Device collaboration / text"
+      },
+      {
+        "text": "協業の候補\n\n製品体験と組み合わせた試遊会\n大会の使用機材・賞品の提供\n共同イベント・配信企画\n\n将来の展開\n\n継続的な反応が得られた段階で、コラボ製品などを検討。\n現時点では構想であり、協業先・実施内容は未定です。",
+        "name": "Device scope / text"
+      }
+    ]
+  }
+]

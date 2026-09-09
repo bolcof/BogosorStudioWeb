@@ -249,5 +249,6 @@ python3 -m http.server 8000 --directory docs
 - 掲載先: `docs/pitchdecks/NyctoType/index.html`。画像と日英切り替えを内包した単体HTMLです。
 - NyctoType紹介ページの資料リンクは、このピッチデッキを参照します。旧プレスキットは削除していません。
 - リンク文言は各言語のNyctoType Markdownにある `presskit` 相当の節で管理します。`kicker` を指定すると、資料リンクの小ラベルも変更できます。
-- 元データ: NyctoTypeプロジェクトの `Docs/プロモーション/web-pitch/`。再生成した `output/html/NyctoType-Pitch.html` を掲載先へコピーして更新します。
+- 編集元: `pitch/nyctotype/`。ソース・画像・生成処理をこのリポジトリ内で管理します。ゲーム側の旧フォルダは保存版です。
+- 更新: `node pitch/nyctotype/scripts/update-site.mjs`。生成と検証が成功すると、掲載HTMLも更新されます。環境準備は [編集元README](pitch/nyctotype/README.md) を参照してください。
 - ピッチデッキにアクセス制限はありません。公開リポジトリやサイトへプッシュする前に、内容の公開範囲を確認してください。

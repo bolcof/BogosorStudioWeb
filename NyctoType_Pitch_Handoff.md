@@ -8,7 +8,7 @@
 - 現行のピッチデッキは、元Figmaの文章を基本とし、ユーザーが承認した修正を積み重ねたWeb資料です。
 - 短くまとめ直した旧「編集版」と現行版は別物です。旧版で上書きしないでください。
 - PDF/A4最適化より、Webページ内での読みやすさを優先する方針に変更済みです。
-- 今後の相談窓口はWebサイト側ですが、編集用のReactソースはまだNyctoTypeリポジトリ側にあります。今回、ソース移設はしていません。
+- ユーザーの追加指定により、編集用ソース・掲載素材・生成と検証処理をBogosorStudioWeb/pitch/nyctotype/へ移設しました。以後の正本はWebサイト側です。
 - BogosorStudioWebのピッチHTMLだけを直すと、次の再生成で変更が消えます。原則として編集元を直して生成・コピーします。
 - 日本語を変更したらピッチの英語版も更新します。サイト紹介ページの6言語と、ピッチ本体の日英2言語は別です。
 - 作業単位ごとに日本語でコミットする方針です。コミット、プッシュ、Web公開を混同しないでください。
@@ -24,8 +24,9 @@
 | サイト内のピッチ本体 | BogosorStudioWeb/docs/pitchdecks/NyctoType/index.html |
 | 旧プレスキット（保持） | BogosorStudioWeb/docs/presskits/NyctoType/index.html |
 | ゲームのリポジトリ | /Users/244cm265kg/Documents/GameProjects/NyctoType |
-| ピッチの編集元 | NyctoType/Docs/プロモーション/web-pitch/ |
-| 編集元から生成する単体HTML | web-pitch/output/html/NyctoType-Pitch.html |
+| ピッチの編集元（正本） | BogosorStudioWeb/pitch/nyctotype/ |
+| 移設時点の保存版（編集しない） | NyctoType/Docs/プロモーション/web-pitch/ |
+| 中間生成HTML（Git対象外） | pitch/nyctotype/output/html/NyctoType-Pitch.html |
 | 原文復元前の短縮・構成整理版 | NyctoType/Docs/プロモーション/web-pitch-edited/ |
 | ユーザー提供の元画像 | NyctoType/Docs/プロモーション/スクショ/ |
 | メール由来の協業画像候補 | NyctoType/Docs/プロモーション/デバイス協業_画像候補/ |
@@ -39,7 +40,7 @@ Figmaとの自動同期はありません。元Figmaや旧版を削除・上書�
 
 ## 編集元の構成
 
-以下はweb-pitch/からの相対パスです。
+以下はBogosorStudioWeb/pitch/nyctotype/からの相対パスです。
 
 | ファイル | 内容・編集時の注意 |
 | --- | --- |
@@ -57,6 +58,7 @@ Figmaとの自動同期はありません。元Figmaや旧版を削除・上書�
 | app/update-history.json | 閲覧者向けの更新履歴。Gitの作業記録とは別。 |
 | app/update-history.tsx | 更新履歴ボタン・モーダル。 |
 | public/images/ | 掲載用画像。原本とは分けて保存。 |
+| scripts/update-site.mjs | ビルド・全検証を実行し、成功した場合だけサイトのHTMLを更新。外部公開はしない。 |
 | scripts/export-standalone.py | ビルド結果を単体HTMLへ変換。画像・CSS・翻訳・実行処理を内包。 |
 | scripts/check-original-copy.py | 元文章の保持、承認済み修正、画像・動画・ページ構造の検証。 |
 | scripts/check-translations.py | 翻訳漏れの検証。 |
@@ -75,6 +77,7 @@ Figmaとの自動同期はありません。元Figmaや旧版を削除・上書�
 6. A4分割を試したがPDFの品質が期待に達しなかったため、以後はWebの見やすさを優先した。
 7. 実際のゲーム画面、会話画面、台北展示写真、YouTubeの埋め込みを追加した。
 8. サイトのNyctoTypeページにあったPress Kitリンクをピッチデッキに変更し、単体HTMLをdocs/pitchdecks/NyctoType/index.htmlへ配置した。
+9. 以後はサイト側のGit内で完結させる指定により、編集用ソースと掲載素材もpitch/nyctotype/へ移設した。ゲーム側の旧フォルダは保存版として残し、更新しない。
 
 古い https://nyctotype-partner-pitch.bolcof.chatgpt.site/ は別の公開先です。現行の編集先・公開先と取り違えず、勝手に更新しないでください。
 
@@ -191,34 +194,38 @@ app/update-history.jsonは現行で次の1件のみです。
 
 ## ピッチ本体の更新手順
 
-1. 両リポジトリのブランチ・差分を確認する。他のチャットやユーザーの変更を上書きしない。
-2. NyctoType側のweb-pitch/の必要箇所を編集する。日本語と英語を同期する。
-3. ビルド・書き出し・確認を行う。
-4. 出力HTMLをBogosorStudioWeb/docs/pitchdecks/NyctoType/index.htmlへコピーする。
-5. コピーが一致し、紹介ページから正しい相対リンクで到達できることを確認する。
-6. ゲーム側の編集元・生成HTMLと、サイト側のコピーを、それぞれ内容の分かる日本語でコミットする。
-7. 公開依頼があった場合のみ、サイト側のプッシュ・公開状態を確認する。ゲーム側だけをプッシュして完了と言わない。
-
-この端末で使用したコマンド例:
+1. BogosorStudioWebのブランチと差分を確認する。ユーザーや他のチャットの変更を上書きしない。
+2. pitch/nyctotype/の必要箇所を編集し、日本語と英語を同期する。
+3. 初回はpitch/nyctotype/で `pnpm install --frozen-lockfile` を実行する。Node.js 22.13以上、pnpm、Python 3が必要。
+4. サイトのルートから下記の更新コマンドを実行する。ビルド・書き出し・本文と翻訳と切り替えの検証が全て成功した場合だけ、docs内のHTMLを置換する。
+5. 紹介ページのリンクと変更箇所を確認する。見た目を変えた場合はWeb表示で確認する。
+6. 編集元とdocs内の生成HTMLを同じサイト側のコミットにまとめ、日本語で変更内容を記録する。ゲーム側の保存版には逆同期しない。
+7. プッシュ・外部公開は別途依頼された場合だけ実施する。
 
 ```sh
-cd /Users/244cm265kg/Documents/GameProjects/NyctoType/Docs/プロモーション/web-pitch
-/Users/244cm265kg/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node node_modules/vinext/dist/cli.js build
-/Users/244cm265kg/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 scripts/export-standalone.py
-/Users/244cm265kg/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 scripts/check-original-copy.py
-/Users/244cm265kg/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 scripts/check-translations.py
-/Users/244cm265kg/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node scripts/check-language-runtime.mjs
-
-cp output/html/NyctoType-Pitch.html /Users/244cm265kg/Documents/BogosorStudioWeb/docs/pitchdecks/NyctoType/index.html
-cmp output/html/NyctoType-Pitch.html /Users/244cm265kg/Documents/BogosorStudioWeb/docs/pitchdecks/NyctoType/index.html
+node pitch/nyctotype/scripts/update-site.mjs
 ```
 
-実行環境のパスが変わった場合は確認し直してください。ビルド中の一時的なローカルサーバーは外部公開ではありません。
-別フォルダへの編集・コピーは実行環境によって承認が必要です。権限がない場合に生成HTMLだけを独断で別管理しないでください。
+この端末で使った実行環境を指定する場合:
 
-本体HTMLは画像内包で約37.8MBです。HTML全体を毎回大量表示せず、元ソースや対象要素を限定して調べると効率的です。
-画像やソースを分離する軽量化は、今回実施していません。行うなら単体HTML要件・運用をユーザーと確認してください。
-今後ソースをサイトリポジトリへ移す場合も、移設範囲・履歴・参照パスを整理し、正本を明確にしてから行ってください。
+```sh
+PYTHON=/Users/244cm265kg/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 /Users/244cm265kg/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node pitch/nyctotype/scripts/update-site.mjs
+```
+
+作業ディレクトリによらず、更新スクリプト自身の場所から各パスを解決します。通常はサイトのルートで実行してください。ビルド中の一時的なローカルサーバーは外部公開ではありません。
+
+中間生成物はpitch/nyctotype/output/html/NyctoType-Pitch.htmlです。output/・dist/・node_modules/はGit対象外で、掲載用HTMLだけdocs内に保持します。本文を生成HTMLで直接修正しないでください。
+
+本体HTMLは画像内包で約37.8MBです。全文を大量表示せず、編集元や対象要素を限定して確認します。画像の外部ファイル化などの軽量化は今回行っていません。
+
+### 移設の範囲
+
+- Reactソース、日英文章、元Figmaの文章スナップショット、掲載素材、生成・検証スクリプト、依存関係の固定ファイル、編集メモをサイト側へコピー済み。
+- ゲーム側の元フォルダは削除せず保存版にした。旧短縮版・過去PDF・スクショ原本・未選択のメール写真候補もゲーム側で保持。今後の通常編集・生成にゲーム側のファイルは不要。
+- node_modulesはこの端末での検証用にコピーしただけで、Gitには含めない。他端末では固定ファイルからインストールする。
+- .openaiの公開先設定、キャッシュ、旧ビルド出力、別Git履歴は移設していない。以前のホスティング先を更新する手順は追加していない。
+- 元の履歴はNyctoTypeのPromo/PitchDeckに残り、以後の変更履歴はBogosorStudioWebで管理する。
+- pitch/はGitHub Pagesのdocs/公開対象外だが、リポジトリを公開すればソース自体は見える。秘密情報の保管先ではない。
 
 ## サイト紹介ページのリンクを変える場合
 
@@ -244,9 +251,9 @@ cmp output/html/NyctoType-Pitch.html /Users/244cm265kg/Documents/BogosorStudioWe
 
 ## 引き継ぎ時点の検証・残る注意
 
-- 最後のピッチ更新ではビルド、元文章・画像・動画・構造、翻訳漏れのチェックが成功。
-- 日英切り替えのスクリプト検証は直近の写真追加時点で成功。最後の左右配置変更は本文変更なし。
-- サイト側のコピー一致を確認済み。最後の見た目調整について、ブラウザーでの実画面検証は未実施。
+- 移設後、サイト側だけでビルド・単体HTML生成・元文章と画像と構造・翻訳漏れ・日英切り替えの検証が全て成功。
+- 編集元のapp/とpublic/は移設前と一致。生成HTMLもstyle要素以外は移設前と一致。CSS差分は本文で使われていない17個のユーティリティの除去のみ。
+- サイト側の生成物と掲載HTMLの一致を確認済み。今回、ブラウザーでの実画面検証は未実施。
 - 印刷品質・最終PDFは保証していません。過去PDFは現行HTMLと違う旧版です。
 - 静的ピッチにはアクセス制限がありません。CONFIDENTIAL表記や隠れたURLだけで保護されるわけではありません。
 - 世界観の核心・販売試算・協業相談を含むので、外部公開依頼時には公開対象を確認してください。リンクを置くこととアクセス制限は別です。

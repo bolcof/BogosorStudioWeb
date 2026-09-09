@@ -1,0 +1,1749 @@
+[
+  ["開発中の実機画面：盤面・移動先の選択・両者の体力", "Development screenshot: the board, move destination selection and both players' health"],
+  ["開発中の実機画面：コンソールで生成するコマを選択", "Development screenshot: selecting a piece to generate through the console"],
+  ["コマとアビリティの確認画面", "Piece and ability details"],
+  ["ローグライトのマップ（イメージ画像）", "Roguelite map (concept image)"],
+  ["配信市場の参考事例", "Examples from the streaming market"],
+  ["3作品とも、SteamDB掲載の3社による所有者推計の中央値を販売本数とみなし、確認時点の日本通常価格（セール割引前）を掛けています。確認日：2026年9月9日。", "For all three titles, the median of three providers' ownership estimates listed on SteamDB is treated as unit sales and multiplied by the Japanese regular price before sale discounts. Checked September 9, 2026."],
+  ["コマの種類ごとにアビリティが決まっています。今後は、強化によってアビリティを追加できるようにする予定です。相手のアビリティも踏まえ、どのコマで攻め、どのコマを止めるかを判断します。", "Each piece type has its own abilities. We plan to let players add abilities through upgrades. Players consider their opponent's abilities when deciding which pieces to attack with and which opposing pieces to stop."],
+  ["今後は、プレイ中にゲージが溜まると、同じくコンソールを使用して「アクティブスキル」を発動できるようにする予定です。全てのコマをランダムに動かすなど、ゲーム全体に影響する効果で逆転を狙えるため、発動のタイミングも重要です。", "We plan to let players activate active skills through the same console once a gauge fills during play. Effects that influence the whole game, such as moving all pieces randomly, can create opportunities for a comeback, making activation timing important."],
+  ["ランクシステムは開発予定です。ラウンド間の強化を含む3ラウンド制は検討中です。", "The rank system is planned. A three-round format with upgrades between rounds is under consideration."],
+  ["実施時期・配布するビルド・開催形式は、パートナーと相談して決めさせていただければと思います。", "We would like to discuss and agree on the timing, build to distribute and event format with our partner."],
+  ["今後のコラボ製品や大会協賛についても、ご相談させていただければと思います。", "We would also welcome discussions about future collaborative products and tournament sponsorship."],
+  ["台北ゲームショウ2026では、EPOMAKER・LINSOULより展示用キーボード・オーディオ機器の提供を受けました。", "At Taipei Game Show 2026, EPOMAKER and LINSOUL provided keyboards and audio equipment for our exhibition."],
+  ["デバイス協業の検討用イメージ。", "Illustrative reference for device collaboration."],
+  ["会話やステージを通じて、デモに収録するローグライト1周分のストーリーを完成させ、世界観を伝える内容を制作。", "Complete the story for one roguelite run included in the demo, conveying the world through dialogue and stages."],
+  ["しかし、従来のeSportsとしてのタイピングゲームは、速さと正確さを競うだけで、視覚的な進化や戦術の広がりが少なく、観戦時の見どころがわかりづらい面があります。", "However, traditional typing games played as esports focus solely on speed and accuracy, with limited visual evolution or tactical variety, which can make the highlights difficult for spectators to follow."],
+  ["売上（試算）", "Revenue (Estimate)"],
+  ["機材提供の実績", "Equipment Support"],
+  ["1,480円 × 約37.6万本 ≒ 5.6億円（概算）", "JPY 1,480 x approx. 375,900 units = approx. JPY 556 million (estimate)"],
+  ["2,050円 × 約2.7万本 ≒ 5,576万円（概算）", "JPY 2,050 x approx. 27,200 units = approx. JPY 55.8 million (estimate)"],
+  ["中央値：VG Insights 約37.6万本", "Median: VG Insights, approx. 375,900 owners"],
+  ["中央値：Gamalytic 約2.7万本", "Median: Gamalytic, approx. 27,200 owners"],
+  ["中央値：VG Insights 約19.9万本", "Median: VG Insights, approx. 199,400 owners"],
+  ["本作の価格・販売本数の目標と売上試算は、応募時の旧計画です。下記の参考作品は、2026年9月9日に確認した価格・所有者推計で概算しています。", "NyctoType's target price, unit sales and revenue calculation come from the original application plan. The reference titles below use prices and ownership estimates checked on September 9, 2026."],
+  ["3作品とも、SteamDB掲載の3社による所有者推計の中央値を販売本数とみなし、確認時点の日本通常価格（セール割引前）を掛けています。確認日：2026年9月9日。取得したSteamDBページにはキャッシュを含みます。", "For all three titles, the median of three providers' ownership estimates listed on SteamDB is treated as unit sales and multiplied by the Japanese regular price before sale discounts. Checked September 9, 2026. The retrieved SteamDB pages include cached data."],
+  ["価格×推計本数の概算は実売上ではなく、割引・地域価格・税・返金・配布などを反映していません。所有者数と有料販売本数も一致するとは限りません。中央値の採用が精度を保証するものではなく、いずれも市場の参考です。", "Price multiplied by estimated units is not actual revenue and excludes discounts, regional pricing, taxes, refunds and giveaways. Owners do not necessarily equal paid copies sold. Using the median does not guarantee accuracy; these are market references only."],
+  ["980円 × 約19.9万本 ≒ 2.0億円（概算）", "JPY 980 x approx. 199,400 units = approx. JPY 195 million (estimate)"],
+  ["SteamDB掲載のVG Insightsによる所有者推計を販売本数とみなし、日本の現在価格を掛けた参考値。2026年9月9日確認。", "Illustrative calculation using VG Insights' ownership estimate listed on SteamDB as unit sales, multiplied by the current Japanese price. Checked September 9, 2026."],
+  ["所有者推計の出典", "Ownership estimate source"],
+  ["価格×推計本数の概算は実売上ではなく、割引・地域価格・税・返金・配布などを反映していません。所有者数と有料販売本数も一致するとは限りません。いずれも市場の参考であり、本作の販売目標を保証するものではありません。", "Price multiplied by estimated units is not actual revenue and excludes discounts, regional pricing, taxes, refunds and giveaways. Owners do not necessarily equal paid copies sold. These are market references, not guarantees that NyctoType will reach its sales target."],
+  ["2026年9月", "September 2026"],
+  ["TGS前に公開", "Public release before TGS"],
+  ["年月未定", "Date TBD"],
+  ["公開時期を調整", "Release timing under review"],
+  ["2027年", "2027"],
+  ["目標・月未定", "Target / Month TBD"],
+  ["正式リリース", "Full release"],
+  ["販売目標の根拠・参考作品", "Sales Target Rationale & Reference Titles"],
+  ["価格・販売本数の目標と売上試算は、応募時の旧計画です。Epistory・Nanotaleの数値も原資料記載の未検証の推計であり、確定した売上実績ではありません。", "The target price, unit sales and revenue calculation come from the original application plan. The Epistory and Nanotale figures are also unverified estimates from that document, not confirmed sales results."],
+  ["Steam購入者レビュー2,481件・好評率91％", "2,481 Steam-purchase reviews / 91% positive"],
+  ["タイピングと武器・強化の選択を組み合わせたローグライト。ビルドを育てて繰り返し挑戦する点が、本作の1人用モードに近い参考例です。", "A roguelite combining typing with weapon and upgrade choices. Building a loadout over repeated runs makes it a relevant reference for NyctoType's solo mode."],
+  ["2026年9月9日時点・全言語。販売本数は未確認。", "As of September 9, 2026, across all languages. Unit sales are unverified."],
+  ["レビュー集計の出典", "Review data source"],
+  ["単純な定価×推計本数は実売上ではなく、割引・地域価格・税・返金などを反映していません。Glyphicaのレビュー件数も販売本数とは異なります。いずれも市場の参考であり、本作の販売目標を保証するものではありません。", "List price multiplied by estimated units is not actual revenue and does not account for discounts, regional pricing, taxes or refunds. Glyphica's review count is not unit sales either. These are market references, not guarantees that NyctoType will reach its sales target."],
+  ["これまでの歩み", "Our Journey"],
+  ["TGCAでの採択を経て、国内外の展示会に出展してきました。現在はgamescomの展示で見つかった不具合や操作・表示を改善し、TGSでの展示とイベント版の公開に向けて準備しています。", "Since being selected for TGCA, we have exhibited in Japan and overseas. We are now addressing bugs and improving controls and visuals based on our gamescom exhibition, in preparation for TGS and the public event demo."],
+  ["TGCA 第1期に採択", "Selected for TGCA's First Cohort"],
+  ["東京ゲームショウ2025 出展", "Exhibited at Tokyo Game Show 2025"],
+  ["台北ゲームショウ2026 出展", "Exhibited at Taipei Game Show 2026"],
+  ["PONOS財団 助成採択", "Selected for a PONOS Foundation Grant"],
+  ["東京ゲームダンジョン12 出展", "Exhibited at Tokyo Game Dungeon 12"],
+  ["gamescom 2026 出展", "Exhibited at gamescom 2026"],
+  ["紹介記事・動画", "Articles & Videos"],
+  ["TGCAのgamescom取材記事内で作品紹介", "Featured in an article covering TGCA at gamescom"],
+  ["2026.09.05 / 日本語", "2026.09.05 / Japanese"],
+  ["gamescomでの試遊レポート", "Hands-on report from gamescom"],
+  ["中国語 / TapTap掲載", "Chinese / Published on TapTap"],
+  ["2026年のインディー対戦ゲーム特集内で紹介", "Included in a 2026 indie competitive games roundup"],
+  ["2026.05.07 / 中国語", "2026.05.07 / Chinese"],
+  ["惡魔貓 / DevilCatwith2cats", "DevilCatwith2cats"],
+  ["台北ゲームショウの訪問動画でNyctoTypeを紹介", "NyctoType featured in a Taipei Game Show visit video"],
+  ["2026.02.07 / 中国語 / YouTube", "2026.02.07 / Chinese / YouTube"],
+  ["公式サイトの活動記録", "History on Our Official Website"],
+  ["開発スケジュール", "Development Schedule"],
+  ["2026年9月・TGS前", "September 2026 / Before TGS"],
+  ["イベント版を公開", "Public Event Demo"],
+  ["gamescomで見つかった不具合や操作・表示を改善し、イベント版を一般公開。TGSでの試遊にもつなげます。", "Address bugs and improve controls and visuals based on gamescom feedback, then make the event demo publicly available ahead of TGS."],
+  ["TGS後", "After TGS"],
+  ["デッキ成長・1ラン完走", "Deck Growth & a Complete Run"],
+  ["コマの獲得・強化、報酬、ボス戦を整備。マップから戦闘、報酬へと進み、1周を最後まで遊べる状態にします。", "Develop piece acquisition, upgrades, rewards and boss battles, connecting the map, battles and rewards into a run that can be played to the end."],
+  ["公開時期未定", "Release Timing TBD"],
+  ["ローグライトを短く遊べる、内容を充実させたデモを公開。チュートリアルや翻訳、Windows・Macでの動作を整えます。", "Release a fuller demo offering a short roguelite run, with an improved tutorial, translations and Windows and Mac support."],
+  ["EAに向けた検証", "Testing for Early Access"],
+  ["オンライン統合・外部テスト", "Online Integration & External Testing"],
+  ["フレンド・カジュアル対戦を整え、クローズドベータへ。ソロ・対戦の反応を集め、セーブ、通信、バランス、品質を検証します。", "Prepare friend and casual matches for a closed beta. Gather feedback on solo and versus play, and test saving, networking, balance and quality."],
+  ["2027年目標", "Target: 2027"],
+  ["ソロとオンライン対戦を備えた有料版を提供。プレイヤーの反応を受けて、内容の追加と調整を続けます。", "Offer a paid version with solo play and online versus, then continue adding and refining content based on player feedback."],
+  ["時期未定", "Timing TBD"],
+  ["正式版 1.0", "Full Release 1.0"],
+  ["収録内容と物語の範囲を固め、翻訳・演出・最終QAを実施。遊び応えと品質を確認して正式リリースします。", "Finalize the content and story scope, complete localization, presentation and final QA, and confirm the gameplay experience and quality before full release."],
+  ["オンライン対戦は、ソロの機能追加と並行して整備します。試遊や小規模な対戦イベントでの反応も、開発と運営の検証に活かしていきます。", "Online versus is developed alongside new solo features. Feedback from demos and small competitive events will also inform development and event operations."],
+  ["各段階の内容・順序は、進捗や検証結果に応じて調整します。2027年はアーリーアクセスの目標であり、正式版の発売時期は未定です。", "The scope and order of each stage may change with progress and test results. Early Access is targeted for 2027; the full release date is undecided."],
+  ["アーリーアクセス目標：2027年 正式版の発売時期：未定 想定価格：2,000円前後（検討中） 対応機種：PC", "Early Access target: 2027. Full release: TBD. Indicative price: around JPY 2,000 (under consideration). Platform: PC."],
+  ["無料デモで反応を確認し、アーリーアクセスを通じて内容・価格・正式版の発売時期を調整します。", "Use the free demo to gather feedback, then refine the content, pricing and full-release timing through Early Access."],
+  [
+    "REALFORCE TYPING CHAMPIONSHIP 2023 大会紹介 / 日テレスポーツ【公式】",
+    "REALFORCE TYPING CHAMPIONSHIP 2023 Highlights / Nippon TV Sports (Official)"
+  ],
+  [
+    "ストリートファイター6：ボンちゃん vs ウメハラ / レッドブルプレイ",
+    "Street Fighter 6: Bonchan vs Daigo Umehara / Red Bull Play"
+  ],
+  [
+    "タイピングの競技大会はすでに開催されていますが、FPSや格闘ゲームと比べると、競技市場の広がりはまだ限られていると考えています。本作品では、タイピングゲームの性質を活かし、eSportsとしての展開を目指しています。",
+    "Typing tournaments already exist, but we see the competitive market as still limited compared with FPS and fighting games. With NyctoType, we aim to build on the nature of typing games to develop it as an esport."
+  ],
+  [
+    "競技性とエンタメ性を両立するため、「個人スキル」「駆け引き」「不確実性」の3つに着目しています。ある要素で劣っていても、他の要素で補えるバランスが重要だと考えています。",
+    "To balance competition and entertainment, we focus on individual skill, tactical decisions and uncertainty. We believe it is important to balance them so that strengths in one area can compensate for weaknesses in another."
+  ],
+  [
+    "本作品の「個人スキル」は「タイピング速度」です。練習によって勝率を上げられる一方で、自分より速い相手にも、コマの動かし方や、ランダムに現れる強化項目の選択によって逆転を狙える設計を予定しています。「スキルを向上する価値」と「どちらが勝つかわからない面白さ」の両立を目指しています。",
+    "In NyctoType, individual skill means typing speed. We plan a design where practice improves a player's chances of winning, while piece movement and choices among randomly offered upgrades can create opportunities to come back against a faster opponent. We aim to preserve both the value of improving and the excitement of not knowing who will win."
+  ],
+  [
+    "タイピングは多くの人が日常的に行うため、競技者の「凄さ」が自分ごととして伝わりやすいのも特長です。誰もが挑戦しやすく、上級者のパフォーマンスには見応えがあるという性質を、観戦の楽しさにもつなげます。",
+    "Typing is an everyday skill for many people, making it easy for viewers to relate to and appreciate a competitor's ability. We want to turn that combination of accessibility and impressive expert performance into an enjoyable spectator experience."
+  ],
+  [
+    "3つの要素",
+    "Three elements"
+  ],
+  [
+    "不確実性",
+    "Uncertainty"
+  ],
+  [
+    "ランダムに現れる強化項目",
+    "Randomly offered upgrades"
+  ],
+  [
+    "例：Apex Legends",
+    "e.g. Apex Legends"
+  ],
+  [
+    "リング収縮位置・アイテムドロップ",
+    "Ring locations / item drops"
+  ],
+  [
+    "格闘ゲーム",
+    "Fighting games"
+  ],
+  [
+    "例：Street Fighter 6",
+    "e.g. Street Fighter 6"
+  ],
+  [
+    "打撃・投げの択",
+    "Strike / throw mix-ups"
+  ],
+  [
+    "第2回 にじさんじ打鍵王 / 鈴木勝",
+    "2nd NIJISANJI Typing Championship / Suzuki Masaru"
+  ],
+  [
+    "速度と戦術で競い合うマルチスレッドタイピングバトル。大会・コミュニティ運営をともに進めるパートナーを探しています。",
+    "A multithreaded typing battle where players compete through speed and strategy. We are seeking partners for tournaments and community management."
+  ],
+  [
+    "目次へ",
+    "Skip to contents"
+  ],
+  [
+    "メイン",
+    "Main navigation"
+  ],
+  [
+    "目次",
+    "Contents"
+  ],
+  [
+    "配信・大会",
+    "Streams & events"
+  ],
+  [
+    "協業",
+    "Partnership"
+  ],
+  [
+    "印刷・PDF保存",
+    "Print / Save PDF"
+  ],
+  [
+    "ピッチを印刷・PDF保存",
+    "Print pitch / Save as PDF"
+  ],
+  [
+    "NyctoTypeのゲーム内世界",
+    "The world of NyctoType"
+  ],
+  [
+    "速度と戦術で競い合う",
+    "Compete through speed and strategy"
+  ],
+  [
+    "マルチスレッドタイピングバトル",
+    "A multithreaded typing battle"
+  ],
+  [
+    "Steamで見る",
+    "View on Steam"
+  ],
+  [
+    "更新履歴を表示",
+    "View update history"
+  ],
+  [
+    "2026.09.09 更新履歴を表示",
+    "2026.09.09 View update history"
+  ],
+  [
+    "更新履歴",
+    "Update history"
+  ],
+  [
+    "閉じる",
+    "Close"
+  ],
+  [
+    "更新履歴を閉じる",
+    "Close update history"
+  ],
+  [
+    "ピッチ資料を公開しました。",
+    "Published the pitch."
+  ],
+  [
+    "ジャンル",
+    "Genre"
+  ],
+  [
+    "戦略性タイピングゲーム",
+    "Strategic typing game"
+  ],
+  [
+    "プレイ人数",
+    "Players"
+  ],
+  [
+    "1~2人",
+    "1-2 players"
+  ],
+  [
+    "運営形態",
+    "Business model"
+  ],
+  [
+    "販売・課金コンテンツ",
+    "Game sales & paid content"
+  ],
+  [
+    "開発環境",
+    "Engine"
+  ],
+  [
+    "メインターゲット層",
+    "Primary audience"
+  ],
+  [
+    "競技性のあるゲームが好きだが、反射神経にはあまり自信がない人",
+    "Players who enjoy competitive games but are less confident in their reflexes"
+  ],
+  [
+    "サブ",
+    "Secondary audience"
+  ],
+  [
+    "キーボード入力が出来る人、素早く出来るようになりたい人",
+    "People who can type, or want to type faster"
+  ],
+  [
+    "コンセプト",
+    "Concept"
+  ],
+  [
+    "開発体制",
+    "Development team"
+  ],
+  [
+    "基本ルール",
+    "Basic rules"
+  ],
+  [
+    "コマの種類",
+    "Piece types"
+  ],
+  [
+    "アビリティ",
+    "Abilities"
+  ],
+  [
+    "画面イメージ",
+    "Game screen"
+  ],
+  [
+    "一人称視点で見る不穏な世界",
+    "An unsettling world in first person"
+  ],
+  [
+    "世界観・物語",
+    "World & story"
+  ],
+  [
+    "ローグライト要素を含んだストーリーモード",
+    "Story mode with roguelite elements"
+  ],
+  [
+    "対戦モード",
+    "Versus mode"
+  ],
+  [
+    "なぜ今、タイピングなのか",
+    "Why typing, and why now?"
+  ],
+  [
+    "eSportsとの親和性",
+    "Potential as an esport"
+  ],
+  [
+    "タイピングの競技性と観戦",
+    "Competitive typing & spectatorship"
+  ],
+  [
+    "対戦実況による認知と訴求効果",
+    "Reaching audiences through competitive streams"
+  ],
+  [
+    "セールスポイント",
+    "Selling points"
+  ],
+  [
+    "大会の開催",
+    "Hosting tournaments"
+  ],
+  [
+    "ゲーミングデバイス制作企業との協業",
+    "Working with gaming hardware companies"
+  ],
+  [
+    "キーボード市場への提案",
+    "A proposal for the keyboard market"
+  ],
+  [
+    "販売計画",
+    "Sales plan"
+  ],
+  [
+    "スケジュール（応募時の旧計画）",
+    "Schedule (original application)"
+  ],
+  [
+    "開発状況・展示での反応",
+    "Development progress & exhibition response"
+  ],
+  [
+    "ゲームモードの現在の開発方針",
+    "Current direction for game modes"
+  ],
+  [
+    "比較作品・現在の販売方針案",
+    "Comparable games & current sales proposal"
+  ],
+  [
+    "今後の開発計画案",
+    "Proposed development roadmap"
+  ],
+  [
+    "大会・コミュニティ運営の相談案",
+    "Tournament & community discussion"
+  ],
+  [
+    "パートナーに相談したいこと",
+    "What we would like to discuss with partners"
+  ],
+  [
+    "デモ・連絡先",
+    "Demo & contact"
+  ],
+  [
+    "早く打つだけでは勝てない戦略性 タイピングを新しいeSportsに",
+    "Speed alone will not win\nMaking typing a new esport"
+  ],
+  [
+    "従来のタイピングゲームは、文章を速く正確に打つだけのシンプルな競技が主流でした。",
+    "Traditional typing games have largely focused on a simple challenge: typing text quickly and accurately."
+  ],
+  [
+    "しかし、その土台となる要素を改めて分析し、戦略性を加えることで、従来以上に面白く、より多くの人に楽しまれるようになる余地があると考えました。",
+    "We felt there was room to revisit those foundations and add strategy, making the experience more engaging and appealing to a wider audience."
+  ],
+  [
+    "タイピング入力によるリソースで何を行うのかの選択を取り入れることで、入力速度が遅いプレイヤーでも駆け引き次第で勝利を狙えるようになり、ゲームそのものもさらにエキサイティングな体験へと進化します。",
+    "By introducing choices about how to use the resources earned through typing, even slower typists can aim to win through tactical play. Those choices also make the game itself a more exciting experience."
+  ],
+  [
+    "入力と盤面が同時に見えるプレイ画面",
+    "Gameplay showing typing and the board together"
+  ],
+  [
+    "攻撃と防御の判断が分かる最新スクリーンショット。タイピング課題・コマ・相手の動きが同じ画面に入るもの。",
+    "A recent screenshot showing attack and defense decisions, with the typing challenge, pieces and opponent's actions visible together."
+  ],
+  [
+    "NyctoTypeのプレイ画面",
+    "NyctoType gameplay"
+  ],
+  [
+    "Webサイト",
+    "Website"
+  ],
+  [
+    "現代美術をバックグラウンドに、映像・パフォーマンスなどの作品制作や、国内外のコンペティションへの参加・展示を経験してきました。",
+    "With a background in contemporary art, we have created video and performance works and participated in competitions and exhibitions in Japan and internationally."
+  ],
+  [
+    "こうした制作活動で培った経験を、ゲームのコンセプトやメカニクスなど、体験の設計に活かして開発しています。",
+    "We draw on that creative experience to design the game experience, including its concept and mechanics."
+  ],
+  [
+    "採択・支援実績",
+    "Selection & support"
+  ],
+  [
+    "TGCA 第1期 育成クリエイター",
+    "TGCA: Selected creator, first cohort"
+  ],
+  [
+    "公益財団法人ポノス財団 助成採択：『NyctoType』の大会用バージョン開発",
+    "PONOS Foundation grant: Development of a tournament version of NyctoType"
+  ],
+  [
+    "開発中の実機画面：盤面・タイピング課題・両者の体力",
+    "Work-in-progress gameplay: board, typing challenges and both players' health"
+  ],
+  [
+    "チェス盤のようなマス目があり、その上に自分のコマと相手のコマが乗っています。",
+    "Your pieces and your opponent's pieces sit on a grid resembling a chessboard."
+  ],
+  [
+    "プレイヤーは自分のコマを選択して移動する方向を選択し、提示された文字列を入力してタイピングの課題をクリアすると、その方向にコマを１手動かせます。",
+    "Select one of your pieces and a direction. Complete the typing challenge by entering the displayed text to move the piece one step in that direction."
+  ],
+  [
+    "そうしてコマを動かしていき、相手側の端から盤外にコマを落とすと相手にダメージを与えることが出来ます。 先に相手の体力を削り切った方が勝利です。",
+    "Move a piece off the far edge of the board on your opponent's side to deal damage.\nThe first player to reduce their opponent's health to zero wins."
+  ],
+  [
+    "どのコマをどの順でどう移動させるか、考えながら素早くタイピングをすることで勝利を掴めます。",
+    "Winning requires quick typing while deciding which pieces to move, in what order and where."
+  ],
+  [
+    "コマを選択",
+    "Select a piece"
+  ],
+  [
+    "移動させる自分のコマを選んだ場面。ほかの3枚と同じ解像度・画角で撮影。",
+    "A screenshot of selecting your piece to move. Use the same resolution and camera angle as the other three images."
+  ],
+  [
+    "移動の対象とする自分のコマを選択",
+    "Select one of your pieces to move"
+  ],
+  [
+    "方向を選択",
+    "Choose a direction"
+  ],
+  [
+    "移動方向を選んだ場面。ほかの3枚と同じ解像度・画角で撮影。",
+    "A screenshot of selecting a movement direction. Use the same resolution and camera angle as the other three images."
+  ],
+  [
+    "移動する方向を選択",
+    "Choose which direction to move"
+  ],
+  [
+    "文字列を入力",
+    "Enter the text"
+  ],
+  [
+    "選択した移動のタイピング課題を入力している場面。ほかの3枚と同じ解像度・画角で撮影。",
+    "A screenshot of completing the selected move's typing challenge. Use the same resolution and camera angle as the other three images."
+  ],
+  [
+    "提示された文字列を入力",
+    "Type the displayed text"
+  ],
+  [
+    "ダメージ",
+    "Deal damage"
+  ],
+  [
+    "相手側の盤外に落としてダメージを与えた場面。ほかの3枚と同じ解像度・画角で撮影。",
+    "A screenshot of a piece falling off the opponent's edge to deal damage. Use the same resolution and camera angle as the other three images."
+  ],
+  [
+    "相手側の盤外に落としたらダメージ！",
+    "Move off your opponent's edge to deal damage!"
+  ],
+  [
+    "コマごとに「移動コスト」「生成コスト」「移動方向」「アビリティ」が異なります。",
+    "Pieces differ in their movement cost, generation cost, movement directions and abilities."
+  ],
+  [
+    "「今あるコマを動かすか、新しく生成するか」「どの方向から攻め、どこを守るか」。必要な入力の多さと移動できる方向を踏まえ、行動を選びます。",
+    "Should you move a piece already on the board or generate a new one? Which direction should you attack from, and where should you defend? You choose your actions based on the typing required and the directions each piece can move."
+  ],
+  [
+    "新しいコマは、手元のコンソールで選び、タイピング課題をクリアして生成します。どのコマを出すかも重要な選択です。",
+    "To generate a new piece, select it on the console in front of you and complete a typing challenge. Choosing which piece to bring onto the board is another important decision."
+  ],
+  [
+    "また、コマの強さや数に応じて、デッキ全体の入力コストも変わる設計を予定しています。課題の数ではなく、入力する文字列の長さに影響するため、戦力と打ちやすさのバランスも考えてデッキを組みます。",
+    "We also plan for the strength and number of pieces to affect the typing cost of the entire deck. This changes the length of the text to type, not the number of challenges, so deckbuilding involves balancing strength against ease of typing."
+  ],
+  [
+    "アビリティは、コマに備わる特殊な効果です。",
+    "Abilities are special effects attached to pieces."
+  ],
+  [
+    "「相手のコマを破壊する」「押し出す」「ダメージを増やす」のほか、「破壊を防ぐ」「移動時の入力文字数を減らす」といった効果があります。",
+    "Examples include destroying or pushing opposing pieces, increasing damage, preventing destruction and reducing the number of characters required for movement."
+  ],
+  [
+    "コマの種類ごとにアビリティが決まっており、強化によってアビリティを追加することもできます。相手のアビリティも踏まえ、どのコマで攻め、どのコマを止めるかを判断します。",
+    "Each piece type has set abilities, and upgrades can add more. You must also consider your opponent's abilities when deciding which pieces to attack with and which to stop."
+  ],
+  [
+    "破壊・押し出しのアビリティ発動場面",
+    "Abilities destroying or pushing a piece"
+  ],
+  [
+    "コマの能力が伝わる実画面。発動前と発動後を左右に並べた画像でも可。",
+    "Gameplay showing a piece's ability. A side-by-side image of before and after activation is also suitable."
+  ],
+  [
+    "NyctoTypeのコマとアビリティ",
+    "NyctoType pieces and abilities"
+  ],
+  [
+    "プレイ中は、テーブルと、テーブルを挟んで向かい合う相手が見えています。テーブル上のボードで、コマを生成したり移動させたりして戦います。必要な情報は、浮遊するウィンドウやハイライトで表示されます。",
+    "During play, you can see the table and your opponent seated across from you. You battle by generating and moving pieces on the board on the table. Relevant information is shown in floating windows and highlights."
+  ],
+  [
+    "盤面の横には大きなコンソールが浮いています。このウィンドウを選び、必要なコマンドを入力することで、新たなコマを生成できます。",
+    "A large console floats beside the board. Select this window and type the required commands to generate new pieces."
+  ],
+  [
+    "また、プレイ中にゲージが溜まると、同じくコンソールを使用して「アクティブスキル」を発動できます。全てのコマをランダムに動かすなど、ゲーム全体に影響する効果で逆転を狙えるため、発動のタイミングも重要です。",
+    "Once the gauge fills during play, you can also use the console to activate an active skill. Effects that influence the entire game, such as moving all pieces at random, can help turn a match around, so timing their use matters."
+  ],
+  [
+    "相手が長くコマを動かしていない間は、コンソールで強力なコマやスキルを準備している可能性があるため、注意が必要です。",
+    "Be careful if your opponent goes a long time without moving pieces: they may be preparing a powerful piece or skill at the console."
+  ],
+  [
+    "開発中の実機画面：手前のコンソールでコマを生成",
+    "Work-in-progress gameplay: generating pieces using the console in front of the player"
+  ],
+  [
+    "没入感の高いゲームプレイのための一人称視点",
+    "A first-person perspective for immersive play"
+  ],
+  [
+    "本作品は、「Inscryption」「DeathJack」「Liar’s Bar」「Buckshot Roulette」といったタイトルに見られる、一人称視点でボードゲームをプレイするようなスタイルを採用します。ゲーム内のオブジェクトや演出を自身の視点で体験することで、実際にボードゲームを遊ぶような直感的でわかりやすい体験を目指します。",
+    "The game adopts a first-person board-game style seen in titles such as Inscryption, DeathJack, Liar's Bar and Buckshot Roulette. Experiencing the objects and effects directly from the player's viewpoint aims to create an intuitive, easy-to-understand experience, much like playing a physical board game."
+  ],
+  [
+    "さらに、ボード上のエフェクトや動的な演出など、物理的なボードゲームではできない表現を加え、臨場感と世界への没入感を高めます。",
+    "Board effects and dynamic presentation that are not possible in a physical board game add a sense of presence and deepen immersion in the world."
+  ],
+  [
+    "また、ボード全体を常に見渡せるため、観戦時にもどちらが優勢かを把握しやすい構図です。MOBAやFPSのように一人のプレイヤーの周囲だけを映す画角と異なり、ゲーム実況や大会の配信でも、頻繁にカメラを切り替えずに、戦況や各プレイヤーの狙いを追いやすくなります。",
+    "Keeping the whole board in view makes it easy for spectators to see who has the advantage. Unlike views in MOBAs or FPS games that show only one player's surroundings, this framing makes it easier to follow both the state of the match and what each player is trying to do during gameplay streams and tournament broadcasts, without frequent camera changes."
+  ],
+  [
+    "画角・演出の参考作品",
+    "References for framing & presentation"
+  ],
+  [
+    "InscryptionのSteamページを開く",
+    "Open Inscryption on Steam"
+  ],
+  [
+    "Inscryptionのゲーム画面",
+    "Inscryption gameplay"
+  ],
+  [
+    "DeathJackのSteamページを開く",
+    "Open DeathJack on Steam"
+  ],
+  [
+    "DeathJackのゲーム画面",
+    "DeathJack gameplay"
+  ],
+  [
+    "Liar's BarのSteamページを開く",
+    "Open Liar's Bar on Steam"
+  ],
+  [
+    "Liar's Barのゲーム画面",
+    "Liar's Bar gameplay"
+  ],
+  [
+    "Buckshot RouletteのSteamページを開く",
+    "Open Buckshot Roulette on Steam"
+  ],
+  [
+    "Buckshot Rouletteのゲーム画面",
+    "Buckshot Roulette gameplay"
+  ],
+  [
+    "国家AIに支えられた地下社会",
+    "An underground society sustained by a state AI"
+  ],
+  [
+    "PCの中で戦うプログラム",
+    "Programs battling inside a PC"
+  ],
+  [
+    "プレイヤーが見ている世界は、実はPCの内部です。プレイヤーも対戦相手もプログラムであり、互いにバグを送り合い、相手を破壊するために戦っています。",
+    "The world the player sees is actually the inside of a PC. Both the player and their opponent are programs, battling by sending bugs at each other in an attempt to destroy one another."
+  ],
+  [
+    "ゴミ箱フォルダで目覚める主人公",
+    "Waking up in the Trash folder"
+  ],
+  [
+    "プレイヤーは記憶を失い、PC内部を可視化した空間の「ゴミ箱フォルダ」で目覚めます。案内役のJunkから戦い方を教わり、外へ出るため、自分を排除しようとするプログラムを破壊しながら進みます。探索と記録の回収を通じて、世界の過去と自分の正体が少しずつ明らかになります。",
+    "The player awakens without memories in a Trash folder, inside a space that visualizes the interior of a PC. A guide named Junk teaches them how to fight. Seeking a way out, they destroy programs trying to erase them. Through exploration and recovered records, the world's history and their own identity gradually become clear."
+  ],
+  [
+    "地上環境が悪化し、人類は地下シェルターで暮らしながら、先の見えない未来への判断を国家AIに委ねています。国家AIのメモリ不足を補うため、人間の記憶容量も社会インフラとして管理され、個人の生活や感情に関わる記憶と、国家のための記憶が、区別できない形で保持されています。",
+    "As conditions on the surface deteriorate, humanity lives in underground shelters and entrusts decisions about its uncertain future to a state AI. To compensate for the AI's memory shortage, human memory capacity is also managed as public infrastructure. Memories of personal lives and emotions are stored alongside memories serving the state, with no clear distinction between them."
+  ],
+  [
+    "主人公は、国家AIの中核へ徴用された「天才」から、価値判断や意志を危険なノイズとして切り離された人格です。一方、JunkはAIの予測を絶対的な真実とは考えていなくても、人々が生き続けるための希望を維持しようとしています。国家の単純な悪意ではなく、社会を維持する合理性と個人の尊厳の衝突を、物語の中心に据えています。",
+    "The protagonist is a personality separated from a genius conscripted into the core of the state AI: their judgment and will were discarded as dangerous noise. Meanwhile, Junk tries to preserve the hope people need to keep living, even without treating the AI's predictions as absolute truth. The story centers on the conflict between the rational demands of sustaining society and individual dignity, rather than a simply malicious state."
+  ],
+  [
+    "ローグライト",
+    "Roguelite"
+  ],
+  [
+    "戦闘やイベントのあるマップを進み、コマの獲得・強化でデッキを育てながら、ボスの攻略を目指す1人用モードです。",
+    "A single-player mode in which players progress through a map of battles and events, build a deck by acquiring and upgrading pieces, and aim to defeat bosses."
+  ],
+  [
+    "新しいコマを加えるか、手持ちのコマにアビリティを追加するか。獲得した報酬に合わせて構成を変え、次の戦闘に備えます。タイピングの腕前だけでなく、その挑戦でどんなデッキを作るかも重要になります。",
+    "Add a new piece, or give an existing one another ability? Players adapt their deck to the rewards they receive and prepare for the next battle. Success depends not only on typing skill, but also on the deck built during each run."
+  ],
+  [
+    "ローグライトの戦闘と、敵やイベント、会話を通した世界観の提示を軸に、記憶や世界の過去を辿る物語を作り込んでいきます。各要素をどの段階で公開するかは、開発の進捗やプレイヤーの反応を見ながら調整します。",
+    "Building on roguelite battles and a world introduced through enemies, events and dialogue, we will develop a story of recovering memories and uncovering the world's past. When each element is released will be adjusted according to development progress and player feedback."
+  ],
+  [
+    "ローグライトのマップ／デッキ強化画面",
+    "Roguelite map / deck upgrades"
+  ],
+  [
+    "経路の選択、コマの獲得・強化が分かる最新の実画面。",
+    "Recent gameplay showing route selection, piece acquisition and upgrades."
+  ],
+  [
+    "一人用モードの開発画面",
+    "Single-player mode in development"
+  ],
+  [
+    "物語とステージ",
+    "Story and stages"
+  ],
+  [
+    "全てを忘れたプレイヤーが、戦いを通じて少しずつ記憶を取り戻し、自分自身の行動を選択していく1人用モード。 メディアアートの文脈を取り入れたステージやキャラクターたちとの出会いや対決が待ち受けています。",
+    "A single-player mode in which a player who has forgotten everything gradually recovers memories through battle and chooses their own actions. Players encounter and face off against stages and characters informed by media art."
+  ],
+  [
+    "NPCだからこそ可能な理不尽かつ独創的なステージギミックや、強力なスキルを持つ敵も登場しますが、プレイヤーはタイピング速度の向上や戦略の洗練、デッキのアップデートを武器に、これらを乗り越えていきます。",
+    "Players face inventive, deliberately unfair stage mechanics possible only with NPCs, as well as enemies with powerful skills. They overcome these challenges by increasing their typing speed, refining their strategy and updating their deck."
+  ],
+  [
+    "プレイヤーのタイピング速度に合わせたレベルで開始でき、進行に応じて難易度が徐々に上がる設計により、物語が進むにつれ、タイピングの腕前も自然と成長するようデザインされています。",
+    "Players can start at a level suited to their typing speed. Difficulty gradually increases as they progress, with the aim of letting their typing ability grow naturally alongside the story."
+  ],
+  [
+    "コマの獲得・強化、ボス戦、物語の展開は製品版に向けた開発予定を含みます。",
+    "Piece acquisition, upgrades, boss battles and story development include features planned for the full release."
+  ],
+  [
+    "インターネットを介して他のプレイヤーと戦う、1vs1のリアルタイム対戦モードです。デッキ構築による戦略に加え、入力やタイプミス、スキルの発動が勝敗を左右するミリ秒単位の攻防が、観戦者にも緊張感を生みます。",
+    "A real-time, one-on-one mode against other players online. Alongside deckbuilding strategy, millisecond-level exchanges in which typing, mistakes and skill activations can decide the outcome create tension for spectators too."
+  ],
+  [
+    "3ラウンド制にして、ラウンド間にランダム要素を含む強化を挟む構成も検討しています。試合中にデッキや戦い方が変化することで、逆転のチャンスを作ります。",
+    "We are also considering a three-round format with upgrades involving random elements between rounds. Changes to decks and tactics during a match create opportunities for a comeback."
+  ],
+  [
+    "さらに、ランクシステムを導入してプレイヤーの実力を可視化。勝ち上がるにつれて、自分の実力に合った、手に汗握るハイレベルな対戦が楽しめるようにします。",
+    "A ranking system will make player skill visible. As players rise through the ranks, they will be able to enjoy intense, high-level matches suited to their ability."
+  ],
+  [
+    "競技性の高いゲームプレイを求めるプレイヤーと観戦者の両方が楽しめ、大会も開催できるようなゲームを目指しています。",
+    "We aim to create a game that both competitive players and spectators can enjoy, and that can support tournaments."
+  ],
+  [
+    "オンライン対戦の実画面",
+    "Online versus gameplay"
+  ],
+  [
+    "対戦相手と両者の体力が分かる画面。2人が対戦している写真でも可。",
+    "A screen showing the opponent and both players' health. A photo of two people playing against each other is also suitable."
+  ],
+  [
+    "オンライン対戦の開発画面",
+    "Online versus mode in development"
+  ],
+  [
+    "ランクシステムなどは元の企画案であり、実装済みの機能を示すものではありません。",
+    "The ranking system and other features described here are from the original proposal, not a list of implemented features."
+  ],
+  [
+    "歴史的価値と未開拓の可能性",
+    "An established genre with untapped potential"
+  ],
+  [
+    "タイピングゲームは、以前から「スキル向上」と「エンターテインメント」を両立するデジタル文化のクラシックです。",
+    "Typing games are a classic part of digital culture, long combining skill development with entertainment."
+  ],
+  [
+    "しかし、従来のタイトルは速さと正確さを競うだけで、視覚的な進化や戦術の広がりが少なく、観戦時の見どころがわかりづらい面があります。",
+    "However, traditional titles focus only on speed and accuracy, with limited visual evolution and tactical variety, which can make it difficult for spectators to see what makes the action interesting."
+  ],
+  [
+    "YouTubeで見る",
+    "Watch on YouTube"
+  ],
+  [
+    "この古典的なジャンルに、現代の競技性やデザイン性を融合させることで、全く新しい形での再流行を狙います。",
+    "We aim to give this established genre a new form of popularity by combining it with contemporary competitive play and design."
+  ],
+  [
+    "参加へのハードルの低さ",
+    "A low barrier to entry"
+  ],
+  [
+    "タイピングは、基本的な操作がすでに多くの人に浸透しているため、新規プレイヤーが始めるハードルが他ゲームに比べて非常に低いという点で強みがあります。",
+    "Typing has an advantage over other games: the basic input method is already familiar to many people, making it easy for new players to start."
+  ],
+  [
+    "また、多くの人が日常的に行うスキルであるため、上級者の入力速度の「凄さ」が自分ごととして伝わりやすいのも特長です。",
+    "Because so many people type in daily life, they can also readily appreciate just how impressive an expert's speed is."
+  ],
+  [
+    "さらにUIで入力速度や正確性を表記することで、「競技者が自分に比べてどれくらい凄いのか」ということや、「過去の自分からどれだけ成長したか」を数値としてわかりやすく示し、成長への意欲につなげることを狙っています。",
+    "By displaying typing speed and accuracy, we aim to clearly quantify both how a competitor compares with the viewer and how much a player has improved, encouraging further improvement."
+  ],
+  [
+    "既存タイトルとの共通点",
+    "What it shares with established esports"
+  ],
+  [
+    "現在、FPSや格闘ゲームのように、タイピングゲームがeSports市場で普及している例はありません。 しかし、本タイトルのタイピングゲームはその性質上、eSportsとしての親和性が非常に高いと考えています。",
+    "Typing games have not achieved the esports adoption seen in FPS or fighting games. However, we believe the nature of NyctoType makes it especially well suited to competitive play."
+  ],
+  [
+    "ゲームがeSportsとして流行るためは、競技性とエンタメ性のバランスが必要です。そしてそれを成り立たせるのは、「個人スキル」「駆け引き」「運」の3要素だと考えています。それぞれの要素が劣っていても、他の要素で補えるよう良い調整がされていることが必要です。",
+    "For a game to succeed as an esport, it needs a balance of competition and entertainment. We see individual skill, tactical decisions and luck as the three elements that support that balance. They need to be tuned so that strengths in one area can compensate for weaknesses in another."
+  ],
+  [
+    "本タイトルにおける「個人スキル」は「タイピング速度」です。これを練習によって上げることで、着実に勝率を上げることができます。 しかし一方で、自分より速度が優れている相手に対しても、戦術や駆け引き、運次第で逆転のチャンスがあることで、「スキルを向上する価値」と「どっちが勝つかわからないエンタメ性」が両立されています。",
+    "In NyctoType, individual skill means typing speed: practice can steadily improve a player's chances of winning. At the same time, tactics, mind games and luck leave room for a comeback against a faster opponent. This preserves both the value of improving and the excitement of not knowing who will win."
+  ],
+  [
+    "作品・ジャンル",
+    "Title / genre"
+  ],
+  [
+    "個人スキル",
+    "Individual skill"
+  ],
+  [
+    "駆け引き",
+    "Tactical decisions"
+  ],
+  [
+    "運",
+    "Luck"
+  ],
+  [
+    "本作品",
+    "NyctoType"
+  ],
+  [
+    "タイピング速度",
+    "Typing speed"
+  ],
+  [
+    "コマの動かし方",
+    "Piece movement"
+  ],
+  [
+    "ランダム要素を 含む効果",
+    "Effects with random elements"
+  ],
+  [
+    "FPS （例：APEX LEGENDS）",
+    "FPS\n(e.g. Apex Legends)"
+  ],
+  [
+    "エイムの良さ",
+    "Aim"
+  ],
+  [
+    "位置取り",
+    "Positioning"
+  ],
+  [
+    "リング収縮位置 アイテムドロップ",
+    "Ring locations\nItem drops"
+  ],
+  [
+    "格闘 （例：StreetFighter6）",
+    "Fighting games\n(e.g. Street Fighter 6)"
+  ],
+  [
+    "コンボ精度",
+    "Combo execution"
+  ],
+  [
+    "差し合い",
+    "Neutral game"
+  ],
+  [
+    "現在、FPSやMOBA、格闘ゲームのように、タイピングゲームがeSports市場で普及している例はありません。しかし、タイピングゲームはその性質上、eSportsとしての親和性が非常に高いと考えています。",
+    "Typing games have not achieved the esports adoption seen in FPS, MOBA or fighting games. Nevertheless, we believe their nature gives them strong potential as esports."
+  ],
+  [
+    "本タイトルでは、「個人スキルの習熟度」「駆け引き」「運」の3要素が絶妙に絡み合う仕様を採用。これにより、練習によって着実に勝率を上げられる一方で、逆転のチャンスも用意されているため、eSportsに求められる競技性とバランスを兼ね備えています。",
+    "NyctoType combines individual skill, tactical decisions and luck. Practice can steadily improve a player's chances, while opportunities for a comeback remain. This is intended to provide the competitive balance needed for esports."
+  ],
+  [
+    "またタイピングは、多くの人が日常的に行うスキルであるため、競技者の「凄さ」が自分ごととして伝わりやすいのが特長です。 さらに、タイピングは基本的な操作がすでに多くの人に浸透しているため、新規プレイヤーが始めるハードルが非常に低いという強みがあります。誰もがすぐに挑戦できる一方で、上級者のパフォーマンスは見応えがあり、観戦エンターテインメントとしても優れています。",
+    "Typing is an everyday skill, so viewers can relate to and appreciate a competitor's performance. Familiarity with the basic controls also keeps the barrier to entry low. Anyone can quickly try the game, while expert play remains impressive to watch."
+  ],
+  [
+    "元の市場ページの説明です。「普及している例はありません」はFPS・MOBA・格闘ゲームと同程度の普及についての企画上の見立てで、既存のタイピング大会がないという意味ではありません。",
+    "This wording comes from the original market page. The claim about adoption refers to a proposed comparison with the scale of FPS, MOBA and fighting-game esports; it does not mean that typing tournaments do not exist."
+  ],
+  [
+    "対戦形式による実況動画",
+    "Competitive gameplay on stream"
+  ],
+  [
+    "対戦形式のモードを制作することで、このタイトルはeSportsとしての競技性を持ち、実況者やストリーマーに取り上げられる可能性を高めようと考えています。",
+    "A versus mode gives NyctoType competitive potential, and we aim to increase its chances of attracting attention from commentators and streamers."
+  ],
+  [
+    "ボードゲーム的に盤面が展開されているため試合展開が視覚的にわかりやすく、プレイしていない周りの人が実況や観戦をしやすい設計となっています。そしてスピーディーなゲーム進行によって飽きの来ない体験を作ることを狙っています。",
+    "The board-game structure makes the match visually easy to follow, supporting commentary and spectatorship by people who are not playing. We aim to keep the experience engaging through fast-paced matches."
+  ],
+  [
+    "タイピング速度や正確性を示すUIをリアルタイムで表示することで、より実況や解説をしやすくし、試合の緊張感や競技者の技術の高さを簡単に伝えることができます。",
+    "A real-time display of typing speed and accuracy helps commentators explain the action and convey the tension of a match and the players' skill."
+  ],
+  [
+    "これにより、視聴者に「自分も挑戦してみたい」という興味を持ってもらい、プレイヤー層を広げることを目指しています。実況者やストリーマーを起点に、広い層への認知拡大とコミュニティ形成につなげたいと考えています。",
+    "We aim to make viewers want to try the game themselves and broaden the player base. Through commentators and streamers, we hope to reach a wider audience and build a community."
+  ],
+  [
+    "VTuberによるタイピングゲーム配信のサムネイル",
+    "Thumbnail from a VTuber typing-game stream"
+  ],
+  [
+    "タイピング挑戦・記録更新などを扱う実在の配信。配信者名、動画タイトル、元動画URLも添える。",
+    "An actual stream featuring typing challenges or record attempts. Include the creator's name, video title and original video URL."
+  ],
+  [
+    "配信市場の参考事例。本作の配信実績ではありません。",
+    "A reference example from the streaming market, not coverage of NyctoType."
+  ],
+  [
+    "VTuberの対戦・コラボ企画のサムネイル",
+    "Thumbnail from a VTuber versus or collaboration stream"
+  ],
+  [
+    "複数人の対戦や大会が企画として伝わる実在の配信。本作以外の事例として掲載。元動画URLも添える。",
+    "An actual stream clearly presenting multiplayer competition or a tournament. Identify it as an example from another game and include the original video URL."
+  ],
+  [
+    "対戦企画の参考事例。本作への出演予定を示すものではありません。",
+    "A reference for competitive events, not an indication of a planned appearance in NyctoType."
+  ],
+  [
+    "配信市場の参考事例です。本作の配信実績・出演予定・提携を示すものではありません。",
+    "This is an example from the streaming market. It does not represent NyctoType coverage, scheduled appearances or partnerships."
+  ],
+  [
+    "タイピングそのものの奥深さ",
+    "Depth in typing itself"
+  ],
+  [
+    "多くの人が既に持っているタイピングスキルを基礎にした設計で、観戦時のわかりやすさと参入ハードルの低さを両立しています。 またそのスキルを数値化することで、繰り返しプレイしたことによる成長を可視化することができ、技術を極める楽しさを追求できる奥深さを提供します。",
+    "Built on a skill many people already have, the game combines accessible play with easy-to-follow spectatorship. Quantifying that skill makes improvement through repeated play visible, offering depth and the satisfaction of mastery."
+  ],
+  [
+    "駆け引きを産むゲームシステム",
+    "A system built for tactical decisions"
+  ],
+  [
+    "単純な速度勝負だけでなく、スキルの選択やタイミング、戦略的なプレイが勝敗を左右するシステムです。 練習が勝利に直結しながらも、逆転のチャンスがある設計で、心理戦の駆け引きが熱い競技性を生み出します。",
+    "Victory depends not only on speed but also on skill selection, timing and strategy. Practice directly contributes to winning, while the possibility of a comeback creates intense mind games and competition."
+  ],
+  [
+    "ダークでシックな世界観",
+    "A dark, distinctive world"
+  ],
+  [
+    "プログラムやウイルスをモチーフにした、ダークでスタイリッシュなデザインと3Dの一人称視点が特長です。 従来のタイピングゲームにはない独自のビジュアルと没入感が、プレイヤーを異世界へ引き込みます。",
+    "The game features a dark, stylish design inspired by programs and viruses, presented in 3D first person. Its distinctive visuals and immersion offer something unlike traditional typing games, drawing players into another world."
+  ],
+  [
+    "タイピング自体は出来る人が非常に多いため、低いコストで楽しめるラインまでゲームに慣れることが可能です。 そのハードルの低さを活かし、ストリーマーや従来のタイピング競技者、インフルエンサーに依頼して早期アクセスバージョンのソフトを提供させていただき、大会を行うことを計画しています。 リリース時に開催することで大々的な宣伝を行う他、ルールを調整しながら長期的にプレイしてくれるユーザーを生み出すことを狙いとしています。",
+    "Because so many people can already type, it takes relatively little effort to learn enough to enjoy the game. We plan to use that accessibility to invite streamers, established typing competitors and influencers, provide an early access build, and hold a tournament. An event at release would promote the game widely, while ongoing rule adjustments would help develop a long-term player base."
+  ],
+  [
+    "大会に向けて相談したい支援",
+    "Support we would like to discuss"
+  ],
+  [
+    "運営補助：",
+    "Event operations: "
+  ],
+  [
+    "大会の企画、進行、参加者対応など、開催に必要な運営への協力。",
+    "Help with planning, running matches, participant support and other tournament operations."
+  ],
+  [
+    "招待参加者の紹介：",
+    "Guest introductions: "
+  ],
+  [
+    "ストリーマー、タイピング競技者、インフルエンサーとの接点づくりや、参加の打診。",
+    "Connections to streamers, typing competitors and influencers, and help inviting them to participate."
+  ],
+  [
+    "賞金・賞品の提供：",
+    "Prize support: "
+  ],
+  [
+    "大会の賞金や賞品の提供、協賛先の紹介。",
+    "Providing prize money or products, or introducing potential sponsors."
+  ],
+  [
+    "REALFORCE大会の公式告知・配信画面",
+    "Official REALFORCE tournament announcement or broadcast"
+  ],
+  [
+    "競技者、対戦、観客や実況の存在が伝わる公式素材。大会名・開催年・出典URLを添える。",
+    "Official material showing competitors, matches, spectators or commentary. Include the tournament name, year and source URL."
+  ],
+  [
+    "競技タイピングの参考事例。本作との提携・協賛を示すものではありません。",
+    "A reference for competitive typing, not a partnership with or sponsorship of NyctoType."
+  ],
+  [
+    "早期アクセス版の提供とリリース時の大会は、元の企画書の計画です。実施時期・配布するビルド・開催形式は、パートナーと相談して決めさせていただければと思います。",
+    "Providing an early access build and holding a release tournament are plans from the original proposal. We would welcome the opportunity to discuss and agree on the timing, build distribution and event format with our partners."
+  ],
+  [
+    "NyctoTypeでは、タイピングによってコマの操作やスキルの発動を行うため、キーボードがプレイ体験の中心となります。FPSの移動操作などで使う一部のキーだけでなく、キーボードの広い範囲を使うため、キーボード全体の打ち心地や操作性が重要です。",
+    "In NyctoType, players use typing to control pieces and activate skills, making the keyboard central to the experience. Rather than relying on a small set of keys, such as those used for movement in FPS games, typing uses a broad range of keys. The feel and usability of the keyboard as a whole therefore matter."
+  ],
+  [
+    "また、キーボードは現実の入力機器としてだけでなく、ゲーム内のアイテムやビジュアルとしても扱える題材です。実際の製品をゲーム内に登場させるなど、プレイ体験と結びついたコラボレーションにも価値があると考えています。",
+    "Keyboards can also feature as in-game items or visual elements, beyond their role as physical input devices. We see value in collaborations connected to the playing experience, such as bringing real products into the game."
+  ],
+  [
+    "製品を使った試遊会や大会、コラボキーボードの制作なども含め、デバイス企業との協業を積極的に進めていきたいと考えています。具体的な内容や実現方法は、企業の皆様とご相談させていただければと思います。",
+    "We are keen to pursue collaborations with hardware companies, including hands-on demos and tournaments using their products, as well as co-branded keyboards. We would welcome the opportunity to discuss the scope and practical arrangements with prospective partners."
+  ],
+  [
+    "キーボード試遊・展示の参考写真",
+    "Reference photo of a keyboard demo or exhibition"
+  ],
+  [
+    "キーボードを実際に触っている場面、または製品と本作の画面を並べた写真。協業候補と既存実績を混同しない。",
+    "A photo of someone trying a keyboard, or a product alongside NyctoType gameplay. Clearly distinguish prospective collaboration from existing partnerships."
+  ],
+  [
+    "デバイス協業の検討用イメージ。協業先は未定です。",
+    "An illustration for discussing hardware collaboration. No partner is confirmed."
+  ],
+  [
+    "協業先・コラボ製品・協賛は未定です。",
+    "Partners, collaborative products and sponsorships are not confirmed."
+  ],
+  [
+    "新たな需要創出",
+    "Creating new demand"
+  ],
+  [
+    "現在、ゲーミングキーボードとオフィス用キーボードはそれぞれ異なる市場に向けて展開されていますが、その間には大きな需要の隔たりがあります。",
+    "Gaming and office keyboards currently serve different markets, with a substantial gap between the needs they address."
+  ],
+  [
+    "ゲーミングキーボードは主に左手側のキーが活用される設計が多く、その高いスペックを十分に活かしきれていない状況です。",
+    "Many gaming keyboards are used mainly with the left hand, so their full capabilities are not always put to use."
+  ],
+  [
+    "一方、オフィス用キーボードはタイピングに最適化されているものの、PCゲームを楽しむ層が買うときには候補に入ってきづらい現状です。タイピングゲームが普及することで、両方の市場が新しいターゲット層にリーチする可能性が広がります。",
+    "Office keyboards, while optimized for typing, are less likely to be considered by PC gamers. Wider adoption of typing games could help both markets reach new audiences."
+  ],
+  [
+    "これにより、「ゲーム用途でもタイピング用途でも活用できるキーボード」という新たな需要が生まれると考えられます。",
+    "We believe this could create demand for keyboards suited to both gaming and typing."
+  ],
+  [
+    "新たなターゲット層を開拓",
+    "Reaching new audiences"
+  ],
+  [
+    "タイピングゲームの普及は、仕事とゲームをPCで兼用するユーザー層への訴求力を高める可能性を秘めています。",
+    "Typing games could increase the appeal of keyboards to people who use the same PC for both work and games."
+  ],
+  [
+    "多くのライトユーザーにとって、用途ごとに複数のキーボードを購入し、使い分けることは手間がかかるため、1つのキーボードをそのまま使う傾向があると考えられます。",
+    "We expect many casual users to keep using a single keyboard rather than buy and switch between several for different purposes."
+  ],
+  [
+    "この状況を踏まえ、「タイピングとゲームの両方の利用を想定したキーボード」という提案やブランディングは、従来のキーボード市場ではアプローチできていなかったユーザー層を取り込む新たなチャンスを生み出します。",
+    "Positioning a keyboard for both typing and gaming could therefore reach people whom existing keyboard marketing has not effectively addressed."
+  ],
+  [
+    "こうした「共用キーボード市場」をターゲットにすることで、新たな需要を創出し、ゲーミングデバイス市場とタイピング市場の双方に利益をもたらす展開が可能になります。",
+    "Targeting this shared-use keyboard market could create new demand and benefit both the gaming hardware and typing markets."
+  ],
+  [
+    "元の企画書の市場仮説を記載しています。ユーザー動向や購買傾向を実証した資料ではありません。",
+    "These are market hypotheses from the original proposal, not evidence of user behavior or purchasing trends."
+  ],
+  [
+    "以下は応募時の旧計画です。価格・販売本数は目標値、比較作品の数値は原資料記載の未検証の推計です。現在の確定値・売上実績ではありません。",
+    "The following is the old application-stage plan. Price and unit sales are targets; figures for comparable titles are unverified estimates from the source deck. They are not current confirmed figures or actual sales results."
+  ],
+  [
+    "販売価格",
+    "Price"
+  ],
+  [
+    "2200円(14ドル)",
+    "JPY 2,200 (USD 14)"
+  ],
+  [
+    "販売目標本数",
+    "Unit sales target"
+  ],
+  [
+    "10万本",
+    "100,000 copies"
+  ],
+  [
+    "売上（原資料の試算）",
+    "Revenue estimate from the source deck"
+  ],
+  [
+    "2億2000万円 × 0.7(Steamへのフィー） = 1億5400万",
+    "JPY 220 million x 0.7 (after Steam's fee) = JPY 154 million"
+  ],
+  [
+    "1480円 × 36万本 = 5.3億 （SteamDBから推測）",
+    "JPY 1,480 x 360,000 copies = approx. JPY 530 million\n(estimated from SteamDB in the source deck)"
+  ],
+  [
+    "ペーパークラフトの世界を探検する、3Dのファンタジー アドベンチャーのタイピングゲーム",
+    "A 3D fantasy typing adventure through a papercraft world."
+  ],
+  [
+    "2050円 × 2.3万本 = 4715万 （SteamDBから推測）",
+    "JPY 2,050 x 23,000 copies = JPY 47.15 million\n(estimated from SteamDB in the source deck)"
+  ],
+  [
+    "色鮮やかな世界を舞台にしたタイピングアドベンチャーRPG。 強力なスペルを組み合わせたり形を変えたり、強化したりして、敵を打ち破る。",
+    "A typing adventure RPG set in a colorful world. Combine, reshape and strengthen powerful spells to defeat enemies."
+  ],
+  [
+    "上記の試算は原文を残したものです。単純な定価×推計本数は実売上ではなく、割引・地域価格・税・返金などを反映していません。",
+    "These calculations preserve the original wording. List price multiplied by estimated copies is not actual revenue and does not account for discounts, regional pricing, taxes, refunds or other factors."
+  ],
+  [
+    "過去の応募資料の計画を保持しています。下記の日付は現在の発売予定ではありません。",
+    "This schedule is preserved from the old application. The dates below are not the current release schedule."
+  ],
+  [
+    "プロトタイプ",
+    "Prototype"
+  ],
+  [
+    "～2025年1月",
+    "By January 2025"
+  ],
+  [
+    "企画立案 プロトタイピング",
+    "Concept development\nPrototyping"
+  ],
+  [
+    "目的",
+    "Goal"
+  ],
+  [
+    "ゲームの基礎設計と方向性の確定 初期の技術検証 助成金の獲得",
+    "Establish core design and direction\nInitial technical validation\nSecure grants"
+  ],
+  [
+    "詳細",
+    "Details"
+  ],
+  [
+    "ゲームコンセプトの詳細化 仕様書の作成 基本的なタイピングシステム（速度計測、スコア算出）を実装したプロトタイプの開発 キャラクターデザインの方向性や世界観ビジュアルの初期案制作",
+    "Refine the game concept\nWrite specifications\nBuild a prototype with basic typing systems: speed measurement and scoring\nExplore character design and world visuals"
+  ],
+  [
+    "アルファ",
+    "Alpha"
+  ],
+  [
+    "～2025年9月",
+    "By September 2025"
+  ],
+  [
+    "コアシステム開発 ビジュアル制作",
+    "Core systems\nVisual production"
+  ],
+  [
+    "ゲームプレイの基盤を構築 ビジュアルや演出を拡充",
+    "Build the gameplay foundation\nExpand visuals and presentation"
+  ],
+  [
+    "タイピングのPvP対戦機能 シングルプレイのストーリーモード設計 キャラクターおよび背景のモデリング アニメーション作成 UI/UXデザインの制作",
+    "Typing-based PvP\nSingle-player story design\nCharacter and environment modeling\nAnimation\nUI/UX design"
+  ],
+  [
+    "ベータ",
+    "Beta"
+  ],
+  [
+    "～2026年1月",
+    "By January 2026"
+  ],
+  [
+    "β版開発 テスト",
+    "Beta development\nTesting"
+  ],
+  [
+    "全機能の初期実装 チュートリアルや操作ガイドの追加",
+    "Initial implementation of all features\nAdd tutorials and control guidance"
+  ],
+  [
+    "ゲームバランス調整 ネットワーク安定性と遅延の確認 ユーザーテスト体制の構築 外部ユーザーを巻き込んだテスト",
+    "Balance tuning\nCheck network stability and latency\nSet up user testing\nTest with external players"
+  ],
+  [
+    "アーリーアクセス",
+    "Early access"
+  ],
+  [
+    "～2026年4月",
+    "By April 2026"
+  ],
+  [
+    "改善 アーリーアクセス公開",
+    "Improvements\nEarly access launch"
+  ],
+  [
+    "最終調整 アーリーアクセス版を販売開始",
+    "Final adjustments\nBegin selling the early access version"
+  ],
+  [
+    "バグ修正、ローカライズ プロモーション素材の制作 ゲームプラットフォームでの配信準備 このバージョンを持って売り込み",
+    "Bug fixes and localization\nProduce promotional material\nPrepare platform distribution\nPitch with this build"
+  ],
+  [
+    "プレイアブル版を展示",
+    "Playable build exhibited"
+  ],
+  [
+    "gamescom 2026で試遊展示。 TGSに向け、展示で見つかった不具合と操作・表示を改善しています。",
+    "Exhibited at gamescom 2026.\nWe are fixing issues found at the event and refining controls and presentation ahead of TGS."
+  ],
+  [
+    "実装済みの基礎",
+    "Foundations implemented"
+  ],
+  [
+    "CPU戦／オンライン対戦／デッキプリセット 特殊コマ／チュートリアル／対戦ログ ローグライトのマップ・会話",
+    "CPU battles / Online versus / Deck presets\nSpecial pieces / Tutorial / Match logs\nRoguelite map and dialogue"
+  ],
+  [
+    "Steam ウィッシュリスト 2026年9月7日時点・開発者集計",
+    "Steam wishlists\nAs of September 7, 2026; developer count"
+  ],
+  [
+    "IGN Chinaで試遊紹介",
+    "Hands-on coverage by IGN China"
+  ],
+  [
+    "gamescom会場で、タイピングと盤面戦略を組み合わせた体験として紹介。",
+    "Introduced at gamescom as an experience combining typing with board strategy."
+  ],
+  [
+    "一般向けデモは公開準備中。 公開後のプレイ状況・再プレイ意向を検証します。",
+    "The public demo is being prepared.\nAfter release, we will examine play patterns and interest in replaying."
+  ],
+  [
+    "gamescomのNyctoTypeブースと試遊風景",
+    "The NyctoType booth and visitors playing at gamescom"
+  ],
+  [
+    "本作の画面と、実際に遊んでいる来場者が分かる写真。掲載可能な自分たちの展示写真を優先。",
+    "A photo showing the game screen and visitors actually playing. Prefer our own exhibition photos cleared for use."
+  ],
+  [
+    "4Gamer：gamescomのTGCA特集内で作品紹介（2026.09.05）",
+    "4Gamer: NyctoType in its gamescom TGCA feature (2026.09.05)"
+  ],
+  [
+    "元の企画案とは分けて、前版で整理した現在の開発方針を残しています。",
+    "These current development directions, organized in the previous version, are kept separate from the original proposal."
+  ],
+  [
+    "1人用の主軸となるモード。 対戦相手がいなくても楽しめる体験を作ります。",
+    "The main single-player mode, designed to be enjoyable without an opponent."
+  ],
+  [
+    "戦闘とイベントを選びながら進み、コマの獲得・強化でデッキを育てます。構成を変え、ボスの攻略を目指します。",
+    "Choose battles and events, acquire and upgrade pieces, adapt your deck and work toward defeating bosses."
+  ],
+  [
+    "現在：マップ進行と会話の骨格を実装。 開発予定：報酬・強化、1ランの完走、ボス、セーブ。",
+    "Current: map progression and dialogue framework implemented.\nPlanned: rewards, upgrades, complete runs, bosses and saving."
+  ],
+  [
+    "オンライン対戦",
+    "Online versus"
+  ],
+  [
+    "1対1で、入力速度と戦略を競うモード。 同じ盤面で相手とリアルタイムに戦います。",
+    "One-on-one matches of typing speed and strategy, fought in real time on the same board."
+  ],
+  [
+    "フレンドマッチとカジュアルマッチを軸に、繰り返し対戦できる環境を整えます。",
+    "We are building an environment for repeated play, centered on friend matches and casual matchmaking."
+  ],
+  [
+    "現在：オンライン対戦の基礎を実装。 製品版へ：通信安定性・対戦導線・バランスを調整。",
+    "Current: basic online play implemented.\nFor release: refine network stability, match flow and balance."
+  ],
+  [
+    "Touch Type Taleのゲーム画面",
+    "Touch Type Tale gameplay"
+  ],
+  [
+    "タイピングで戦略ゲームを操作することが伝わる公式画像。出典URLを添える。",
+    "An official screenshot demonstrating typing-based control of a strategy game. Include the source URL."
+  ],
+  [
+    "比較対象：Touch Type Tale",
+    "Comparable title: Touch Type Tale"
+  ],
+  [
+    "Glyphica: Typing Survivalのゲーム画面",
+    "Glyphica: Typing Survival gameplay"
+  ],
+  [
+    "タイピングとビルド成長が伝わる公式画像。出典URLを添える。",
+    "An official screenshot showing typing and build progression. Include the source URL."
+  ],
+  [
+    "比較対象：Glyphica: Typing Survival",
+    "Comparable title: Glyphica: Typing Survival"
+  ],
+  [
+    "タイピングと戦略の交点",
+    "Where typing meets strategy"
+  ],
+  [
+    "Touch Type Tale タイピングで戦略ゲームを操作する比較対象。",
+    "Touch Type Tale\nA comparison for typing-based control of a strategy game."
+  ],
+  [
+    "Glyphica: Typing Survival 入力とビルド成長・反復プレイを組み合わせた比較対象。",
+    "Glyphica: Typing Survival\nA comparison for combining typing, build progression and repeated runs."
+  ],
+  [
+    "NyctoTypeは、同時進行する盤面対戦と、コマの構成・強化を組み合わせます。",
+    "NyctoType combines simultaneous board battles with piece selection and upgrades."
+  ],
+  [
+    "Steamでの買い切り販売",
+    "Premium release on Steam"
+  ],
+  [
+    "発売目標：2027年 想定価格：2,000円前後（検討中） 対応機種：PC",
+    "Target release: 2027\nIndicative price: around JPY 2,000 (under consideration)\nPlatform: PC"
+  ],
+  [
+    "ソロの遊び応えを整え、対戦・コミュニティで継続して遊ぶ機会を増やします。",
+    "We will develop a substantial solo experience and create reasons to keep playing through versus matches and the community."
+  ],
+  [
+    "無料デモで反応を確認し、内容・価格・発売時期を調整。早期アクセスの採用は検討中です。",
+    "Feedback on a free demo will inform content, pricing and release timing. Early access is under consideration."
+  ],
+  [
+    "対応予定言語",
+    "Planned languages"
+  ],
+  [
+    "日本語・英語・中国語（繁体字／簡体字）・ドイツ語",
+    "Japanese, English, Chinese (Traditional / Simplified) and German"
+  ],
+  [
+    "インターフェイスの表示言語と、タイピング入力課題の言語は、それぞれ別に設定できるようにする予定です。",
+    "We plan to let players set the interface language and the typing-challenge language independently."
+  ],
+  [
+    "前版で整理した検討案です。応募時の販売計画との差分は、価格・発売範囲を確認してから確定します。",
+    "This is a proposal organized in the previous version. Differences from the application-stage sales plan will be finalized once pricing and release scope are confirmed."
+  ],
+  [
+    "2026年9月 公開デモ・TGS",
+    "September 2026\nPublic demo & TGS"
+  ],
+  [
+    "不具合修正、操作・表示の整理、翻訳確認。 配布範囲と動作環境を確定。",
+    "Fix bugs, refine controls and presentation, review translations.\nConfirm distribution scope and system requirements."
+  ],
+  [
+    "到達点 初回プレイを最後まで通せるデモと、試遊フィードバックの収集。",
+    "Milestone\nA demo that supports a complete first playthrough, plus collected hands-on feedback."
+  ],
+  [
+    "TGS後〜2027年 製品版の核を完成",
+    "After TGS through 2027\nComplete the core game"
+  ],
+  [
+    "コマの獲得・強化、ボス、セーブ、1ラン完走。 並行してオンライン対戦を安定化。",
+    "Piece acquisition, upgrades, bosses, saving and complete runs.\nStabilize online play in parallel."
+  ],
+  [
+    "到達点 短い1ランと対戦を、外部プレイヤーが繰り返し遊べる状態。",
+    "Milestone\nExternal players can repeatedly enjoy a short complete run and versus matches."
+  ],
+  [
+    "2027年発売目標 検証・発売準備",
+    "Target release: 2027\nValidation & launch preparation"
+  ],
+  [
+    "外部テスト、バランス・演出調整、QA・ローカライズ。 小規模イベントで運営も検証。",
+    "External testing, balance and presentation tuning, QA and localization.\nTest event operations through small-scale events."
+  ],
+  [
+    "到達点 製品版の品質確認と販売準備。具体的な時期は検証結果に応じて決定。",
+    "Milestone\nConfirm release quality and prepare sales. Exact timing will depend on validation results."
+  ],
+  [
+    "前版の開発計画案です。応募時の旧日程を上書きせず、現時点の検討用として分けています。",
+    "This roadmap proposal comes from the previous version. It is kept separate for current discussion rather than overwriting the old application schedule."
+  ],
+  [
+    "01 小規模な交流戦",
+    "01  Small friendly matches"
+  ],
+  [
+    "初参加者向けの練習時間を設け、ルールを共有する、招待制の対戦会から始める案をご相談させていただければと思います。",
+    "We would welcome a discussion about starting with invitation-only matches, with practice time and a rules introduction for first-time participants."
+  ],
+  [
+    "まず確認すること 試合の進めやすさ、参加者の反応、通信・運営上の課題。",
+    "First things to check\nEase of running matches, participant response, and network or operational issues."
+  ],
+  [
+    "02 配信付き大会",
+    "02  Streamed tournament"
+  ],
+  [
+    "タイピング競技者や配信者を招き、対戦の見どころを実況で伝える大会を開催できればと考えています。",
+    "We hope to hold a tournament featuring typing competitors and streamers, with commentary highlighting the action."
+  ],
+  [
+    "会場・オンライン形式、参加人数、実況・配信体制は、パートナーとご相談のうえ、一緒に検討させていただければと思います。",
+    "We would appreciate the opportunity to explore the venue or online format, participant numbers and broadcast arrangements together with our partners."
+  ],
+  [
+    "03 継続する対戦会",
+    "03  Recurring matches"
+  ],
+  [
+    "イベント後も対戦相手が見つかる場づくりや、参加者の声を調整と次の開催に反映する進め方をご相談させていただければと思います。",
+    "We would welcome a discussion about creating a place to find opponents after events and using participant feedback to improve the game and future events."
+  ],
+  [
+    "開催数だけでなく、再参加・継続プレイを確かめながら育てていきたいと考えています。",
+    "We hope to develop the series by tracking returning participants and continued play, not just the number of events."
+  ],
+  [
+    "初回は小規模開催を想定しています。会場・参加人数・予算・時期は、協力先と相談して決めさせていただければと思います。",
+    "We envisage a small first event and would welcome the opportunity to discuss and agree on the venue, participant count, budget and timing with our partners."
+  ],
+  [
+    "大会・コミュニティ運営と、展示会への出展を中心にご相談させていただければと思います。以下すべての支援を前提とするものではなく、一部のみのご協力も含め、ご対応いただける範囲に応じて内容や役割分担をご相談できればと考えています。",
+    "We would welcome the opportunity to discuss tournaments, community management and exhibition opportunities. We do not expect every form of support listed here: partial collaboration is welcome, and we hope to discuss the scope and responsibilities in line with what each partner can offer."
+  ],
+  [
+    "大会・コミュニティ運営",
+    "Tournaments & community management"
+  ],
+  [
+    "大会・交流戦の企画、運営補助",
+    "Tournament and friendly-match planning and operational support"
+  ],
+  [
+    "招待参加者の紹介、参加者・配信者へのアプローチ",
+    "Guest introductions and outreach to participants and streamers"
+  ],
+  [
+    "賞金・賞品の提供、協賛先の紹介",
+    "Prize money, products and introductions to sponsors"
+  ],
+  [
+    "実況・配信制作",
+    "Commentary and broadcast production"
+  ],
+  [
+    "継続するコミュニティの運営",
+    "Ongoing community management"
+  ],
+  [
+    "展示会への出展",
+    "Exhibition opportunities"
+  ],
+  [
+    "国内外のゲーム展示会への共同出展や、出展機会の紹介を通じて、本作を来場者・メディア・関係者に届ける機会を増やしたいと考えています。",
+    "Through shared booths at game exhibitions in Japan and overseas, or introductions to exhibition opportunities, we hope to bring the game to more visitors, media and industry contacts."
+  ],
+  [
+    "ブースへの作品展示や現地での展示運営など、ご協力いただける内容をご相談させていただければと思います。",
+    "We would welcome a discussion about support such as featuring the game at a booth or helping run an exhibition on site."
+  ],
+  [
+    "開発チームが担うこと",
+    "What the development team provides"
+  ],
+  [
+    "ゲーム開発、ビルド提供、ルール説明、イベントで得た課題への対応。",
+    "Game development, playable builds, rules explanations and responses to issues identified at events."
+  ],
+  [
+    "まずは小規模な対戦イベントや展示への参加に向け、開催形式・役割分担・必要なゲーム機能からご相談させていただければと思います。",
+    "As a first step toward a small competitive event or exhibition, we would welcome the opportunity to discuss the format, responsibilities and required game features."
+  ],
+  [
+    "メールで連絡する",
+    "Contact by email"
+  ],
+  [
+    "金井啓太",
+    "Keita Kanai"
+  ],
+  [
+    "SteamでNyctoTypeを見る",
+    "View NyctoType on Steam"
+  ],
+  [
+    "デモ・プレイ映像は、本資料とあわせて個別に共有します。 大会・コミュニティ運営の可能性について、ぜひお話しさせてください。",
+    "The demo and gameplay footage will be shared separately alongside this pitch.\nWe would welcome a conversation about tournaments and community management."
+  ],
+  [
+    "メール",
+    "Email"
+  ],
+  [
+    "NyctoTypeのプレイ動画サムネイル",
+    "NyctoType gameplay video thumbnail"
+  ],
+  [
+    "30〜60秒程度で、入力→行動→ダメージまで伝わる動画。画像と完成した動画URLをセットで用意。",
+    "A 30-60 second video showing typing, actions and damage. Prepare the thumbnail and finished video URL together."
+  ],
+  [
+    "NyctoType / プレイ動画",
+    "NyctoType / Gameplay video"
+  ],
+  [
+    "元のFigma",
+    "Original Figma"
+  ],
+  [
+    "目次へ戻る",
+    "Back to contents"
+  ],
+  [
+    "出展・デモ公開",
+    "Exhibition and demo release"
+  ],
+  [
+    "TGSへ出展",
+    "Exhibit at TGS"
+  ],
+  [
+    "試遊を通じて本作を届け、改善点を集めます。",
+    "Introduce the game through hands-on play and gather feedback."
+  ],
+  [
+    "TGSに出展し、会期に合わせて配布可能なデモをSteamストアで公開。",
+    "Exhibit at TGS and release a downloadable demo on Steam to coincide with the event."
+  ],
+  [
+    "gamescomで判明した不具合や、操作・表示を改善。",
+    "Address bugs, controls and display issues identified at gamescom."
+  ],
+  [
+    "現在できること",
+    "Currently playable"
+  ],
+  [
+    "バトルの根幹となるシステムができており、チュートリアルとCPU戦を遊べます。特殊なコマもいくつか実装しています。",
+    "The core battle system is in place, with a playable tutorial and CPU battles. Several special pieces are also implemented."
+  ],
+  [
+    "2026年12月",
+    "December 2026"
+  ],
+  [
+    "目標",
+    "Target"
+  ],
+  [
+    "対戦イベントに向けた準備",
+    "Prepare for competitive events"
+  ],
+  [
+    "イベントで楽しめる対戦のバランスを整えます。",
+    "Balance matches for enjoyable competitive events."
+  ],
+  [
+    "エフェクトやUIを改善し、戦況を見やすく調整。",
+    "Improve effects and UI to make the state of battle easier to read."
+  ],
+  [
+    "スキルを実装し、コマの特殊効果を拡充。",
+    "Implement skills and expand special effects for pieces."
+  ],
+  [
+    "コマの獲得・強化を整備し、対戦全体のバランスを調整。",
+    "Develop piece acquisition and upgrades, and balance the overall match experience."
+  ],
+  [
+    "2027年3月",
+    "March 2027"
+  ],
+  [
+    "TGCA終了までを目標",
+    "Target: by the end of TGCA"
+  ],
+  [
+    "ローグライトの1周を完成",
+    "Complete a full roguelite run"
+  ],
+  [
+    "デッキを育て、最後まで遊べる1人用体験を作ります。",
+    "Build a single-player experience with deck progression and a complete run."
+  ],
+  [
+    "マップ、戦闘、イベント、報酬・強化を一連の流れに。",
+    "Connect the map, battles, events, rewards and upgrades into a continuous flow."
+  ],
+  [
+    "ボス戦を含め、1周を最後まで遊べる状態に整備。",
+    "Make a full run playable from start to finish, including boss battles."
+  ],
+  [
+    "会話やステージを通じて世界観を伝える内容を制作。",
+    "Develop dialogue and stages that introduce the world."
+  ],
+  [
+    "2027年7月",
+    "July 2027"
+  ],
+  [
+    "までを目標",
+    "Target: by this month"
+  ],
+  [
+    "外部テスト・改善",
+    "External testing and improvements"
+  ],
+  [
+    "ソロ・対戦の両方を検証し、品質を高めます。",
+    "Test both solo and versus play to improve quality."
+  ],
+  [
+    "外部プレイヤーによるテストを繰り返し、操作性や難易度を確認。",
+    "Run repeated external playtests to evaluate controls and difficulty."
+  ],
+  [
+    "ネットワークの安定性・遅延、セーブなどの動作を検証。",
+    "Test network stability, latency, saving and other functionality."
+  ],
+  [
+    "フィードバックを基に、不具合やゲームバランスを改善。",
+    "Use feedback to fix bugs and improve game balance."
+  ],
+  [
+    "2027年10月",
+    "October 2027"
+  ],
+  [
+    "公開目標",
+    "Release target"
+  ],
+  [
+    "販売を開始し、プレイヤーの反応を開発に活かします。",
+    "Begin selling the game and use player feedback to guide development."
+  ],
+  [
+    "ソロとオンライン対戦を備えた有料版を提供。",
+    "Offer a paid version with solo and online versus modes."
+  ],
+  [
+    "ローカライズ、告知素材、Steamでの配信準備。",
+    "Prepare localization, promotional materials and the Steam release."
+  ],
+  [
+    "公開後も内容の追加と調整を継続。",
+    "Continue adding and refining content after release."
+  ],
+  [
+    "2027年12月",
+    "December 2027"
+  ],
+  [
+    "発売目標",
+    "Launch target"
+  ],
+  [
+    "収録内容と品質を整え、正式版を届けます。",
+    "Finalize content and quality for the full release."
+  ],
+  [
+    "収録内容と物語の範囲を固め、演出・翻訳を仕上げ。",
+    "Finalize the content and story scope, presentation and translations."
+  ],
+  [
+    "アーリーアクセスで得た反応を反映し、最終的な動作検証と調整。",
+    "Incorporate Early Access feedback and complete final testing and adjustments."
+  ],
+  [
+    "オンライン対戦は、ソロの機能追加と並行して整備します。試遊や対戦イベントでの反応も、開発と運営の検証に活かしていきます。",
+    "Online versus play will be developed alongside solo features. Feedback from playtests and competitive events will also inform development and event operations."
+  ],
+  [
+    "各年月は現時点での目標です。各段階の内容や公開時期は、開発の進捗と検証結果に応じて調整します。",
+    "These dates are current targets. Scope and release timing for each stage will be adjusted according to development progress and test results."
+  ],
+  [
+    "戦闘とイベントを選びながら進み、コマの獲得・強化でデッキを育て、ボスの攻略を目指す1人用モードです。",
+    "A single-player mode where players choose battles and events, acquire and upgrade pieces to develop their deck, and work toward defeating bosses."
+  ],
+  [
+    "戦いや会話を通じて、記憶を失ったプレイヤーが自分の正体や世界の過去を知り、行動を選んでいく物語も描きます。",
+    "Battles and conversations also tell the story of an amnesiac player discovering their identity and the world's past, and choosing how to act."
+  ],
+  [
+    "現在：マップ進行と会話の骨格を実装。 開発予定：報酬・強化、1周の完走、ボス、セーブ。物語は開発の進捗に合わせて内容と公開時期を調整します。",
+    "Current: the foundations of map progression and dialogue are implemented. Planned: rewards, upgrades, a complete run, bosses and saving. Story content and its release timing will be adjusted as development progresses."
+  ],
+  [
+    "同じ盤面で他のプレイヤーと1対1で戦い、入力速度と戦略を競うモードです。フレンドとの対戦にも対応します。",
+    "A mode where two players compete in typing speed and strategy on the same board. Matches with friends will also be supported."
+  ],
+  [
+    "現在：オンライン対戦の基礎を実装し、1ラウンドで決着する対戦を遊べます。 開発予定：通信の安定性・対戦導線・バランスを調整。ラウンド間に強化を挟む形式など、対戦モードのバリエーションも検討しています。",
+    "Current: the foundations of online play are implemented, with playable single-round matches. Planned: improvements to connection stability, the matchmaking flow and balance. We are also considering variations such as formats with upgrades between rounds."
+  ],
+  [
+    "初参加者向けの練習時間を設け、ルールを共有する、招待制の対戦会をご相談させていただければと思います。",
+    "We would like to discuss invitation-based match sessions with practice time for newcomers and an introduction to the rules."
+  ],
+  [
+    "確認したいこと 試合の進めやすさ、参加者の反応、通信・運営上の課題。",
+    "What to evaluate: match flow, participant feedback, connection issues and operational challenges."
+  ],
+  [
+    "コミュニティでの交流戦を繰り返し、その反応をゲームバランスの調整にも活かします。再参加・継続プレイを確かめながら、コミュニティを育てていきたいと考えています。",
+    "Repeated community matches will also provide feedback for balancing the game. We hope to grow the community while tracking returning participants and continued play."
+  ],
+  [
+    "会場・参加人数・予算・時期は、協力先と相談して決めさせていただければと思います。",
+    "We would like to discuss and agree on the venue, number of participants, budget and timing with our partners."
+  ],
+  [
+    "対戦イベントや展示への参加に向け、開催形式・役割分担・必要なゲーム機能からご相談させていただければと思います。",
+    "We would like to discuss formats, responsibilities and required game features for competitive events and exhibitions."
+  ],
+  [
+    "試遊を通じて本作をなるべく広く届ける",
+    "Reach as many people as possible through hands-on play"
+  ],
+  [
+    "イベントで楽しめる対戦のバランスを整える",
+    "Balance matches for enjoyable competitive events"
+  ],
+  [
+    "デッキを育て、最後まで遊べる1人用体験を作る",
+    "Create a complete single-player experience with deck progression"
+  ],
+  [
+    "ソロ・対戦の両方を検証し、品質を高める",
+    "Test both solo and versus play to improve quality"
+  ],
+  [
+    "販売を開始し、プレイヤーの反応を開発に活かす",
+    "Begin selling the game and use player feedback to guide development"
+  ],
+  [
+    "収録内容と品質を整え、正式版を届ける",
+    "Finalize content and quality for the full release"
+  ],
+  [
+    "TGCA支援期間終了に向け、デモを整える",
+    "Prepare the demo for the end of the TGCA support period"
+  ],
+  [
+    "外部テスト期間",
+    "External testing period"
+  ],
+  [
+    "バトルの根幹となるシステムができており、チュートリアルとCPU戦、オンライン対戦を遊べます。数種類の特殊なコマと、それらを組み合わせたプリセットデッキを実装しています。",
+    "The core battle system is in place, with a playable tutorial, CPU battles and online matches. Several types of special pieces and preset decks combining them are implemented."
+  ],
+  [
+    "会話やステージを通じて一通りのストーリーを完了させ、世界観を伝える内容を制作。",
+    "Create a complete story arc through dialogue and stages, with content that conveys the world."
+  ],
+  [
+    "開発中の実機画面：Junkとの会話",
+    "Work-in-progress gameplay: talking with Junk"
+  ],
+  [
+    "台北ゲームショウ2026のNyctoTypeブース",
+    "NyctoType booth at Taipei Game Show 2026"
+  ],
+  [
+    "NyctoType / 台北ゲームショウ2026",
+    "NyctoType / Taipei Game Show 2026"
+  ],
+  [
+    "台北ゲームショウ2026で使用した提供機材",
+    "Provided equipment used at Taipei Game Show 2026"
+  ]
+]
