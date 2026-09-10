@@ -145,7 +145,7 @@ for chapter, expected in (
 for obsolete in ('パートナーと相談して決めます。', 'パートナーと設計します。', '協力先と相談して決定。', '相談させてください。'):
     assert normalized(obsolete) not in visible
 device_copy = normalized(''.join(parser.chapters['devices']))
-assert 'EPOMAKER・LINSOUL' in device_copy
+assert 'EPOMAKER様・LINSOUL様より' in device_copy
 assert '協業先は未定' not in device_copy and '協業先・コラボ製品・協賛は未定' not in device_copy
 assert '応募時の旧計画' not in visible
 assert '元の企画案であり' not in visible and '元の企画書の計画です' not in visible
