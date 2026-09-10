@@ -13,7 +13,7 @@
   ["台北ゲームショウ2026では、EPOMAKER・LINSOULより展示用キーボード・オーディオ機器の提供を受けました。", "At Taipei Game Show 2026, EPOMAKER and LINSOUL provided keyboards and audio equipment for our exhibition."],
   ["デバイス協業の検討用イメージ。", "Illustrative reference for device collaboration."],
   ["会話やステージを通じて、デモに収録するローグライト1周分のストーリーを完成させ、世界観を伝える内容を制作。", "Complete the story for one roguelite run included in the demo, conveying the world through dialogue and stages."],
-  ["しかし、従来のeSportsとしてのタイピングゲームは、速さと正確さを競うだけで、視覚的な進化や戦術の広がりが少なく、観戦時の見どころがわかりづらい面があります。", "However, traditional typing games played as esports focus solely on speed and accuracy, with limited visual evolution or tactical variety, which can make the highlights difficult for spectators to follow."],
+  ["本作では、タイピング競技が持つ速さと正確さを競う魅力に、盤面上の駆け引きと視覚的な演出を加え、プレイする楽しさと観戦する楽しさを広げることを目指しています。", "NyctoType aims to build on the appeal of competing in typing speed and accuracy by adding board-based tactics and visual effects, creating more ways to enjoy both playing and watching."],
   ["売上（試算）", "Revenue (Estimate)"],
   ["機材提供の実績", "Equipment Support"],
   ["1,480円 × 約37.6万本 ≒ 5.6億円（概算）", "JPY 1,480 x approx. 375,900 units = approx. JPY 556 million (estimate)"],
@@ -1745,6 +1745,14 @@
   [
     "NyctoType / 台北ゲームショウ2026",
     "NyctoType / Taipei Game Show 2026"
+  ],
+  [
+    "gamescom 2026のNyctoType展示風景",
+    "NyctoType exhibition at gamescom 2026"
+  ],
+  [
+    "NyctoType / gamescom 2026 展示風景",
+    "NyctoType / Exhibition at gamescom 2026"
   ],
   [
     "台北ゲームショウ2026で使用した提供機材",

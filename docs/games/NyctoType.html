@@ -96,13 +96,67 @@
 
 <section class="text-band presskit-band">
   <div class="wrap">
-    <a class="presskit-panel" href="../pitchdecks/NyctoType/index.html">
+    <a class="presskit-panel" href="../pitchdecks/NyctoType/index.html" data-protected-pitch-link data-protected-href="../pitchdecks/NyctoType/index.html">
       <span class="presskit-kicker" data-i18n-ja="PITCH" data-i18n-en="PITCH" data-i18n-de="PITCH" data-i18n-zh-hant="PITCH" data-i18n-zh-hans="PITCH" data-i18n-ko="PITCH">PITCH</span>
       <span class="presskit-title" data-i18n-ja="ピッチデッキ" data-i18n-en="Pitch Deck" data-i18n-de="Pitch Deck" data-i18n-zh-hant="企劃簡報" data-i18n-zh-hans="企划简报" data-i18n-ko="피치 덱">ピッチデッキ</span>
       <span class="presskit-description" data-i18n-ja="ゲームの企画・開発計画・協業についての資料です。" data-i18n-en="Project overview, development plans, and partnership opportunities." data-i18n-de="Informationen zum Spielkonzept, zur Entwicklung und zu möglichen Partnerschaften." data-i18n-zh-hant="介紹遊戲企劃、開發計畫與合作方向的資料。" data-i18n-zh-hans="介绍游戏企划、开发计划与合作方向的资料。" data-i18n-ko="게임 기획, 개발 계획 및 협업에 관한 자료입니다.">ゲームの企画・開発計画・協業についての資料です。</span>
       <span class="presskit-button" data-i18n-ja="ピッチデッキへ" data-i18n-en="Open Pitch Deck" data-i18n-de="Pitch Deck öffnen" data-i18n-zh-hant="開啟企劃簡報" data-i18n-zh-hans="打开企划简报" data-i18n-ko="피치 덱 열기">ピッチデッキへ</span>
     </a>
   </div>
+  <dialog class="pitch-password-dialog" data-pitch-password-dialog aria-labelledby="pitch-password-title">
+    <form class="pitch-password-form" data-pitch-password-form>
+      <h2 id="pitch-password-title" data-i18n-ja="パスワードを入力" data-i18n-en="Enter password" data-i18n-de="Passwort eingeben" data-i18n-zh-hant="輸入密碼" data-i18n-zh-hans="输入密码" data-i18n-ko="비밀번호 입력">パスワードを入力</h2>
+      <p class="pitch-password-description" data-i18n-ja="ピッチデッキを開くにはパスワードが必要です。" data-i18n-en="A password is required to open the pitch deck." data-i18n-de="Zum Öffnen des Pitch Decks ist ein Passwort erforderlich." data-i18n-zh-hant="開啟企劃簡報需要密碼。" data-i18n-zh-hans="打开企划简报需要密码。" data-i18n-ko="피치 덱을 열려면 비밀번호가 필요합니다.">ピッチデッキを開くにはパスワードが必要です。</p>
+      <label for="pitch-password-input" data-i18n-ja="パスワード" data-i18n-en="Password" data-i18n-de="Passwort" data-i18n-zh-hant="密碼" data-i18n-zh-hans="密码" data-i18n-ko="비밀번호">パスワード</label>
+      <input id="pitch-password-input" type="password" autocomplete="current-password" required data-pitch-password-input />
+      <p class="pitch-password-error" role="alert" hidden data-pitch-password-error data-i18n-ja="パスワードが違います。このページに戻ります。" data-i18n-en="Incorrect password. Returning to this page." data-i18n-de="Falsches Passwort. Sie kehren zu dieser Seite zurück." data-i18n-zh-hant="密碼錯誤。將返回此頁面。" data-i18n-zh-hans="密码错误。将返回此页面。" data-i18n-ko="비밀번호가 올바르지 않습니다. 이 페이지로 돌아갑니다.">パスワードが違います。このページに戻ります。</p>
+      <div class="pitch-password-actions">
+        <button type="button" class="pitch-password-cancel" data-pitch-password-cancel data-i18n-ja="キャンセル" data-i18n-en="Cancel" data-i18n-de="Abbrechen" data-i18n-zh-hant="取消" data-i18n-zh-hans="取消" data-i18n-ko="취소">キャンセル</button>
+        <button type="submit" class="pitch-password-submit" data-i18n-ja="開く" data-i18n-en="Open" data-i18n-de="Öffnen" data-i18n-zh-hant="開啟" data-i18n-zh-hans="打开" data-i18n-ko="열기">開く</button>
+      </div>
+    </form>
+  </dialog>
+  <script>
+    (() => {
+      const link = document.querySelector("[data-protected-pitch-link]");
+      const dialog = document.querySelector("[data-pitch-password-dialog]");
+      const form = dialog?.querySelector("[data-pitch-password-form]");
+      const input = dialog?.querySelector("[data-pitch-password-input]");
+      const error = dialog?.querySelector("[data-pitch-password-error]");
+      const cancel = dialog?.querySelector("[data-pitch-password-cancel]");
+      if (!link || !dialog || !form || !input || !error || !cancel) throw new Error("Pitch password dialog is incomplete");
+
+      const resetDialog = () => {
+        form.reset();
+        error.hidden = true;
+      };
+
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        resetDialog();
+        dialog.showModal();
+        input.focus();
+      });
+      cancel.addEventListener("click", () => dialog.close());
+      dialog.addEventListener("click", (event) => {
+        if (event.target === dialog) dialog.close();
+      });
+      dialog.addEventListener("close", resetDialog);
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        if (input.value === "RedCyclone") {
+          window.location.assign(link.dataset.protectedHref);
+          return;
+        }
+        error.hidden = false;
+        input.disabled = true;
+        window.setTimeout(() => {
+          input.disabled = false;
+          dialog.close();
+        }, 1300);
+      });
+    })();
+  </script>
 </section>
 
       <section class="text-band">

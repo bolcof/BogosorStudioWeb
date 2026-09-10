@@ -432,6 +432,101 @@
         white-space: nowrap;
       }
 
+      .pitch-password-dialog {
+        position: fixed;
+        inset: 0;
+        width: min(460px, calc(100% - 32px));
+        margin: auto;
+        padding: 0;
+        border: 1px solid rgba(245, 241, 232, 0.22);
+        border-radius: var(--radius);
+        background: #171814;
+        color: var(--text);
+        box-shadow: 0 28px 90px rgba(0, 0, 0, 0.7);
+      }
+
+      .pitch-password-dialog::backdrop {
+        background: rgba(0, 0, 0, 0.76);
+        backdrop-filter: blur(3px);
+      }
+
+      body:has(.pitch-password-dialog[open]) {
+        overflow: hidden;
+      }
+
+      .pitch-password-form {
+        display: grid;
+        gap: 14px;
+        padding: 28px;
+      }
+
+      .pitch-password-form h2 {
+        margin: 0;
+        font-size: 1.35rem;
+      }
+
+      .pitch-password-description {
+        margin: 0 0 4px;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .pitch-password-form label {
+        font-size: 0.86rem;
+        font-weight: 760;
+      }
+
+      .pitch-password-form input {
+        width: 100%;
+        min-height: 46px;
+        border: 1px solid rgba(245, 241, 232, 0.24);
+        border-radius: var(--radius);
+        padding: 9px 12px;
+        background: #0d0e0c;
+        color: var(--text);
+        font: inherit;
+      }
+
+      .pitch-password-form input:focus-visible {
+        border-color: var(--green);
+        outline: 2px solid rgba(123, 215, 184, 0.36);
+        outline-offset: 2px;
+      }
+
+      .pitch-password-error {
+        margin: 0;
+        color: #ffb8ad;
+        font-size: 0.9rem;
+      }
+
+      .pitch-password-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        margin-top: 6px;
+      }
+
+      .pitch-password-actions button {
+        min-height: 42px;
+        border-radius: var(--radius);
+        padding: 0 18px;
+        color: var(--text);
+        font: inherit;
+        font-weight: 760;
+        cursor: pointer;
+      }
+
+      .pitch-password-cancel {
+        border: 1px solid rgba(245, 241, 232, 0.22);
+        background: transparent;
+      }
+
+      .pitch-password-submit {
+        border: 1px solid var(--gold);
+        background: var(--gold);
+        color: #171814 !important;
+      }
+
       .text-band {
         padding: 70px 0 64px;
         border-top: 1px solid var(--line);

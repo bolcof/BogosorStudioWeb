@@ -38,7 +38,7 @@ const corrections: Record<string, string> = {
   '2611:56': sourceText.get('2611:56')!.replace('余地があります', '余地があると考えました').replace('どの駒をどの順番でどこに動かすかといった選択を', 'タイピング入力によるリソースで何を行うのかの選択を'),
   '2611:416': 'チェス盤のようなマス目があり、その上に自分のコマと相手のコマが乗っています。\n\nプレイヤーは自分のコマを選択して移動する方向を選択し、提示された文字列を入力してタイピングの課題をクリアすると、その方向にコマを１手動かせます。',
   '2611:421': 'そうしてコマを動かしていき、相手側の端から盤外にコマを落とすと相手にダメージを与えることが出来ます。\n先に相手の体力を削り切った方が勝利です。\n\nどのコマをどの順でどう移動させるか、考えながら素早くタイピングをすることで勝利を掴めます。',
-  '2611:140': sourceText.get('2611:140')!.replace('20世紀以前からから', '以前から').replace('従来のタイトルはシンプルなスコア競争に留まり、視覚的進化や体験の広がりが不足しています。', '従来のeSportsとしてのタイピングゲームは、速さと正確さを競うだけで、視覚的な進化や戦術の広がりが少なく、観戦時の見どころがわかりづらい面があります。'),
+  '2611:140': sourceText.get('2611:140')!.replace('20世紀以前からから', '以前から').replace('しかし、従来のタイトルはシンプルなスコア競争に留まり、視覚的進化や体験の広がりが不足しています。', '本作では、タイピング競技が持つ速さと正確さを競う魅力に、盤面上の駆け引きと視覚的な演出を加え、プレイする楽しさと観戦する楽しさを広げることを目指しています。'),
   '2611:593': 'プレイ中は、テーブルと、テーブルを挟んで向かい合う相手が見えています。テーブル上のボードで、コマを生成したり移動させたりして戦います。必要な情報は、浮遊するウィンドウやハイライトで表示されます。\n\n盤面の横には大きなコンソールが浮いています。このウィンドウを選び、必要なコマンドを入力することで、新たなコマを生成できます。\n\n今後は、プレイ中にゲージが溜まると、同じくコンソールを使用して「アクティブスキル」を発動できるようにする予定です。全てのコマをランダムに動かすなど、ゲーム全体に影響する効果で逆転を狙えるため、発動のタイミングも重要です。\n\n相手が長くコマを動かしていない間は、コンソールで強力なコマやスキルを準備している可能性があるため、注意が必要です。',
 };
 
@@ -96,13 +96,13 @@ function SectionArt({ chapter }: { chapter: string }) {
   if (chapter === 'devices') return <img className="heading-inset" src="/images/key-enter.png" alt="" aria-hidden="true" width="827" height="1102"/>;
   return null;
 }
-function Foot({ number }: { number: string }) { return <div className="print-footer">NyctoType / BogosorGames <span>{number} / confidential</span></div>; }
+function Foot({ number }: { number: string }) { return <div className="print-footer">NyctoType / BogosorGames <span>{number}</span></div>; }
 
 type Chapter = { id: string; title: string; contentsTitle?: string; label: string; source?: string; className?: string; body: React.ReactNode };
 const chapters: Chapter[] = [
   { id: 'concept', title: 'コンセプト', label: 'CONCEPT', source: '2611:50', body: <><Block title={sourceText.get('2611:55')!} ids={['2611:56']}/><Slot name="concept"/></> },
   { id: 'team', title: '開発体制', label: 'TEAM', source: '2611:64 2611:74', className: 'team original-team', body: <><div className="text-block"><h3 className="team-name">BogosorGames<Link href="https://bolcof.github.io/BogosorStudioWeb/">Webサイト</Link></h3><div className="copy"><p>現代美術をバックグラウンドに、映像・パフォーマンスなどの作品制作や、国内外のコンペティションへの参加・展示を経験してきました。</p><p>こうした制作活動で培った経験を、ゲームのコンセプトやメカニクスなど、体験の設計に活かして開発しています。</p></div></div><div className="support" aria-labelledby="support-heading"><h3 id="support-heading">採択・支援実績</h3><Link href="https://tgca.jp/">TGCA 第1期 育成クリエイター</Link><Link href="https://ponos-foundation.org/support.html">公益財団法人ポノス財団 助成採択：『NyctoType』の大会用バージョン開発</Link></div></> },
-  { id: 'rules', title: '基本ルール', label: 'RULES', source: '2611:409', className: 'rules', body: <><Screenshot src="/images/gameplay-current.png" caption="開発中の実機画面：盤面・移動先の選択・両者の体力"/><div className="two-columns body-after-media"><Text id="2611:416"/><Text id="2611:421"/></div><ol className="rule-steps"><li><Slot name="ruleSelect"/></li><li><Slot name="ruleDirection"/></li><li><Slot name="ruleTyping"/></li><li><Slot name="ruleDamage"/></li></ol></> },
+  { id: 'rules', title: '基本ルール', label: 'RULES', source: '2611:409', className: 'rules', body: <><Screenshot src="/images/gameplay-current.png" caption="開発中の実機画面：盤面・移動先の選択・両者の体力"/><div className="two-columns body-after-media"><Text id="2611:416"/><Text id="2611:421"/></div><ol className="rule-steps"><li><Slot name="ruleSelect"/></li><li className="rule-step-separator" aria-hidden="true"><span/></li><li><Slot name="ruleDirection"/></li><li className="rule-step-separator" aria-hidden="true"><span/></li><li><Slot name="ruleTyping"/></li><li className="rule-step-separator" aria-hidden="true"><span/></li><li><Slot name="ruleDamage"/></li></ol></> },
   { id: 'pieces', title: 'コマの種類', label: 'PIECES', source: '2611:572', body: <><div className="illustrated-copy"><PieceOverview/><PieceArt pieces={['killer', 'pusher']}/></div></> },
   { id: 'passive', title: 'アビリティ', label: 'ABILITIES', source: '2611:572', body: <><div className="copy" data-source-id="2611:579"><p>アビリティは、コマに備わる特殊な効果です。</p><p>「相手のコマを破壊する」「押し出す」「ダメージを増やす」のほか、「破壊を防ぐ」「移動時の入力文字数を減らす」といった効果があります。</p><p>コマの種類ごとにアビリティが決まっています。今後は、強化によってアビリティを追加できるようにする予定です。相手のアビリティも踏まえ、どのコマで攻め、どのコマを止めるかを判断します。</p></div><Slot name="abilities"/></> },
   { id: 'screen', title: '画面イメージ', label: 'SCREEN', source: '2611:584', body: <><div className="split"><Text id="2611:593"/><Screenshot src="/images/console-current.png" caption="開発中の実機画面：コンソールで生成するコマを選択"/></div></> },
@@ -139,10 +139,10 @@ const chapters: Chapter[] = [
 export default function Home() {
   return <>
     <a className="skip-link" href="#contents">目次へ</a>
-    <header className="site-header"><a className="wordmark" href="#cover">NyctoType<span> / BogosorGames</span></a><nav aria-label="メイン"><a href="#contents">目次</a><a href="#streaming">配信・大会</a><a href="#partnership">協業</a><PrintButton/></nav></header>
+    <header className="site-header"><a className="wordmark" href="#cover">NyctoType<span> / BogosorGames</span></a><nav aria-label="メイン"><a href="#contents">目次</a><a href="#streaming">配信・大会</a><a href="#partnership">協業</a><div className="language-switcher" data-language-switcher="true" role="group" aria-label="Language"><button type="button" data-pitch-language="ja" aria-pressed="true" lang="ja">日本語</button><button type="button" data-pitch-language="en" aria-pressed="false" lang="en">English</button></div><PrintButton/></nav></header>
     <main>
       <section id="cover" className="cover print-page" data-figma-id="2611:43">
-        <div className="hero"><img className="hero-image" src="/images/world.webp" alt="NyctoTypeのゲーム内世界" width="2400" height="800" fetchPriority="high"/><div className="wrap hero-content"><div className="cover-tools"><p className="eyebrow">PARTNER PITCH <span>CONFIDENTIAL</span></p><div className="language-switcher" data-language-switcher="true" role="group" aria-label="Language"><button type="button" data-pitch-language="ja" aria-pressed="true" lang="ja">日本語</button><button type="button" data-pitch-language="en" aria-pressed="false" lang="en">English</button></div></div><h1>NyctoType</h1><p className="tagline">速度と戦術で競い合う<br/>マルチスレッドタイピングバトル</p><a className="button primary" href={steam} target="_blank" rel="noreferrer">Steamで見る<ArrowUpRight size={18}/></a><UpdateHistory/></div><a className="hero-down" href="#contents" aria-label="目次へ"><ArrowDown size={24}/></a></div>
+        <div className="hero"><img className="hero-image" src="/images/world.webp" alt="NyctoTypeのゲーム内世界" width="2400" height="800" fetchPriority="high"/><div className="wrap hero-content"><p className="eyebrow">PARTNER PITCH</p><h1>NyctoType</h1><p className="tagline">速度と戦術で競い合う<br/>マルチスレッドタイピングバトル</p><a className="button primary" href={steam} target="_blank" rel="noreferrer">Steamで見る<ArrowUpRight size={18}/></a><UpdateHistory/></div><a className="hero-down" href="#contents" aria-label="目次へ"><ArrowDown size={24}/></a></div>
         <div className="wrap cover-details" data-source-id="2611:49">
           <dl className="cover-facts">{coverFacts.filter(fact => !isAudienceFact(fact.label)).map(fact => <div key={fact.label}><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}</dl>
           <dl className="cover-audience">{coverFacts.filter(fact => isAudienceFact(fact.label)).map(fact => <div key={fact.label}><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}</dl>
@@ -151,7 +151,7 @@ export default function Home() {
       <nav id="contents" className="pitch-contents wrap" aria-label="目次"><span className="section-index">CONTENTS</span><div>{chapters.map((chapter, i) => <a key={chapter.id} href={'#' + chapter.id}><span>{String(i + 2).padStart(2, '0')}</span>{chapter.contentsTitle ?? chapter.title}</a>)}</div></nav>
       {chapters.map((chapter, i) => <section key={chapter.id} id={chapter.id} className={'deck-section print-page original-section ' + (chapter.className ?? '')} data-figma-id={chapter.source} data-chapter={chapter.id}><SectionArt chapter={chapter.id}/><div className="wrap section-inner"><header className="section-heading"><span className="section-index">{String(i + 2).padStart(2, '0')} / {chapter.label}</span><h2>{chapter.title}</h2></header>{chapter.body}</div><Foot number={String(i + 2).padStart(2, '0')}/></section>)}
     </main>
-    <footer className="site-footer wrap"><p><strong className="wordmark">NyctoType</strong><span>BogosorGames / Confidential</span></p><div><Link href={steam}>Steam</Link><a href="#contents">目次へ戻る</a></div></footer>
+    <footer className="site-footer wrap"><p><strong className="wordmark">NyctoType</strong><span>BogosorGames</span></p><div><Link href={steam}>Steam</Link><a href="#contents">目次へ戻る</a></div></footer>
     <script id="pitch-translations" type="application/json" data-pitch-script="translations" dangerouslySetInnerHTML={{ __html: JSON.stringify(englishCopy).replaceAll('<', '\\u003c') }}/>
     <script src="/language-switcher.js" defer data-pitch-script="runtime"/>
   </>;
