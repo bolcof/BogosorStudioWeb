@@ -55,6 +55,9 @@
 .press-download:hover { filter:brightness(1.12); }
 .press-download small { font-size:12px; font-weight:500; }
 .press-zip-downloads { display:flex; flex-wrap:wrap; gap:10px; }
+.press-vision { margin:24px 0; padding:18px 20px; border-left:3px solid var(--gold); background:rgba(255,255,255,.035); }
+.press-vision h3 { margin-top:0; }
+.press-vision p { margin-bottom:0; }
 html[lang="ja"] .press-asset[data-asset-language="en"],
 html[lang="en"] .press-asset[data-asset-language="ja"] { display:none; }
 .press-text-link { text-decoration:underline; text-underline-offset:4px; }

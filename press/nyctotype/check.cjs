@@ -40,7 +40,7 @@ async function check() {
     assert.equal(await archives[lang].file(`${lang==='ja'?'NyctoType-PressKit-JA':'NyctoType-PressKit-EN'}/${filename}`).async('string'),text);
     assert(text.includes(data.zipImageNote[lang]));
     assert(!text.includes(lang==='ja' ? '_ENG.png' : '_JP.png'));
-    for (const value of [data.short[lang],data.planned[lang],...data.usage.map(u=>u[lang])]) assert(text.includes(value));
+    for (const value of [data.short[lang],data.vision[lang],data.planned[lang],...data.usage.map(u=>u[lang])]) assert(text.includes(value));
     assert(!/TBD|youtube|youtu\.be|pitchdecks|国家AI|1億|2027年10月|2027年12月|TJ Shizzle/i.test(text));
   }
   const types = {'.html':'text/html; charset=utf-8','.css':'text/css','.js':'text/javascript','.png':'image/png','.webp':'image/webp','.txt':'text/plain; charset=utf-8','.zip':'application/zip','.ico':'image/x-icon'};
