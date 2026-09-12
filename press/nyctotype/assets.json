@@ -1,0 +1,9 @@
+[
+  {"file":"screenshots/NyctoType-01-board.png","source":"pitch/nyctotype/public/images/gameplay-current.png","kind":"screenshot","caption":{"ja":"盤面とコマの移動先選択","en":"The board and movement selection"}},
+  {"file":"screenshots/NyctoType-02-console.png","source":"pitch/nyctotype/public/images/console-current.png","kind":"screenshot","caption":{"ja":"コンソールで生成するコマを選択","en":"Selecting a piece to create in the console"}},
+  {"file":"screenshots/NyctoType-03-typing.png","source":"pitch/nyctotype/public/images/15-rule-typing.png","kind":"screenshot","caption":{"ja":"タイピング課題をクリアしてコマを移動","en":"Completing a typing challenge to move a piece"}},
+  {"file":"screenshots/NyctoType-04-attack.png","source":"pitch/nyctotype/public/images/16-rule-damage.png","kind":"screenshot","caption":{"ja":"相手側の盤外を狙う攻撃","en":"Attacking beyond the opponent's edge of the board"}},
+  {"file":"artwork/NyctoType-logo.png","source":"GameProjects/NyctoType/Assets/Image/View/TitleView/logo.png (initial import only)","kind":"logo","caption":{"ja":"タイトルロゴ（透過PNG）","en":"Title logo (transparent PNG)"}},
+  {"file":"artwork/NyctoType-key-visual.png","source":"docs/assets/games/NyctoType/LibraryCapsule.png","kind":"artwork","caption":{"ja":"キーアート（縦型・ロゴ入り）","en":"Key art (portrait, with logo)"}},
+  {"file":"artwork/NyctoType-wide-art.png","source":"docs/assets/games/NyctoType/LibraryHero.png","kind":"artwork","caption":{"ja":"横長アート（ロゴなし）","en":"Wide artwork (without logo)"}}
+]
