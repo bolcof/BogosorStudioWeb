@@ -11,7 +11,7 @@
   {"file":"screenshots/NyctoType-05-piece_ENG.png","source":"User supplied in press kit assets","kind":"screenshot","caption":{"ja":"特殊なアビリティを持つコマ（英語UI）","en":"Pieces with special abilities (English UI)"}},
   {"file":"screenshots/NyctoType-06-story_JP.png","source":"User supplied in press kit assets","kind":"screenshot","caption":{"ja":"ストーリー会話画面（日本語UI）","en":"Story dialogue scene (Japanese UI)"}},
   {"file":"screenshots/NyctoType-06-story_ENG.png","source":"User supplied in press kit assets","kind":"screenshot","caption":{"ja":"ストーリー会話画面（英語UI）","en":"Story dialogue scene (English UI)"}},
-  {"file":"artwork/NyctoType-logo.png","source":"GameProjects/NyctoType/Assets/Image/View/TitleView/logo.png (initial import only)","kind":"logo","caption":{"ja":"タイトルロゴ（透過PNG）","en":"Title logo (transparent PNG)"}},
+  {"file":"artwork/NyctoType-logo.png","source":"GameProjects/NyctoType/Assets/Image/View/TitleView/logo.png (initial import only)","kind":"logo","caption":{"ja":"タイトルロゴ（透過PNG）","en":"Title logo (transparent PNG)"},"note":{"ja":"縦横比を保った拡大縮小のみ可能","en":"Scaling only; preserve the aspect ratio."}},
   {"file":"artwork/NyctoType-cover-image.png","source":"User supplied in press kit assets","kind":"artwork","caption":{"ja":"縦型キーアート（ロゴ入り）","en":"Portrait key art (with logo)"}},
   {"file":"artwork/NyctoType-wide-art-logo.png","source":"User supplied in press kit assets","kind":"artwork","caption":{"ja":"横長キーアート（ロゴ入り）","en":"Wide key art (with logo)"}},
   {"file":"artwork/Square.png","source":"User supplied in press kit assets","kind":"artwork","caption":{"ja":"正方形キーアート（ロゴ入り）","en":"Square key art (with logo)"}},

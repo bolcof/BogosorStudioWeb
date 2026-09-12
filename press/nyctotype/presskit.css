@@ -47,6 +47,7 @@
 .artwork .asset-preview { aspect-ratio:4/3; }
 .press-asset h3 { font-size:15px; line-height:1.6; margin:12px 0 4px; }
 .asset-meta { margin:0 0 8px; font-size:12px; color:var(--muted); }
+.asset-note { margin-top:-5px; }
 .asset-download,.press-texts a { display:inline-flex; align-items:center; gap:8px; font-size:13px; color:var(--green); min-height:36px; }
 .asset-download:hover,.press-texts a:hover { text-decoration:underline; }
 .presskit svg { flex-shrink:0; }
