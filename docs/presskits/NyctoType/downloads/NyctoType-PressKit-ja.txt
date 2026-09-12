@@ -3,24 +3,22 @@ NyctoType / BogosorGames
 
 速度と戦術で競い合うマルチスレッドタイピングバトル
 
-NyctoTypeは、タイピング課題をクリアして盤面上のコマを動かしたり、新たなコマを生成したりする戦略性タイピングゲームです。相手側の端から盤外にコマを落とすとダメージを与えられ、先に相手の体力を削り切ると勝利。どのコマをどの順でどう動かすか、考えながら素早くタイピングします。
+NyctoTypeは、タイピング課題をクリアして盤面上のコマを動かしたり、新たなコマを生成したりする戦略性タイピングゲームです。入力の速さだけでなく、どのコマをどの順で動かすかという判断が勝敗を左右します。
 
 基本情報
 タイトル: NyctoType
 開発元: BogosorGames
 ジャンル: 戦略性タイピングゲーム
 プラットフォーム: PC（Windows）／Steam
-プレイ人数: 1人／オンライン対戦2人（1対1）
+プレイ人数: 2人（オンライン対戦）
 発売予定: 2027年にアーリーアクセス配信予定
-対応予定言語: 日本語・英語・中国語（繁体字／簡体字）・ドイツ語
+対応言語: 現在：日本語・英語・中国語（繁体字／簡体字）。将来：ロシア語・スペイン語（スペイン）・ポルトガル語（ブラジル）・ドイツ語を加えた主要8言語を予定
 Steam: https://store.steampowered.com/app/3968600/NyctoType/
 公式サイト: https://bolcof.github.io/BogosorStudioWeb/games/NyctoType.html
-Contact: electro.peaceful.oooo@gmail.com
+Contact: electro.peaceful.oooo[at]gmail.com
 
 基本ルール
-1. 自分のコマを選び、移動する方向を選択します。提示された文字列を入力してタイピング課題をクリアすると、その方向にコマを1手動かせます。
-2. 相手側の端から盤外にコマを落とすと、相手にダメージを与えられます。先に相手の体力を削り切った方が勝利です。
-3. 新しいコマは、コンソールで選び、タイピング課題をクリアして生成します。今あるコマを動かすか、新たに生成するかを判断しながら戦います。
+自分のコマと移動方向を選び、提示された文字列を入力すると、コマを1手動かせます。新しいコマもコンソールで選び、タイピング課題をクリアして生成します。相手側の端から盤外へコマを落とすとダメージを与えられ、先に相手の体力を削り切った方が勝利です。
 
 特徴
 コマごとのアビリティ
@@ -36,14 +34,18 @@ Contact: electro.peaceful.oooo@gmail.com
 戦闘やイベントのあるマップを進み、コマの獲得・強化でデッキを育てながらボスの攻略を目指す、ローグライト要素を含むストーリーモードを開発予定です。ここで紹介する製品版向けの予定は、個別にお渡しするデモの収録内容を示すものではありません。
 
 スクリーンショット
-開発中の実ゲーム画面です。収録ビルドや今後の開発により表示が変わる場合があります。画像内のUIは日本語です。
-screenshots/NyctoType-01-board.png - 盤面とコマの移動先選択 (1920 x 1080)
-screenshots/NyctoType-02-console.png - コンソールで生成するコマを選択 (1920 x 1080)
-screenshots/NyctoType-03-typing.png - タイピング課題をクリアしてコマを移動 (1920 x 1080)
-screenshots/NyctoType-04-attack.png - 相手側の盤外を狙う攻撃 (1920 x 1080)
+このZIPには日本語UIのスクリーンショットを収録しています。
+screenshots/NyctoType-01-board_JP.png - 盤面とコマの移動先選択（日本語UI） (1920 x 1080)
+screenshots/NyctoType-02-console_JP.png - コンソールで生成するコマを選択（日本語UI） (1920 x 1080)
+screenshots/NyctoType-03-typing_JP.png - タイピング課題をクリアしてコマを移動（日本語UI） (1920 x 1080)
+screenshots/NyctoType-04-attack_JP.png - 相手側の盤外を狙う攻撃（日本語UI） (1920 x 1080)
+screenshots/NyctoType-05-piece_JP.png - コマとアビリティを選ぶデッキ画面（日本語UI） (3840 x 2160)
+screenshots/NyctoType-06-story_JP.png - ストーリー会話画面（日本語UI） (3840 x 2160)
 artwork/NyctoType-logo.png - タイトルロゴ（透過PNG） (5000 x 2387)
-artwork/NyctoType-key-visual.png - キーアート（縦型・ロゴ入り） (600 x 900)
-artwork/NyctoType-wide-art.png - 横長アート（ロゴなし） (3840 x 1240)
+artwork/NyctoType-cover-image.png - 縦型キーアート（ロゴ入り） (1200 x 1500)
+artwork/NyctoType-wide-art-logo.png - 横長キーアート（ロゴ入り） (3840 x 1280)
+artwork/Square.png - 正方形キーアート（ロゴ入り） (1000 x 1000)
+artwork/NyctoType-wide-art.png - 横長キーアート（ロゴなし） (3840 x 1240)
 
 配信・素材利用について
 NyctoTypeの配信・録画・動画公開を歓迎します。紹介用デモの受け取り後、すぐに公開していただけます。広告や投げ銭を伴う動画・配信も可能です。
@@ -52,4 +54,4 @@ NyctoTypeの配信・録画・動画公開を歓迎します。紹介用デモ�
 
 お問い合わせ
 取材・紹介用デモ・素材についてのお問い合わせは、BogosorGamesまでご連絡ください。
-electro.peaceful.oooo@gmail.com
+electro.peaceful.oooo[at]gmail.com

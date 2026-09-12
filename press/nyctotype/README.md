@@ -31,26 +31,36 @@ NODE_PATH=/Users/244cm265kg/.cache/codex-runtimes/codex-primary-runtime/dependen
 
 | 配布ファイル | 原寸 | 出典・用途 | ページ用プレビュー |
 | --- | --- | --- | --- |
-| NyctoType-01-board.png | 1920 × 1080 | gameplay-current.png / 盤面と移動先選択 | 1200 × 675 WebP |
-| NyctoType-02-console.png | 1920 × 1080 | console-current.png / コマ生成 | 1200 × 675 WebP |
-| NyctoType-03-typing.png | 1920 × 1080 | 15-rule-typing.png / タイピング課題 | 1200 × 675 WebP |
-| NyctoType-04-attack.png | 1920 × 1080 | 16-rule-damage.png / 相手側への攻撃 | 1200 × 675 WebP |
+| NyctoType-01-board_JP.png | 1920 × 1080 | gameplay-current.png / 盤面と移動先選択 | 1200 × 675 WebP |
+| NyctoType-01-board_ENG.png | 3840 × 2160 | ユーザー追加 / 盤面と移動先選択 | 1200 × 675 WebP |
+| NyctoType-02-console_JP.png | 1920 × 1080 | console-current.png / コマ生成 | 1200 × 675 WebP |
+| NyctoType-02-console_ENG.png | 3840 × 2160 | ユーザー追加 / コマ生成 | 1200 × 675 WebP |
+| NyctoType-03-typing_JP.png | 1920 × 1080 | 15-rule-typing.png / タイピング課題 | 1200 × 675 WebP |
+| NyctoType-03-typing_ENG.png | 3840 × 2160 | ユーザー追加 / タイピング課題 | 1200 × 675 WebP |
+| NyctoType-04-attack_JP.png | 1920 × 1080 | 16-rule-damage.png / 相手側への攻撃 | 1200 × 675 WebP |
+| NyctoType-04-attack_ENG.png | 3840 × 2160 | ユーザー追加 / 相手側への攻撃 | 1200 × 675 WebP |
+| NyctoType-05-piece_JP.png | 3840 × 2160 | ユーザー追加 / コマとアビリティの選択 | 1200 × 675 WebP |
+| NyctoType-05-piece_ENG.png | 3840 × 2160 | ユーザー追加 / コマとアビリティの選択 | 1200 × 675 WebP |
+| NyctoType-06-story_JP.png | 3840 × 2160 | ユーザー追加 / ストーリー会話 | 1200 × 675 WebP |
+| NyctoType-06-story_ENG.png | 3840 × 2160 | ユーザー追加 / ストーリー会話 | 1200 × 675 WebP |
 | NyctoType-logo.png | 5000 × 2387 | 指定されたTitleView/logo.png / 透過ロゴ | 1200 × 573 WebP、透過維持 |
-| NyctoType-key-visual.png | 600 × 900 | LibraryCapsule.png / 縦型キーアート | 600 × 900 WebP |
+| NyctoType-cover-image.png | 1200 × 1500 | ユーザー追加 / 縦型キーアート | 960 × 1200 WebP |
+| NyctoType-wide-art-logo.png | 3840 × 1280 | ユーザー追加 / ロゴ入り横長キーアート | 1200 × 400 WebP |
+| Square.png | 1000 × 1000 | ユーザー追加 / 正方形キーアート | 1000 × 1000 WebP |
 | NyctoType-wide-art.png | 3840 × 1240 | LibraryHero.png / 横長アート | 1200 × 388 WebP |
 
 - 配布用PNGはファイル名のみ変更した原寸コピーです。原本は変更していません。
 - ページ用プレビューのみ、縦横比を保って最大幅1200pxへ縮小し、WebP品質85に変換。拡大、切り抜き、文字入れ、色調補正、ロゴのデザイン加工はしていません。
 - ロゴは透明部分と半透明の赤いキー図案があるPNGです。背景色により見え方が変わるため、合成表示でも確認しました。ページの灰色背景はCSSであり、配布画像には含まれません。
-- 4枚のスクリーンショットは現行ピッチで採用されている日本語UIの実機画面。Unityのデバッグ表示や物語の核心は含みません。
-- `docs/assets/games/NyctoType/KeyArt.png` は名前に反して実ゲーム画面です。今回の4枚と構図が重なるため不採用。キーアートはLibraryCapsuleとLibraryHeroを使用しました。
-- 仮マップ、会話画面、生成イメージ、他作品の画像、第三者動画サムネイル、既存トレーラーは不採用です。
+- スクリーンショットは日本語UI・英語UIの6場面、計12枚。ページでは選択中の言語に対応する6枚だけを表示します。Unityのデバッグ表示は含みません。
+- `docs/assets/games/NyctoType/KeyArt.png` は名前に反して実ゲーム画面で、今回の画像と構図が重なるため不採用です。
+- 旧600 × 900pxキーアート、仮マップ、生成イメージ、他作品の画像、第三者動画サムネイル、既存トレーラーは不採用です。
 
 ## 内容の根拠と確認
 
 - 2026-09-12時点のWebサイト側 `pitch/nyctotype/app/page.tsx`、`schedule-section.tsx`、引き継ぎ文書を参照。ゲーム側の古いピッチは読み戻していません。
 - ユーザー承認: 発売予定は「2027年にアーリーアクセス配信予定」まで。月と正式版時期は掲載しません。
-- ユーザー承認: 日本語、英語、中国語（繁体字・簡体字）、ドイツ語を対応予定として掲載。UI言語とタイピング課題の入力言語を個別に設定する予定を説明。
+- ユーザー指定: 現在は日本語、英語、中国語（繁体字・簡体字）。将来はこの4言語に、Steam利用言語で上位のロシア語、スペイン語（スペイン）、ポルトガル語（ブラジル）、ドイツ語を加えた主要8言語を予定。UI言語とタイピング課題の入力言語を個別に設定する予定も説明。
 - ユーザー指定: 現在の開発内容の一覧は掲載しません。製品版の予定は個別デモの収録内容とは区別します。
 - TJさんに渡すデモのUIは4言語、入力は現時点で英語のみ。具体的な4言語の内訳は未確認のため、公表文には使っていません。デモの案内メールで伝える情報です。
 - ユーザー承認: デモ受領後すぐ動画・配信を公開可能。広告・投げ銭による収益化可。
@@ -60,7 +70,7 @@ NODE_PATH=/Users/244cm265kg/.cache/codex-runtimes/codex-primary-runtime/dependen
 
 ## 配布と公開
 
-ZIPは素材一覧の7画像と、日英TXT各1点のみを明示的に収録します。ビルド、デモの個別リンク、編集元、内部資料、プレビュー、トレーラーは入りません。
+ZIPは日本語版と英語版を分け、各ZIPに対応言語のスクリーンショット6枚、共通のロゴ・キーアート5枚、対応言語のTXT 1点（計12ファイル）のみを明示的に収録します。ビルド、デモの個別リンク、編集元、内部資料、プレビュー、トレーラーは入りません。
 
 この作業ではpush・外部公開・メール送信は行いません。既存の紹介ページからピッチへのリンクも変更しません。`noindex` は検索除外の指定であり、アクセス制限ではありません。`docs/` を公開する変更をpushすれば本資料も公開対象になるので、事前にユーザーの確認を受けてください。
 

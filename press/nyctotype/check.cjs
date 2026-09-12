@@ -12,13 +12,20 @@ const out = path.join(docs, 'presskits/NyctoType');
 async function check() {
   const assets = JSON.parse(await fs.readFile(path.join(__dirname,'assets.json')));
   const data = JSON.parse(await fs.readFile(path.join(__dirname,'content.json')));
-  const archive = await JSZip.loadAsync(await fs.readFile(path.join(out,'downloads/NyctoType-PressKit.zip')));
-  const expected = [...assets.map(a=>a.file),'NyctoType-PressKit-ja.txt','NyctoType-PressKit-en.txt'].map(n=>`NyctoType-PressKit/${n}`).sort();
-  assert.deepEqual(Object.keys(archive.files).sort(), expected);
+  const archives = {};
+  const expected = {};
+  for (const lang of ['ja','en']) {
+    const code = lang.toUpperCase();
+    archives[lang] = await JSZip.loadAsync(await fs.readFile(path.join(out,`downloads/NyctoType-PressKit-${code}.zip`)));
+    const selected = assets.filter(asset=>asset.kind!=='screenshot' || asset.file.endsWith(lang==='ja' ? '_JP.png' : '_ENG.png'));
+    expected[lang] = [...selected.map(a=>a.file),`NyctoType-PressKit-${lang}.txt`].map(n=>`NyctoType-PressKit-${code}/${n}`).sort();
+    assert.deepEqual(Object.keys(archives[lang].files).sort(), expected[lang]);
+  }
   for (const asset of assets) {
     const original = await fs.readFile(path.join(out,'assets',asset.file));
-    assert.deepEqual(await archive.file(`NyctoType-PressKit/${asset.file}`).async('nodebuffer'),original);
-    if (!asset.source.includes('initial import')) assert.deepEqual(original,await fs.readFile(path.join(root,asset.source)));
+    const langs = asset.kind!=='screenshot' ? ['ja','en'] : [asset.file.endsWith('_JP.png') ? 'ja' : 'en'];
+    for (const lang of langs) assert.deepEqual(await archives[lang].file(`${lang==='ja'?'NyctoType-PressKit-JA':'NyctoType-PressKit-EN'}/${asset.file}`).async('nodebuffer'),original);
+    if (!asset.source.includes('initial import') && !asset.source.startsWith('User supplied')) assert.deepEqual(original,await fs.readFile(path.join(root,asset.source)));
     if (asset.kind==='logo') {
       const metadata = await sharp(original).metadata();
       assert.equal(metadata.hasAlpha,true);
@@ -30,7 +37,9 @@ async function check() {
   for (const lang of ['ja','en']) {
     const filename = `NyctoType-PressKit-${lang}.txt`;
     const text = await fs.readFile(path.join(out,'downloads',filename),'utf8');
-    assert.equal(await archive.file(`NyctoType-PressKit/${filename}`).async('string'),text);
+    assert.equal(await archives[lang].file(`${lang==='ja'?'NyctoType-PressKit-JA':'NyctoType-PressKit-EN'}/${filename}`).async('string'),text);
+    assert(text.includes(data.zipImageNote[lang]));
+    assert(!text.includes(lang==='ja' ? '_ENG.png' : '_JP.png'));
     for (const value of [data.short[lang],data.planned[lang],...data.usage.map(u=>u[lang])]) assert(text.includes(value));
     assert(!/TBD|youtube|youtu\.be|pitchdecks|国家AI|1億|2027年10月|2027年12月|TJ Shizzle/i.test(text));
   }
@@ -65,6 +74,8 @@ async function check() {
         assert.equal(await page.locator('html').getAttribute('lang'),lang);
         assert.equal(await page.locator(`[data-language="${lang}"]`).getAttribute('aria-pressed'),'true');
         assert.equal(await page.locator('[data-ja][data-en]').evaluateAll((els,lang)=>els.every(el=>el.textContent===el.dataset[lang]),lang),true);
+        assert.equal(await page.locator(`#screenshots .press-asset[data-asset-language="${lang}"]:visible`).count(),6);
+        assert.equal(await page.locator(`#screenshots .press-asset[data-asset-language="${lang==='ja'?'en':'ja'}"]:visible`).count(),0);
         assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
         assert.equal(await page.locator('img').evaluateAll(imgs=>imgs.every(img=>img.complete&&img.naturalWidth>0)),true);
         for (const id of ['about','screenshots','artwork','downloads','usage','contact']) {
@@ -80,6 +91,8 @@ async function check() {
     const downloads = page.locator('a[download]');
     for (let i=0;i<await downloads.count();i++) {
       const link = downloads.nth(i);
+      const assetLanguage = await link.evaluate(element=>element.closest('[data-asset-language]')?.dataset.assetLanguage);
+      if (assetLanguage === 'ja' || assetLanguage === 'en') await page.locator(`[data-language="${assetLanguage}"]`).click();
       const href = await link.getAttribute('href');
       console.log(`Checking download: ${href}`);
       const [download] = await Promise.all([page.waitForEvent('download'),link.click()]);
@@ -97,7 +110,7 @@ async function check() {
     assert.equal(await page.locator('html').getAttribute('lang'),'en');
     assert.equal(await page.locator('iframe,video').count(),0);
     assert.deepEqual(errors,[]);
-    console.log('Passed: 9-file ZIP allowlist and byte equality, original assets and transparent logo, bilingual copy, desktop/mobile layouts, section links, 11 browser downloads, local links, and English direct entry.');
+    console.log(`Passed: two ${expected.ja.length}-file language-specific ZIP allowlists and byte equality, original assets and transparent logo, bilingual copy, desktop/mobile layouts, section links, ${await downloads.count()} browser downloads, local links, and English direct entry.`);
   } finally {
     if (browser) await browser.close();
     await new Promise(resolve=>server.close(resolve));
