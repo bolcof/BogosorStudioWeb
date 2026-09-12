@@ -37,8 +37,8 @@ NODE_PATH=/Users/244cm265kg/.cache/codex-runtimes/codex-primary-runtime/dependen
 | NyctoType-02-console_ENG.png | 3840 × 2160 | ユーザー追加 / コマ生成 | 1200 × 675 WebP |
 | NyctoType-03-typing_JP.png | 1920 × 1080 | 15-rule-typing.png / タイピング課題 | 1200 × 675 WebP |
 | NyctoType-03-typing_ENG.png | 3840 × 2160 | ユーザー追加 / タイピング課題 | 1200 × 675 WebP |
-| NyctoType-04-attack_JP.png | 1920 × 1080 | 16-rule-damage.png / 相手側への攻撃 | 1200 × 675 WebP |
-| NyctoType-04-attack_ENG.png | 3840 × 2160 | ユーザー追加 / 相手側への攻撃 | 1200 × 675 WebP |
+| NyctoType-04-attack_JP.png | 1920 × 1080 | 16-rule-damage.png / 盤外に落としてダメージ | 1200 × 675 WebP |
+| NyctoType-04-attack_ENG.png | 3840 × 2160 | ユーザー追加 / 盤外に落としてダメージ | 1200 × 675 WebP |
 | NyctoType-05-piece_JP.png | 3840 × 2160 | ユーザー追加 / 特殊なアビリティを持つコマ | 1200 × 675 WebP |
 | NyctoType-05-piece_ENG.png | 3840 × 2160 | ユーザー追加 / 特殊なアビリティを持つコマ | 1200 × 675 WebP |
 | NyctoType-06-story_JP.png | 3840 × 2160 | ユーザー追加 / ストーリー会話 | 1200 × 675 WebP |

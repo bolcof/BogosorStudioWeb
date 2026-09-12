@@ -41,7 +41,7 @@ This ZIP includes screenshots with English UI.
 screenshots/NyctoType-01-board_ENG.png - The board and movement selection (English UI) (3840 x 2160)
 screenshots/NyctoType-02-console_ENG.png - Selecting a piece to create in the console (English UI) (3840 x 2160)
 screenshots/NyctoType-03-typing_ENG.png - Completing a typing challenge to move a piece (English UI) (3840 x 2160)
-screenshots/NyctoType-04-attack_ENG.png - Attacking beyond the opponent's edge of the board (English UI) (3840 x 2160)
+screenshots/NyctoType-04-attack_ENG.png - Dealing damage by sending a piece off the opponent's edge (English UI) (3840 x 2160)
 screenshots/NyctoType-05-piece_ENG.png - Pieces with special abilities (English UI) (3840 x 2160)
 screenshots/NyctoType-06-story_ENG.png - Story dialogue scene (English UI) (3840 x 2160)
 artwork/NyctoType-logo.png - Title logo (transparent PNG) (5000 x 2387)
