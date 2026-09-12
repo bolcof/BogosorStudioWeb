@@ -1,0 +1,55 @@
+NyctoType / BogosorGames
+Updated: 2026-09-12
+
+A multithreaded typing battle where players compete through speed and strategy.
+
+NyctoType is a strategic typing game in which you complete typing challenges to move pieces on a board and create new ones. Send a piece off the opponent's edge of the board to deal damage, and reduce their health to zero to win. Type quickly while deciding which pieces to move, in what order, and in which direction.
+
+Factsheet
+Title: NyctoType
+Developer: BogosorGames
+Genre: Strategic typing game
+Platform: PC (Windows) / Steam
+Players: 1 player / 2 players online (1v1)
+Release: Early Access planned for 2027
+Planned languages: Japanese, English, Traditional Chinese, Simplified Chinese, German
+Steam: https://store.steampowered.com/app/3968600/NyctoType/
+Official website: https://bolcof.github.io/BogosorStudioWeb/games/NyctoType.html
+Contact: electro.peaceful.oooo@gmail.com
+
+How It Plays
+1. Select one of your pieces and choose a direction. Complete the typing challenge by entering the displayed text to move the piece one step in that direction.
+2. Send a piece off the opponent's edge of the board to deal damage. The first player to reduce the opponent's health to zero wins.
+3. To create a new piece, select it in the console and complete a typing challenge. Decide when to move the pieces already on the board and when to create new ones.
+
+Features
+Piece-specific abilities
+Pieces differ in movement cost, creation cost, movement directions, and abilities. Choose your actions around effects such as destroying or pushing opposing pieces and increasing damage.
+
+A first-person view of the board
+Face your opponent across a table and battle from a board-game-like perspective. Survey the board to decide where to attack and where to defend.
+
+Separate display and typing languages (planned)
+The interface language and the language of the typing challenges are planned to be independently selectable.
+
+Planned for the Full Game
+A story mode with roguelite elements is planned: progress through a map of battles and events, acquire and upgrade pieces, build your deck, and take on bosses. Plans for the full game described here do not indicate what is included in individually shared demos.
+
+Screenshots
+Actual in-development gameplay screenshots. Visuals may differ between builds and change during development. The screenshots show Japanese UI.
+screenshots/NyctoType-01-board.png - The board and movement selection (1920 x 1080)
+screenshots/NyctoType-02-console.png - Selecting a piece to create in the console (1920 x 1080)
+screenshots/NyctoType-03-typing.png - Completing a typing challenge to move a piece (1920 x 1080)
+screenshots/NyctoType-04-attack.png - Attacking beyond the opponent's edge of the board (1920 x 1080)
+artwork/NyctoType-logo.png - Title logo (transparent PNG) (5000 x 2387)
+artwork/NyctoType-key-visual.png - Key art (portrait, with logo) (600 x 900)
+artwork/NyctoType-wide-art.png - Wide artwork (without logo) (3840 x 1240)
+
+Streaming & Asset Use
+We welcome streams, recordings, and videos of NyctoType. You may publish them as soon as you receive the media demo. Monetization through advertising and viewer donations is permitted.
+You may use the images in this press kit in articles, videos, and streams covering NyctoType. Screenshots and key art may be resized, cropped, or overlaid with text. The logo may only be scaled with its aspect ratio preserved; please do not alter its design.
+Where possible, we would appreciate a credit to NyctoType / BogosorGames and a link to the Steam page in your article or video description. Neither is required.
+
+Contact
+For press inquiries, media demos, and assets, please contact BogosorGames.
+electro.peaceful.oooo@gmail.com

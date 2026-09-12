@@ -1,0 +1,56 @@
+{
+  "updated": "2026-09-12",
+  "steam": "https://store.steampowered.com/app/3968600/NyctoType/",
+  "website": "https://bolcof.github.io/BogosorStudioWeb/games/NyctoType.html",
+  "email": "electro.peaceful.oooo@gmail.com",
+  "labels": {
+    "press": {"ja":"プレスキット","en":"Press Kit"},
+    "facts": {"ja":"基本情報","en":"Factsheet"},
+    "about": {"ja":"ゲーム紹介","en":"About the Game"},
+    "rules": {"ja":"基本ルール","en":"How It Plays"},
+    "features": {"ja":"特徴","en":"Features"},
+    "planned": {"ja":"製品版に向けた開発予定","en":"Planned for the Full Game"},
+    "screenshots": {"ja":"スクリーンショット","en":"Screenshots"},
+    "artwork": {"ja":"ロゴ・キーアート","en":"Logo & Key Art"},
+    "downloads": {"ja":"素材ダウンロード","en":"Downloads"},
+    "usage": {"ja":"配信・素材利用について","en":"Streaming & Asset Use"},
+    "contact": {"ja":"お問い合わせ","en":"Contact"},
+    "original": {"ja":"原寸PNGをダウンロード","en":"Download original PNG"},
+    "zip": {"ja":"素材ZIPをダウンロード","en":"Download Press Kit ZIP"},
+    "site": {"ja":"公式サイト","en":"Official website"},
+    "updated": {"ja":"更新日","en":"Updated"}
+  },
+  "tagline": {"ja":"速度と戦術で競い合うマルチスレッドタイピングバトル","en":"A multithreaded typing battle where players compete through speed and strategy."},
+  "short": {
+    "ja":"NyctoTypeは、タイピング課題をクリアして盤面上のコマを動かしたり、新たなコマを生成したりする戦略性タイピングゲームです。相手側の端から盤外にコマを落とすとダメージを与えられ、先に相手の体力を削り切ると勝利。どのコマをどの順でどう動かすか、考えながら素早くタイピングします。",
+    "en":"NyctoType is a strategic typing game in which you complete typing challenges to move pieces on a board and create new ones. Send a piece off the opponent's edge of the board to deal damage, and reduce their health to zero to win. Type quickly while deciding which pieces to move, in what order, and in which direction."
+  },
+  "facts": [
+    {"label":{"ja":"タイトル","en":"Title"},"value":{"ja":"NyctoType","en":"NyctoType"}},
+    {"label":{"ja":"開発元","en":"Developer"},"value":{"ja":"BogosorGames","en":"BogosorGames"}},
+    {"label":{"ja":"ジャンル","en":"Genre"},"value":{"ja":"戦略性タイピングゲーム","en":"Strategic typing game"}},
+    {"label":{"ja":"プラットフォーム","en":"Platform"},"value":{"ja":"PC（Windows）／Steam","en":"PC (Windows) / Steam"}},
+    {"label":{"ja":"プレイ人数","en":"Players"},"value":{"ja":"1人／オンライン対戦2人（1対1）","en":"1 player / 2 players online (1v1)"}},
+    {"label":{"ja":"発売予定","en":"Release"},"value":{"ja":"2027年にアーリーアクセス配信予定","en":"Early Access planned for 2027"}},
+    {"label":{"ja":"対応予定言語","en":"Planned languages"},"value":{"ja":"日本語・英語・中国語（繁体字／簡体字）・ドイツ語","en":"Japanese, English, Traditional Chinese, Simplified Chinese, German"}}
+  ],
+  "rules": [
+    {"ja":"自分のコマを選び、移動する方向を選択します。提示された文字列を入力してタイピング課題をクリアすると、その方向にコマを1手動かせます。","en":"Select one of your pieces and choose a direction. Complete the typing challenge by entering the displayed text to move the piece one step in that direction."},
+    {"ja":"相手側の端から盤外にコマを落とすと、相手にダメージを与えられます。先に相手の体力を削り切った方が勝利です。","en":"Send a piece off the opponent's edge of the board to deal damage. The first player to reduce the opponent's health to zero wins."},
+    {"ja":"新しいコマは、コンソールで選び、タイピング課題をクリアして生成します。今あるコマを動かすか、新たに生成するかを判断しながら戦います。","en":"To create a new piece, select it in the console and complete a typing challenge. Decide when to move the pieces already on the board and when to create new ones."}
+  ],
+  "features": [
+    {"title":{"ja":"コマごとのアビリティ","en":"Piece-specific abilities"},"text":{"ja":"コマごとに移動コスト、生成コスト、移動方向、アビリティが異なります。相手のコマを破壊する、押し出す、ダメージを増やすなどの効果を踏まえて行動を選びます。","en":"Pieces differ in movement cost, creation cost, movement directions, and abilities. Choose your actions around effects such as destroying or pushing opposing pieces and increasing damage."}},
+    {"title":{"ja":"盤面全体を見渡す一人称視点","en":"A first-person view of the board"},"text":{"ja":"テーブルを挟んで相手と向かい合い、ボードゲームを遊ぶような視点で戦います。盤面全体を見渡しながら、攻める場所と守る場所を考えます。","en":"Face your opponent across a table and battle from a board-game-like perspective. Survey the board to decide where to attack and where to defend."}},
+    {"title":{"ja":"表示言語と入力言語を個別に設定（予定）","en":"Separate display and typing languages (planned)"},"text":{"ja":"インターフェイスの表示言語と、タイピング課題の入力言語は、それぞれ別に設定できるようにする予定です。","en":"The interface language and the language of the typing challenges are planned to be independently selectable."}}
+  ],
+  "planned": {"ja":"戦闘やイベントのあるマップを進み、コマの獲得・強化でデッキを育てながらボスの攻略を目指す、ローグライト要素を含むストーリーモードを開発予定です。ここで紹介する製品版向けの予定は、個別にお渡しするデモの収録内容を示すものではありません。","en":"A story mode with roguelite elements is planned: progress through a map of battles and events, acquire and upgrade pieces, build your deck, and take on bosses. Plans for the full game described here do not indicate what is included in individually shared demos."},
+  "imageNote": {"ja":"開発中の実ゲーム画面です。収録ビルドや今後の開発により表示が変わる場合があります。画像内のUIは日本語です。","en":"Actual in-development gameplay screenshots. Visuals may differ between builds and change during development. The screenshots show Japanese UI."},
+  "downloadNote": {"ja":"実機スクリーンショット4枚、ロゴ、キーアート2点、日英の紹介・基本情報・利用案内テキストを収録。","en":"Includes 4 gameplay screenshots, the logo, 2 key art images, and Japanese and English text with descriptions, facts, and usage information."},
+  "usage": [
+    {"ja":"NyctoTypeの配信・録画・動画公開を歓迎します。紹介用デモの受け取り後、すぐに公開していただけます。広告や投げ銭を伴う動画・配信も可能です。","en":"We welcome streams, recordings, and videos of NyctoType. You may publish them as soon as you receive the media demo. Monetization through advertising and viewer donations is permitted."},
+    {"ja":"このプレスキットの画像は、NyctoTypeを紹介する記事・動画・配信にご利用いただけます。スクリーンショットとキーアートは、リサイズ・トリミング・文字入れが可能です。ロゴは縦横比を保った拡大縮小のみ可能で、デザインの改変はご遠慮ください。","en":"You may use the images in this press kit in articles, videos, and streams covering NyctoType. Screenshots and key art may be resized, cropped, or overlaid with text. The logo may only be scaled with its aspect ratio preserved; please do not alter its design."},
+    {"ja":"記事や動画の概要欄などに、可能であれば「NyctoType / BogosorGames」のクレジットとSteamページへのリンクを掲載いただけると幸いです。必須ではありません。","en":"Where possible, we would appreciate a credit to NyctoType / BogosorGames and a link to the Steam page in your article or video description. Neither is required."}
+  ],
+  "contactText": {"ja":"取材・紹介用デモ・素材についてのお問い合わせは、BogosorGamesまでご連絡ください。","en":"For press inquiries, media demos, and assets, please contact BogosorGames."}
+}

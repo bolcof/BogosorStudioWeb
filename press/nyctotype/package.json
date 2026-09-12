@@ -1,0 +1,7 @@
+{
+  "name": "nyctotype-press-kit",
+  "private": true,
+  "scripts": { "build": "node build.cjs", "check": "node check.cjs" },
+  "dependencies": { "jszip": "3.10.1", "sharp": "0.35.4", "lucide": "1.8.0" },
+  "devDependencies": { "playwright": "1.62.1" }
+}
