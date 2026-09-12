@@ -1,0 +1,60 @@
+NyctoType / BogosorGames
+Updated: 2026-09-12
+
+A multithreaded typing battle where players compete through speed and strategy.
+
+NyctoType is a strategic typing game in which you complete typing challenges to move pieces on a board and create new ones. Victory depends not only on typing speed, but also on deciding which pieces to move and in what order.
+
+Our Goal
+Through NyctoType, we aim to help typing games grow into an esport that more people play, watch, and take part in.
+
+Factsheet
+Title: NyctoType
+Developer: BogosorGames
+Genre: Strategic typing game
+Platform: PC (Windows) / Steam
+Players: 2 players (online versus)
+Release: Early Access planned for 2027
+Languages: Current: Japanese, English, Traditional Chinese, and Simplified Chinese. Planned: 8 major languages, adding Russian, Spanish (Spain), Portuguese (Brazil), and German
+Steam: https://store.steampowered.com/app/3968600/NyctoType/
+Official website: https://bolcof.github.io/BogosorStudioWeb/games/NyctoType.html
+Contact: electro.peaceful.oooo[at]gmail.com
+
+How It Plays
+Choose one of your pieces and a direction, then enter the displayed text to move it one step. New pieces are also created by selecting them in the console and completing a typing challenge. Send a piece off the opponent's edge of the board to deal damage; the first player to reduce the opponent's health to zero wins.
+
+Features
+Piece-specific abilities
+Pieces differ in movement cost, creation cost, movement directions, and abilities. Choose your actions around effects such as destroying or pushing opposing pieces and increasing damage.
+
+A first-person view of the board
+Face your opponent across a table and battle from a board-game-like perspective. Survey the board to decide where to attack and where to defend.
+
+Separate display and typing languages (planned)
+The interface language and the language of the typing challenges are planned to be independently selectable.
+
+Planned for the Full Game
+A story mode with roguelite elements is planned: progress through a map of battles and events, acquire and upgrade pieces, build your deck, and take on bosses. Plans for the full game described here do not indicate what is included in individually shared demos.
+
+Screenshots
+This ZIP includes screenshots with English UI.
+screenshots/NyctoType-01-board_ENG.png - The board and movement selection (English UI) (3840 x 2160)
+screenshots/NyctoType-02-console_ENG.png - Selecting a piece to create in the console (English UI) (3840 x 2160)
+screenshots/NyctoType-03-typing_ENG.png - Completing a typing challenge to move a piece (English UI) (3840 x 2160)
+screenshots/NyctoType-04-attack_ENG.png - Dealing damage by sending a piece off the opponent's edge (English UI) (3840 x 2160)
+screenshots/NyctoType-05-piece_ENG.png - Pieces with special abilities (English UI) (3840 x 2160)
+screenshots/NyctoType-06-story_ENG.png - Story dialogue scene (English UI) (3840 x 2160)
+artwork/NyctoType-logo.png - Title logo (transparent PNG) (5000 x 2387)
+artwork/NyctoType-cover-image.png - Portrait key art (with logo) (1200 x 1500)
+artwork/NyctoType-wide-art-logo.png - Wide key art (with logo) (3840 x 1280)
+artwork/Square.png - Square key art (with logo) (1000 x 1000)
+artwork/NyctoType-wide-art.png - Wide key art (without logo) (3840 x 1240)
+
+Streaming & Asset Use
+We welcome streams, recordings, and videos of NyctoType. You may publish them as soon as you receive the media demo. Monetization through advertising and viewer donations is permitted.
+You may use the images in this press kit in articles, videos, and streams covering NyctoType. Screenshots and key art may be resized, cropped, or overlaid with text. The logo may only be scaled with its aspect ratio preserved; please do not alter its design.
+Where possible, we would appreciate a credit to NyctoType / BogosorGames and a link to the Steam page in your article or video description. Neither is required.
+
+Contact
+For press inquiries, media demos, and assets, please contact BogosorGames.
+electro.peaceful.oooo[at]gmail.com
