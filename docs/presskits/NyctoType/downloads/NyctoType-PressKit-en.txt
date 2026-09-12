@@ -42,7 +42,7 @@ screenshots/NyctoType-01-board_ENG.png - The board and movement selection (Engli
 screenshots/NyctoType-02-console_ENG.png - Selecting a piece to create in the console (English UI) (3840 x 2160)
 screenshots/NyctoType-03-typing_ENG.png - Completing a typing challenge to move a piece (English UI) (3840 x 2160)
 screenshots/NyctoType-04-attack_ENG.png - Attacking beyond the opponent's edge of the board (English UI) (3840 x 2160)
-screenshots/NyctoType-05-piece_ENG.png - Deck screen for selecting pieces and abilities (English UI) (3840 x 2160)
+screenshots/NyctoType-05-piece_ENG.png - Pieces with special abilities (English UI) (3840 x 2160)
 screenshots/NyctoType-06-story_ENG.png - Story dialogue scene (English UI) (3840 x 2160)
 artwork/NyctoType-logo.png - Title logo (transparent PNG) (5000 x 2387)
 artwork/NyctoType-cover-image.png - Portrait key art (with logo) (1200 x 1500)
