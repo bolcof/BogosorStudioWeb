@@ -77,7 +77,7 @@ async function build() {
     <header class="press-heading wrap"><p class="press-eyebrow">BOGOSORGAMES / ${bi(labels.press)}</p><h1>NyctoType</h1>${bi(data.tagline,'p',' class="press-tagline"')}<div class="press-actions">${downloads}<a class="press-text-link" href="${data.steam}" target="_blank" rel="noopener">Steam ↗</a></div><p class="press-date">${bi(labels.updated)} <time datetime="${data.updated}">${data.updated}</time></p></header>
     <nav class="press-nav wrap" aria-label="${esc(labels.press.ja)}">${['latest','about','screenshots','artwork','downloads','usage','contact'].map(id=>`<a href="#${id}">${bi(labels[id])}</a>`).join('')}</nav>
     <div class="wrap press-layout">
-      <aside class="press-facts" id="facts">${bi(labels.facts,'h2')}<dl>${data.facts.map(f=>`<div>${bi(f.label,'dt')}${bi(f.value,'dd')}</div>`).join('')}<div><dt>Steam</dt><dd><a href="${data.steam}" target="_blank" rel="noopener">NyctoType ↗</a></dd></div><div>${bi(labels.site,'dt')}<dd><a href="${data.website}" target="_blank" rel="noopener">NyctoType / BogosorGames ↗</a></dd></div><div>${bi(labels.contact,'dt')}<dd>${data.email}</dd></div></dl></aside>
+      <aside class="press-facts" id="facts">${bi(labels.facts,'h2')}<dl>${data.facts.map(f=>`<div>${bi(f.label,'dt')}${bi(f.value,'dd')}</div>`).join('')}<div><dt>Steam</dt><dd><a href="${data.steam}" target="_blank" rel="noopener">NyctoType ↗</a></dd></div><div>${bi(labels.site,'dt')}<dd><a href="${data.website}" target="_blank" rel="noopener">NyctoType / BogosorGames ↗</a></dd></div><div>${bi(labels.contact,'dt')}<dd><a href="mailto:${data.email}">${data.email}</a></dd></div></dl></aside>
       <div class="press-main">
         ${section('latest',`<div class="press-news">${data.latest.map(item=>`<article>${bi(item.title,'h3')}${bi(item.text,'p')}</article>`).join('')}</div>`)}
         ${section('about',bi(data.short,'p') + `<div class="press-vision">${bi(labels.vision,'h3')}${bi(data.vision,'p')}</div>` + bi(labels.rules,'h3') + bi(data.rulesSummary,'p') + bi(labels.features,'h3') + data.features.map(f=>`<div class="press-feature">${bi(f.title,'h4')}${bi(f.text,'p')}</div>`).join('') + `<div class="press-planned">${bi(labels.planned,'h3')}${bi(data.planned,'p')}</div>`)}
@@ -85,7 +85,7 @@ async function build() {
         ${section('artwork',`<div class="press-assets art-assets">${assets.filter(a=>a.kind!=='screenshot').map(assetHtml).join('')}</div>`)}
         ${section('downloads',bi(data.downloadNote,'p')+downloads+`<div class="press-texts"><a href="downloads/NyctoType-PressKit-ja.txt" download>${icon}日本語 TXT</a><a href="downloads/NyctoType-PressKit-en.txt" download>${icon}English TXT</a></div>`)}
         ${section('usage',data.usage.map(p=>bi(p,'p')).join('')+`<p class="press-credit">NyctoType / BogosorGames<br><a href="${data.steam}">${data.steam}</a></p>`)}
-        ${section('contact',bi(data.contactText,'p')+`<p><strong>BogosorGames</strong><br>${data.email}</p><div class="press-texts"><a href="${data.website}">${bi(labels.site)} ↗</a><a href="${data.steam}">Steam ↗</a></div>`)}
+        ${section('contact',bi(data.contactText,'p')+`<p><strong>BogosorGames</strong><br><a href="mailto:${data.email}">${data.email}</a></p><div class="press-texts"><a href="${data.website}">${bi(labels.site)} ↗</a><a href="${data.steam}">Steam ↗</a></div>`)}
       </div>
     </div>
   </main>

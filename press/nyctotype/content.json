@@ -2,7 +2,7 @@
   "updated": "2026-09-13",
   "steam": "https://store.steampowered.com/app/3968600/NyctoType/",
   "website": "https://bolcof.github.io/BogosorStudioWeb/games/NyctoType.html",
-  "email": "electro.peaceful.oooo[at]gmail.com",
+  "email": "electro.peaceful.oooo@gmail.com",
   "labels": {
     "press": {"ja":"プレスキット","en":"Press Kit"},
     "facts": {"ja":"基本情報","en":"Factsheet"},
@@ -31,8 +31,8 @@
   },
   "vision": {"ja":"NyctoTypeを通じて、タイピングゲームというジャンルそのものを、より多くの人が遊び、観戦し、参加するeスポーツへ育てることを目指しています。","en":"Through NyctoType, we aim to help typing games grow into an esport that more people play, watch, and take part in."},
   "latest": [
-    {"title":{"ja":"東京ゲームショウ2026に出展予定","en":"Exhibiting at Tokyo Game Show 2026"},"text":{"ja":"幕張メッセ ホール10／ブース10-E17に出展予定です。","en":"NyctoType will be exhibited in Hall 10 at booth 10-E17, Makuhari Messe."}},
-    {"title":{"ja":"Steamデモを2026年9月下旬に公開予定","en":"Public demo planned on Steam for late September 2026"},"text":{"ja":"一般向けデモを2026年9月下旬にSteamで公開予定です。","en":"A public demo is planned for release on Steam in late September 2026."}}
+    {"title":{"ja":"東京ゲームショウ2026に出展","en":"Exhibiting at Tokyo Game Show 2026"},"text":{"ja":"2026年9月17日（木）～21日（月・祝）、幕張メッセ ホール10／ブース10-E17に出展します。","en":"NyctoType will be exhibited September 17–21, 2026, in Hall 10 at booth 10-E17, Makuhari Messe."}},
+    {"title":{"ja":"Steam体験版を2026年9月下旬に公開予定","en":"Public demo planned on Steam for late September 2026"},"text":{"ja":"一般向け体験版を2026年9月下旬にSteamで公開予定です。","en":"A public demo is planned for release on Steam in late September 2026."}}
   ],
   "facts": [
     {"label":{"ja":"タイトル","en":"Title"},"value":{"ja":"NyctoType","en":"NyctoType"}},

@@ -2,10 +2,10 @@
 報道関係者各位
 BogosorGames
 
-戦略性タイピングゲーム『NyctoType』、東京ゲームショウ2026に出展予定
-一般向けSteamデモを2026年9月下旬に公開予定
+戦略性タイピングゲーム『NyctoType』、東京ゲームショウ2026に出展
+一般向けSteam体験版を2026年9月下旬に公開予定
 
-BogosorGamesは、開発中の戦略性タイピングゲーム『NyctoType』を東京ゲームショウ2026に出展予定であることをお知らせします。ブースは幕張メッセ ホール10／10-E17です。また、一般向けデモを2026年9月下旬にSteamで公開予定です。
+BogosorGamesは、開発中の戦略性タイピングゲーム『NyctoType』を、2026年9月17日（木）から21日（月・祝）まで幕張メッセで開催される東京ゲームショウ2026に出展します。ブースはホール10／10-E17です。また、一般向け体験版を2026年9月下旬にSteamで公開予定です。
 
 ■『NyctoType』について
 
@@ -27,6 +27,7 @@ BogosorGamesは『NyctoType』を通じて、タイピングゲームという�
 
 ■東京ゲームショウ2026 出展情報
 
+会期：2026年9月17日（木）～21日（月・祝）
 会場：幕張メッセ
 ブース：ホール10／10-E17
 
@@ -46,4 +47,4 @@ Steam：https://store.steampowered.com/app/3968600/NyctoType/
 ■本件に関するお問い合わせ先
 
 BogosorGames
-electro.peaceful.oooo[at]gmail.com
+electro.peaceful.oooo@gmail.com

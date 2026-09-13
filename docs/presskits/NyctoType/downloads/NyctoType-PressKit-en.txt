@@ -10,7 +10,7 @@ Through NyctoType, we aim to help typing games grow into an esport that more peo
 
 Latest News
 Exhibiting at Tokyo Game Show 2026
-NyctoType will be exhibited in Hall 10 at booth 10-E17, Makuhari Messe.
+NyctoType will be exhibited September 17–21, 2026, in Hall 10 at booth 10-E17, Makuhari Messe.
 
 Public demo planned on Steam for late September 2026
 A public demo is planned for release on Steam in late September 2026.
@@ -25,7 +25,7 @@ Release: Early Access planned for 2027
 Languages: Current: Japanese, English, Traditional Chinese, and Simplified Chinese. Planned: 8 major languages, adding Russian, Spanish, Portuguese, and German
 Steam: https://store.steampowered.com/app/3968600/NyctoType/
 Official website: https://bolcof.github.io/BogosorStudioWeb/games/NyctoType.html
-Contact: electro.peaceful.oooo[at]gmail.com
+Contact: electro.peaceful.oooo@gmail.com
 
 How It Plays
 Choose one of your pieces and a direction, then enter the displayed text to move it one step. New pieces are also created by selecting them in the console and completing a typing challenge. Send a piece off the opponent's edge of the board to deal damage; the first player to reduce the opponent's health to zero wins.
@@ -64,4 +64,4 @@ Where possible, we would appreciate a credit to NyctoType / BogosorGames and a l
 
 Contact
 For press inquiries, media demos, and assets, please contact BogosorGames.
-electro.peaceful.oooo[at]gmail.com
+electro.peaceful.oooo@gmail.com

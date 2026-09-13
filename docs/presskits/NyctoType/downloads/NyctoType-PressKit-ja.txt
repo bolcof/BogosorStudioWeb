@@ -9,11 +9,11 @@ NyctoTypeは、タイピング課題をクリアして盤面上のコマを動�
 NyctoTypeを通じて、タイピングゲームというジャンルそのものを、より多くの人が遊び、観戦し、参加するeスポーツへ育てることを目指しています。
 
 最新情報
-東京ゲームショウ2026に出展予定
-幕張メッセ ホール10／ブース10-E17に出展予定です。
+東京ゲームショウ2026に出展
+2026年9月17日（木）～21日（月・祝）、幕張メッセ ホール10／ブース10-E17に出展します。
 
-Steamデモを2026年9月下旬に公開予定
-一般向けデモを2026年9月下旬にSteamで公開予定です。
+Steam体験版を2026年9月下旬に公開予定
+一般向け体験版を2026年9月下旬にSteamで公開予定です。
 
 基本情報
 タイトル: NyctoType
@@ -25,7 +25,7 @@ Steamデモを2026年9月下旬に公開予定
 対応言語: 現在：日本語・英語・中国語（繁体字／簡体字）。将来：ロシア語・スペイン語・ポルトガル語・ドイツ語を加えた主要8言語を予定
 Steam: https://store.steampowered.com/app/3968600/NyctoType/
 公式サイト: https://bolcof.github.io/BogosorStudioWeb/games/NyctoType.html
-Contact: electro.peaceful.oooo[at]gmail.com
+Contact: electro.peaceful.oooo@gmail.com
 
 基本ルール
 自分のコマと移動方向を選び、提示された文字列を入力すると、コマを1手動かせます。新しいコマもコンソールで選び、タイピング課題をクリアして生成します。相手側の端から盤外へコマを落とすとダメージを与えられ、先に相手の体力を削り切った方が勝利です。
@@ -64,4 +64,4 @@ NyctoTypeの配信・録画・動画公開を歓迎します。紹介用デモ�
 
 お問い合わせ
 取材・紹介用デモ・素材についてのお問い合わせは、BogosorGamesまでご連絡ください。
-electro.peaceful.oooo[at]gmail.com
+electro.peaceful.oooo@gmail.com
