@@ -26,8 +26,8 @@
   },
   "tagline": {"ja":"速度と戦術で競い合うマルチスレッドタイピングバトル","en":"A multithreaded typing battle where players compete through speed and strategy."},
   "short": {
-    "ja":"NyctoTypeは、タイピング課題をクリアして盤面上のコマを動かしたり、新たなコマを生成したりする戦略性タイピングゲームです。入力の速さだけでなく、どのコマをどの順で動かすかという判断が勝敗を左右します。",
-    "en":"NyctoType is a strategic typing game in which you complete typing challenges to move pieces on a board and create new ones. Victory depends not only on typing speed, but also on deciding which pieces to move and in what order."
+    "ja":"NyctoTypeは、タイピング課題をクリアして盤面上のコマを動かしたり、新たなコマを生成したりする戦略性タイピングゲームです。入力の速さだけでなく、どのコマをどの順で動かすかという判断が勝敗を左右します。本作は、TGCA（Top Game Creators Academy）第1期助成プロジェクトとして採択され、同プログラムの支援を受けながら開発しています。",
+    "en":"NyctoType is a strategic typing game in which you complete typing challenges to move pieces on a board and create new ones. Victory depends not only on typing speed, but also on deciding which pieces to move and in what order. This project was selected as a first-cohort grant project of TGCA (Top Game Creators Academy) and is being developed with support from the program."
   },
   "vision": {"ja":"NyctoTypeを通じて、タイピングゲームというジャンルそのものを、より多くの人が遊び、観戦し、参加するeスポーツへ育てることを目指しています。","en":"Through NyctoType, we aim to help typing games grow into an esport that more people play, watch, and take part in."},
   "latest": [

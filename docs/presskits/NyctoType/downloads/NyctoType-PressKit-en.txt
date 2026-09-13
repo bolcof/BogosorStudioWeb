@@ -3,7 +3,7 @@ Updated: 2026-09-13
 
 A multithreaded typing battle where players compete through speed and strategy.
 
-NyctoType is a strategic typing game in which you complete typing challenges to move pieces on a board and create new ones. Victory depends not only on typing speed, but also on deciding which pieces to move and in what order.
+NyctoType is a strategic typing game in which you complete typing challenges to move pieces on a board and create new ones. Victory depends not only on typing speed, but also on deciding which pieces to move and in what order. This project was selected as a first-cohort grant project of TGCA (Top Game Creators Academy) and is being developed with support from the program.
 
 Our Goal
 Through NyctoType, we aim to help typing games grow into an esport that more people play, watch, and take part in.
