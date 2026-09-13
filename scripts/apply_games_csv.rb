@@ -184,6 +184,12 @@ def section_key(label)
     "媒体资料包" => "presskit",
     "프레스킷" => "presskit",
     "프레스 키트" => "presskit",
+    "pitch deck" => "pitchdeck",
+    "pitchdeck" => "pitchdeck",
+    "ピッチデッキ" => "pitchdeck",
+    "企劃簡報" => "pitchdeck",
+    "企划简报" => "pitchdeck",
+    "피치 덱" => "pitchdeck",
     "links" => "links"
   }
   aliases[normalized]
@@ -583,7 +589,15 @@ def presskit_field_key(label)
     "按钮" => "button",
     "버튼" => "button",
     "password" => "password",
-    "パスワード" => "password"
+    "パスワード" => "password",
+    "note" => "note",
+    "notice" => "note",
+    "注記" => "note",
+    "注意" => "note",
+    "hinweis" => "note",
+    "備註" => "note",
+    "备注" => "note",
+    "안내" => "note"
   }
   aliases[normalized]
 end
@@ -600,36 +614,42 @@ def parse_key_value_section(text, key_method)
   config
 end
 
-def presskit_config(row, content)
-  ja_section = content_text(content, "ja", "presskit")
+def presskit_config(row, content, section = "presskit")
+  ja_section = content_text(content, "ja", section)
   return nil if ja_section.empty?
 
   ja_config = parse_key_value_section(ja_section, :presskit_field_key)
   title_id = row.fetch("title_id")
-  href = ja_config["href"].to_s.empty? ? "../presskits/#{title_id}/" : ja_config["href"]
+  default_directory = section == "pitchdeck" ? "pitchdecks" : "presskits"
+  href = ja_config["href"].to_s.empty? ? "../#{default_directory}/#{title_id}/" : ja_config["href"]
 
   {
     href: href,
     kicker: LANGUAGES.to_h do |language|
       code = language.fetch(:code)
-      config = parse_key_value_section(content_text(content, code, "presskit", ja_section), :presskit_field_key)
+      config = parse_key_value_section(content_text(content, code, section, ja_section), :presskit_field_key)
       defaults = { "ja" => "PRESS", "en" => "PRESS", "de" => "PRESSE", "zh-hant" => "媒體", "zh-hans" => "媒体", "ko" => "프레스" }
       [code, config["kicker"].to_s.empty? ? defaults.fetch(code) : config["kicker"]]
     end,
     title: LANGUAGES.to_h do |language|
       code = language.fetch(:code)
-      config = parse_key_value_section(content_text(content, code, "presskit", ja_section), :presskit_field_key)
+      config = parse_key_value_section(content_text(content, code, section, ja_section), :presskit_field_key)
       [code, config["title"].to_s.empty? ? "Press Kit" : config["title"]]
     end,
     description: LANGUAGES.to_h do |language|
       code = language.fetch(:code)
-      config = parse_key_value_section(content_text(content, code, "presskit", ja_section), :presskit_field_key)
+      config = parse_key_value_section(content_text(content, code, section, ja_section), :presskit_field_key)
       [code, config["description"].to_s]
     end,
     button: LANGUAGES.to_h do |language|
       code = language.fetch(:code)
-      config = parse_key_value_section(content_text(content, code, "presskit", ja_section), :presskit_field_key)
+      config = parse_key_value_section(content_text(content, code, section, ja_section), :presskit_field_key)
       [code, config["button"].to_s.empty? ? "Open" : config["button"]]
+    end,
+    note: LANGUAGES.to_h do |language|
+      code = language.fetch(:code)
+      config = parse_key_value_section(content_text(content, code, section, ja_section), :presskit_field_key)
+      [code, config["note"].to_s]
     end,
     password: ja_config["password"].to_s
   }
@@ -824,16 +844,29 @@ def overview_section(content)
 end
 
 def presskit_section(row, content)
-  config = presskit_config(row, content)
-  return "" unless config
+  configs = [presskit_config(row, content), presskit_config(row, content, "pitchdeck")].compact
+  return "" if configs.empty?
 
-  password = config.fetch(:password)
+  protected_config = configs.find { |config| !config.fetch(:password).empty? }
+  password = protected_config&.fetch(:password).to_s
   protected = !password.empty?
-  link_attributes = if protected
-                      "href=\"#{h(config.fetch(:href))}\" data-protected-pitch-link data-protected-href=\"#{h(config.fetch(:href))}\""
-                    else
-                      "href=\"#{h(config.fetch(:href))}\""
-                    end
+  panels = configs.map do |config|
+    is_protected = config.equal?(protected_config)
+    link_attributes = if is_protected
+                        "href=\"#{h(config.fetch(:href))}\" data-protected-pitch-link data-protected-href=\"#{h(config.fetch(:href))}\""
+                      else
+                        "href=\"#{h(config.fetch(:href))}\""
+                      end
+    note = config.fetch(:note).values.any? { |value| !value.empty? } ? "\n            <span class=\"presskit-note\" #{localized_attrs(config.fetch(:note))}>#{h(config.fetch(:note).fetch("ja"))}</span>" : ""
+    <<~HTML.rstrip
+          <a class="presskit-panel" #{link_attributes}>
+            <span class="presskit-kicker" #{localized_attrs(config.fetch(:kicker))}>#{h(config.fetch(:kicker).fetch("ja"))}</span>
+            <span class="presskit-title" #{localized_attrs(config.fetch(:title))}>#{h(config.fetch(:title).fetch("ja"))}</span>
+            <span class="presskit-description" #{localized_attrs(config.fetch(:description))}>#{h(config.fetch(:description).fetch("ja"))}</span>#{note}
+            <span class="presskit-button" #{localized_attrs(config.fetch(:button))}>#{h(config.fetch(:button).fetch("ja"))}</span>
+          </a>
+    HTML
+  end.join("\n")
   password_dialog = if protected
                       <<~HTML.rstrip
           <dialog class="pitch-password-dialog" data-pitch-password-dialog aria-labelledby="pitch-password-title">
@@ -897,13 +930,8 @@ def presskit_section(row, content)
 
   <<~HTML.rstrip
       <section class="text-band presskit-band">
-        <div class="wrap">
-          <a class="presskit-panel" #{link_attributes}>
-            <span class="presskit-kicker" #{localized_attrs(config.fetch(:kicker))}>#{h(config.fetch(:kicker).fetch("ja"))}</span>
-            <span class="presskit-title" #{localized_attrs(config.fetch(:title))}>#{h(config.fetch(:title).fetch("ja"))}</span>
-            <span class="presskit-description" #{localized_attrs(config.fetch(:description))}>#{h(config.fetch(:description).fetch("ja"))}</span>
-            <span class="presskit-button" #{localized_attrs(config.fetch(:button))}>#{h(config.fetch(:button).fetch("ja"))}</span>
-          </a>
+        <div class="wrap presskit-resources">
+#{panels}
         </div>
 #{password_dialog}
       </section>

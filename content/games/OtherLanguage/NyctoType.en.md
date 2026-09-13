@@ -42,10 +42,19 @@ Fast typing alone is not enough. Fight while thinking about when and which actio
 
 ## Press Kit
 
+- Link: ../presskits/NyctoType/index.html
+- kicker: PRESS
+- Title: Press Kit
+- Description: Game information and image assets for media and content creators.
+- Button: Open Press Kit
+
+## Pitch Deck
+
 - Link: ../pitchdecks/NyctoType/index.html
 - kicker: PITCH
 - Title: Pitch Deck
 - Description: Project overview, development plans, and partnership opportunities.
+- Note: A password is required. Please contact us if you would like access.
 - Button: Open Pitch Deck
 
 ## Plans

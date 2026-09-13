@@ -42,10 +42,19 @@ Schnelles Tippen allein reicht nicht. Entscheide im Kampf, wann du welche Aktion
 
 ## Pressekit
 
+- Link: ../presskits/NyctoType/index.html
+- kicker: PRESSE
+- Title: Pressekit
+- Description: Spielinformationen und Bildmaterial für Medien und Content Creator.
+- Button: Pressekit öffnen
+
+## Pitch Deck
+
 - Link: ../pitchdecks/NyctoType/index.html
 - kicker: PITCH
 - Title: Pitch Deck
 - Description: Informationen zum Spielkonzept, zur Entwicklung und zu möglichen Partnerschaften.
+- Hinweis: Für den Zugriff ist ein Passwort erforderlich. Bitte kontaktieren Sie uns, wenn Sie das Pitch Deck ansehen möchten.
 - Button: Pitch Deck öffnen
 
 ## Pläne

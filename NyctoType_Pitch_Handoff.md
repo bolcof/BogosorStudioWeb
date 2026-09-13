@@ -230,12 +230,12 @@ PYTHON=/Users/244cm265kg/.cache/codex-runtimes/codex-primary-runtime/dependencie
 ## サイト紹介ページのリンクを変える場合
 
 紹介ページのリンクは、サイト側のcontent/games/NyctoType.mdとOtherLanguageの5ファイルで管理します。
-節の内部名は引き続き「プレスキット」相当ですが、表示するタイトルはピッチデッキです。
+プレスキットとピッチデッキを別の節として管理し、紹介ページではこの順に表示します。
 
-- href: ../pitchdecks/NyctoType/index.html
-- kicker: PITCH
+- プレスキット: `../presskits/NyctoType/index.html`、kickerは`PRESS`。
+- ピッチデッキ: `../pitchdecks/NyctoType/index.html`、kickerは`PITCH`。
 - 表示タイトル・説明・ボタンは6言語で設定。
-- 説明は企画・開発計画・協業資料であり、「パスワードが必要」とは書かない。
+- ピッチデッキには、閲覧にパスワードが必要で、希望者は問い合わせる旨の小さな注記を表示。
 
 変更後はサイト側で `ruby scripts/apply_games_csv.rb` を実行します。
 この処理はサイトのトップ・ゲーム紹介ページを生成しますが、ピッチ本体は生成しません。
@@ -245,6 +245,7 @@ PYTHON=/Users/244cm265kg/.cache/codex-runtimes/codex-primary-runtime/dependencie
 - languageLabels / htmlLanguageCodesの置換が後続のJavaScriptまで削除していた問題。
 - 翻訳済み要素に簡体字・韓国語属性が重複追加されていた問題。
 - 資料リンクの小ラベルをkickerで変更できるように拡張。
+- プレスキットとピッチデッキを別項目として同時に生成できるように拡張。
 
 変更後にトップと各ゲームページの言語処理を再適用しても内容が変わらないことを、6ページで確認済みです。
 今後も生成差分を確認し、NyctoType以外のページへ意図しない変更が出たらそのままコミットしないでください。

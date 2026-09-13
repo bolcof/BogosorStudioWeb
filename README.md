@@ -247,8 +247,8 @@ python3 -m http.server 8000 --directory docs
 今後の編集は [NyctoTypeピッチデッキ引き継ぎ](NyctoType_Pitch_Handoff.md) を先に確認してください。編集方針、ソースの場所、反映手順、画像と公開範囲の注意点をまとめています。
 
 - 掲載先: `docs/pitchdecks/NyctoType/index.html`。画像と日英切り替えを内包した単体HTMLです。
-- NyctoType紹介ページの資料リンクは、このピッチデッキを参照します。旧プレスキットは削除していません。
-- リンク文言は各言語のNyctoType Markdownにある `presskit` 相当の節で管理します。`kicker` を指定すると、資料リンクの小ラベルも変更できます。
+- NyctoType紹介ページには、メディア向けプレスキットとピッチデッキへの資料リンクを並べて掲載します。
+- リンク文言は各言語のNyctoType Markdownにある `presskit` と `pitchdeck` 相当の節で管理します。`kicker` を指定すると、資料リンクの小ラベルも変更できます。
 - 編集元: `pitch/nyctotype/`。ソース・画像・生成処理をこのリポジトリ内で管理します。ゲーム側の旧フォルダは保存版です。
 - 更新: `node pitch/nyctotype/scripts/update-site.mjs`。生成と検証が成功すると、掲載HTMLも更新されます。環境準備は [編集元README](pitch/nyctotype/README.md) を参照してください。
 - NyctoType紹介ページからピッチデッキへ進む際は、クライアント側のパスワードモーダルを表示します。静的サイト上の簡易ゲートであり、ピッチデッキURL自体を保護するものではないため、公開前に内容の公開範囲を確認してください。
