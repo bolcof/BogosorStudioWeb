@@ -1,5 +1,5 @@
 NyctoType / BogosorGames
-Updated: 2026-09-12
+Updated: 2026-09-13
 
 A multithreaded typing battle where players compete through speed and strategy.
 
@@ -12,8 +12,8 @@ Latest News
 Exhibiting at Tokyo Game Show 2026
 NyctoType will be exhibited in Hall 10 at booth 10-E17, Makuhari Messe.
 
-Public demo planned on Steam for September 2026
-A public demo is planned for release on Steam in September 2026.
+Public demo planned on Steam for late September 2026
+A public demo is planned for release on Steam in late September 2026.
 
 Factsheet
 Title: NyctoType
