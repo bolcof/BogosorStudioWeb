@@ -53,12 +53,18 @@
 .presskit svg { flex-shrink:0; }
 .press-download { display:inline-flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:9px; border:1px solid var(--gold); border-radius:4px; padding:12px 18px; font-size:14px; font-weight:700; min-height:46px; max-width:100%; }
 .press-download.primary { color:var(--bg); background:var(--gold); }
+.press-download.release { color:var(--green); border-color:var(--green); }
 .press-download:hover { filter:brightness(1.12); }
 .press-download small { font-size:12px; font-weight:500; }
 .press-zip-downloads { display:flex; flex-wrap:wrap; gap:10px; }
 .press-vision { margin:24px 0; padding:18px 20px; border-left:3px solid var(--gold); background:rgba(255,255,255,.035); }
 .press-vision h3 { margin-top:0; }
 .press-vision p { margin-bottom:0; }
+.press-news article { padding:0 0 18px; border-bottom:1px solid var(--line); }
+.press-news article + article { padding-top:18px; }
+.press-news article:last-child { padding-bottom:0; border-bottom:0; }
+.press-news h3 { margin:0 0 6px; }
+.press-news p { margin:0; }
 html[lang="ja"] .press-asset[data-asset-language="en"],
 html[lang="en"] .press-asset[data-asset-language="ja"] { display:none; }
 .press-text-link { text-decoration:underline; text-underline-offset:4px; }

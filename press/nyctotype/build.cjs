@@ -20,6 +20,9 @@ async function build() {
   await fs.rm(path.join(out, 'previews'), {recursive:true, force:true});
   await fs.mkdir(path.join(out, 'previews'), {recursive:true});
   await fs.mkdir(path.join(out, 'downloads'), {recursive:true});
+  const pressReleaseFilename = 'NyctoType-Press-Release-2026-09-12.txt';
+  const pressRelease = await fs.readFile(path.join(__dirname, 'press-release-2026-09-12-ja.txt'), 'utf8');
+  await fs.writeFile(path.join(out, 'downloads', pressReleaseFilename), pressRelease);
   for (const asset of assets) {
     const original = await fs.readFile(path.join(out, 'assets', asset.file));
     const info = await sharp(original).metadata();
@@ -32,7 +35,7 @@ async function build() {
   for (const lang of ['ja','en']) {
     const t = value => value[lang];
     const languageAssets = assets.filter(asset=>asset.kind!=='screenshot' || asset.file.endsWith(lang==='ja' ? '_JP.png' : '_ENG.png'));
-    const parts = ['NyctoType / BogosorGames', `${t(labels.updated)}: ${data.updated}`, '', t(data.tagline), '', t(data.short), '', t(labels.vision), t(data.vision), '', t(labels.facts), ...data.facts.map(f=>`${t(f.label)}: ${t(f.value)}`), `Steam: ${data.steam}`, `${t(labels.site)}: ${data.website}`, `Contact: ${data.email}`, '', t(labels.rules), t(data.rulesSummary), '', t(labels.features), ...data.features.flatMap(f=>[t(f.title),t(f.text),'']), t(labels.planned), t(data.planned), '', t(labels.screenshots), t(data.zipImageNote), ...languageAssets.map(a=>`${a.file} - ${t(a.caption)} (${a.width} x ${a.height})`), '', t(labels.usage), ...data.usage.map(t), '', t(labels.contact), t(data.contactText), data.email, ''];
+    const parts = ['NyctoType / BogosorGames', `${t(labels.updated)}: ${data.updated}`, '', t(data.tagline), '', t(data.short), '', t(labels.vision), t(data.vision), '', t(labels.latest), ...data.latest.flatMap(item=>[t(item.title),t(item.text),'']), t(labels.facts), ...data.facts.map(f=>`${t(f.label)}: ${t(f.value)}`), `Steam: ${data.steam}`, `${t(labels.site)}: ${data.website}`, `Contact: ${data.email}`, '', t(labels.rules), t(data.rulesSummary), '', t(labels.features), ...data.features.flatMap(f=>[t(f.title),t(f.text),'']), t(labels.planned), t(data.planned), '', t(labels.screenshots), t(data.zipImageNote), ...languageAssets.map(a=>`${a.file} - ${t(a.caption)} (${a.width} x ${a.height})`), '', t(labels.usage), ...data.usage.map(t), '', t(labels.contact), t(data.contactText), data.email, ''];
     const text = parts.join('\n');
     const filename = `NyctoType-PressKit-${lang}.txt`;
     await fs.writeFile(path.join(out, 'downloads', filename), text);
@@ -45,7 +48,8 @@ async function build() {
     await fs.writeFile(path.join(out, `downloads/${zipRoots[lang]}.zip`), archives[lang]);
   }
   const download = lang => `<a class="press-download primary" href="downloads/${zipRoots[lang]}.zip" download>${icon}${bi(labels[lang === 'ja' ? 'zipJa' : 'zipEn'])}<small>${(archives[lang].length/1048576).toFixed(1)} MB</small></a>`;
-  const downloads = `<div class="press-zip-downloads">${download('ja')}${download('en')}</div>`;
+  const releaseDownload = `<a class="press-download release" href="downloads/${pressReleaseFilename}" download>${icon}${bi(labels.pressRelease)}<small>TXT</small></a>`;
+  const downloads = `<div class="press-zip-downloads">${download('ja')}${download('en')}${releaseDownload}</div>`;
   const assetHtml = asset => {
     const assetLanguage = asset.kind !== 'screenshot' ? 'all' : asset.file.endsWith('_JP.png') ? 'ja' : 'en';
     const note = asset.note ? bi(asset.note,'p',' class="asset-meta asset-note"') : '';
@@ -71,10 +75,11 @@ async function build() {
   <header class="topbar"><div class="wrap topbar-inner"><a class="brand" href="../../index.html">BogosorStudio</a><div class="press-language" role="group" aria-label="Language"><button type="button" data-language="ja" aria-pressed="true" lang="ja">日本語</button><button type="button" data-language="en" aria-pressed="false" lang="en">English</button></div></div></header>
   <main>
     <header class="press-heading wrap"><p class="press-eyebrow">BOGOSORGAMES / ${bi(labels.press)}</p><h1>NyctoType</h1>${bi(data.tagline,'p',' class="press-tagline"')}<div class="press-actions">${downloads}<a class="press-text-link" href="${data.steam}" target="_blank" rel="noopener">Steam ↗</a></div><p class="press-date">${bi(labels.updated)} <time datetime="${data.updated}">${data.updated}</time></p></header>
-    <nav class="press-nav wrap" aria-label="${esc(labels.press.ja)}">${['about','screenshots','artwork','downloads','usage','contact'].map(id=>`<a href="#${id}">${bi(labels[id])}</a>`).join('')}</nav>
+    <nav class="press-nav wrap" aria-label="${esc(labels.press.ja)}">${['latest','about','screenshots','artwork','downloads','usage','contact'].map(id=>`<a href="#${id}">${bi(labels[id])}</a>`).join('')}</nav>
     <div class="wrap press-layout">
       <aside class="press-facts" id="facts">${bi(labels.facts,'h2')}<dl>${data.facts.map(f=>`<div>${bi(f.label,'dt')}${bi(f.value,'dd')}</div>`).join('')}<div><dt>Steam</dt><dd><a href="${data.steam}" target="_blank" rel="noopener">NyctoType ↗</a></dd></div><div>${bi(labels.site,'dt')}<dd><a href="${data.website}" target="_blank" rel="noopener">NyctoType / BogosorGames ↗</a></dd></div><div>${bi(labels.contact,'dt')}<dd>${data.email}</dd></div></dl></aside>
       <div class="press-main">
+        ${section('latest',`<div class="press-news">${data.latest.map(item=>`<article>${bi(item.title,'h3')}${bi(item.text,'p')}</article>`).join('')}</div>`)}
         ${section('about',bi(data.short,'p') + `<div class="press-vision">${bi(labels.vision,'h3')}${bi(data.vision,'p')}</div>` + bi(labels.rules,'h3') + bi(data.rulesSummary,'p') + bi(labels.features,'h3') + data.features.map(f=>`<div class="press-feature">${bi(f.title,'h4')}${bi(f.text,'p')}</div>`).join('') + `<div class="press-planned">${bi(labels.planned,'h3')}${bi(data.planned,'p')}</div>`)}
         ${section('screenshots',bi(data.imageNote,'p',' class="press-muted"')+`<div class="press-assets">${assets.filter(a=>a.kind==='screenshot').map(assetHtml).join('')}</div>`)}
         ${section('artwork',`<div class="press-assets art-assets">${assets.filter(a=>a.kind!=='screenshot').map(assetHtml).join('')}</div>`)}
@@ -89,6 +94,6 @@ async function build() {
 </html>`;
   await fs.writeFile(path.join(out, 'index.html'), html);
   for (const name of ['presskit.css','presskit.js']) await fs.copyFile(path.join(__dirname,name),path.join(out,name));
-  console.log(`Generated bilingual HTML, ${assets.length} previews, 2 TXT files and 2 ZIPs (JA ${(archives.ja.length/1048576).toFixed(1)} MB / EN ${(archives.en.length/1048576).toFixed(1)} MB; ${Object.keys(zips.ja.files).length} files each).`);
+  console.log(`Generated bilingual HTML, ${assets.length} previews, 3 TXT files and 2 ZIPs (JA ${(archives.ja.length/1048576).toFixed(1)} MB / EN ${(archives.en.length/1048576).toFixed(1)} MB; ${Object.keys(zips.ja.files).length} files each).`);
 }
 build().catch(error=>{console.error(error);process.exitCode=1;});

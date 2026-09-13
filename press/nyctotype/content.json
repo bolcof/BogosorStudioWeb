@@ -7,6 +7,7 @@
     "press": {"ja":"プレスキット","en":"Press Kit"},
     "facts": {"ja":"基本情報","en":"Factsheet"},
     "about": {"ja":"ゲーム紹介","en":"About the Game"},
+    "latest": {"ja":"最新情報","en":"Latest News"},
     "vision": {"ja":"目指していること","en":"Our Goal"},
     "rules": {"ja":"基本ルール","en":"How It Plays"},
     "features": {"ja":"特徴","en":"Features"},
@@ -19,6 +20,7 @@
     "original": {"ja":"原寸PNGをダウンロード","en":"Download original PNG"},
     "zipJa": {"ja":"日本語素材ZIP","en":"Japanese Asset ZIP"},
     "zipEn": {"ja":"英語素材ZIP","en":"English Asset ZIP"},
+    "pressRelease": {"ja":"プレスリリース（2026.09.12）","en":"Press Release (Japanese, 2026.09.12)"},
     "site": {"ja":"公式サイト","en":"Official website"},
     "updated": {"ja":"更新日","en":"Updated"}
   },
@@ -28,14 +30,18 @@
     "en":"NyctoType is a strategic typing game in which you complete typing challenges to move pieces on a board and create new ones. Victory depends not only on typing speed, but also on deciding which pieces to move and in what order."
   },
   "vision": {"ja":"NyctoTypeを通じて、タイピングゲームというジャンルそのものを、より多くの人が遊び、観戦し、参加するeスポーツへ育てることを目指しています。","en":"Through NyctoType, we aim to help typing games grow into an esport that more people play, watch, and take part in."},
+  "latest": [
+    {"title":{"ja":"東京ゲームショウ2026に出展予定","en":"Exhibiting at Tokyo Game Show 2026"},"text":{"ja":"幕張メッセ ホール10／ブース10-E17に出展予定です。","en":"NyctoType will be exhibited in Hall 10 at booth 10-E17, Makuhari Messe."}},
+    {"title":{"ja":"Steamデモを2026年9月中に公開予定","en":"Public demo planned on Steam for September 2026"},"text":{"ja":"一般向けデモを2026年9月中にSteamで公開予定です。","en":"A public demo is planned for release on Steam in September 2026."}}
+  ],
   "facts": [
     {"label":{"ja":"タイトル","en":"Title"},"value":{"ja":"NyctoType","en":"NyctoType"}},
     {"label":{"ja":"開発元","en":"Developer"},"value":{"ja":"BogosorGames","en":"BogosorGames"}},
     {"label":{"ja":"ジャンル","en":"Genre"},"value":{"ja":"戦略性タイピングゲーム","en":"Strategic typing game"}},
     {"label":{"ja":"プラットフォーム","en":"Platform"},"value":{"ja":"PC（Windows）／Steam","en":"PC (Windows) / Steam"}},
-    {"label":{"ja":"プレイ人数","en":"Players"},"value":{"ja":"2人（オンライン対戦）","en":"2 players (online versus)"}},
+    {"label":{"ja":"プレイ人数","en":"Players"},"value":{"ja":"1〜2人（オンライン対戦）","en":"1–2 players (online multiplayer)"}},
     {"label":{"ja":"発売予定","en":"Release"},"value":{"ja":"2027年にアーリーアクセス配信予定","en":"Early Access planned for 2027"}},
-    {"label":{"ja":"対応言語","en":"Languages"},"value":{"ja":"現在：日本語・英語・中国語（繁体字／簡体字）。将来：ロシア語・スペイン語（スペイン）・ポルトガル語（ブラジル）・ドイツ語を加えた主要8言語を予定","en":"Current: Japanese, English, Traditional Chinese, and Simplified Chinese. Planned: 8 major languages, adding Russian, Spanish (Spain), Portuguese (Brazil), and German"}}
+    {"label":{"ja":"対応言語","en":"Languages"},"value":{"ja":"現在：日本語・英語・中国語（繁体字／簡体字）。将来：ロシア語・スペイン語・ポルトガル語・ドイツ語を加えた主要8言語を予定","en":"Current: Japanese, English, Traditional Chinese, and Simplified Chinese. Planned: 8 major languages, adding Russian, Spanish, Portuguese, and German"}}
   ],
   "rulesSummary": {"ja":"自分のコマと移動方向を選び、提示された文字列を入力すると、コマを1手動かせます。新しいコマもコンソールで選び、タイピング課題をクリアして生成します。相手側の端から盤外へコマを落とすとダメージを与えられ、先に相手の体力を削り切った方が勝利です。","en":"Choose one of your pieces and a direction, then enter the displayed text to move it one step. New pieces are also created by selecting them in the console and completing a typing challenge. Send a piece off the opponent's edge of the board to deal damage; the first player to reduce the opponent's health to zero wins."},
   "features": [

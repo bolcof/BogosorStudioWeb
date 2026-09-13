@@ -40,9 +40,14 @@ async function check() {
     assert.equal(await archives[lang].file(`${lang==='ja'?'NyctoType-PressKit-JA':'NyctoType-PressKit-EN'}/${filename}`).async('string'),text);
     assert(text.includes(data.zipImageNote[lang]));
     assert(!text.includes(lang==='ja' ? '_ENG.png' : '_JP.png'));
-    for (const value of [data.short[lang],data.vision[lang],data.planned[lang],...data.usage.map(u=>u[lang])]) assert(text.includes(value));
+    for (const value of [data.short[lang],data.vision[lang],data.planned[lang],...data.latest.flatMap(item=>[item.title[lang],item.text[lang]]),...data.usage.map(u=>u[lang])]) assert(text.includes(value));
     assert(!/TBD|youtube|youtu\.be|pitchdecks|国家AI|1億|2027年10月|2027年12月|TJ Shizzle/i.test(text));
   }
+  const pressReleaseFilename = 'NyctoType-Press-Release-2026-09-12.txt';
+  const pressRelease = await fs.readFile(path.join(out,'downloads',pressReleaseFilename),'utf8');
+  assert.equal(pressRelease,await fs.readFile(path.join(__dirname,'press-release-2026-09-12-ja.txt'),'utf8'));
+  for (const value of ['2026年9月12日','東京ゲームショウ2026','ホール10／10-E17','一般向けデモを2026年9月中にSteamで公開予定','BogosorGames',data.steam,data.website]) assert(pressRelease.includes(value));
+  assert(!/TBD|youtube|youtu\.be|pitchdecks|国家AI|1億|2027年10月|2027年12月|TJ Shizzle/i.test(pressRelease));
   const types = {'.html':'text/html; charset=utf-8','.css':'text/css','.js':'text/javascript','.png':'image/png','.webp':'image/webp','.txt':'text/plain; charset=utf-8','.zip':'application/zip','.ico':'image/x-icon'};
   const server = http.createServer(async (request,response)=>{
     try {
@@ -78,7 +83,7 @@ async function check() {
         assert.equal(await page.locator(`#screenshots .press-asset[data-asset-language="${lang==='ja'?'en':'ja'}"]:visible`).count(),0);
         assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
         assert.equal(await page.locator('img').evaluateAll(imgs=>imgs.every(img=>img.complete&&img.naturalWidth>0)),true);
-        for (const id of ['about','screenshots','artwork','downloads','usage','contact']) {
+        for (const id of ['latest','about','screenshots','artwork','downloads','usage','contact']) {
           await page.locator(`.press-nav a[href="#${id}"]`).click();
           assert.equal(new URL(page.url()).hash,`#${id}`);
           const rect = await page.locator(`#${id} h2`).boundingBox();
@@ -110,7 +115,7 @@ async function check() {
     assert.equal(await page.locator('html').getAttribute('lang'),'en');
     assert.equal(await page.locator('iframe,video').count(),0);
     assert.deepEqual(errors,[]);
-    console.log(`Passed: two ${expected.ja.length}-file language-specific ZIP allowlists and byte equality, original assets and transparent logo, bilingual copy, desktop/mobile layouts, section links, ${await downloads.count()} browser downloads, local links, and English direct entry.`);
+    console.log(`Passed: two ${expected.ja.length}-file language-specific ZIP allowlists and byte equality, standalone press release TXT, original assets and transparent logo, bilingual copy, desktop/mobile layouts, section links, ${await downloads.count()} browser downloads, local links, and English direct entry.`);
   } finally {
     if (browser) await browser.close();
     await new Promise(resolve=>server.close(resolve));

@@ -8,14 +8,21 @@ NyctoType is a strategic typing game in which you complete typing challenges to 
 Our Goal
 Through NyctoType, we aim to help typing games grow into an esport that more people play, watch, and take part in.
 
+Latest News
+Exhibiting at Tokyo Game Show 2026
+NyctoType will be exhibited in Hall 10 at booth 10-E17, Makuhari Messe.
+
+Public demo planned on Steam for September 2026
+A public demo is planned for release on Steam in September 2026.
+
 Factsheet
 Title: NyctoType
 Developer: BogosorGames
 Genre: Strategic typing game
 Platform: PC (Windows) / Steam
-Players: 2 players (online versus)
+Players: 1–2 players (online multiplayer)
 Release: Early Access planned for 2027
-Languages: Current: Japanese, English, Traditional Chinese, and Simplified Chinese. Planned: 8 major languages, adding Russian, Spanish (Spain), Portuguese (Brazil), and German
+Languages: Current: Japanese, English, Traditional Chinese, and Simplified Chinese. Planned: 8 major languages, adding Russian, Spanish, Portuguese, and German
 Steam: https://store.steampowered.com/app/3968600/NyctoType/
 Official website: https://bolcof.github.io/BogosorStudioWeb/games/NyctoType.html
 Contact: electro.peaceful.oooo[at]gmail.com
