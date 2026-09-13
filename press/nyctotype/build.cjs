@@ -20,8 +20,8 @@ async function build() {
   await fs.rm(path.join(out, 'previews'), {recursive:true, force:true});
   await fs.mkdir(path.join(out, 'previews'), {recursive:true});
   await fs.mkdir(path.join(out, 'downloads'), {recursive:true});
-  const pressReleaseFilename = 'NyctoType-Press-Release-2026-09-12.txt';
-  const pressRelease = await fs.readFile(path.join(__dirname, 'press-release-2026-09-12-ja.txt'), 'utf8');
+  const pressReleaseFilename = 'NyctoType-Press-Release-2026-09-14.txt';
+  const pressRelease = await fs.readFile(path.join(__dirname, 'press-release-2026-09-14-ja.txt'), 'utf8');
   await fs.writeFile(path.join(out, 'downloads', pressReleaseFilename), pressRelease);
   for (const asset of assets) {
     const original = await fs.readFile(path.join(out, 'assets', asset.file));

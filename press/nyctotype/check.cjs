@@ -43,10 +43,10 @@ async function check() {
     for (const value of [data.short[lang],data.vision[lang],data.planned[lang],...data.latest.flatMap(item=>[item.title[lang],item.text[lang]]),...data.usage.map(u=>u[lang])]) assert(text.includes(value));
     assert(!/TBD|youtube|youtu\.be|pitchdecks|国家AI|1億|2027年10月|2027年12月|TJ Shizzle/i.test(text));
   }
-  const pressReleaseFilename = 'NyctoType-Press-Release-2026-09-12.txt';
+  const pressReleaseFilename = 'NyctoType-Press-Release-2026-09-14.txt';
   const pressRelease = await fs.readFile(path.join(out,'downloads',pressReleaseFilename),'utf8');
-  assert.equal(pressRelease,await fs.readFile(path.join(__dirname,'press-release-2026-09-12-ja.txt'),'utf8'));
-  for (const value of ['2026年9月12日','東京ゲームショウ2026','ホール10／10-E17','一般向けデモを2026年9月下旬にSteamで公開予定','TGCA（Top Game Creators Academy）第1期助成プロジェクト','BogosorGames',data.steam,data.website]) assert(pressRelease.includes(value));
+  assert.equal(pressRelease,await fs.readFile(path.join(__dirname,'press-release-2026-09-14-ja.txt'),'utf8'));
+  for (const value of ['2026年9月14日','東京ゲームショウ2026','ホール10／10-E17','一般向けデモを2026年9月下旬にSteamで公開予定','TGCA（Top Game Creators Academy）第1期助成プロジェクト','BogosorGames',data.steam,data.website]) assert(pressRelease.includes(value));
   assert(!/TBD|youtube|youtu\.be|pitchdecks|国家AI|1億|2027年10月|2027年12月|TJ Shizzle/i.test(pressRelease));
   const types = {'.html':'text/html; charset=utf-8','.css':'text/css','.js':'text/javascript','.png':'image/png','.webp':'image/webp','.txt':'text/plain; charset=utf-8','.zip':'application/zip','.ico':'image/x-icon'};
   const server = http.createServer(async (request,response)=>{
