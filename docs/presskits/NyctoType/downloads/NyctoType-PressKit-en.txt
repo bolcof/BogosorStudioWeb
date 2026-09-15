@@ -1,5 +1,5 @@
 NyctoType / BogosorGames
-Updated: 2026-09-13
+Updated: 2026-09-15
 
 A multithreaded typing battle where players compete through speed and strategy.
 
@@ -51,6 +51,8 @@ screenshots/NyctoType-03-typing_ENG.png - Completing a typing challenge to move 
 screenshots/NyctoType-04-attack_ENG.png - Dealing damage by sending a piece off the opponent's edge (English UI) (3840 x 2160)
 screenshots/NyctoType-05-piece_ENG.png - Pieces with special abilities (English UI) (3840 x 2160)
 screenshots/NyctoType-06-story_ENG.png - Story dialogue scene (English UI) (3840 x 2160)
+screenshots/NyctoType-07-break_ENG.png - An ability that destroys an opposing piece (English UI) (3840 x 2160)
+screenshots/NyctoType-08-damage_ENG.png - Visual effects when damage is dealt (English UI) (3840 x 2160)
 artwork/NyctoType-logo.png - Title logo (transparent PNG) (5000 x 2387)
 artwork/NyctoType-cover-image.png - Portrait key art (with logo) (1200 x 1500)
 artwork/NyctoType-wide-art-logo.png - Wide key art (with logo) (3840 x 1280)

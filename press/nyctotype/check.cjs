@@ -43,12 +43,14 @@ async function check() {
     for (const value of [data.short[lang],data.vision[lang],data.planned[lang],...data.latest.flatMap(item=>[item.title[lang],item.text[lang]]),...data.usage.map(u=>u[lang])]) assert(text.includes(value));
     assert(!/TBD|youtube|youtu\.be|pitchdecks|国家AI|1億|2027年10月|2027年12月|TJ Shizzle/i.test(text));
   }
-  const pressReleaseFilename = 'NyctoType-Press-Release-2026-09-14.txt';
+  const pressReleaseFilename = 'NyctoType-Press-Release-2026-09-15.txt';
   const pressRelease = await fs.readFile(path.join(out,'downloads',pressReleaseFilename),'utf8');
-  assert.equal(pressRelease,await fs.readFile(path.join(__dirname,'press-release-2026-09-14-ja.txt'),'utf8'));
-  for (const value of ['2026年9月14日','2026年9月17日（木）～21日（月・祝）','東京ゲームショウ2026','ホール10／10-E17','一般向け体験版を2026年9月下旬にSteamで公開予定','TGCA（Top Game Creators Academy）第1期助成プロジェクト','BogosorGames',data.steam,data.website,data.email]) assert(pressRelease.includes(value));
+  assert.equal(pressRelease,await fs.readFile(path.join(__dirname,'press-release-2026-09-15-ja.txt'),'utf8'));
+  for (const value of ['2026年9月15日','2026年9月17日（木）～21日（月・祝）','東京ゲームショウ2026','ホール10／10-E17','一般向け体験版を2026年9月下旬にSteamで公開予定','TGCA（Top Game Creators Academy）第1期助成プロジェクト','BogosorGames',data.steam,data.website,data.email]) assert(pressRelease.includes(value));
+  assert(pressRelease.includes('2026年9月15日\n\n報道関係者各位\n\nBogosorGames'));
+  assert(pressRelease.includes(['タイトル：NyctoType','開発元：BogosorGames','ジャンル：戦略性タイピングゲーム','プラットフォーム：PC（Windows）／Steam','プレイ人数：1〜2人（オンライン対戦）','発売予定：2027年にアーリーアクセス配信予定'].join('\n\n')));
   assert(!/TBD|youtube|youtu\.be|pitchdecks|国家AI|1億|2027年10月|2027年12月|TJ Shizzle/i.test(pressRelease));
-  const pressEmail = await fs.readFile(path.join(__dirname,'press-email-2026-09-14-ja.txt'),'utf8');
+  const pressEmail = await fs.readFile(path.join(__dirname,'press-email-2026-09-15-ja.txt'),'utf8');
   for (const value of ['【プレスリリース／TGS2026出展】','2026年9月17日（木）から21日（月・祝）','本件の情報は、受信後すぐにご掲載いただけます。',pressReleaseFilename,data.steam,data.website,data.email]) assert(pressEmail.includes(value));
   assert(!/\[at\]|TBD|youtube|youtu\.be/i.test(pressEmail));
   const types = {'.html':'text/html; charset=utf-8','.css':'text/css','.js':'text/javascript','.png':'image/png','.webp':'image/webp','.txt':'text/plain; charset=utf-8','.zip':'application/zip','.ico':'image/x-icon'};
@@ -82,7 +84,7 @@ async function check() {
         assert.equal(await page.locator('html').getAttribute('lang'),lang);
         assert.equal(await page.locator(`[data-language="${lang}"]`).getAttribute('aria-pressed'),'true');
         assert.equal(await page.locator('[data-ja][data-en]').evaluateAll((els,lang)=>els.every(el=>el.textContent===el.dataset[lang]),lang),true);
-        assert.equal(await page.locator(`#screenshots .press-asset[data-asset-language="${lang}"]:visible`).count(),6);
+        assert.equal(await page.locator(`#screenshots .press-asset[data-asset-language="${lang}"]:visible`).count(),8);
         assert.equal(await page.locator(`#screenshots .press-asset[data-asset-language="${lang==='ja'?'en':'ja'}"]:visible`).count(),0);
         assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
         assert.equal(await page.locator('img').evaluateAll(imgs=>imgs.every(img=>img.complete&&img.naturalWidth>0)),true);

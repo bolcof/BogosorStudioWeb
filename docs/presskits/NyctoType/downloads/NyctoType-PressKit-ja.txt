@@ -1,5 +1,5 @@
 NyctoType / BogosorGames
-更新日: 2026-09-13
+更新日: 2026-09-15
 
 速度と戦術で競い合うマルチスレッドタイピングバトル
 
@@ -51,6 +51,8 @@ screenshots/NyctoType-03-typing_JP.png - タイピング課題をクリアして
 screenshots/NyctoType-04-attack_JP.png - 相手側の盤外に落とすことでダメージを与える（日本語UI） (3840 x 2160)
 screenshots/NyctoType-05-piece_JP.png - 特殊なアビリティを持つコマ（日本語UI） (3840 x 2160)
 screenshots/NyctoType-06-story_JP.png - ストーリー会話画面（日本語UI） (3840 x 2160)
+screenshots/NyctoType-07-break_JP.png - 相手のコマを破壊するアビリティ（日本語UI） (3840 x 2160)
+screenshots/NyctoType-08-damage_JP.png - ダメージ発生時の画面演出（日本語UI） (3840 x 2160)
 artwork/NyctoType-logo.png - タイトルロゴ（透過PNG） (5000 x 2387)
 artwork/NyctoType-cover-image.png - 縦型キーアート（ロゴ入り） (1200 x 1500)
 artwork/NyctoType-wide-art-logo.png - 横長キーアート（ロゴ入り） (3840 x 1280)
