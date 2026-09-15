@@ -20,9 +20,14 @@ async function build() {
   await fs.rm(path.join(out, 'previews'), {recursive:true, force:true});
   await fs.mkdir(path.join(out, 'previews'), {recursive:true});
   await fs.mkdir(path.join(out, 'downloads'), {recursive:true});
-  const pressReleaseFilename = 'NyctoType-Press-Release-2026-09-15.txt';
-  const pressRelease = await fs.readFile(path.join(__dirname, 'press-release-2026-09-15-ja.txt'), 'utf8');
-  await fs.writeFile(path.join(out, 'downloads', pressReleaseFilename), pressRelease);
+  const pressReleases = [
+    {lang:'Ja', filename:'NyctoType-Press-Release-2026-09-15.txt', source:'press-release-2026-09-15-ja.txt'},
+    {lang:'En', filename:'NyctoType-Press-Release-2026-09-15-EN.txt', source:'press-release-2026-09-15-en.txt'},
+  ];
+  for (const release of pressReleases) {
+    release.text = await fs.readFile(path.join(__dirname, release.source), 'utf8');
+    await fs.writeFile(path.join(out, 'downloads', release.filename), release.text);
+  }
   for (const asset of assets) {
     const original = await fs.readFile(path.join(out, 'assets', asset.file));
     const info = await sharp(original).metadata();
@@ -48,8 +53,8 @@ async function build() {
     await fs.writeFile(path.join(out, `downloads/${zipRoots[lang]}.zip`), archives[lang]);
   }
   const download = lang => `<a class="press-download primary" href="downloads/${zipRoots[lang]}.zip" download>${icon}${bi(labels[lang === 'ja' ? 'zipJa' : 'zipEn'])}<small>${(archives[lang].length/1048576).toFixed(1)} MB</small></a>`;
-  const releaseDownload = `<a class="press-download release" href="downloads/${pressReleaseFilename}" download>${icon}${bi(labels.pressRelease)}<small>TXT</small></a>`;
-  const downloads = `<div class="press-zip-downloads">${download('ja')}${download('en')}${releaseDownload}</div>`;
+  const releaseDownload = release => `<a class="press-download release" href="downloads/${release.filename}" download>${icon}${bi(labels[`pressRelease${release.lang}`])}<small>TXT</small></a>`;
+  const downloads = `<div class="press-zip-downloads">${download('ja')}${download('en')}${pressReleases.map(releaseDownload).join('')}</div>`;
   const assetHtml = asset => {
     const assetLanguage = asset.kind !== 'screenshot' ? 'all' : asset.file.endsWith('_JP.png') ? 'ja' : 'en';
     const note = asset.note ? bi(asset.note,'p',' class="asset-meta asset-note"') : '';
@@ -94,6 +99,6 @@ async function build() {
 </html>`;
   await fs.writeFile(path.join(out, 'index.html'), html);
   for (const name of ['presskit.css','presskit.js']) await fs.copyFile(path.join(__dirname,name),path.join(out,name));
-  console.log(`Generated bilingual HTML, ${assets.length} previews, 3 TXT files and 2 ZIPs (JA ${(archives.ja.length/1048576).toFixed(1)} MB / EN ${(archives.en.length/1048576).toFixed(1)} MB; ${Object.keys(zips.ja.files).length} files each).`);
+  console.log(`Generated bilingual HTML, ${assets.length} previews, 4 TXT files and 2 ZIPs (JA ${(archives.ja.length/1048576).toFixed(1)} MB / EN ${(archives.en.length/1048576).toFixed(1)} MB; ${Object.keys(zips.ja.files).length} files each).`);
 }
 build().catch(error=>{console.error(error);process.exitCode=1;});

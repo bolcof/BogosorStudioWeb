@@ -1,0 +1,61 @@
+September 15, 2026
+
+For Media
+
+BogosorGames
+
+Strategic Typing Game NyctoType to Exhibit at Tokyo Game Show 2026
+Public Steam Demo Planned for Late September 2026
+
+BogosorGames will exhibit its strategic typing game NyctoType, currently in development, at Tokyo Game Show 2026, held at Makuhari Messe from September 17 to 21, 2026. The game will be located in Hall 10 at booth 10-E17. A public demo is also planned for release on Steam in late September 2026.
+
+ABOUT NYCTOTYPE
+
+NyctoType is a strategic typing game in which players complete typing challenges to move pieces on a board and create new ones. Victory depends not only on typing speed, but also on deciding which pieces to move and in what order. The project was selected for the first cohort of TGCA (Top Game Creators Academy) grant projects and is being developed with support from the program.
+
+Select one of your pieces and a direction, then enter the displayed text to move it one step. New pieces are created by selecting them in the console and completing a typing challenge. Sending a piece off the opponent's edge of the board deals damage. The first player to reduce the opponent's health to zero wins.
+
+BOARD TACTICS BUILT AROUND PIECE-SPECIFIC ABILITIES
+
+Pieces differ in movement cost, creation cost, movement directions, and abilities. Players choose their actions based on typing speed, the state of the board, and effects such as destroying or pushing opposing pieces and increasing damage.
+
+A FIRST-PERSON VIEW OF THE ENTIRE BOARD
+
+Players face their opponent across a table and battle from a board-game-like perspective. They survey the entire board to decide where to attack and where to defend.
+
+HELPING TYPING GAMES GROW AS AN ESPORT
+
+Through NyctoType, BogosorGames aims to help typing games grow into an esport that more people play, watch, and take part in.
+
+TOKYO GAME SHOW 2026
+
+Dates: September 17-21, 2026
+Venue: Makuhari Messe
+Booth: Hall 10 / 10-E17
+
+PRODUCT INFORMATION
+
+Title: NyctoType
+
+Developer: BogosorGames
+
+Genre: Strategic typing game
+
+Platform: PC (Windows) / Steam
+
+Players: 1-2 players (online multiplayer)
+
+Planned release: Early Access planned for 2027
+
+Languages: Currently Japanese, English, Traditional Chinese, and Simplified Chinese. Eight major languages are planned, adding Russian, Spanish, Portuguese, and German.
+
+Steam: https://store.steampowered.com/app/3968600/NyctoType/
+
+Official website: https://bolcof.github.io/BogosorStudioWeb/games/NyctoType.html
+
+Press kit: https://bolcof.github.io/BogosorStudioWeb/presskits/NyctoType/
+
+MEDIA CONTACT
+
+BogosorGames
+electro.peaceful.oooo@gmail.com
