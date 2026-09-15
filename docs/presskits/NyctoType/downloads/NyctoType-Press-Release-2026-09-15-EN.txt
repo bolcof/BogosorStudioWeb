@@ -11,7 +11,7 @@ BogosorGames will exhibit its strategic typing game NyctoType, currently in deve
 
 ABOUT NYCTOTYPE
 
-NyctoType is a strategic typing game in which players complete typing challenges to move pieces on a board and create new ones. Victory depends not only on typing speed, but also on deciding which pieces to move and in what order. The project was selected for the first cohort of TGCA (Top Game Creators Academy) grant projects and is being developed with support from the program.
+NyctoType is a strategic typing game in which players complete typing challenges to move pieces on a board and create new ones. Victory depends not only on typing speed, but also on deciding what to create or move based on each piece's different creation and movement costs, and when to use its abilities. The project was selected for the first cohort of TGCA (Top Game Creators Academy) grant projects and is being developed with support from the program.
 
 Select one of your pieces and a direction, then enter the displayed text to move it one step. New pieces are created by selecting them in the console and completing a typing challenge. Sending a piece off the opponent's edge of the board deals damage. The first player to reduce the opponent's health to zero wins.
 

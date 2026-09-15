@@ -46,14 +46,14 @@ async function check() {
   const pressReleaseFilename = 'NyctoType-Press-Release-2026-09-15.txt';
   const pressRelease = await fs.readFile(path.join(out,'downloads',pressReleaseFilename),'utf8');
   assert.equal(pressRelease,await fs.readFile(path.join(__dirname,'press-release-2026-09-15-ja.txt'),'utf8'));
-  for (const value of ['2026年9月15日','2026年9月17日（木）～21日（月・祝）','東京ゲームショウ2026','ホール10／10-E17','一般向け体験版を2026年9月下旬にSteamで公開予定','TGCA（Top Game Creators Academy）第1期助成プロジェクト','BogosorGames',data.steam,data.website,data.email]) assert(pressRelease.includes(value));
+  for (const value of ['2026年9月15日','2026年9月17日（木）～21日（月・祝）','東京ゲームショウ2026','ホール10／10-E17','一般向け体験版を2026年9月下旬にSteamで公開予定','コマごとに異なる生成・移動コスト','アビリティをいつ使うか','TGCA（Top Game Creators Academy）第1期助成プロジェクト','BogosorGames',data.steam,data.website,data.email]) assert(pressRelease.includes(value));
   assert(pressRelease.includes('2026年9月15日\n\n報道関係者各位\n\nBogosorGames'));
   assert(pressRelease.includes(['タイトル：NyctoType','開発元：BogosorGames','ジャンル：戦略性タイピングゲーム','プラットフォーム：PC（Windows）／Steam','プレイ人数：1〜2人（オンライン対戦）','発売予定：2027年にアーリーアクセス配信予定'].join('\n\n')));
   assert(!/TBD|youtube|youtu\.be|pitchdecks|国家AI|1億|2027年10月|2027年12月|TJ Shizzle/i.test(pressRelease));
   const pressReleaseEnFilename = 'NyctoType-Press-Release-2026-09-15-EN.txt';
   const pressReleaseEn = await fs.readFile(path.join(out,'downloads',pressReleaseEnFilename),'utf8');
   assert.equal(pressReleaseEn,await fs.readFile(path.join(__dirname,'press-release-2026-09-15-en.txt'),'utf8'));
-  for (const value of ['September 15, 2026','September 17-21, 2026','Tokyo Game Show 2026','Hall 10 / 10-E17','Public Steam Demo Planned for Late September 2026','TGCA (Top Game Creators Academy)','BogosorGames',data.steam,data.website,data.email]) assert(pressReleaseEn.includes(value));
+  for (const value of ['September 15, 2026','September 17-21, 2026','Tokyo Game Show 2026','Hall 10 / 10-E17','Public Steam Demo Planned for Late September 2026',"each piece's different creation and movement costs",'when to use its abilities','TGCA (Top Game Creators Academy)','BogosorGames',data.steam,data.website,data.email]) assert(pressReleaseEn.includes(value));
   assert(pressReleaseEn.includes('September 15, 2026\n\nFor Media\n\nBogosorGames'));
   assert(pressReleaseEn.includes(['Title: NyctoType','Developer: BogosorGames','Genre: Strategic typing game','Platform: PC (Windows) / Steam','Players: 1-2 players (online multiplayer)','Planned release: Early Access planned for 2027'].join('\n\n')));
   assert(!/TBD|youtube|youtu\.be|pitchdecks|national AI|100 million|October 2027|December 2027|TJ Shizzle/i.test(pressReleaseEn));
