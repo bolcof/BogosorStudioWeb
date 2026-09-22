@@ -44,6 +44,7 @@
 
 ## 后续计划
 
+- 2026年10月24日: 计划在 [DREAMSCAPE#5](https://dreamscape-game.com/) 展出
 - 发售日: 未定
 
 ## 活动记录

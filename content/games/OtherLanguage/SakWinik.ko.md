@@ -44,6 +44,7 @@
 
 ## 향후 예정
 
+- 2026년 10월 24일: [DREAMSCAPE#5](https://dreamscape-game.com/) 전시 예정
 - 출시일: 미정
 
 ## 활동 기록

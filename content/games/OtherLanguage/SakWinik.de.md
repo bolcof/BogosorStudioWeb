@@ -44,6 +44,7 @@ Manchmal musst du Widersprüche, Gefühle und Zögern einsetzen, um zu beweisen,
 
 ## Pläne
 
+- 24. Okt. 2026: Ausstellung auf der [DREAMSCAPE#5](https://dreamscape-game.com/) geplant
 - Veröffentlichung: TBA
 
 ## Aktivitäten
