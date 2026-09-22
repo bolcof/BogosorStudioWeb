@@ -613,6 +613,11 @@
         --timeline-dot-glow: rgba(212, 168, 48, 0.13);
       }
 
+      .timeline-list-media {
+        --timeline-dot-color: var(--mint);
+        --timeline-dot-glow: rgba(126, 225, 195, 0.16);
+      }
+
       .info-date {
         color: rgba(245, 241, 232, 0.68);
         font-weight: 860;

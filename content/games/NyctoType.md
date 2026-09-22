@@ -60,13 +60,18 @@
 
 ## 今後の予定
 
-- 2026.09.17-21 [東京ゲームショウ2026](https://tgs.cesa.or.jp/2026/) 出展
+- 2026.09 [Steam](https://store.steampowered.com/app/3968600/NyctoType/) 体験版を9月下旬に公開予定
 
 ## 活動記録
 
+- 2026.09.17-21 [東京ゲームショウ2026](https://tgs.cesa.or.jp/2026/) 出展
 - 2026.08.26-30 [gamescom](https://www.gamescom.global/en/product/nyctotype) 出展
 - 2026.05.05 [東京ゲームダンジョン12](https://gamedungeon.jp/events/tokyo12/exhibit_informations/2213) 出展
 - 2026.02 [PONOS財団](https://ponos-foundation.org/support.html) PONOS助成制度のプロジェクトとして採択
 - 2026.01.29-02.01 [台北ゲームショウ2026](https://tgs.tca.org.tw/index_e.php) 出展
 - 2025.09.25-28 [東京ゲームショウ2025](https://tgs.cesa.or.jp/2025/exhibition?category=organizers_projects&detail=15321) 出展
 - 2025.04 [TGCA(Top Game Creators Academy)](https://tgca.jp/) 第１期助成プロジェクトとして採択
+
+## メディア紹介
+
+- 2026.09.15 [ファミ通.com](https://www.famitsu.com/article/202609/87998) で『NyctoType』を紹介

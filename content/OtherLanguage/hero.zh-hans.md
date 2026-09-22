@@ -5,7 +5,7 @@
 - 链接: ./games/NyctoType.html
 - 图片: ./assets/games/NyctoType/KeyArt.png
 - 标题: NyctoType
-- 副标题: 下次展出：东京电玩展2026 2026.9.17~9.21
+- 副标题: 已于东京电玩展2026展出
 - 按钮: 详情
 
 ## Slide: Reversi2048

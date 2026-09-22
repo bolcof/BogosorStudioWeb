@@ -5,7 +5,7 @@
 - href: ./games/NyctoType.html
 - image: ./assets/games/NyctoType/KeyArt.png
 - title: NyctoType
-- subtitle: 下次展出：東京電玩展2026 2026.9.17-9.21
+- subtitle: 已於東京電玩展2026展出
 - button: 詳細
 
 ## Slide: Reversi2048

@@ -150,6 +150,13 @@ def section_key(label)
     "향후 예정" => "plans",
     "향후예정" => "plans",
     "예정" => "plans",
+    "media coverage" => "media",
+    "media" => "media",
+    "メディア紹介" => "media",
+    "medienberichte" => "media",
+    "媒體報導" => "media",
+    "媒体报道" => "media",
+    "미디어 소개" => "media",
     "video" => "video",
     "videos" => "video",
     "trailer" => "video",
@@ -538,7 +545,8 @@ def timeline_date_width_for_content(content)
   items_by_language = LANGUAGES.to_h do |language|
     code = language.fetch(:code)
     items = markdown_list_items(content_text(content, code, "plans")) +
-            markdown_list_items(content_text(content, code, "history"))
+            markdown_list_items(content_text(content, code, "history")) +
+            markdown_list_items(content_text(content, code, "media"))
     [code, items]
   end
   timeline_date_width(items_by_language)
@@ -942,6 +950,7 @@ def timeline_text_section(content)
   timeline_date_width = timeline_date_width_for_content(content)
   plans = info_list(content, "plans", timeline_date_width)
   history = info_list(content, "history", timeline_date_width)
+  media = info_list(content, "media", timeline_date_width)
   plans_section = if plans.empty?
                     ""
                   else
@@ -962,13 +971,24 @@ def timeline_text_section(content)
           </article>
                       HTML
                     end
-  return "" if plans_section.empty? && history_section.empty?
+  media_section = if media.empty?
+                    ""
+                  else
+                    <<~HTML.rstrip
+          <article class="text-block">
+            <h2 #{static_attrs(ja: "メディア紹介", en: "Media Coverage", de: "Medienberichte", zh_hant: "媒體報導", zh_hans: "媒体报道", ko: "미디어 소개")}>メディア紹介</h2>
+#{media}
+          </article>
+                    HTML
+                  end
+  return "" if plans_section.empty? && history_section.empty? && media_section.empty?
 
   <<~HTML.rstrip
       <section class="text-band">
         <div class="wrap text-blocks">
 #{plans_section}
 #{history_section}
+#{media_section}
         </div>
       </section>
   HTML

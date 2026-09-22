@@ -59,13 +59,18 @@
 
 ## 後續計畫
 
-- 2026年9月17日至21日: 於 [東京電玩展2026](https://tgs.cesa.or.jp/2026/) 展出
+- 2026年9月: 預計於9月下旬在 [Steam](https://store.steampowered.com/app/3968600/NyctoType/) 公開體驗版
 
 ## 活動記錄
 
+- 2026年9月17日至21日: 於 [東京電玩展2026](https://tgs.cesa.or.jp/2026/) 展出
 - 2026年8月26日至30日: 於 [gamescom](https://www.gamescom.global/en/product/nyctotype) 展出
 - 2026年5月5日: 於 [Tokyo Game Dungeon 12](https://gamedungeon.jp/events/tokyo12/exhibit_informations/2213) 展出
 - 2026年2月: 獲選為 [PONOS財團](https://ponos-foundation.org/support.html) 補助項目
 - 2026年1月29日至2月1日: 於 [台北國際電玩展2026](https://tgs.tca.org.tw/index_e.php) 展出
 - 2025年9月25日至28日: 於 [東京電玩展2025](https://tgs.cesa.or.jp/2025/exhibition?category=organizers_projects&detail=15321) 展出
 - 2025年4月: 獲選為 [TGCA（Top Game Creators Academy）](https://tgca.jp/) 第一期補助項目
+
+## 媒體報導
+
+- 2026年9月15日: [Famitsu.com](https://www.famitsu.com/article/202609/87998) 介紹了 NyctoType

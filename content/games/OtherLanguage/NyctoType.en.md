@@ -59,13 +59,18 @@ Fast typing alone is not enough. Fight while thinking about when and which actio
 
 ## Plans
 
-- Sep 17-21, 2026: Exhibiting at [Tokyo Game Show 2026](https://tgs.cesa.or.jp/2026/)
+- Sep 2026: Public demo planned on [Steam](https://store.steampowered.com/app/3968600/NyctoType/) for late September
 
 ## History
 
+- Sep 17-21, 2026: Exhibited at [Tokyo Game Show 2026](https://tgs.cesa.or.jp/2026/)
 - Aug 26-30, 2026: Exhibited at [gamescom](https://www.gamescom.global/en/product/nyctotype)
 - May 5, 2026: Exhibited at [Tokyo Game Dungeon 12](https://gamedungeon.jp/events/tokyo12/exhibit_informations/2213)
 - Feb 2026: Selected as a [PONOS Foundation](https://ponos-foundation.org/support.html) grant project
 - Jan 29-Feb 1, 2026: Exhibited at [Taipei Game Show 2026](https://tgs.tca.org.tw/index_e.php)
 - Sep 25-28, 2025: Exhibited at [Tokyo Game Show 2025](https://tgs.cesa.or.jp/2025/exhibition?category=organizers_projects&detail=15321)
 - Apr 2025: Selected as a first-term grant project of [TGCA (Top Game Creators Academy)](https://tgca.jp/)
+
+## Media Coverage
+
+- Sep 15, 2026: [Famitsu.com](https://www.famitsu.com/article/202609/87998) featured NyctoType

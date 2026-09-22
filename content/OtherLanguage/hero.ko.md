@@ -5,7 +5,7 @@
 - 링크: ./games/NyctoType.html
 - 이미지: ./assets/games/NyctoType/KeyArt.png
 - 제목: NyctoType
-- 소제목: 다음 전시: 도쿄 게임쇼 2026 2026.9.17~9.21
+- 소제목: 도쿄 게임쇼 2026에 출전했습니다
 - 버튼: 자세히
 
 ## Slide: Reversi2048
