@@ -177,7 +177,7 @@ assert len(parser.chapters) == 23
 assert 'comparisons' not in parser.chapters
 assert 'roadmap' not in parser.chapters
 schedule_copy = normalized(''.join(parser.chapters['schedule-original']))
-for expected in ('2026年9月', '2026年12月', '2027年3月', '2027年7月', '2027年10月', '2027年12月', 'TGSへ出展', '配布可能なデモをSteamストアで公開', '対戦イベントに向けた準備', 'ローグライトの1周を完成', 'ソロの機能追加と並行して整備', '各年月は現時点での目標です'):
+for expected in ('2026年9月', '2026年12月', '2027年3月', '2027年7月', '2027年10月', '2027年12月', 'TGS出展と体験版', 'Steam体験版は9月下旬に公開予定', '対戦イベントに向けた準備', 'ローグライトの1周を完成', 'ソロの機能追加と並行して整備', '各年月は現時点での目標です'):
     assert normalized(expected) in schedule_copy
 for removed in ('年月未定', '0.4.x', '正式版 1.0', 'Steam Demo', '正式版の発売時期は未定'):
     assert normalized(removed) not in schedule_copy
@@ -185,11 +185,11 @@ for expected in ('試遊を通じて本作をなるべく広く届ける', 'チ�
     assert normalized(expected) in schedule_copy
 assert '2027年発売目標' not in visible
 progress_copy = normalized(''.join(parser.chapters['progress']))
-for expected in ('これまでの歩み', 'TGCA第1期に採択', '東京ゲームショウ2025', '台北ゲームショウ2026', 'PONOS財団', '東京ゲームダンジョン12', 'gamescom2026', 'DevilCatwith2cats'):
+for expected in ('これまでの歩み', 'TGCA第1期に採択', '東京ゲームショウ2025', '台北ゲームショウ2026', 'PONOS財団', '東京ゲームダンジョン12', 'gamescom2026', '東京ゲームショウ2026', 'ファミ通.com', 'DevilCatwith2cats'):
     assert expected in progress_copy
 for removed in ('ウィッシュリスト', '610', '実装済みの基礎', 'GamerSky', '公式サイトの活動記録'):
     assert removed not in progress_copy
-for href in ('https://www.youtube.com/watch?v=TqYJ9ct6jD0', 'https://www.taptap.cn/moment/843052528860923924', 'https://www.4gamer.net/games/991/G999110/20260905003/'):
+for href in ('https://www.youtube.com/watch?v=TqYJ9ct6jD0', 'https://www.taptap.cn/moment/843052528860923924', 'https://www.4gamer.net/games/991/G999110/20260905003/', 'https://www.famitsu.com/article/202609/87998'):
     assert ('progress', href) in parser.links
 progress_markup = (ROOT / 'output/html/NyctoType-Pitch.html').read_text().split('id="progress"', 1)[1].split('</section>', 1)[0]
 coverage_markup = progress_markup.split('class="coverage-list"', 1)[1]

@@ -8,9 +8,11 @@ const history = [
   { date: '2026.02', title: 'PONOS財団 助成採択', href: 'https://ponos-foundation.org/support.html' },
   { date: '2026.05', title: '東京ゲームダンジョン12 出展', href: 'https://gamedungeon.jp/events/tokyo12/exhibit_informations/2213' },
   { date: '2026.08', title: 'gamescom 2026 出展', href: 'https://www.gamescom.global/en/product/nyctotype' },
+  { date: '2026.09', title: '東京ゲームショウ2026 出展', href: 'https://tgs.cesa.or.jp/2026/' },
 ];
 
 const coverage = [
+  { source: 'ファミ通.com', title: 'TGS2026出展とSteam体験版を紹介', detail: '2026.09.15 / 日本語', href: 'https://www.famitsu.com/article/202609/87998' },
   { source: '4Gamer', title: 'TGCAのgamescom取材記事内で作品紹介', detail: '2026.09.05 / 日本語', href: 'https://www.4gamer.net/games/991/G999110/20260905003/' },
   { source: 'IGN China', title: 'gamescomでの試遊レポート', detail: '中国語 / TapTap掲載', href: 'https://www.taptap.cn/moment/843052528860923924' },
   { source: '惡魔貓 / DevilCatwith2cats', title: '台北ゲームショウの訪問動画でNyctoTypeを紹介', detail: '2026.02.07 / 中国語 / YouTube', href: 'https://www.youtube.com/watch?v=TqYJ9ct6jD0' },
@@ -18,7 +20,7 @@ const coverage = [
 
 export function ProgressSection({ children }: { children: ReactNode }) {
   return <>
-    <div className="copy journey-intro"><p>TGCAでの採択を経て、国内外の展示会に出展してきました。現在はgamescomの展示で見つかった不具合や操作・表示を改善し、TGSでの展示とイベント版の公開に向けて準備しています。</p></div>
+    <div className="copy journey-intro"><p>TGCAでの採択を経て、国内外の展示会に出展してきました。2026年9月には東京ゲームショウへ出展しました。一般向けSteam体験版は9月下旬に公開予定です。</p></div>
     <div className="journey-layout">
       <ol className="journey-timeline">{history.map(item => <li key={item.date}>
         <span className="journey-date">{item.date}</span>
