@@ -378,6 +378,10 @@
         filter: saturate(1.06) contrast(1.05);
       }
 
+      .hero-slide[href="./games/SakWinik.html"]::before {
+        background-position: 20% center;
+      }
+
       .hero-slide.is-flipped::before {
         transform: scaleX(-1);
       }
@@ -403,28 +407,32 @@
       }
 
       .slide-panel > div {
-        position: relative;
         display: flex;
-        align-items: center;
+        flex: 1 1 auto;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-end;
+        gap: 3px;
+        min-width: 0;
         min-height: 42px;
       }
 
       .slide-panel p {
-        position: absolute;
-        left: 0;
-        bottom: calc(100% + 2px);
         margin: 0;
         color: var(--muted);
         font-size: 0.82rem;
         font-weight: 760;
-        white-space: nowrap;
+        line-height: 1.3;
+        overflow-wrap: anywhere;
       }
 
       .slide-panel strong {
         display: block;
+        max-width: 100%;
         color: var(--text);
         font-size: 1.5rem;
-        line-height: 1;
+        line-height: 1.1;
+        overflow-wrap: anywhere;
       }
 
       .slide-panel .button {
@@ -1126,8 +1134,23 @@
 >
   <div class="slide-panel">
     <div>
-      <p data-i18n-ja="東京ゲームショウ2026に出展しました" data-i18n-en="Exhibited at Tokyo Game Show 2026" data-i18n-de="Auf der Tokyo Game Show 2026 ausgestellt" data-i18n-zh-hant="已於東京電玩展2026展出" data-i18n-zh-hans="已于东京电玩展2026展出" data-i18n-ko="도쿄 게임쇼 2026에 출전했습니다">東京ゲームショウ2026に出展しました</p>
+      <p data-i18n-ja="TGCA・公益財団法人ポノス財団にご支援いただき開発中" data-i18n-en="In development with support from TGCA and the PONOS Foundation" data-i18n-de="In Entwicklung mit Unterstützung von TGCA und der PONOS Foundation" data-i18n-zh-hant="在 TGCA 與 PONOS Foundation 的支持下開發中" data-i18n-zh-hans="在 TGCA 与 PONOS Foundation 的支持下开发中" data-i18n-ko="TGCA와 PONOS Foundation의 지원을 받아 개발 중">TGCA・公益財団法人ポノス財団にご支援いただき開発中</p>
       <strong data-i18n-ja="NyctoType" data-i18n-en="NyctoType" data-i18n-de="NyctoType" data-i18n-zh-hant="NyctoType" data-i18n-zh-hans="NyctoType" data-i18n-ko="NyctoType">NyctoType</strong>
+    </div>
+    <span class="button button-secondary" data-i18n-ja="詳細" data-i18n-en="Details" data-i18n-de="Details" data-i18n-zh-hant="詳細" data-i18n-zh-hans="详情" data-i18n-ko="자세히">詳細</span>
+  </div>
+</a>
+
+<a
+  class="hero-slide"
+  href="./games/SakWinik.html"
+  data-key-art="./assets/games/SakWinik/LibraryHero-1.png?v=1782563754"
+  style="--slide-art: url('./assets/games/SakWinik/LibraryHero-1.png?v=1782563754')"
+>
+  <div class="slide-panel">
+    <div>
+      <p data-i18n-ja="DREAMSCAPE#5に出展予定" data-i18n-en="Exhibiting at DREAMSCAPE#5" data-i18n-de="Ausstellung auf der DREAMSCAPE#5 geplant" data-i18n-zh-hant="預計於 DREAMSCAPE#5 展出" data-i18n-zh-hans="计划在 DREAMSCAPE#5 展出" data-i18n-ko="DREAMSCAPE#5 전시 예정">DREAMSCAPE#5に出展予定</p>
+      <strong data-i18n-ja="Sak Winik: The Appointed One" data-i18n-en="Sak Winik: The Appointed One" data-i18n-de="Sak Winik: The Appointed One" data-i18n-zh-hant="Sak Winik: The Appointed One" data-i18n-zh-hans="Sak Winik: The Appointed One" data-i18n-ko="Sak Winik: The Appointed One">Sak Winik: The Appointed One</strong>
     </div>
     <span class="button button-secondary" data-i18n-ja="詳細" data-i18n-en="Details" data-i18n-de="Details" data-i18n-zh-hant="詳細" data-i18n-zh-hans="详情" data-i18n-ko="자세히">詳細</span>
   </div>
@@ -1150,6 +1173,7 @@
 
             <div class="slide-dots" aria-label="スライド切り替え">
               <button class="slide-dot is-active" type="button" aria-label="NyctoTypeを表示"></button>
+              <button class="slide-dot" type="button" aria-label="Sak Winik: The Appointed Oneを表示"></button>
               <button class="slide-dot" type="button" aria-label="REVERSI 2048を表示"></button>
             </div>
           </div>

@@ -5,7 +5,15 @@
 - href: ./games/NyctoType.html
 - image: ./assets/games/NyctoType/KeyArt.png
 - title: NyctoType
-- subtitle: 已於東京電玩展2026展出
+- subtitle: 在 TGCA 與 PONOS Foundation 的支持下開發中
+- button: 詳細
+
+## Slide: SakWinik
+
+- href: ./games/SakWinik.html
+- image: ./assets/games/SakWinik/LibraryHero-1.png
+- title: Sak Winik: The Appointed One
+- subtitle: 預計於 DREAMSCAPE#5 展出
 - button: 詳細
 
 ## Slide: Reversi2048
