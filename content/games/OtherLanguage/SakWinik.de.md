@@ -28,7 +28,7 @@ Label-Farbtags:
 - (muted): Zusatzstatus. Hintergrund=halbtransparentes Grau, Text=Weiß
 -->
 
-- (muted) Veröffentlichung: TBA
+- (event) 2026: Ausstellung auf der DREAMSCAPE#5
 - (muted) In Entwicklung
 
 ## Über das Spiel
@@ -45,7 +45,6 @@ Manchmal musst du Widersprüche, Gefühle und Zögern einsetzen, um zu beweisen,
 ## Pläne
 
 - 24. Okt. 2026: Ausstellung auf der [DREAMSCAPE#5](https://dreamscape-game.com/) geplant
-- Veröffentlichung: TBA
 
 ## Aktivitäten
 

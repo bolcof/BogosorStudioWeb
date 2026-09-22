@@ -28,7 +28,7 @@ Label color tags:
 - (muted): secondary status. background=translucent gray, text=white
 -->
 
-- (muted) Release date: TBA
+- (event) 2026 DREAMSCAPE#5 exhibition
 - (muted) In development
 
 ## About
@@ -45,7 +45,6 @@ At times, you must wield contradiction, emotion, and hesitation to prove that yo
 ## Plans
 
 - Oct 24, 2026: Scheduled to exhibit at [DREAMSCAPE#5](https://dreamscape-game.com/)
-- Release date: TBA
 
 ## History
 

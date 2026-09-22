@@ -28,7 +28,7 @@
 - (muted): 輔助狀態。底色=半透明灰色，文字=白色
 -->
 
-- (muted) 發售日: 未定
+- (event) 2026年 DREAMSCAPE#5 展出
 - (muted) 開發中
 
 ## 遊戲介紹
@@ -45,7 +45,6 @@
 ## 後續計畫
 
 - 2026年10月24日: 預計於 [DREAMSCAPE#5](https://dreamscape-game.com/) 展出
-- 發售日: 未定
 
 ## 活動記錄
 
