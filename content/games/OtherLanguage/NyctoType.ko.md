@@ -73,4 +73,9 @@
 
 ## 미디어 소개
 
+- 2026년 9월 24일: [4Gamer](https://www.4gamer.net/games/045/G104514/20260924028/)가 NyctoType 단독 체험 기사를 게재
 - 2026년 9월 15일: [Famitsu.com](https://www.famitsu.com/article/202609/87998)에서 NyctoType 소개
+- 2026년 9월 5일: [4Gamer](https://www.4gamer.net/games/991/G999110/20260905003/)의 gamescom 취재 기사에서 NyctoType 소개
+- 2026년 8월: [IGN China（TapTap）](https://www.taptap.cn/moment/843052528860923924)가 gamescom 체험 리포트를 게재
+- 2026년 5월 7일: [游民星空（Gamersky）](https://www.gamersky.com/handbook/202605/2135918.shtml)의 대전 게임 특집에서 NyctoType 소개
+- 2026년 2월 7일: [惡魔貓和幾吉和點點 / DevilCatwith2cats](https://www.youtube.com/watch?v=TqYJ9ct6jD0)의 타이베이 게임쇼 방문 영상에서 NyctoType 소개

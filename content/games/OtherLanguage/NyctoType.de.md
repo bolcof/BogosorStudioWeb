@@ -73,4 +73,9 @@ Schnelles Tippen allein reicht nicht. Entscheide im Kampf, wann du welche Aktion
 
 ## Medienberichte
 
+- 24. Sept. 2026: [4Gamer](https://www.4gamer.net/games/045/G104514/20260924028/) veröffentlichte einen eigenen Hands-on-Bericht zu NyctoType
 - 15. Sept. 2026: [Famitsu.com](https://www.famitsu.com/article/202609/87998) stellte NyctoType vor
+- 5. Sept. 2026: [4Gamer](https://www.4gamer.net/games/991/G999110/20260905003/) stellte NyctoType in seiner gamescom-Berichterstattung vor
+- Aug. 2026: [IGN China auf TapTap](https://www.taptap.cn/moment/843052528860923924) veröffentlichte einen gamescom-Anspielbericht
+- 7. Mai 2026: [Gamersky](https://www.gamersky.com/handbook/202605/2135918.shtml) stellte NyctoType in einer Übersicht zu Wettkampfspielen vor
+- 7. Feb. 2026: [DevilCatwith2cats](https://www.youtube.com/watch?v=TqYJ9ct6jD0) stellte NyctoType in einem Besuchsvideo zur Taipei Game Show vor

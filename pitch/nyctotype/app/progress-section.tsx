@@ -12,9 +12,11 @@ const history = [
 ];
 
 const coverage = [
+  { source: '4Gamer', title: 'NyctoType単独インプレッション', detail: '2026.09.24 / 日本語', href: 'https://www.4gamer.net/games/045/G104514/20260924028/' },
   { source: 'ファミ通.com', title: 'TGS2026出展とSteam体験版を紹介', detail: '2026.09.15 / 日本語', href: 'https://www.famitsu.com/article/202609/87998' },
   { source: '4Gamer', title: 'TGCAのgamescom取材記事内で作品紹介', detail: '2026.09.05 / 日本語', href: 'https://www.4gamer.net/games/991/G999110/20260905003/' },
   { source: 'IGN China', title: 'gamescomでの試遊レポート', detail: '中国語 / TapTap掲載', href: 'https://www.taptap.cn/moment/843052528860923924' },
+  { source: '游民星空 / Gamersky', title: '2026年のインディー対戦ゲーム特集内で紹介', detail: '2026.05.07 / 中国語', href: 'https://www.gamersky.com/handbook/202605/2135918.shtml' },
   { source: '惡魔貓 / DevilCatwith2cats', title: '台北ゲームショウの訪問動画でNyctoTypeを紹介', detail: '2026.02.07 / 中国語 / YouTube', href: 'https://www.youtube.com/watch?v=TqYJ9ct6jD0' },
 ];
 

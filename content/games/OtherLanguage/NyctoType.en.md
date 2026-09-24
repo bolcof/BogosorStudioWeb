@@ -73,4 +73,9 @@ Fast typing alone is not enough. Fight while thinking about when and which actio
 
 ## Media Coverage
 
+- Sep 24, 2026: [4Gamer](https://www.4gamer.net/games/045/G104514/20260924028/) published a hands-on feature dedicated to NyctoType
 - Sep 15, 2026: [Famitsu.com](https://www.famitsu.com/article/202609/87998) featured NyctoType
+- Sep 5, 2026: [4Gamer](https://www.4gamer.net/games/991/G999110/20260905003/) featured NyctoType in its gamescom coverage
+- Aug 2026: [IGN China on TapTap](https://www.taptap.cn/moment/843052528860923924) published a gamescom hands-on report
+- May 7, 2026: [Gamersky](https://www.gamersky.com/handbook/202605/2135918.shtml) featured NyctoType in a competitive-games roundup
+- Feb 7, 2026: [DevilCatwith2cats](https://www.youtube.com/watch?v=TqYJ9ct6jD0) featured NyctoType in a Taipei Game Show visit video

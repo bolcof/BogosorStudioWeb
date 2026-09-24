@@ -74,4 +74,9 @@
 
 ## メディア紹介
 
+- 2026.09.24 [4Gamer](https://www.4gamer.net/games/045/G104514/20260924028/) に単独インプレッション記事を掲載
 - 2026.09.15 [ファミ通.com](https://www.famitsu.com/article/202609/87998) で『NyctoType』を紹介
+- 2026.09.05 [4Gamer](https://www.4gamer.net/games/991/G999110/20260905003/) のgamescom取材記事内で『NyctoType』を紹介
+- 2026.08 [IGN China（TapTap）](https://www.taptap.cn/moment/843052528860923924) によるgamescomでの試遊レポート
+- 2026.05.07 [游民星空（Gamersky）](https://www.gamersky.com/handbook/202605/2135918.shtml) の対戦ゲーム特集内で『NyctoType』を紹介
+- 2026.02.07 [惡魔貓和幾吉和點點 / DevilCatwith2cats](https://www.youtube.com/watch?v=TqYJ9ct6jD0) の台北ゲームショウ訪問動画で『NyctoType』を紹介

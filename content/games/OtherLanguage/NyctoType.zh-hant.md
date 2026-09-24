@@ -73,4 +73,9 @@
 
 ## 媒體報導
 
+- 2026年9月24日: [4Gamer](https://www.4gamer.net/games/045/G104514/20260924028/) 刊登 NyctoType 獨立試玩報導
 - 2026年9月15日: [Famitsu.com](https://www.famitsu.com/article/202609/87998) 介紹了 NyctoType
+- 2026年9月5日: [4Gamer](https://www.4gamer.net/games/991/G999110/20260905003/) 在 gamescom 採訪報導中介紹 NyctoType
+- 2026年8月: [IGN China（TapTap）](https://www.taptap.cn/moment/843052528860923924) 刊登 gamescom 試玩報導
+- 2026年5月7日: [遊民星空（Gamersky）](https://www.gamersky.com/handbook/202605/2135918.shtml) 在對戰遊戲專題中介紹 NyctoType
+- 2026年2月7日: [惡魔貓和幾吉和點點 / DevilCatwith2cats](https://www.youtube.com/watch?v=TqYJ9ct6jD0) 在台北國際電玩展探訪影片中介紹 NyctoType
