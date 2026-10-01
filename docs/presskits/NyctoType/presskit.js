@@ -12,5 +12,13 @@
     document.querySelector('.press-nav').setAttribute('aria-label', language === 'ja' ? 'プレスキット' : 'Press kit');
   }
   for (const button of document.querySelectorAll('[data-language]')) button.addEventListener('click', () => setLanguage(button.dataset.language));
+  const archive = document.querySelector('#release-archive');
+  for (const button of document.querySelectorAll('[data-open-release-archive]')) button.addEventListener('click', () => archive.showModal());
+  archive.querySelector('[data-close-release-archive]').addEventListener('click', () => archive.close());
+  archive.addEventListener('click', (event) => {
+    const bounds = archive.getBoundingClientRect();
+    const outside = event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom;
+    if (outside) archive.close();
+  });
   if (new URLSearchParams(location.search).get('lang') === 'en') setLanguage('en');
 })();
