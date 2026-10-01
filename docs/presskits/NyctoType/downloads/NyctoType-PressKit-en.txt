@@ -13,7 +13,7 @@ Exhibited at Tokyo Game Show 2026
 NyctoType was exhibited September 17–21, 2026, in Hall 10 at booth 10-E17, Makuhari Messe.
 
 Steam demo released on September 30, 2026
-The public demo was released on Steam on September 30, 2026.
+The demo was released on Steam on September 30, 2026.
 
 Factsheet
 Title: NyctoType
@@ -21,7 +21,7 @@ Developer: BogosorGames
 Genre: Strategic typing game
 Platform: PC (Windows) / Steam
 Players: 1–2 players (online multiplayer)
-Release: Early Access planned for 2027
+Release: Early Access planned for FY2027
 Languages: Current: Japanese, English, Traditional Chinese, and Simplified Chinese. Planned: 8 major languages, adding Russian, Spanish, Portuguese, and German
 Steam: https://store.steampowered.com/app/3968600/NyctoType/
 Official website: https://bolcof.github.io/BogosorStudioWeb/games/NyctoType.html
@@ -32,7 +32,7 @@ Choose one of your pieces and a direction, then enter the displayed text to move
 
 Features
 Piece-specific abilities
-Pieces differ in movement cost, creation cost, movement directions, and abilities. Choose your actions around effects such as destroying or pushing opposing pieces and increasing damage.
+Pieces differ in the typing costs required to move and create them, their available movement directions, and their abilities. Choose your actions around effects such as destroying or pushing opposing pieces and increasing damage.
 
 A first-person view of the board
 Face your opponent across a table and battle from a board-game-like perspective. Survey the board to decide where to attack and where to defend.

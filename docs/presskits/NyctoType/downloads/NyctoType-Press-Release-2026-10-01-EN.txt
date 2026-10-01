@@ -4,9 +4,9 @@ For Media
 
 BogosorGames
 
-Strategic Typing Game NyctoType Releases Public Demo on Steam
+Strategic Typing Game NyctoType Releases Demo on Steam
 
-BogosorGames released a public demo of its strategic typing game NyctoType, currently in development, on Steam on September 30, 2026.
+BogosorGames released a demo of its strategic typing game NyctoType, currently in development, on Steam on September 30, 2026.
 
 ABOUT NYCTOTYPE
 
@@ -16,7 +16,7 @@ Select one of your pieces and a direction, then enter the displayed text to move
 
 BOARD TACTICS BUILT AROUND PIECE-SPECIFIC ABILITIES
 
-Pieces differ in movement cost, creation cost, movement directions, and abilities. Players choose their actions based on typing speed, the state of the board, and effects such as destroying or pushing opposing pieces and increasing damage.
+Pieces differ in the typing costs required to move and create them, their available movement directions, and their abilities. Players choose their actions based on typing speed, the state of the board, and effects such as destroying or pushing opposing pieces and increasing damage.
 
 A FIRST-PERSON VIEW OF THE ENTIRE BOARD
 
@@ -43,7 +43,7 @@ Platform: PC (Windows) / Steam
 
 Players: 1-2 players (online multiplayer)
 
-Planned release: Early Access planned for 2027
+Planned release: Early Access planned for FY2027
 
 Languages: Currently Japanese, English, Traditional Chinese, and Simplified Chinese. Eight major languages are planned, adding Russian, Spanish, Portuguese, and German.
 
