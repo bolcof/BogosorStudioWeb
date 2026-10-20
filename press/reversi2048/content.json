@@ -126,8 +126,8 @@
         "en": "Planned additional languages"
       },
       "value": {
-        "ja": "フランス語・イタリア語・ドイツ語・スペイン語（スペイン）・フィンランド語・中国語（簡体字）・韓国語",
-        "en": "French, Italian, German, Spanish (Spain), Finnish, Simplified Chinese, Korean"
+        "ja": "フランス語・イタリア語・ドイツ語・スペイン語（スペイン）・フィンランド語・中国語（簡体字・繁体字）・韓国語",
+        "en": "French, Italian, German, Spanish (Spain), Finnish, Simplified Chinese, Traditional Chinese, Korean"
       }
     }
   ],
