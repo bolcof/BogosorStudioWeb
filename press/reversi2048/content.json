@@ -149,6 +149,13 @@
         "ja": "対局画面",
         "en": "Match screen"
       }
+    },
+    {
+      "file": "Reversi2048-Screenshot03.png",
+      "caption": {
+        "ja": "2048到達時の演出",
+        "en": "Reaching 2048"
+      }
     }
   ],
   "source": {
