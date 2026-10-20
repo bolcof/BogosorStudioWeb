@@ -142,6 +142,13 @@
         "ja": "タイトル画面",
         "en": "Title screen"
       }
+    },
+    {
+      "file": "Reversi2048-Screenshot02.png",
+      "caption": {
+        "ja": "対局画面",
+        "en": "Match screen"
+      }
     }
   ],
   "source": {
