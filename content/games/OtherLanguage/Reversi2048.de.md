@@ -29,7 +29,7 @@ Label-Farbtags:
 -->
 
 - (main) Okt. 2026: geplante Veröffentlichung
-- (muted) In Entwicklung
+- (released) Demo jetzt verfügbar
 
 ## Über das Spiel
 
@@ -47,6 +47,7 @@ Wer viele hochwertige Steine auf einmal umdreht, kann selbst ein fast verlorenes
 
 ## Aktivitäten
 
+- 20. Okt. 2026: Demo veröffentlicht; Teilnahme am Steam Next Fest
 - 5. Mai 2026: Nebenausstellung bei Tokyo Game Dungeon 12
 - 27. Aug. 2023: Nebenausstellung bei Yokohama Game Dungeon
 

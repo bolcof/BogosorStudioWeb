@@ -29,7 +29,7 @@
 -->
 
 - (main) 2026年10月计划发售
-- (muted) 开发中
+- (released) 试玩版现已推出
 
 ## 游戏介绍
 
@@ -48,6 +48,7 @@
 
 ## 活动记录
 
+- 2026年10月20日: 试玩版公开・参加 Steam Next Fest
 - 2026年5月5日: Tokyo Game Dungeon 12 同期展示
 - 2023年8月27日: Yokohama Game Dungeon 同期展示
 

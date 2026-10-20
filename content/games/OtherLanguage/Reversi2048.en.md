@@ -29,7 +29,7 @@ Label color tags:
 -->
 
 - (main) Oct 2026: planned release
-- (muted) In development
+- (released) Demo available now
 
 ## About
 
@@ -67,6 +67,7 @@ It is not just about winning or losing. Keep playing to see how far you can push
 
 ## History
 
+- Oct 20, 2026: Demo released; participating in Steam Next Fest
 - May 5, 2026: Side exhibit at Tokyo Game Dungeon 12
 - Aug 27, 2023: Side exhibit at Yokohama Game Dungeon
 

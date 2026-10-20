@@ -29,7 +29,7 @@
 -->
 
 - (main) 2026년 10월 출시 예정
-- (muted) 개발 중
+- (released) 데모 배포 중
 
 ## 게임 소개
 
@@ -48,6 +48,7 @@ Reversi에 새로운 규칙 하나를 더한 새로운 감각의 보드게임.
 
 ## 활동 기록
 
+- 2026년 10월 20일: 데모 공개・Steam Next Fest 참가
 - 2026년 5월 5일: Tokyo Game Dungeon 12 병행 전시
 - 2023년 8월 27일: Yokohama Game Dungeon 병행 전시
 
