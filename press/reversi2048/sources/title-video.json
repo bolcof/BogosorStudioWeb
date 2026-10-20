@@ -1,0 +1,22 @@
+{
+  "source": "/Users/244cm265kg/Documents/GameProjects/Othello2048/Recordings/TItle.mp4",
+  "mp4": "Original file, copied without re-encoding.",
+  "gif": {
+    "width": 960,
+    "height": 540,
+    "fps": 15,
+    "duration": "Full video, approximately 9.1 seconds",
+    "loop": true,
+    "audio": false
+  },
+  "files": {
+    "Reversi2048-Title.mp4": {
+      "bytes": 9410326,
+      "sha256": "625fa18500f06d4c4ebc7dc2b4aa9e2fb349677b346c8992494419cc700e4838"
+    },
+    "Reversi2048-Title.gif": {
+      "bytes": 23732726,
+      "sha256": "d24390265dbaec0780e64b63d6b565e9cac736a0293d2cc05fb9f333b715105b"
+    }
+  }
+}
