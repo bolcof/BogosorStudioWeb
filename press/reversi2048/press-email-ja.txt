@@ -6,7 +6,7 @@
 突然のご連絡失礼いたします。
 インディーゲームを開発しているBogosor Studioと申します。
 
-ボードゲーム『Reversi2048』が、開催中のSteam Next Festに参加しています。Steamで無料体験版を公開しておりますので、貴媒体でのご紹介・試遊をご検討いただけますと幸いです。
+コマをひっくり返すたびに得点が倍になるリバーシゲーム『Reversi2048』が、開催中のSteam Next Festに参加しています。Steamで無料体験版を公開しておりますので、貴媒体でのご紹介・試遊をご検討いただけますと幸いです。
 
 ■Steam体験版
 https://store.steampowered.com/app/4813900/Reversi2048_Demo/
