@@ -11,6 +11,8 @@ Developer / Publisher: Bogosor Studio
 Genre: Strategy board game
 Demo: Available on Steam
 Platform: PC (Windows) / Steam
+Demo languages: Japanese, English
+Planned additional languages: French, Italian, German, Spanish (Spain), Finnish, Simplified Chinese, Korean
 
 Place a piece, trap your opponent’s pieces, and flip them. The basic rules are pure Reversi.
 But every piece has a score, and each time it is flipped, that score doubles: 2, 4, 8, 16, and beyond.

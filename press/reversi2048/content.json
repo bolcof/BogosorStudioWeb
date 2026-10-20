@@ -109,6 +109,26 @@
         "ja": "PC（Windows）／Steam",
         "en": "PC (Windows) / Steam"
       }
+    },
+    {
+      "label": {
+        "ja": "体験版の対応言語",
+        "en": "Demo languages"
+      },
+      "value": {
+        "ja": "日本語・英語",
+        "en": "Japanese, English"
+      }
+    },
+    {
+      "label": {
+        "ja": "今後追加予定の言語",
+        "en": "Planned additional languages"
+      },
+      "value": {
+        "ja": "フランス語・イタリア語・ドイツ語・スペイン語（スペイン）・フィンランド語・中国語（簡体字）・韓国語",
+        "en": "French, Italian, German, Spanish (Spain), Finnish, Simplified Chinese, Korean"
+      }
     }
   ],
   "usage": {

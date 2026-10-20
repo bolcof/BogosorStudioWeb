@@ -1,0 +1,26 @@
+{
+  "checked": "2026-10-20",
+  "demo": {
+    "url": "https://store.steampowered.com/app/4813900/Reversi2048_Demo/",
+    "languages": [
+      "日本語",
+      "英語"
+    ],
+    "confirmation": "ユーザー確認とSteam掲載内容"
+  },
+  "full_game": {
+    "url": "https://store.steampowered.com/app/4619930/Reversi2048/",
+    "languages": [
+      "日本語",
+      "英語",
+      "フランス語",
+      "イタリア語",
+      "ドイツ語",
+      "スペイン語（スペイン）",
+      "フィンランド語",
+      "中国語（簡体字）",
+      "韓国語"
+    ],
+    "note": "公開HTMLは「サポートされた全9言語を表示」。APIも同じ9言語。日英以外を追加予定として記載。"
+  }
+}
