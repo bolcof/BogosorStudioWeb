@@ -1,0 +1,19 @@
+Subject: Steam demo available — Reversi2048, where every flip doubles a piece’s value
+
+Hi [Name / editorial team],
+
+I’m an indie developer at Bogosor Studio. Our board game Reversi2048 now has a public demo on Steam, and I’d love to invite you to try it for possible coverage.
+
+Demo: https://store.steampowered.com/app/4813900/Reversi2048_Demo/
+
+Reversi meets 2048. Every time a piece is flipped, its score doubles. Having more pieces isn't enough — if your opponent's total score is higher, you lose. A fresh take on a classic strategy game.
+
+Press kit, artwork and press release: [Insert verified press kit URL after publication]
+Website: https://bolcof.github.io/BogosorStudioWeb/games/Reversi2048.html
+Steam: https://store.steampowered.com/app/4619930/Reversi2048/
+
+Please get in touch if you need further information or materials. Thank you for considering Reversi2048.
+
+Best regards,
+Bogosor Studio
+electro.peaceful.oooo@gmail.com
