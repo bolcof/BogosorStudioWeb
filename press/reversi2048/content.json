@@ -135,7 +135,15 @@
     "ja": "画像の利用条件や配信に関するお問い合わせは、下記の連絡先へお願いいたします。掲載の際は、可能であればゲーム名・開発元表記とSteamストアページへのリンクを添えていただけると幸いです。",
     "en": "Please contact us below with questions about asset usage or streaming. Where possible, we appreciate a credit to Reversi2048 / Bogosor Studio and a link to the Steam page."
   },
-  "screenshots": [],
+  "screenshots": [
+    {
+      "file": "Reversi2048-Screenshot01.png",
+      "caption": {
+        "ja": "タイトル画面",
+        "en": "Title screen"
+      }
+    }
+  ],
   "source": {
     "url": "https://store.steampowered.com/app/4813900/Reversi2048_Demo/",
     "retrieved": "2026-10-20",

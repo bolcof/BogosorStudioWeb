@@ -4,10 +4,11 @@
   "gif": {
     "width": 960,
     "height": 540,
-    "fps": 15,
-    "duration": "Full video, approximately 9.1 seconds",
+    "fps": 30,
+    "duration": "First 4 seconds; GIF frame delays alternate between 30 and 40 ms",
     "loop": true,
-    "audio": false
+    "audio": false,
+    "frame_count": 120
   },
   "files": {
     "Reversi2048-Title.mp4": {
@@ -15,8 +16,8 @@
       "sha256": "625fa18500f06d4c4ebc7dc2b4aa9e2fb349677b346c8992494419cc700e4838"
     },
     "Reversi2048-Title.gif": {
-      "bytes": 23732726,
-      "sha256": "d24390265dbaec0780e64b63d6b565e9cac736a0293d2cc05fb9f333b715105b"
+      "bytes": 20363181,
+      "sha256": "cb76293063fb8f1ff7795c15b083a733a8e182ef0b77060e02d70fdeab2f5aed"
     }
   }
 }

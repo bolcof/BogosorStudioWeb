@@ -44,5 +44,3 @@ Demo: https://store.steampowered.com/app/4813900/Reversi2048_Demo/
 画像の利用条件や配信に関するお問い合わせは、下記の連絡先へお願いいたします。掲載の際は、可能であればゲーム名・開発元表記とSteamストアページへのリンクを添えていただけると幸いです。
 
 Contact: electro.peaceful.oooo@gmail.com
-
-スクリーンショットは後日追加予定です。
