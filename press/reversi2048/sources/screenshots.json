@@ -16,5 +16,17 @@
     "source": "/Users/244cm265kg/Documents/GameProjects/Othello2048/outputs/2048-burst-20261020-113219/04.png",
     "processing": "Original PNG copied without changes; burst frame 4, 0.25 seconds after shake start",
     "sha256": "8e72548ea4d59fdc3f7558c8d9ad9f9c048e2ee466afa204ef15f7e5187a38b1"
+  },
+  {
+    "file": "Reversi2048-Screenshot04.png",
+    "source": "/Users/244cm265kg/Documents/GameProjects/Othello2048/Assets/Screenshots/26-10-20_11-38-44.png",
+    "processing": "Original PNG copied without changes",
+    "sha256": "73aa8755482d6c610082868d1f77296fa23bb3ed2e1f8bd170747e9949c3d125"
+  },
+  {
+    "file": "Reversi2048-Screenshot05.png",
+    "source": "/Users/244cm265kg/Documents/GameProjects/Othello2048/Assets/Screenshots/26-10-20_11-39-02.png",
+    "processing": "Original PNG copied without changes",
+    "sha256": "d87a2281f50c159274a1038baa8da51180377fd738209460c167e4673b1347fd"
   }
 ]

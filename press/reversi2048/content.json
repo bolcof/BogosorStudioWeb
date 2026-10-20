@@ -156,6 +156,20 @@
         "ja": "2048到達時の演出",
         "en": "Reaching 2048"
       }
+    },
+    {
+      "file": "Reversi2048-Screenshot04.png",
+      "caption": {
+        "ja": "ハイスコアアタック：ステージ選択",
+        "en": "High score attack: stage selection"
+      }
+    },
+    {
+      "file": "Reversi2048-Screenshot05.png",
+      "caption": {
+        "ja": "ハイスコアアタック：プレイ画面",
+        "en": "High score attack: gameplay"
+      }
     }
   ],
   "source": {
