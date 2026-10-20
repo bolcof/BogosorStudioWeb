@@ -13,3 +13,5 @@ ZIPにも同時に収録されます。
 ## 動画
 
 media/Reversi2048-Title.mp4 は提供された TItle.mp4 の無加工コピー。GIFは冒頭4秒・960×540・30fps・無限ループで変換。GIFの時間単位に合わせてフレーム遅延は30/40ms。公開ファイルは docs/presskits/Reversi2048/media/。ページ内再生・個別ダウンロードに対応し、素材ZIPには含めません。出典とハッシュは sources/title-video.json。
+
+素材ZIPは downloads/Reversi2048-PressKit.zip の1種類に統一。共通画像と日英両方の紹介文・プレスリリースを同梱。リリースTXTの個別リンクは日英別で維持。
