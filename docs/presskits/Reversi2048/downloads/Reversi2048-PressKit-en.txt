@@ -1,0 +1,44 @@
+Reversi2048 / Bogosor Studio
+
+Reversi where each piece’s score doubles every time it is flipped
+
+A Reversi game where each piece’s score doubles every time it is flipped. Victory is decided by the total score of the pieces left on the board. Even if you have fewer pieces, flipping a single high-value piece could turn the game around. Simple to play, tense until the very end.
+
+Title: Reversi2048
+Developer / Publisher: Bogosor Studio
+Genre: Strategy board game
+Demo: Available on Steam
+Platform: PC (Windows) / Steam
+
+Place a piece, trap your opponent’s pieces, and flip them. The basic rules are pure Reversi.
+But every piece has a score, and each time it is flipped, that score doubles: 2, 4, 8, 16, and beyond.
+
+Pieces to take, pieces to let them take
+High-value pieces are powerful, but if your opponent takes one, it becomes twice as valuable for them.
+Take it now, leave it for later, or let your opponent flip it so you can take it back when it grows even larger.
+Reversi2048 creates decisions you will not find in a normal game of Reversi.
+
+Modes available in the demo
+Local 2-player match
+CPU match
+Solo high score attack
+
+Features planned for the full version
+Online multiplayer
+Rating system
+High score leaderboard
+
+A high score attack mode built for replayability
+Challenge yourself to maximize your total score on boards with unusual shapes.
+Control both black and white pieces as you search for the best order to place each move and build higher scores.
+It is not just about winning or losing. Keep playing to see how far you can push your score.
+
+Steam: https://store.steampowered.com/app/4619930/Reversi2048/
+
+Demo: https://store.steampowered.com/app/4813900/Reversi2048_Demo/
+
+Please contact us below with questions about asset usage or streaming. Where possible, we appreciate a credit to Reversi2048 / Bogosor Studio and a link to the Steam page.
+
+Contact: electro.peaceful.oooo@gmail.com
+
+Screenshots will be added later.

@@ -1,0 +1,124 @@
+{
+  "title": "Reversi2048",
+  "developer": "Bogosor Studio",
+  "updated": "2026-10-20",
+  "steam": "https://store.steampowered.com/app/4619930/Reversi2048/",
+  "demo": "https://store.steampowered.com/app/4813900/Reversi2048_Demo/",
+  "email": "electro.peaceful.oooo@gmail.com",
+  "tagline": {
+    "ja": "ひっくり返すたびに駒のスコアが2倍になるリバーシ",
+    "en": "Reversi where each piece’s score doubles every time it is flipped"
+  },
+  "short": {
+    "ja": "ひっくり返すたびに駒のスコアが2倍になるリバーシ。勝敗を決めるのは、盤面に残った駒の合計スコアです。枚数で負けていても、巨大なスコアの駒１つをひっくり返せば逆転勝利ができるかも。シンプルだけど、最後まで油断できないリバーシです。",
+    "en": "A Reversi game where each piece’s score doubles every time it is flipped. Victory is decided by the total score of the pieces left on the board. Even if you have fewer pieces, flipping a single high-value piece could turn the game around. Simple to play, tense until the very end."
+  },
+  "rules": {
+    "ja": "駒を置き、相手の駒を挟んでひっくり返す。基本ルールはリバーシそのものです。\nただし、すべての駒にはスコアがあり、ひっくり返されるたびに 2、4、8、16……と倍になっていきます。",
+    "en": "Place a piece, trap your opponent’s pieces, and flip them. The basic rules are pure Reversi.\nBut every piece has a score, and each time it is flipped, that score doubles: 2, 4, 8, 16, and beyond."
+  },
+  "features": [
+    {
+      "title": {
+        "ja": "取るべき駒、取らせるべき駒",
+        "en": "Pieces to take, pieces to let them take"
+      },
+      "text": {
+        "ja": "大きなスコアの駒は強力ですが、相手に奪われればその2倍が相手の得点になってしまいます。\n今すぐ取るか、あえて残すか。相手に返させて、さらに大きくなったところを取り返すか。\nいつものリバーシとは違う判断が、盤面のあちこちで生まれます。",
+        "en": "High-value pieces are powerful, but if your opponent takes one, it becomes twice as valuable for them.\nTake it now, leave it for later, or let your opponent flip it so you can take it back when it grows even larger.\nReversi2048 creates decisions you will not find in a normal game of Reversi."
+      }
+    },
+    {
+      "title": {
+        "ja": "デモ版で遊べるモード",
+        "en": "Modes available in the demo"
+      },
+      "text": {
+        "ja": "ローカル2人対戦\nCPU対戦\n1人用ハイスコアアタック",
+        "en": "Local 2-player match\nCPU match\nSolo high score attack"
+      }
+    },
+    {
+      "title": {
+        "ja": "製品版で追加予定の機能",
+        "en": "Features planned for the full version"
+      },
+      "text": {
+        "ja": "オンライン対戦\nレーティング機能\nハイスコアランキング機能",
+        "en": "Online multiplayer\nRating system\nHigh score leaderboard"
+      }
+    },
+    {
+      "title": {
+        "ja": "やりこみがいのあるハイスコアアタックモード",
+        "en": "A high score attack mode built for replayability"
+      },
+      "text": {
+        "ja": "通常とは異なる形の盤面で、合計スコアの最大化に挑戦する1人用モードです。\n黒と白の両方を操作し、どの順番で駒を置けば大きなスコアを作れるかを試行錯誤できます。\n勝ち負けだけではなく、「どこまで大きなスコアを作れるか」を何度でも突き詰められます。",
+        "en": "Challenge yourself to maximize your total score on boards with unusual shapes.\nControl both black and white pieces as you search for the best order to place each move and build higher scores.\nIt is not just about winning or losing. Keep playing to see how far you can push your score."
+      }
+    }
+  ],
+  "facts": [
+    {
+      "label": {
+        "ja": "タイトル",
+        "en": "Title"
+      },
+      "value": {
+        "ja": "Reversi2048",
+        "en": "Reversi2048"
+      }
+    },
+    {
+      "label": {
+        "ja": "開発・販売",
+        "en": "Developer / Publisher"
+      },
+      "value": {
+        "ja": "Bogosor Studio",
+        "en": "Bogosor Studio"
+      }
+    },
+    {
+      "label": {
+        "ja": "ジャンル",
+        "en": "Genre"
+      },
+      "value": {
+        "ja": "戦略ボードゲーム",
+        "en": "Strategy board game"
+      }
+    },
+    {
+      "label": {
+        "ja": "体験版",
+        "en": "Demo"
+      },
+      "value": {
+        "ja": "Steamで公開中",
+        "en": "Available on Steam"
+      }
+    },
+    {
+      "label": {
+        "ja": "プラットフォーム",
+        "en": "Platform"
+      },
+      "value": {
+        "ja": "PC（Windows）／Steam",
+        "en": "PC (Windows) / Steam"
+      }
+    }
+  ],
+  "usage": {
+    "ja": "画像の利用条件や配信に関するお問い合わせは、下記の連絡先へお願いいたします。掲載の際は、可能であればゲーム名・開発元表記とSteamストアページへのリンクを添えていただけると幸いです。",
+    "en": "Please contact us below with questions about asset usage or streaming. Where possible, we appreciate a credit to Reversi2048 / Bogosor Studio and a link to the Steam page."
+  },
+  "screenshots": [],
+  "source": {
+    "url": "https://store.steampowered.com/app/4813900/Reversi2048_Demo/",
+    "retrieved": "2026-10-20",
+    "note": "Steamデモ版の説明文を使用。見出しの◆と装飾を除去し段落を保持。デモ収録モードと製品版予定を区別。"
+  }
+}

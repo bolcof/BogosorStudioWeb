@@ -1,0 +1,16 @@
+プレスリリース｜Steam体験版公開中
+
+ひっくり返すたびに駒のスコアが2倍になるリバーシ
+
+Bogosor Studioは、ボードゲーム『Reversi2048』の体験版をSteamで公開しました。
+
+ひっくり返すたびに駒のスコアが2倍になるリバーシ。勝敗を決めるのは、盤面に残った駒の合計スコアです。枚数で負けていても、巨大なスコアの駒１つをひっくり返せば逆転勝利ができるかも。シンプルだけど、最後まで油断できないリバーシです。
+
+駒を置き、相手の駒を挟んでひっくり返す。基本ルールはリバーシそのものです。
+ただし、すべての駒にはスコアがあり、ひっくり返されるたびに 2、4、8、16……と倍になっていきます。
+
+Steam demo: https://store.steampowered.com/app/4813900/Reversi2048_Demo/
+
+Steam: https://store.steampowered.com/app/4619930/Reversi2048/
+
+Contact: electro.peaceful.oooo@gmail.com
