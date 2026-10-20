@@ -35,6 +35,8 @@ Label color tags:
 
 Victory is decided by the total score of the pieces left on the board. Even if you have fewer pieces, flipping a single high-value piece could turn the game around. Simple to play, tense until the very end.
 
+There is also a solo high-score puzzle mode. Control both black and white pieces and aim for a high score on unusually shaped boards. Which order of moves will give you an even higher score? Try again and challenge your personal best.
+
 Reversi at its core, score at the finish
 Place a piece, trap your opponent’s pieces, and flip them. The basic rules are pure Reversi.
 But every piece has a score, and each time it is flipped, that score doubles: 2, 4, 8, 16, and beyond.
