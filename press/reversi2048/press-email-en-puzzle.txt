@@ -1,0 +1,23 @@
+Subject: Steam Next Fest: Reversi2048 — a solo high-score puzzle and a twist on Reversi
+
+Hi [Name / editorial team],
+
+I’m an indie developer at Bogosor Studio. Reversi2048 is taking part in Steam Next Fest, with a free demo available now. Alongside its Reversi matches, it has a solo high score attack mode that I thought might interest your puzzle-game readers.
+
+Play the demo: https://store.steampowered.com/app/4813900/Reversi2048_Demo/
+
+Challenge yourself to maximize your total score on boards with unusual shapes. Control both black and white pieces as you search for the best order to place each move and build higher scores.
+
+A Reversi game where each piece’s score doubles every time it is flipped. Victory is decided by the total score of the pieces left on the board. Even if you have fewer pieces, flipping a single high-value piece could turn the game around. Simple to play, tense until the very end.
+
+The demo includes solo high score attack, local 2-player matches and CPU matches, with English and Japanese support.
+
+Press kit (screenshots, video, artwork and game information): [Insert verified press kit URL after publication]
+Steam page: https://store.steampowered.com/app/4619930/Reversi2048/
+Website: https://bolcof.github.io/BogosorStudioWeb/games/Reversi2048.html
+
+Please let me know if you need any further information or materials. Thank you for considering Reversi2048.
+
+Best,
+Bogosor Studio
+electro.peaceful.oooo@gmail.com

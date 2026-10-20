@@ -1,19 +1,23 @@
-Subject: Steam demo available — Reversi2048, where every flip doubles a piece’s value
+Subject: Steam Next Fest: Reversi2048 demo — every flip doubles a piece’s score
 
 Hi [Name / editorial team],
 
-I’m an indie developer at Bogosor Studio. Our board game Reversi2048 now has a public demo on Steam, and I’d love to invite you to try it for possible coverage.
+I’m an indie developer at Bogosor Studio. Reversi2048 is taking part in Steam Next Fest, and its free demo is available now. I’d love for you to consider it for your demo coverage.
 
-Demo: https://store.steampowered.com/app/4813900/Reversi2048_Demo/
+Play the demo: https://store.steampowered.com/app/4813900/Reversi2048_Demo/
 
-Reversi meets 2048. Every time a piece is flipped, its score doubles. Having more pieces isn't enough — if your opponent's total score is higher, you lose. A fresh take on a classic strategy game.
+A Reversi game where each piece’s score doubles every time it is flipped. Victory is decided by the total score of the pieces left on the board. Even if you have fewer pieces, flipping a single high-value piece could turn the game around. Simple to play, tense until the very end.
 
-Press kit, artwork and press release: [Insert verified press kit URL after publication]
+The demo includes local 2-player matches, CPU matches and a solo high score attack mode. In the solo mode, you control both black and white pieces and try to maximize your total score on boards with unusual shapes.
+
+The demo is available in English and Japanese.
+
+Press kit (screenshots, video, artwork and game information): [Insert verified press kit URL after publication]
+Steam page: https://store.steampowered.com/app/4619930/Reversi2048/
 Website: https://bolcof.github.io/BogosorStudioWeb/games/Reversi2048.html
-Steam: https://store.steampowered.com/app/4619930/Reversi2048/
 
-Please get in touch if you need further information or materials. Thank you for considering Reversi2048.
+Please let me know if you need any further information or materials. Thank you for considering Reversi2048.
 
-Best regards,
+Best,
 Bogosor Studio
 electro.peaceful.oooo@gmail.com

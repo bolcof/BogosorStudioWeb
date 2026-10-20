@@ -1,0 +1,22 @@
+Steam Next Fest向けメールの参考（確認日 2026-10-20）
+
+公開された告知・紹介記事と媒体の受付案内を参照。個別に送信された非公開メールを確認したものではない。
+
+room6：体験版のNext Fest参加を見出しと冒頭で伝え、各作品で遊べる内容とリンクを掲載。
+https://prtimes.jp/main/html/rd/p/000000100.000045335.html
+
+Thinky Games：2026年2月Next Festのパズルデモ特集。
+https://thinkygames.com/features/we-played-over-50-thinky-demos-from-steam-next-fest-february-2026-here-are-the-best/
+https://thinkygames.com/about/
+
+The Indie Informer：2026年6月15日、25作品のNext Festデモ紹介。
+https://theindieinformer.com/tag/on-the-radar/
+
+Alpha Beta Gamer：公開中の無料開発版を対象とし、映像・画像の同梱を歓迎。
+https://www.alphabetagamer.com/contact-us/
+
+採用した構成：イベント名→無料デモへのリンク→デモストア原文の概要→遊べるモード→素材リンク。
+英語のゲーム概要とパズル説明は sources/steam-demo-copy-en.json を使用。
+一般向けとパズル媒体向けの英語メールを用意。件名と導入は新規作成。
+プレスキットURLは公開確認後に置き換える。送信日のNext Fest開催状況に合わせて導入を確認する。
+体験版をイベント終了後に削除するという期限や、未確定の発売日・価格は追加していない。
