@@ -50,3 +50,11 @@ Reversi에 새로운 규칙 하나를 더한 새로운 감각의 보드게임.
 
 - 2026년 5월 5일: Tokyo Game Dungeon 12 병행 전시
 - 2023년 8월 27일: Yokohama Game Dungeon 병행 전시
+
+## 프레스킷
+
+- 링크: ../presskits/Reversi2048/index.html
+- kicker: 프레스
+- 제목: 프레스 키트
+- 설명: 게임 미디어와 콘텐츠 크리에이터를 위한 게임 소개 및 이미지 자료입니다.
+- 버튼: 프레스 키트 열기

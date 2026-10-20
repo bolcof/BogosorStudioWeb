@@ -4,7 +4,7 @@ A Reversi where the score doubles every time you flip a piece.
 
 ## Summary
 
-A Reversi where the score doubles every time you flip a piece.
+Reversi where each piece’s score doubles every time it is flipped
 
 ## Card Labels
 
@@ -33,13 +33,31 @@ Label color tags:
 
 ## About
 
-Reversi with one new rule.
+Victory is decided by the total score of the pieces left on the board. Even if you have fewer pieces, flipping a single high-value piece could turn the game around. Simple to play, tense until the very end.
 
-Every time a piece is flipped, its value doubles: 2, 4, 8, 16, and beyond.
+Reversi at its core, score at the finish
+Place a piece, trap your opponent’s pieces, and flip them. The basic rules are pure Reversi.
+But every piece has a score, and each time it is flipped, that score doubles: 2, 4, 8, 16, and beyond.
 
-Victory is decided by total score, not by how many pieces you control.
+Pieces to take, pieces to let them take
+High-value pieces are powerful, but if your opponent takes one, it becomes twice as valuable for them.
+Take it now, leave it for later, or let your opponent flip it so you can take it back when it grows even larger.
+Reversi2048 creates decisions you will not find in a normal game of Reversi.
 
-Flipping several high-value pieces at once can turn the whole match around.
+Modes available in the demo
+Local 2-player match
+CPU match
+Solo high score attack
+
+Features planned for the full version
+Online multiplayer
+Rating system
+High score leaderboard
+
+A high score attack mode built for replayability
+Challenge yourself to maximize your total score on boards with unusual shapes.
+Control both black and white pieces as you search for the best order to place each move and build higher scores.
+It is not just about winning or losing. Keep playing to see how far you can push your score.
 
 ## Plans
 
@@ -49,3 +67,11 @@ Flipping several high-value pieces at once can turn the whole match around.
 
 - May 5, 2026: Side exhibit at Tokyo Game Dungeon 12
 - Aug 27, 2023: Side exhibit at Yokohama Game Dungeon
+
+## Press Kit
+
+- Link: ../presskits/Reversi2048/index.html
+- kicker: PRESS
+- Title: Press Kit
+- Description: Game information and image assets for media and content creators.
+- Button: Open Press Kit

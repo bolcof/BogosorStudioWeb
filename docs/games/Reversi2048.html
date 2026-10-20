@@ -69,8 +69,8 @@
         <div class="wrap hero-grid">
           <div class="hero-copy">
             <h1>REVERSI 2048</h1>
-            <p class="summary" data-i18n-ja="駒をひっくり返すごとにスコアが倍になるReversi" data-i18n-en="A Reversi where the score doubles every time you flip a piece." data-i18n-de="Reversi, bei dem sich die Punktzahl jedes Mal verdoppelt, wenn du einen Stein umdrehst." data-i18n-zh-hant="每翻轉一枚棋子，分數就會倍增的 Reversi" data-i18n-zh-hans="每翻转一枚棋子，分数都会倍增的 Reversi" data-i18n-ko="말을 뒤집을 때마다 점수가 두 배가 되는 Reversi">
-              駒をひっくり返すごとにスコアが倍になるReversi
+            <p class="summary" data-i18n-ja="ひっくり返すたびに駒のスコアが2倍になるリバーシ" data-i18n-en="Reversi where each piece’s score doubles every time it is flipped" data-i18n-de="Reversi, bei dem sich die Punktzahl jedes Mal verdoppelt, wenn du einen Stein umdrehst." data-i18n-zh-hant="每翻轉一枚棋子，分數就會倍增的 Reversi" data-i18n-zh-hans="每翻转一枚棋子，分数都会倍增的 Reversi" data-i18n-ko="말을 뒤집을 때마다 점수가 두 배가 되는 Reversi">
+              ひっくり返すたびに駒のスコアが2倍になるリバーシ
             </p>
             <div class="status-row">
               <span class="label" data-i18n-ja="2026年10月リリース予定" data-i18n-en="Oct 2026: planned release" data-i18n-de="Okt. 2026: geplante Veröffentlichung" data-i18n-zh-hant="2026年10月預定推出" data-i18n-zh-hans="2026年10月计划发售" data-i18n-ko="2026년 10월 출시 예정">2026年10月リリース予定</span>
@@ -87,16 +87,45 @@
         <div class="wrap text-blocks">
           <article class="text-block">
             <h2 data-i18n-ja="概要" data-i18n-en="About" data-i18n-de="Über das Spiel" data-i18n-zh-hant="遊戲介紹" data-i18n-zh-hans="游戏介绍" data-i18n-ko="게임 소개">概要</h2>
-            <p data-i18n-ja="Reversiにひとつだけ新しいルールを足した新感覚ボードゲーム。&#10;&#10;置いた駒は最初は2点だが、ひっくり返すたびに4、8、16と倍になっていく。&#10;勝敗を決めるのは駒の数ではなく、盤面全体の合計スコア。&#10;&#10;高得点駒を返せば、枚数では負けていても大逆転勝利を決めることが出来る！&#10;&#10;白と黒の両方を自分で置いていき、ミッションをクリアする1人用パズルモードも実装！" data-i18n-en="Reversi with one new rule.&#10;&#10;Every time a piece is flipped, its value doubles: 2, 4, 8, 16, and beyond.&#10;&#10;Victory is decided by total score, not by how many pieces you control.&#10;&#10;Flipping several high-value pieces at once can turn the whole match around." data-i18n-de="Reversi mit einer einzigen neuen Regel.&#10;&#10;Jedes Mal, wenn ein Stein umgedreht wird, verdoppelt sich sein Wert: 2, 4, 8, 16 und weiter.&#10;&#10;Der Sieg wird nicht durch die Anzahl der Steine entschieden, sondern durch die Gesamtpunktzahl des Bretts.&#10;&#10;Wer viele hochwertige Steine auf einmal umdreht, kann selbst ein fast verlorenes Spiel noch wenden." data-i18n-zh-hant="在 Reversi 上只加入一條新規則的遊戲。&#10;&#10;每當棋子被翻轉，它的數值就會從 2、4、8、16 不斷倍增。&#10;&#10;勝負不是由棋子數量決定，而是由整個棋盤的總分決定。&#10;&#10;只要一次翻回大量高分棋子，即使接近落敗也能逆轉局勢。" data-i18n-zh-hans="在 Reversi 上只加入一条新规则的新感觉棋盘游戏。&#10;&#10;放下的棋子最初是 2 分，但每次被翻转都会变成 4、8、16，不断翻倍。&#10;决定胜负的不是棋子数量，而是整个棋盘的总分。&#10;&#10;只要翻回高分棋子，即使棋子数量落后也能完成大逆转！&#10;&#10;还实现了一个人同时放置黑白双方棋子、完成任务的单人解谜模式！" data-i18n-ko="Reversi에 새로운 규칙 하나를 더한 새로운 감각의 보드게임.&#10;&#10;놓은 말은 처음에는 2점이지만, 뒤집힐 때마다 4, 8, 16으로 계속 두 배가 된다.&#10;승패를 결정하는 것은 말의 개수가 아니라 보드 전체의 총점이다.&#10;&#10;고득점 말을 뒤집으면 개수로는 지고 있어도 대역전 승리를 만들 수 있다!&#10;&#10;흑과 백을 모두 직접 놓아 미션을 클리어하는 1인용 퍼즐 모드도 구현!">Reversiにひとつだけ新しいルールを足した新感覚ボードゲーム。
+            <p data-i18n-ja="勝敗を決めるのは、盤面に残った駒の合計スコアです。枚数で負けていても、巨大なスコアの駒１つをひっくり返せば逆転勝利ができるかも。シンプルだけど、最後まで油断できないリバーシです。&#10;&#10;基本はリバーシ、勝敗はスコア&#10;駒を置き、相手の駒を挟んでひっくり返す。基本ルールはリバーシそのものです。&#10;ただし、すべての駒にはスコアがあり、ひっくり返されるたびに 2、4、8、16……と倍になっていきます。&#10;&#10;取るべき駒、取らせるべき駒&#10;大きなスコアの駒は強力ですが、相手に奪われればその2倍が相手の得点になってしまいます。&#10;今すぐ取るか、あえて残すか。相手に返させて、さらに大きくなったところを取り返すか。&#10;いつものリバーシとは違う判断が、盤面のあちこちで生まれます。&#10;&#10;デモ版で遊べるモード&#10;ローカル2人対戦&#10;CPU対戦&#10;1人用ハイスコアアタック&#10;&#10;製品版で追加予定の機能&#10;オンライン対戦&#10;レーティング機能&#10;ハイスコアランキング機能&#10;&#10;やりこみがいのあるハイスコアアタックモード&#10;通常とは異なる形の盤面で、合計スコアの最大化に挑戦する1人用モードです。&#10;黒と白の両方を操作し、どの順番で駒を置けば大きなスコアを作れるかを試行錯誤できます。&#10;勝ち負けだけではなく、「どこまで大きなスコアを作れるか」を何度でも突き詰められます。" data-i18n-en="Victory is decided by the total score of the pieces left on the board. Even if you have fewer pieces, flipping a single high-value piece could turn the game around. Simple to play, tense until the very end.&#10;&#10;Reversi at its core, score at the finish&#10;Place a piece, trap your opponent’s pieces, and flip them. The basic rules are pure Reversi.&#10;But every piece has a score, and each time it is flipped, that score doubles: 2, 4, 8, 16, and beyond.&#10;&#10;Pieces to take, pieces to let them take&#10;High-value pieces are powerful, but if your opponent takes one, it becomes twice as valuable for them.&#10;Take it now, leave it for later, or let your opponent flip it so you can take it back when it grows even larger.&#10;Reversi2048 creates decisions you will not find in a normal game of Reversi.&#10;&#10;Modes available in the demo&#10;Local 2-player match&#10;CPU match&#10;Solo high score attack&#10;&#10;Features planned for the full version&#10;Online multiplayer&#10;Rating system&#10;High score leaderboard&#10;&#10;A high score attack mode built for replayability&#10;Challenge yourself to maximize your total score on boards with unusual shapes.&#10;Control both black and white pieces as you search for the best order to place each move and build higher scores.&#10;It is not just about winning or losing. Keep playing to see how far you can push your score." data-i18n-de="Reversi mit einer einzigen neuen Regel.&#10;&#10;Jedes Mal, wenn ein Stein umgedreht wird, verdoppelt sich sein Wert: 2, 4, 8, 16 und weiter.&#10;&#10;Der Sieg wird nicht durch die Anzahl der Steine entschieden, sondern durch die Gesamtpunktzahl des Bretts.&#10;&#10;Wer viele hochwertige Steine auf einmal umdreht, kann selbst ein fast verlorenes Spiel noch wenden." data-i18n-zh-hant="在 Reversi 上只加入一條新規則的遊戲。&#10;&#10;每當棋子被翻轉，它的數值就會從 2、4、8、16 不斷倍增。&#10;&#10;勝負不是由棋子數量決定，而是由整個棋盤的總分決定。&#10;&#10;只要一次翻回大量高分棋子，即使接近落敗也能逆轉局勢。" data-i18n-zh-hans="在 Reversi 上只加入一条新规则的新感觉棋盘游戏。&#10;&#10;放下的棋子最初是 2 分，但每次被翻转都会变成 4、8、16，不断翻倍。&#10;决定胜负的不是棋子数量，而是整个棋盘的总分。&#10;&#10;只要翻回高分棋子，即使棋子数量落后也能完成大逆转！&#10;&#10;还实现了一个人同时放置黑白双方棋子、完成任务的单人解谜模式！" data-i18n-ko="Reversi에 새로운 규칙 하나를 더한 새로운 감각의 보드게임.&#10;&#10;놓은 말은 처음에는 2점이지만, 뒤집힐 때마다 4, 8, 16으로 계속 두 배가 된다.&#10;승패를 결정하는 것은 말의 개수가 아니라 보드 전체의 총점이다.&#10;&#10;고득점 말을 뒤집으면 개수로는 지고 있어도 대역전 승리를 만들 수 있다!&#10;&#10;흑과 백을 모두 직접 놓아 미션을 클리어하는 1인용 퍼즐 모드도 구현!">勝敗を決めるのは、盤面に残った駒の合計スコアです。枚数で負けていても、巨大なスコアの駒１つをひっくり返せば逆転勝利ができるかも。シンプルだけど、最後まで油断できないリバーシです。
 
-置いた駒は最初は2点だが、ひっくり返すたびに4、8、16と倍になっていく。
-勝敗を決めるのは駒の数ではなく、盤面全体の合計スコア。
+基本はリバーシ、勝敗はスコア
+駒を置き、相手の駒を挟んでひっくり返す。基本ルールはリバーシそのものです。
+ただし、すべての駒にはスコアがあり、ひっくり返されるたびに 2、4、8、16……と倍になっていきます。
 
-高得点駒を返せば、枚数では負けていても大逆転勝利を決めることが出来る！
+取るべき駒、取らせるべき駒
+大きなスコアの駒は強力ですが、相手に奪われればその2倍が相手の得点になってしまいます。
+今すぐ取るか、あえて残すか。相手に返させて、さらに大きくなったところを取り返すか。
+いつものリバーシとは違う判断が、盤面のあちこちで生まれます。
 
-白と黒の両方を自分で置いていき、ミッションをクリアする1人用パズルモードも実装！</p>
+デモ版で遊べるモード
+ローカル2人対戦
+CPU対戦
+1人用ハイスコアアタック
+
+製品版で追加予定の機能
+オンライン対戦
+レーティング機能
+ハイスコアランキング機能
+
+やりこみがいのあるハイスコアアタックモード
+通常とは異なる形の盤面で、合計スコアの最大化に挑戦する1人用モードです。
+黒と白の両方を操作し、どの順番で駒を置けば大きなスコアを作れるかを試行錯誤できます。
+勝ち負けだけではなく、「どこまで大きなスコアを作れるか」を何度でも突き詰められます。</p>
           </article>
         </div>
+      </section>
+
+      <section class="text-band presskit-band">
+        <div class="wrap presskit-resources">
+<a class="presskit-panel" href="../presskits/Reversi2048/index.html">
+  <span class="presskit-kicker" data-i18n-ja="PRESS" data-i18n-en="PRESS" data-i18n-de="PRESSE" data-i18n-zh-hant="媒體" data-i18n-zh-hans="媒体" data-i18n-ko="프레스">PRESS</span>
+  <span class="presskit-title" data-i18n-ja="プレスキット" data-i18n-en="Press Kit" data-i18n-de="Pressekit" data-i18n-zh-hant="媒體資料包" data-i18n-zh-hans="媒体资料包" data-i18n-ko="프레스 키트">プレスキット</span>
+  <span class="presskit-description" data-i18n-ja="ゲームメディア・配信者向けのゲーム紹介と画像素材です。" data-i18n-en="Game information and image assets for media and content creators." data-i18n-de="Spielinformationen und Bildmaterial für Medien und Content Creator." data-i18n-zh-hant="提供給遊戲媒體與內容創作者的遊戲介紹及圖片素材。" data-i18n-zh-hans="面向游戏媒体与内容创作者的游戏介绍及图片素材。" data-i18n-ko="게임 미디어와 콘텐츠 크리에이터를 위한 게임 소개 및 이미지 자료입니다.">ゲームメディア・配信者向けのゲーム紹介と画像素材です。</span>
+  <span class="presskit-button" data-i18n-ja="プレスキットへ" data-i18n-en="Open Press Kit" data-i18n-de="Pressekit öffnen" data-i18n-zh-hant="開啟媒體資料包" data-i18n-zh-hans="打开媒体资料包" data-i18n-ko="프레스 키트 열기">プレスキットへ</span>
+</a>
+        </div>
+
       </section>
 
       <section class="visual-band">
@@ -146,6 +175,7 @@
 </li>
             </ul>
           </article>
+
         </div>
       </section>
     </main>

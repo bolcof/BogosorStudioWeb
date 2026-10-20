@@ -49,3 +49,11 @@ Wer viele hochwertige Steine auf einmal umdreht, kann selbst ein fast verlorenes
 
 - 5. Mai 2026: Nebenausstellung bei Tokyo Game Dungeon 12
 - 27. Aug. 2023: Nebenausstellung bei Yokohama Game Dungeon
+
+## Pressekit
+
+- Link: ../presskits/Reversi2048/index.html
+- kicker: PRESSE
+- Title: Pressekit
+- Description: Spielinformationen und Bildmaterial für Medien und Content Creator.
+- Button: Pressekit öffnen

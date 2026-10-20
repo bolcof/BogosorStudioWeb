@@ -49,3 +49,11 @@
 
 - 2026年5月5日: 於 Tokyo Game Dungeon 12 附設展示
 - 2023年8月27日: 於 Yokohama Game Dungeon 附設展示
+
+## 媒體資料包
+
+- 連結: ../presskits/Reversi2048/index.html
+- kicker: 媒體
+- 標題: 媒體資料包
+- 說明: 提供給遊戲媒體與內容創作者的遊戲介紹及圖片素材。
+- 按鈕: 開啟媒體資料包

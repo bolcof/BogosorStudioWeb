@@ -50,3 +50,11 @@
 
 - 2026年5月5日: Tokyo Game Dungeon 12 同期展示
 - 2023年8月27日: Yokohama Game Dungeon 同期展示
+
+## 媒体资料包
+
+- 链接: ../presskits/Reversi2048/index.html
+- kicker: 媒体
+- 标题: 媒体资料包
+- 说明: 面向游戏媒体与内容创作者的游戏介绍及图片素材。
+- 按钮: 打开媒体资料包
