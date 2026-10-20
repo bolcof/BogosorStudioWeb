@@ -1,0 +1,9 @@
+プレス送付先台帳はPersonalDocsに統合しました（2026-10-20）。
+
+編集先：
+/Users/244cm265kg/Documents/PersonalDocs/ProductionPlan/プレス送付先リスト.xlsx
+
+NyctoTypeの55媒体・TGS／体験版の送付履歴と参照元を保持し、Reversi2048の英語圏候補も同じブックで管理します。
+このディレクトリにはExcelのコピーを置かず、連絡先や送付状況はPersonalDocs側だけで更新してください。
+メール本文・プレスリリース・公開素材は引き続きこのWebプロジェクトで管理します。
+旧Excelを開いたままの場合は閉じ、移転先を開き直してください。
