@@ -372,7 +372,7 @@ h1 {
 .news-archive-hero .eyebrow::before { background: currentColor; }
 .news-archive-hero h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.15; letter-spacing: .16em; margin: 0 0 12px; }
 .news-archive-hero p:last-child { margin: 0; font-size: .9rem; }
-.news-archive { padding-bottom: 72px; }
+.news-archive { max-width: 1000px; padding-bottom: 72px; }
 .news-filters { padding: 28px 0 0; margin-bottom: 30px; border-bottom: 1px solid var(--line); }
 .filter-row { display: flex; align-items: baseline; gap: 24px; margin-bottom: 14px; }
 .filter-label { flex: 0 0 5em; color: var(--muted); font-size: .75rem; }
@@ -384,20 +384,30 @@ h1 {
 .filter-summary { display: flex; justify-content: space-between; gap: 16px; align-items: center; padding: 6px 0 16px; font-size: .75rem; color: var(--muted); }
 .filter-summary p { margin: 0; }
 #clear-filters { text-decoration: underline; min-height: 44px; }
-.news-archive-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 30px; }
-.archive-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); background: #191a16; border: 1px solid var(--line); }
-.archive-image { display: block; min-height: 250px; overflow: hidden; background: #20221e; }
+.news-archive-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: 30px; }
+.archive-card { display: grid; grid-template-columns: 1fr 1fr; height: 245px; min-width: 0; background: #191a16; box-shadow: inset 0 0 0 1px var(--line); }
+.archive-image { display: block; height: 245px; min-width: 0; overflow: hidden; background: #20221e; }
 .archive-image img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 200ms ease; }
 .archive-card:hover .archive-image img { transform: scale(1.025); }
-.archive-copy { display: flex; flex-direction: column; padding: 22px; min-width: 0; }
-.archive-copy h2 { font-size: 1rem; line-height: 1.65; margin: 0 0 14px; overflow-wrap: anywhere; }
+.archive-copy { display: flex; flex-direction: column; padding: 20px 24px; min-width: 0; min-height: 0; }
+.archive-copy h2 { font-size: .875rem; line-height: 1.7; margin: 0 0 14px; overflow-wrap: anywhere; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; }
 .archive-copy h2 a:hover { color: var(--gold); }
-.archive-copy > p { color: var(--muted); font-size: .8rem; line-height: 1.8; margin-bottom: 20px; }
+.archive-copy > p { color: var(--muted); font-size: .7rem; line-height: 1.8; margin-bottom: 12px; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
 .archive-copy time { border-top: 1px dotted var(--line); padding-top: 12px; margin-top: auto; text-align: right; font-size: .75rem; color: var(--muted); }
 .news-empty { padding: 48px 0; color: var(--muted); text-align: center; }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
-@media (max-width: 1000px) { .news-archive-grid { grid-template-columns: 1fr; } .archive-image { min-height: 230px; max-height: 300px; } }
-@media (max-width: 520px) { .news-archive-hero { padding: 32px 0; } .filter-row { flex-direction: column; gap: 4px; } .filter-label { flex-basis: auto; } .archive-card { grid-template-columns: 1fr; } .archive-image { min-height: 0; height: auto; max-height: none; aspect-ratio: 4 / 3; } .archive-copy { padding: 20px; } }
+@media (max-width: 1040px) { .news-archive-grid { grid-template-columns: 1fr; } .archive-card { grid-template-columns: 245px minmax(0, 1fr); max-width: 620px; width: 100%; margin-inline: auto; } }
+@media (max-width: 520px) {
+  .news-archive-hero { padding: 32px 0; }
+  .filter-row { flex-direction: column; gap: 4px; }
+  .filter-label { flex-basis: auto; }
+  .archive-card { grid-template-columns: 110px minmax(0, 1fr); height: auto; min-height: 180px; align-items: start; }
+  .archive-image { width: 110px; height: 110px; }
+  .archive-copy { padding: 12px; align-self: stretch; }
+  .archive-copy h2 { font-size: .8rem; margin-bottom: 8px; }
+  .archive-copy .news-tag { font-size: .65rem; padding: 2px 5px; }
+  .archive-copy time { font-size: .65rem; padding-top: 8px; }
+}
 @media (prefers-reduced-motion: reduce) { .archive-image img { transition: none; } }
 @media (max-width: 760px) {
   .nav-links > a { flex-shrink: 0; white-space: nowrap; }
