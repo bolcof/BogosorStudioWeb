@@ -40,46 +40,81 @@
     </header>
 
     <main>
-      <section class="page-hero wrap">
-        <p class="eyebrow">BogosorStudio Updates</p>
-        <h1>News</h1>
-        <p class="lead">
-          BogosorStudioの更新情報一覧です。Steamページ、イベント、開発中タイトルの告知をここにまとめます。
-        </p>
+      <section class="news-archive-hero">
+        <div class="wrap">
+          <p class="eyebrow">BogosorStudio</p>
+          <h1>NEWS</h1>
+          <p>作品の公開情報・展示・活動のお知らせ</p>
+        </div>
       </section>
 
-      <section class="wrap" aria-label="ニュース一覧">
-        <div class="news-list">
-          <a class="news-card" href="./2026-11-11_NyctoType-gamescom-2026/index.html" data-work="NyctoType" data-category="exhibition">
-            <time datetime="2026-08-30">2026.08.30</time>
-            <div>
-              <span class="news-tags" aria-label="タグ"><span class="news-tag" data-tag-kind="work">NyctoType</span><span class="news-tag" data-tag-kind="category">展示</span></span>
-              <h2>gamescom 2026に『NyctoType』出展</h2>
-              <p>2026年8月のgamescom出展を、会場の写真とともに振り返ります。</p>
-            </div>
-          </a>
-
-          <a class="news-card" href="./2026-06-25_Steamページ準備中/index.html">
-            <time datetime="2026-06-25">2026.06.25</time>
-            <div>
-              <h2>Steamページ準備中</h2>
-              <p>タイトルのストアページ、リリース情報、ウィッシュリスト登録先を掲載予定です。</p>
-            </div>
-          </a>
-
-          <a class="news-card" href="./2026-06-25_イベント情報準備中/index.html">
-            <time datetime="2026-06-25">2026.06.25</time>
-            <div>
-              <h2>イベント情報準備中</h2>
-              <p>展示や試遊がある場合は、展示情報ページとXで告知します。</p>
-            </div>
-          </a>
+      <section class="wrap news-archive" aria-label="ニュース一覧">
+        <div class="news-filters" hidden>
+          <div class="filter-row" role="group" aria-label="作品で絞り込む">
+            <span class="filter-label">作品</span>
+            <div class="filter-options" data-filter-group="work"></div>
+          </div>
+          <div class="filter-row" role="group" aria-label="情報種別で絞り込む">
+            <span class="filter-label">情報種別</span>
+            <div class="filter-options" data-filter-group="category"></div>
+          </div>
+          <div class="filter-summary">
+            <p id="news-count" role="status" aria-live="polite"></p>
+            <button type="button" id="clear-filters" hidden>絞り込みを解除</button>
+          </div>
         </div>
+        <div class="news-archive-grid">
+          <article class="archive-card" data-work="NyctoType" data-work-label="NyctoType" data-category="exhibition" data-category-label="展示">
+            <a class="archive-image" href="./2026-11-11_NyctoType-gamescom-2026/index.html" tabindex="-1" aria-hidden="true">
+              <img src="./2026-11-11_NyctoType-gamescom-2026/gamescom-booth.jpg" width="1024" height="768" alt="" />
+            </a>
+            <div class="archive-copy">
+              <div class="news-tags" aria-label="タグ">
+                <a class="news-tag" data-tag-kind="work" href="?work=NyctoType">NyctoType</a>
+                <a class="news-tag" data-tag-kind="category" href="?category=exhibition">展示</a>
+              </div>
+              <h2><a href="./2026-11-11_NyctoType-gamescom-2026/index.html">gamescom 2026に『NyctoType』出展</a></h2>
+              <p>2026年8月のgamescom出展を、会場の写真とともに振り返ります。</p>
+              <time datetime="2026-08-30">2026.08.30</time>
+            </div>
+          </article>
+          <article class="archive-card" data-work="studio" data-work-label="スタジオ全体" data-category="notice" data-category-label="お知らせ">
+            <a class="archive-image" href="./2026-06-25_Steamページ準備中/index.html" tabindex="-1" aria-hidden="true">
+              <img src="../assets/studio/news-placeholder.svg" width="800" height="800" alt="" loading="lazy" />
+            </a>
+            <div class="archive-copy">
+              <div class="news-tags" aria-label="タグ">
+                <a class="news-tag" data-tag-kind="work" href="?work=studio">スタジオ全体</a>
+                <a class="news-tag" data-tag-kind="category" href="?category=notice">お知らせ</a>
+              </div>
+              <h2><a href="./2026-06-25_Steamページ準備中/index.html">Steamページ準備中</a></h2>
+              <p>タイトルのストアページ、リリース情報、ウィッシュリスト登録先を掲載予定です。</p>
+              <time datetime="2026-06-25">2026.06.25</time>
+            </div>
+          </article>
+          <article class="archive-card" data-work="studio" data-work-label="スタジオ全体" data-category="notice" data-category-label="お知らせ">
+            <a class="archive-image" href="./2026-06-25_イベント情報準備中/index.html" tabindex="-1" aria-hidden="true">
+              <img src="../assets/studio/news-placeholder.svg" width="800" height="800" alt="" loading="lazy" />
+            </a>
+            <div class="archive-copy">
+              <div class="news-tags" aria-label="タグ">
+                <a class="news-tag" data-tag-kind="work" href="?work=studio">スタジオ全体</a>
+                <a class="news-tag" data-tag-kind="category" href="?category=notice">お知らせ</a>
+              </div>
+              <h2><a href="./2026-06-25_イベント情報準備中/index.html">イベント情報準備中</a></h2>
+              <p>展示や試遊がある場合は、展示情報ページとXで告知します。</p>
+              <time datetime="2026-06-25">2026.06.25</time>
+            </div>
+          </article>
+        </div>
+        <p class="news-empty" hidden>条件に合うお知らせはありません。タグを変更するか、絞り込みを解除してください。</p>
+        <noscript><p>絞り込みにはJavaScriptが必要です。すべての記事を表示しています。</p></noscript>
       </section>
     </main>
 
     <footer class="footer">
       <div class="wrap">© 2026 BogosorStudio</div>
     </footer>
+    <script src="./news-filters.js" defer></script>
   </body>
 </html>

@@ -256,3 +256,9 @@ python3 -m http.server 8000 --directory docs
 - 編集元: `pitch/nyctotype/`。ソース・画像・生成処理をこのリポジトリ内で管理します。ゲーム側の旧フォルダは保存版です。
 - 更新: `node pitch/nyctotype/scripts/update-site.mjs`。生成と検証が成功すると、掲載HTMLも更新されます。環境準備は [編集元README](pitch/nyctotype/README.md) を参照してください。
 - NyctoType紹介ページからピッチデッキへ進む際は、クライアント側のパスワードモーダルを表示します。静的サイト上の簡易ゲートであり、ピッチデッキURL自体を保護するものではないため、公開前に内容の公開範囲を確認してください。
+
+### News一覧の画像と絞り込み
+
+News一覧の各 `article.archive-card` に `data-work` / `data-work-label` と `data-category` / `data-category-label` を指定します。`docs/News/news-filters.js` が掲載中の記事からフィルターを生成し、作品と情報種別のAND条件で絞り込みます。選択はURLの `?work=NyctoType&category=exhibition` に保存され、直接リンクとブラウザの戻る・進むに対応します。タグ自体も絞り込みリンクにします。
+
+サムネイルは `archive-image` 内の `img` に指定します。画像がない記事は共通の `docs/assets/studio/news-placeholder.svg` を使います。後日この共通ファイルを差し替えると画像なしの記事すべてに反映されます。作品写真が用意できた記事は、その記事の `img` の参照先を変更します。

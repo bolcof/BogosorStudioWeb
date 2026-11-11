@@ -24,3 +24,4 @@
   border-color: rgba(212, 168, 48, 0.35);
   color: #d4a830;
 }
+a.news-tag:hover { background: rgba(244, 240, 231, 0.12); }
