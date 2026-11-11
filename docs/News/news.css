@@ -238,8 +238,8 @@ h1 {
 
 .news-card h2 {
   margin-bottom: 8px;
-  font-size: clamp(1.35rem, 3vw, 2rem);
-  line-height: 1.14;
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
+  line-height: 1.5;
 }
 
 .news-card p {
@@ -260,7 +260,8 @@ h1 {
 }
 
 .article h1 {
-  font-size: clamp(2.5rem, 7vw, 5.4rem);
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+  line-height: 1.4;
 }
 
 .article-body {
@@ -343,4 +344,23 @@ h1 {
   margin-top: 10px;
   color: var(--muted);
   font-size: 0.9rem;
+}
+
+.article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+  margin-bottom: 18px;
+}
+.article-meta .news-tags, .article-meta time { margin: 0; }
+.article .publication-date {
+  margin: 0 0 26px;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+.article .publication-date time {
+  margin: 0;
+  color: inherit;
+  font-weight: 400;
 }

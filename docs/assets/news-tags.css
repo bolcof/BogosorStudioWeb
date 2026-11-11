@@ -1,0 +1,26 @@
+.news-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.news-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px;
+  border: 1px solid rgba(244, 240, 231, 0.2);
+  border-radius: 4px;
+  color: #d7d0c1;
+  background: rgba(244, 240, 231, 0.04);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.news-tag[data-tag-kind="work"] {
+  border-color: rgba(123, 215, 184, 0.35);
+  color: #7bd7b8;
+}
+.news-tag[data-tag-kind="category"] {
+  border-color: rgba(212, 168, 48, 0.35);
+  color: #d4a830;
+}

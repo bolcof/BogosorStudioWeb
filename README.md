@@ -209,6 +209,10 @@ docs/News/2026-06-25_Steamページ準備中/index.html
 ```
 
 記事を増やしたら、`docs/News/index.html` とトップページのNews欄にリンクを追加してください。
+
+News見出しは「〜出展」などの体言止めを基本にします。一覧・記事先頭の日付は出来事の日付を使い、複数日イベントの出展報告は会期最終日とします。公開日は記事内で小さく補足します。公開済み記事のURLは日付表示を修正しても変更しません。
+
+記事・News一覧・トップページのNews項目に、作品タグ（例: `NyctoType`）と分類タグ（例: `展示`）を表示します。`data-work="NyctoType"` / `data-category="exhibition"` を各項目に持たせ、タグには `news-tags` / `news-tag` と `data-tag-kind="work"` / `data-tag-kind="category"` を使います。タグ共通CSSは `docs/assets/news-tags.css` です。イベント記事の末尾には公式サイトへのリンクを追加します。
 見た目は `docs/News/news.css` を共通で使います。
 
 ## 展示情報の追加
