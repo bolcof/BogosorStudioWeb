@@ -412,3 +412,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
 @media (max-width: 760px) {
   .nav-links > a { flex-shrink: 0; white-space: nowrap; }
 }
+
+.article-body p a {
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.article-body p a:hover { color: var(--text); }
