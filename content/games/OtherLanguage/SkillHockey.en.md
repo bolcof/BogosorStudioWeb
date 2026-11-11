@@ -48,6 +48,7 @@ Use splitting, vanishing, and curving pucks to K.O. your opponent!
 ## History
 
 - Jul 18-20, 2025: Exhibited at [BitSummit the 13th](https://bitsummit.org/game/skill-hockey/)
+- Mar 8-9, 2025: Exhibited at [TOKYO INDIE GAMES SUMMIT 2025](https://indiegamessummit.tokyo/2025/)
 - Oct 27, 2024: Exhibited at [Tokyo Game Dungeon 8](https://tokyogamedungeon.com/archive/202410_tokyo/)
 - Aug 12, 2024: Exhibited at Comic Market C104
 - May 4, 2024: Exhibited at [Tokyo Game Dungeon 6](https://gamedungeon.jp/events/tokyo6/exhibit_informations)

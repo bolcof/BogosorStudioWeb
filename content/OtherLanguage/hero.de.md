@@ -13,7 +13,7 @@
 - href: ./games/SakWinik.html
 - image: ./assets/games/SakWinik/LibraryHero-1.png
 - title: Sak Winik: The Appointed One
-- subtitle: Ausstellung auf der DREAMSCAPE#5 geplant
+- subtitle: In Entwicklung
 - button: Details
 
 ## Slide: Reversi2048
@@ -21,5 +21,5 @@
 - href: ./games/Reversi2048.html
 - image: ./assets/games/Reversi2048/KeyArt.png
 - title: REVERSI 2048
-- subtitle: Nächste Veröffentlichung
+- subtitle: Demo jetzt verfügbar
 - button: Details

@@ -16,7 +16,7 @@
 - (muted): 補助ステータス。地の色=半透明グレー、字の色=白
 -->
 
-- (event) 2026年9月 TGS出展
+- (released) 体験版配信中
 
 ## ページラベル
 
@@ -28,7 +28,7 @@
 - (muted): 補助ステータス。地の色=半透明グレー、字の色=白
 -->
 
-- (event) 2026年9月 TGS出展
+- (released) 体験版配信中
 - (muted) 開発中
 
 ## 概要
@@ -60,10 +60,9 @@
 
 ## 今後の予定
 
-- 2026.09 [Steam](https://store.steampowered.com/app/3968600/NyctoType/) 体験版を9月下旬に公開予定
-
 ## 活動記録
 
+- 2026.09 [Steam](https://store.steampowered.com/app/3968600/NyctoType/) 体験版公開
 - 2026.09.17-21 [東京ゲームショウ2026](https://tgs.cesa.or.jp/2026/) 出展
 - 2026.08.26-30 [gamescom](https://www.gamescom.global/en/product/nyctotype) 出展
 - 2026.05.05 [東京ゲームダンジョン12](https://gamedungeon.jp/events/tokyo12/exhibit_informations/2213) 出展

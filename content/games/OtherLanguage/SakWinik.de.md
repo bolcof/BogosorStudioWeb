@@ -28,7 +28,6 @@ Label-Farbtags:
 - (muted): Zusatzstatus. Hintergrund=halbtransparentes Grau, Text=Weiß
 -->
 
-- (event) 2026: Ausstellung auf der DREAMSCAPE#5
 - (muted) In Entwicklung
 
 ## Über das Spiel
@@ -44,10 +43,9 @@ Manchmal musst du Widersprüche, Gefühle und Zögern einsetzen, um zu beweisen,
 
 ## Pläne
 
-- 24. Okt. 2026: Ausstellung auf der [DREAMSCAPE#5](https://dreamscape-game.com/) geplant
-
 ## Aktivitäten
 
+- 24. Okt. 2026: Ausgestellt auf der [DREAMSCAPE#5](https://dreamscape-game.com/)
 - 24. Mai 2026: Ausgestellt am Supercell-Stand der BitSummit the 14th XR Yokocho
 - 5. Mai 2026: Nebenausstellung bei Tokyo Game Dungeon 12
 - 23. Mär.-23. Mai 2026: Teilnahme am Supercell AI Innovation Lab Tokyo

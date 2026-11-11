@@ -16,7 +16,7 @@ Label-Farbtags:
 - (muted): Zusatzstatus. Hintergrund=halbtransparentes Grau, Text=Weiß
 -->
 
-- (event) Sept. 2026: Ausstellung auf der TGS
+- (released) Demo jetzt verfügbar
 
 ## Seitenlabels
 
@@ -28,7 +28,7 @@ Label-Farbtags:
 - (muted): Zusatzstatus. Hintergrund=halbtransparentes Grau, Text=Weiß
 -->
 
-- (event) Sept. 2026: Ausstellung auf der TGS
+- (released) Demo jetzt verfügbar
 - (muted) In Entwicklung
 
 ## Über das Spiel
@@ -59,10 +59,9 @@ Schnelles Tippen allein reicht nicht. Entscheide im Kampf, wann du welche Aktion
 
 ## Pläne
 
-- Sept. 2026: Öffentliche Demo auf [Steam](https://store.steampowered.com/app/3968600/NyctoType/) für Ende September geplant
-
 ## Aktivitäten
 
+- Sept. 2026: Demo auf [Steam](https://store.steampowered.com/app/3968600/NyctoType/) veröffentlicht
 - 17.-21. Sept. 2026: Ausgestellt auf der [Tokyo Game Show 2026](https://tgs.cesa.or.jp/2026/)
 - 26.-30. Aug. 2026: Ausgestellt auf der [gamescom](https://www.gamescom.global/en/product/nyctotype)
 - 5. Mai 2026: Ausgestellt bei [Tokyo Game Dungeon 12](https://gamedungeon.jp/events/tokyo12/exhibit_informations/2213)

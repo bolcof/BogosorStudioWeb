@@ -16,7 +16,7 @@
 - (muted): 辅助状态。底色=半透明灰色，文字=白色
 -->
 
-- (event) 2026年9月 TGS 展出
+- (released) 试玩版现已推出
 
 ## 页面标签
 
@@ -28,7 +28,7 @@
 - (muted): 辅助状态。底色=半透明灰色，文字=白色
 -->
 
-- (event) 2026年9月 TGS 展出
+- (released) 试玩版现已推出
 - (muted) 开发中
 
 ## 游戏介绍
@@ -59,10 +59,9 @@
 
 ## 后续计划
 
-- 2026年9月: 计划于9月下旬在 [Steam](https://store.steampowered.com/app/3968600/NyctoType/) 发布试玩版
-
 ## 活动记录
 
+- 2026年9月: 在 [Steam](https://store.steampowered.com/app/3968600/NyctoType/) 发布试玩版
 - 2026年9月17日至21日: 于 [东京电玩展2026](https://tgs.cesa.or.jp/2026/) 展出
 - 2026年8月26日至30日: 于 [gamescom](https://www.gamescom.global/en/product/nyctotype) 展出
 - 2026年5月5日: 于 [Tokyo Game Dungeon 12](https://gamedungeon.jp/events/tokyo12/exhibit_informations/2213) 展出

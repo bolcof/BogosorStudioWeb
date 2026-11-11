@@ -28,7 +28,6 @@ Label color tags:
 - (muted): secondary status. background=translucent gray, text=white
 -->
 
-- (event) 2026 DREAMSCAPE#5 exhibition
 - (muted) In development
 
 ## About
@@ -44,10 +43,9 @@ At times, you must wield contradiction, emotion, and hesitation to prove that yo
 
 ## Plans
 
-- Oct 24, 2026: Scheduled to exhibit at [DREAMSCAPE#5](https://dreamscape-game.com/)
-
 ## History
 
+- Oct 24, 2026: Exhibited at [DREAMSCAPE#5](https://dreamscape-game.com/)
 - May 24, 2026: Exhibited at the BitSummit the 14th XR Yokocho Supercell booth
 - May 5, 2026: Side exhibit at Tokyo Game Dungeon 12
 - Mar 23-May 23, 2026: Participated in Supercell AI Innovation Lab Tokyo

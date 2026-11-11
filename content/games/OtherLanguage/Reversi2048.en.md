@@ -16,7 +16,7 @@ Label color tags:
 - (muted): secondary status. background=translucent gray, text=white
 -->
 
-- (main) Oct 2026: planned release
+- (released) Demo available now
 
 ## Page Labels
 
@@ -28,7 +28,6 @@ Label color tags:
 - (muted): secondary status. background=translucent gray, text=white
 -->
 
-- (main) Oct 2026: planned release
 - (released) Demo available now
 
 ## About
@@ -63,7 +62,7 @@ It is not just about winning or losing. Keep playing to see how far you can push
 
 ## Plans
 
-- Oct 2026: Steam Next Fest participation, then planned release
+- Release date: TBA
 
 ## History
 

@@ -48,6 +48,7 @@ Nutze Pucks, die sich teilen, verschwinden oder krümmen, um den Gegner K.O. zu 
 ## Aktivitäten
 
 - 18.-20. Jul. 2025: Ausgestellt bei [BitSummit the 13th](https://bitsummit.org/game/skill-hockey/)
+- 8.-9. Mär. 2025: Ausgestellt bei [TOKYO INDIE GAMES SUMMIT 2025](https://indiegamessummit.tokyo/2025/)
 - 27. Okt. 2024: Ausgestellt bei [Tokyo Game Dungeon 8](https://tokyogamedungeon.com/archive/202410_tokyo/)
 - 12. Aug. 2024: Ausgestellt auf der Comic Market C104
 - 4. Mai 2024: Ausgestellt bei [Tokyo Game Dungeon 6](https://gamedungeon.jp/events/tokyo6/exhibit_informations)

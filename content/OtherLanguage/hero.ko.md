@@ -13,7 +13,7 @@
 - 링크: ./games/SakWinik.html
 - 이미지: ./assets/games/SakWinik/LibraryHero-1.png
 - 제목: Sak Winik: The Appointed One
-- 소제목: DREAMSCAPE#5 전시 예정
+- 소제목: 개발 중
 - 버튼: 자세히
 
 ## Slide: Reversi2048
@@ -21,5 +21,5 @@
 - 링크: ./games/Reversi2048.html
 - 이미지: ./assets/games/Reversi2048/KeyArt.png
 - 제목: REVERSI 2048
-- 소제목: 다음 출시
+- 소제목: 데모 배포 중
 - 버튼: 자세히

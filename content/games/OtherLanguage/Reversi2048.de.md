@@ -16,7 +16,7 @@ Label-Farbtags:
 - (muted): Zusatzstatus. Hintergrund=halbtransparentes Grau, Text=Weiß
 -->
 
-- (main) Okt. 2026: geplante Veröffentlichung
+- (released) Demo jetzt verfügbar
 
 ## Seitenlabels
 
@@ -28,7 +28,6 @@ Label-Farbtags:
 - (muted): Zusatzstatus. Hintergrund=halbtransparentes Grau, Text=Weiß
 -->
 
-- (main) Okt. 2026: geplante Veröffentlichung
 - (released) Demo jetzt verfügbar
 
 ## Über das Spiel
@@ -43,7 +42,7 @@ Wer viele hochwertige Steine auf einmal umdreht, kann selbst ein fast verlorenes
 
 ## Pläne
 
-- Okt. 2026: Teilnahme am Steam Next Fest, danach geplante Veröffentlichung
+- Veröffentlichung: TBA
 
 ## Aktivitäten
 

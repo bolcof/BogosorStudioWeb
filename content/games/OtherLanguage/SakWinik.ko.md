@@ -28,7 +28,6 @@
 - (muted): 보조 상태. 배경=반투명 회색, 글자=흰색
 -->
 
-- (event) 2026년 DREAMSCAPE#5 전시
 - (muted) 개발 중
 
 ## 게임 소개
@@ -44,10 +43,9 @@
 
 ## 향후 예정
 
-- 2026년 10월 24일: [DREAMSCAPE#5](https://dreamscape-game.com/) 전시 예정
-
 ## 활동 기록
 
+- 2026년 10월 24일: [DREAMSCAPE#5](https://dreamscape-game.com/) 전시
 - 2026년 5월 24일: BitSummit the 14th XR Yokocho Supercell 부스 전시
 - 2026년 5월 5일: Tokyo Game Dungeon 12 병행 전시
 - 2026년 3월 23일-5월 23일: Supercell AI Innovation Lab Tokyo 참가

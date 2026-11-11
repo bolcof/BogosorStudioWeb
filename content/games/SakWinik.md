@@ -28,7 +28,6 @@
 - (muted): 補助ステータス。地の色=半透明グレー、字の色=白
 -->
 
-- (event) 2026年 DREAMSCAPE#5出展
 - (muted) 開発中
 
 ## 概要
@@ -44,10 +43,9 @@
 
 ## 今後の予定
 
-- 2026.10.24 [DREAMSCAPE#5](https://dreamscape-game.com/) 出展予定
-
 ## 活動記録
 
+- 2026.10.24 [DREAMSCAPE#5](https://dreamscape-game.com/) 出展
 - 2026.05.24 BitSummit the 14th XR横丁 Supercellブースにて出展
 - 2026.05.05 東京ゲームダンジョン12 出展 (併設展示)
 - 2026.03.23-05.23 Supercell AI Innovation Lab Tokyo に参加

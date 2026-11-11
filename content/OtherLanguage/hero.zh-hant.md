@@ -13,7 +13,7 @@
 - href: ./games/SakWinik.html
 - image: ./assets/games/SakWinik/LibraryHero-1.png
 - title: Sak Winik: The Appointed One
-- subtitle: 預計於 DREAMSCAPE#5 展出
+- subtitle: 開發中
 - button: 詳細
 
 ## Slide: Reversi2048
@@ -21,5 +21,5 @@
 - href: ./games/Reversi2048.html
 - image: ./assets/games/Reversi2048/KeyArt.png
 - title: REVERSI 2048
-- subtitle: 下一款發售
+- subtitle: 試玩版現已推出
 - button: 詳細
