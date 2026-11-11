@@ -327,3 +327,20 @@ h1 {
     grid-template-columns: 1fr;
   }
 }
+
+.article-photo {
+  margin: 0 0 30px;
+}
+
+.article-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+}
+
+.article-photo figcaption {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
